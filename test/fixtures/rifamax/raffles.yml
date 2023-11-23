@@ -1,0 +1,59 @@
+# == Schema Information
+#
+# Table name: rifamax_raffles
+#
+#  id            :bigint           not null, primary key
+#  award_no_sign :string
+#  award_sign    :string
+#  expired_date  :date
+#  game          :string           default("Zodiac")
+#  init_date     :date
+#  is_closed     :boolean
+#  is_send       :boolean
+#  loteria       :string
+#  numbers       :integer
+#  plate         :string
+#  price         :float
+#  refund        :boolean
+#  serial        :string
+#  year          :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  payment_id    :integer
+#  rifero_id     :integer
+#  taquilla_id   :integer
+#
+
+one:
+  init_date: 2023-11-21
+  award_sign: MyString
+  award_no_sign: MyString
+  plate: MyString
+  year: 1
+  price: 1.5
+  loteria: MyString
+  numbers: 1
+  serial: MyString
+  expired_date: 2023-11-21
+  is_send: false
+  rifero_id: 1
+  is_closed: false
+  refund: false
+  payment_id: 1
+
+two:
+  init_date: 2023-11-21
+  award_sign: MyString
+  award_no_sign: MyString
+  plate: MyString
+  year: 1
+  price: 1.5
+  loteria: MyString
+  numbers: 1
+  serial: MyString
+  expired_date: 2023-11-21
+  is_send: false
+  rifero_id: 1
+  is_closed: false
+  refund: false
+  payment_id: 1

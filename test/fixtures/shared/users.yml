@@ -1,0 +1,43 @@
+# == Schema Information
+#
+# Table name: shared_users
+#
+#  id              :bigint           not null, primary key
+#  avatar          :string
+#  dni             :string
+#  email           :string
+#  is_active       :boolean
+#  module_assigned :integer          default([]), is an Array
+#  name            :string
+#  password_digest :string
+#  phone           :string
+#  rifero_ids      :integer          default([]), is an Array
+#  role            :string
+#  slug            :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+one:
+  avatar: MyString
+  name: MyString
+  role: MyString
+  dni: MyString
+  email: MyString
+  phone: MyString
+  password_digest: MyString
+  slug: MyString
+  is_active: false
+  module_assigned: 1
+
+two:
+  avatar: MyString
+  name: MyString
+  role: MyString
+  dni: MyString
+  email: MyString
+  phone: MyString
+  password_digest: MyString
+  slug: MyString
+  is_active: false
+  module_assigned: 1

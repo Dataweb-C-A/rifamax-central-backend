@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: shared_transactions
+#
+#  id               :bigint           not null, primary key
+#  amount           :float
+#  transaction_type :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  shared_wallet_id :bigint           not null
+#
+# Indexes
+#
+#  index_shared_transactions_on_shared_wallet_id  (shared_wallet_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (shared_wallet_id => shared_wallets.id)
+#
+
+one:
+  transaction_type: MyString
+  wallet: one
+  amount: 1.5
+
+two:
+  transaction_type: MyString
+  wallet: two
+  amount: 1.5
