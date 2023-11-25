@@ -18,8 +18,10 @@
 #  updated_at      :datetime         not null
 #
 class Shared::User < ApplicationRecord
-  has_one :shared_wallet
+  has_one :shared_wallet, class_name: 'Shared::Wallet', foreign_key: 'shared_user_id'
   has_secure_password
+
+  after_create :generate_wallet
 
   enum :role, { 
                 Admin: 'admin', 

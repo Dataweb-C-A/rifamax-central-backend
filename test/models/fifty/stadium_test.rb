@@ -2,11 +2,11 @@
 #
 # Table name: fifty_stadia
 #
-#  id         :bigint           not null, primary key
-#  location   :integer          not null
-#  name       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id             :bigint           not null, primary key
+#  fifty_location :integer          not null
+#  name           :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 require "test_helper"
 

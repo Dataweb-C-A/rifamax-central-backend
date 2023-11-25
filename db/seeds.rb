@@ -9,6 +9,11 @@ if module_to_run.blank?
   exit
 end
 
+if module_to_run === 'ALL'
+  puts "Running all migrations from all enviroments..."
+  module_to_run = '*'
+end
+
 # Load the specific seed folder or file dynamically
 seed_path = File.join(Rails.root, 'db', 'seeds', module_to_run)
 seed_files = Dir[File.join(seed_path, '*.rb')].sort

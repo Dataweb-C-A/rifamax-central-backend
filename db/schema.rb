@@ -10,22 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_23_145438) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_25_154749) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "fifty_churches", force: :cascade do |t|
+    t.string "parroquia"
+    t.bigint "fifty_town_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fifty_town_id"], name: "index_fifty_churches_on_fifty_town_id"
+  end
+
+  create_table "fifty_cities", force: :cascade do |t|
+    t.string "ciudad"
+    t.bigint "fifty_location_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fifty_location_id"], name: "index_fifty_cities_on_fifty_location_id"
+  end
+
   create_table "fifty_locations", force: :cascade do |t|
-    t.string "country"
-    t.string "state"
+    t.string "iso_31662"
+    t.string "estado"
+    t.string "capital"
+    t.integer "id_estado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "fifty_stadia", force: :cascade do |t|
     t.string "name"
-    t.integer "location", null: false
+    t.integer "fifty_location", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "fifty_towns", force: :cascade do |t|
+    t.string "municipio"
+    t.string "capital"
+    t.bigint "fifty_location_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fifty_location_id"], name: "index_fifty_towns_on_fifty_location_id"
   end
 
   create_table "rifamax_raffles", force: :cascade do |t|
@@ -94,7 +121,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_23_145438) do
   end
 
   create_table "shared_wallets", force: :cascade do |t|
-    t.string "token", default: "31caaa0f-ac25-407c-8562-c3bf75aac60d"
+    t.string "token", default: "877c9e0a-e72a-47f1-a522-396d7c731c01"
     t.float "found", default: 0.0
     t.float "debt", default: 0.0
     t.float "debt_limit", default: 20.0
@@ -104,6 +131,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_23_145438) do
     t.index ["shared_user_id"], name: "index_shared_wallets_on_shared_user_id"
   end
 
+  add_foreign_key "fifty_churches", "fifty_towns"
+  add_foreign_key "fifty_cities", "fifty_locations"
+  add_foreign_key "fifty_towns", "fifty_locations"
   add_foreign_key "rifamax_tickets", "rifamax_raffles"
   add_foreign_key "shared_transactions", "shared_wallets"
   add_foreign_key "shared_wallets", "shared_users"

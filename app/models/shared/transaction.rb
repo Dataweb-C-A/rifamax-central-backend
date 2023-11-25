@@ -18,5 +18,5 @@
 #  fk_rails_...  (shared_wallet_id => shared_wallets.id)
 #
 class Shared::Transaction < ApplicationRecord
-  belongs_to :shared_wallet
+  belongs_to :shared_wallet, class_name: 'Shared::Wallet', foreign_key: 'shared_wallet_id'
 end
