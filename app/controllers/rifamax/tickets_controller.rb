@@ -3,9 +3,14 @@ class Rifamax::TicketsController < ApplicationController
 
   # GET /rifamax/tickets
   def index
-    @rifamax_tickets = Rifamax::Ticket.all
+    @tickets = Rifamax::Ticket.where(serial: params[:serial]).last
+    @rifa = @tickets.rifamax_raffle
 
-    render json: @rifamax_tickets
+    if (@rifa == nil || @tickets == nil)
+      render json: { message: "Not found", status: 404 }, stauts: :not_found
+    else
+      render 'tickets/index', locals: { rifa: @rifa, tickets: @tickets }
+    end
   end
 
   # GET /rifamax/tickets/1

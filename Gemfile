@@ -55,3 +55,5 @@ end
 
 
 gem "active_model_serializers", "~> 0.10.14"
+
+gem "haml", "~> 6.2"

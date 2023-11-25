@@ -1,0 +1,29 @@
+%hr{:class => "mt-2"}
+.col-4
+  %p{:class => "card-text"} 
+    %strong PREMIO: 
+.col-8
+  %p{:class => "card-text text-end"} 
+    %strong= @rifa.awardSign.to_s.split.map(&:capitalize).join(' ')
+- if @rifa.plate != nil
+  .col-4
+    %p{:class => "card-text"} 
+      %strong PLACA: 
+  .col-8
+    %p{:class => "card-text text-end"} 
+      %strong= @rifa.plate.to_s.upcase
+- if @rifa.year != nil
+  .col-4
+    %p{:class => "card-text"} 
+      %strong MODELO: 
+  .col-8
+    %p{:class => "card-text text-end"} 
+      %strong= @rifa.year
+- if @rifa.awardNoSign != nil
+  .col-5
+    %p{:class => "card-text"} 
+      %strong SIN SIGNO: 
+  .col-7
+    %p{:class => "card-text text-end"} 
+      %strong= @rifa.awardNoSign.to_s.split.map(&:capitalize).join(' ')
+%hr{:class => "mt-3"}

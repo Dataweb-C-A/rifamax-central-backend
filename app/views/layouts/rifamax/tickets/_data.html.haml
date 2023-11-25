@@ -1,0 +1,45 @@
+.col-9
+  %p{:class => "card-text"} 
+    SERIE NUMERO: 
+.col-3
+  %p{:class => "card-text text-end"}
+    #{@rifa.id}
+.col-6
+  %p{:class => "card-text"} 
+    LOTERIA: 
+.col-6
+  %p{:class => "card-text text-end"}
+    #{@rifa.loteria.upcase!}
+.col-4
+  %p{:class => "card-text"} 
+    FECHA: 
+.col-8
+  %p{:class => "card-text text-end"}
+    #{@rifa.rifDate.strftime("%d/%m/%Y")}
+.col-3
+  %p{:class => "card-text"} 
+    HORA:
+.col-9
+  %p{:class => "card-text text-end"}
+    #{@rifa.created_at.strftime("%H:%M:%S")}
+.col-6
+  %p{:class => "card-text"} 
+    CADUCA:
+.col-6
+  %p{:class => "card-text text-end"}
+    #{@rifa.expired.strftime("%d/%m/%Y")}
+.col-6
+  %p{:class => "card-text"} 
+    RIFERO: 
+.col-6
+  %p{:class => "card-text text-end"}
+    #{@rifa.user.name.to_s.split.map(&:capitalize).join(' ')}
+.col-6
+  %p{:class => "card-text"} 
+    TELEFONO:
+.col-6
+  %p{:class => "card-text text-end"}
+    #{@rifa.user.phone || "No registrado"}
+
+%a{:class => "card-text text-center mb-2 mt-3", :href => "http://www.resultadostriplezulia.com/action/index"}
+  Busque el resultado aquí
