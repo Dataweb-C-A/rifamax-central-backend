@@ -1,15 +1,14 @@
 # db/seeds.rb
 
-# Specify the module to run based on the environment variable
 module_to_run = ENV['MODULE']
 
 if module_to_run.blank?
   puts "Please provide the module name using the MODULE environment variable, e.g. 'rifamax' \n"
-  puts "Available modules ['shared', 'rifamax', 'X100', 'fifty']"
+  puts "Available modules ['shared', 'rifamax', 'X100', 'fifty', 'all', 'old']"
   exit
 end
 
-if module_to_run === 'ALL'
+if module_to_run === 'all'
   puts "Running all migrations from all enviroments..."
   module_to_run = '*'
 end

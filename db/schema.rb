@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_25_154749) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_30_174248) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,6 +95,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_25_154749) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "shared_exchanges", force: :cascade do |t|
+    t.boolean "automatic"
+    t.float "value_bs"
+    t.float "value_cop"
+    t.string "mainstream_money"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shared_transactions", force: :cascade do |t|
     t.string "transaction_type"
     t.bigint "shared_wallet_id", null: false
@@ -121,7 +130,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_25_154749) do
   end
 
   create_table "shared_wallets", force: :cascade do |t|
-    t.string "token", default: "877c9e0a-e72a-47f1-a522-396d7c731c01"
+    t.string "token", default: "a049d97d-1602-4cd8-b140-87b1c6d6a4e6"
     t.float "found", default: 0.0
     t.float "debt", default: 0.0
     t.float "debt_limit", default: 20.0
@@ -129,6 +138,38 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_25_154749) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shared_user_id"], name: "index_shared_wallets_on_shared_user_id"
+  end
+
+  create_table "x100_clients", force: :cascade do |t|
+    t.string "name"
+    t.string "dni"
+    t.string "phone"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "x100_raffles", force: :cascade do |t|
+    t.string "ad"
+    t.string "title"
+    t.string "draw_type"
+    t.string "status"
+    t.integer "limit"
+    t.string "money"
+    t.string "raffle_type"
+    t.float "price_unit"
+    t.integer "tickets_count"
+    t.integer "numbers"
+    t.string "lotery"
+    t.datetime "expired_date"
+    t.datetime "init_date"
+    t.jsonb "prizes"
+    t.jsonb "winners"
+    t.boolean "has_winners"
+    t.integer "automatic_taquillas_ids", default: [], array: true
+    t.integer "shared_user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "fifty_churches", "fifty_towns"

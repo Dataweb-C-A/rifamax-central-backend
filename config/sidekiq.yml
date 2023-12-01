@@ -1,0 +1,5 @@
+# config/sidekiq.yml
+
+exchange:
+  cron: '0 * * * * *'   # Runs once per minute
+  class: Shared::GenerateExchangesWorker

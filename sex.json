@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "avatar": null,
+  "name": "4 Bocas",
+  "role": "Taquilla",
+  "dni": "J-74631293",
+  "email": "rifamax4bocas@gmail.com",
+  "phone": "0414-6171111",
+  "password_digest": "$2a$12$QRGVx1xry3eKgam.tNY/wON3cR75BHnDF/AxRk7RJ4eZ6VvpqIqJG",
+  "slug": "4-bocas",
+  "is_active": null,
+  "rifero_ids": [],
+  "module_assigned": [],
+  "created_at": "2022-10-21T11:32:32.889-04:00",
+  "updated_at": "2023-11-30T01:36:12.394-04:00"
+}

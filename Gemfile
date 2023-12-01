@@ -52,8 +52,22 @@ group :development do
   # gem "spring"
 end
 
-
-
 gem "active_model_serializers", "~> 0.10.14"
 
 gem "haml", "~> 6.2"
+
+gem "nokogiri", "~> 1.15"
+
+gem "open-uri", "~> 0.4.0"
+
+gem "currencyapi", "~> 1.0"
+
+gem "httparty"
+
+gem "mechanize", "~> 2.9"
+
+gem "sidekiq", "~> 7.2"
+
+gem "cors", "~> 1.0"
+
+gem "sidekiq-scheduler", "~> 5.0"

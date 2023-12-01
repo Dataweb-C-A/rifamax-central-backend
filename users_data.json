@@ -1,0 +1,1574 @@
+[
+  {
+    "phone": "0414-6171111",
+    "user": "{\"id\":1,\"name\":\"4 Bocas\",\"username\":\"4 Bocas\",\"email\":\"rifamax4bocas@gmail.com\",\"cedula\":\"J-74631293\",\"password_digest\":\"$2a$12$QRGVx1xry3eKgam.tNY/wON3cR75BHnDF/AxRk7RJ4eZ6VvpqIqJG\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2022-10-21T11:32:32.889-04:00\",\"updated_at\":\"2023-10-13T21:08:25.285-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "0412-0123456",
+    "user": "{\"id\":369,\"name\":\"50 50 001\",\"username\":\"50/50 - 0C3AA8\",\"email\":\"50-50-001@gmail.com\",\"cedula\":\"J-0123456\",\"password_digest\":\"$2a$12$FDFjUzzpapZg0mhPItlu9eQ/cHhM9pfnl.IL7PvNFZRPI/6py6tAq\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-10-03T23:05:58.301-04:00\",\"updated_at\":\"2023-10-20T15:22:23.152-04:00\",\"access_permissions\":[\"50/50\"]}"
+  },
+  {
+    "phone": "4121688466",
+    "user": "{\"id\":131,\"name\":\"Javier Diaz\",\"username\":\"Javier Diaz\",\"email\":\"javierdiazt406@gmail.com\",\"cedula\":\"V29543140\",\"password_digest\":\"$2a$12$4scA6aWDaAZf.vNpjiCxleHOp6c8AJ4LNFCOJffnughmrVsrHqNpG\",\"role\":\"Admin\",\"status\":true,\"created_at\":\"2023-03-05T20:59:20.486-04:00\",\"updated_at\":\"2023-04-16T03:01:02.614-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121688466",
+    "user": "{\"id\":50,\"name\":\"Jhon Castillo\",\"username\":\"RifamaxJyR\",\"email\":\"rifamaxjyr@gmail.com\",\"cedula\":\"V15500990\",\"password_digest\":\"$2a$12$947p5dkbOyKKGI.fxl3yseHkvFhu2X56P2JnBaotrCHTKIsP.92b6\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2022-11-16T12:57:40.412-04:00\",\"updated_at\":\"2023-10-02T14:48:07.442-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "0414-6171111",
+    "user": "{\"id\":221,\"name\":\"Maxima02\",\"username\":\"RifamaxMaxima02\",\"email\":\"rifamaxmaxima02@gmail.com\",\"cedula\":\"V-10456781\",\"password_digest\":\"$2a$12$9yRW03Xh2n2DpOcTAfEbOOHxxiW1MjBEI3QzX0dgKa8ybZGRZctta\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-06-14T10:45:30.976-04:00\",\"updated_at\":\"2023-10-02T15:04:53.260-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "0000-0000000",
+    "user": "{\"id\":168,\"name\":\"Pa' Que Evanan\",\"username\":\"El Banano\",\"email\":\"rifamaxpaqevanan@gmail.com\",\"cedula\":\"V28488961\",\"password_digest\":\"$2a$12$dxRKA3W.WZZswLbTrX8QbuJD1K7Cw/tU5GuKlozrPxKbntl0gyt92\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-05-08T08:55:51.720-04:00\",\"updated_at\":\"2023-10-02T16:52:45.155-04:00\",\"access_permissions\":[\"50/50\",\"X100\",\"Rifamax\"]}"
+  },
+  {
+    "phone": "0414-6385468",
+    "user": "{\"id\":146,\"name\":\"Yusbelys Villalobos\",\"username\":\"El Cuji\",\"email\":\"rifamaxelcuji@gmail.com\",\"cedula\":\"V10424214\",\"password_digest\":\"$2a$12$bDm3TZhAT0zwW5aLJEZNVe2j4qpCsG/ozXbA3Wf5d1vshHoI64P.a\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-03-27T06:10:18.806-04:00\",\"updated_at\":\"2023-10-02T14:49:09.307-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "0414-6171111",
+    "user": "{\"id\":3,\"name\":\"Andys Fuenmayor\",\"username\":\"Andys Fuenmayor\",\"email\":\"andyfuenmayor@gmail.com\",\"cedula\":\"V1229044\",\"password_digest\":\"$2a$12$5c9JsrvYhWn8zY/mJoA0m.6JpJw2hxBQm76c32xEx5PwGVl/09fhW\",\"role\":\"Admin\",\"status\":true,\"created_at\":\"2022-10-21T14:30:53.161-04:00\",\"updated_at\":\"2022-10-21T14:30:53.161-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "0412-1234053",
+    "user": "{\"id\":5,\"name\":\"Yexsy Castillo\",\"username\":\"Yexsy Castillo\",\"email\":\"rifamaxyexsy@gmail.com\",\"cedula\":\"No  Value\",\"password_digest\":\"$2a$12$rKzGA0ubGsmtDAD0.sVYk.mZWW5jvOOOVkdK9i9xlaRZIhhv8HFVq\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2022-10-21T14:35:14.178-04:00\",\"updated_at\":\"2022-10-21T14:53:31.835-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04142258580",
+    "user": "{\"id\":317,\"name\":\"Betmax\",\"username\":\"Betmax\",\"email\":\"rifamaxbetmax@gmail.com\",\"cedula\":\"V10414470\",\"password_digest\":\"$2a$12$cU2fOoY56.OLNA2srMxH7OQJ3OMc8u9Vs4Gbt0u47kZxbClznPZSC\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-08-03T12:45:12.575-04:00\",\"updated_at\":\"2023-11-23T21:55:17.187-04:00\",\"access_permissions\":[\"X100\",\"Rifamax\"]}"
+  },
+  {
+    "phone": "0414-6901221",
+    "user": "{\"id\":4,\"name\":\"Anderson Dimas\",\"username\":\"Anderson Dimas\",\"email\":\"rifamaxanderson@gmail.com\",\"cedula\":\"No Value\",\"password_digest\":\"$2a$12$o84K/KJeQebCbiGf7Edsbeu18wHNQ0C2KEF.XlnpwstyzJG2KhgEO\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2022-10-21T14:34:34.017-04:00\",\"updated_at\":\"2023-10-02T15:01:55.604-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "00005050002",
+    "user": "{\"id\":384,\"name\":\"50 50 002\",\"username\":\"50/50 - CE2d19\",\"email\":\"50-50-002@gmail.com\",\"cedula\":\"J-5050002\",\"password_digest\":\"$2a$12$ZSR1WLif.du9sROn3eVNxedauhQN15zHO60APM8oPehp8tUAuhXe6\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-10-20T10:18:05.051-04:00\",\"updated_at\":\"2023-10-20T14:49:05.394-04:00\",\"access_permissions\":[\"50/50\"]}"
+  },
+  {
+    "phone": "0000505003",
+    "user": "{\"id\":388,\"name\":\"50 50 003\",\"username\":\"50/50 - 909E84\",\"email\":\"50-50-003@gmail.com\",\"cedula\":\"J-5050003\",\"password_digest\":\"$2a$12$yEQ3B.hxvzTgAs2bekV7MO740WSgqKmVt1SMGDihSM.XfYho1BDWa\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-10-20T14:55:34.240-04:00\",\"updated_at\":\"2023-10-20T14:55:34.240-04:00\",\"access_permissions\":[\"50/50\"]}"
+  },
+  {
+    "phone": "0000505004",
+    "user": "{\"id\":389,\"name\":\"50 50 004\",\"username\":\"50/50 - C6C236\",\"email\":\"50-50-004@gmail.com\",\"cedula\":\"J-5050004\",\"password_digest\":\"$2a$12$6fPlOw5NmUWVaZmyTQAiDe6YYPl20XFUOrvPtzSrYM5qEbntVbmQO\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-10-20T14:55:34.497-04:00\",\"updated_at\":\"2023-10-20T14:55:34.497-04:00\",\"access_permissions\":[\"50/50\"]}"
+  },
+  {
+    "phone": "0000505006",
+    "user": "{\"id\":391,\"name\":\"50 50 006\",\"username\":\"50/50 - E4A9FF\",\"email\":\"50-50-006@gmail.com\",\"cedula\":\"J-5050006\",\"password_digest\":\"$2a$12$zo3dqdPcwxXsb390T/G91OYrc9lNlQ4IpCVe/a4JKDPKAsaoffuFq\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-10-20T14:55:35.011-04:00\",\"updated_at\":\"2023-10-20T14:55:35.011-04:00\",\"access_permissions\":[\"50/50\"]}"
+  },
+  {
+    "phone": "0000505007",
+    "user": "{\"id\":392,\"name\":\"50 50 007\",\"username\":\"50/50 - 2D08ED\",\"email\":\"50-50-007@gmail.com\",\"cedula\":\"J-5050007\",\"password_digest\":\"$2a$12$dTvpr91uPh3t/gBQg26/MOC2POcng1SPo2pVqP2.uadjGiYPdgmMy\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-10-20T14:55:35.272-04:00\",\"updated_at\":\"2023-10-20T14:55:35.272-04:00\",\"access_permissions\":[\"50/50\"]}"
+  },
+  {
+    "phone": "0000505009",
+    "user": "{\"id\":394,\"name\":\"50 50 009\",\"username\":\"50/50 - 5521BA\",\"email\":\"50-50-009@gmail.com\",\"cedula\":\"J-5050009\",\"password_digest\":\"$2a$12$EEyZec.Uq7V5YoqZUt7vL.iI6qP6ojl/Gfr7CAjRqq.UzevTpst0O\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-10-20T14:55:35.794-04:00\",\"updated_at\":\"2023-10-20T14:55:35.794-04:00\",\"access_permissions\":[\"50/50\"]}"
+  },
+  {
+    "phone": "0000505005",
+    "user": "{\"id\":390,\"name\":\"50 50 005\",\"username\":\"50/50 - F04B4F\",\"email\":\"50-50-005@gmail.com\",\"cedula\":\"J-5050005\",\"password_digest\":\"$2a$12$0Ip.Gs9ABHI6aTAqDO1cz.A7aAhaI36cnVKJ6OoQFOHlHeQdquu/e\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-10-20T14:55:34.756-04:00\",\"updated_at\":\"2023-10-20T15:40:09.046-04:00\",\"access_permissions\":[\"50/50\"]}"
+  },
+  {
+    "phone": "0000505008",
+    "user": "{\"id\":393,\"name\":\"50 50 008\",\"username\":\"50/50 - F18A3F\",\"email\":\"50-50-008@gmail.com\",\"cedula\":\"J-5050008\",\"password_digest\":\"$2a$12$xxnKd7372SrBQmv6.TtSWuX/qIIX5mSf3FC/AzXPYt6uQR8hWcHyC\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-10-20T14:55:35.536-04:00\",\"updated_at\":\"2023-11-03T14:52:43.981-04:00\",\"access_permissions\":[\"50/50\"]}"
+  },
+  {
+    "phone": "00005050010",
+    "user": "{\"id\":395,\"name\":\"50 50 010\",\"username\":\"50/50 - glHVPU\",\"email\":\"50-50-010@gmail.com\",\"cedula\":\"J-5050010\",\"password_digest\":\"$2a$12$nPYdzFR3YFvpvHPxpbNY2.6YKbfg1zxXBjQj.2xMOFv7bKoUTPvrS\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-10-20T14:56:35.892-04:00\",\"updated_at\":\"2023-10-20T15:08:21.263-04:00\",\"access_permissions\":[\"50/50\"]}"
+  },
+  {
+    "phone": "04146330258",
+    "user": "{\"id\":36,\"name\":\"Javier Sarache\",\"username\":\"Los Compadres\",\"email\":\"rifamaxloscompadres@gmail.com\",\"cedula\":\"V10656700\",\"password_digest\":\"$2a$12$kSt9LMW.FZhSXAUX91VqhersZurJ37fhSnFMDWITKmGjdtYPCI92G\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2022-11-04T08:52:31.917-04:00\",\"updated_at\":\"2023-10-02T11:33:49.858-04:00\",\"access_permissions\":[\"X100\",\"Rifamax\",\"50/50\"]}"
+  },
+  {
+    "phone": "00005050011",
+    "user": "{\"id\":397,\"name\":\"50 50 011\",\"username\":\"50/50 - GtDqgq\",\"email\":\"50-50-011@gmail.com\",\"cedula\":\"J5050002\",\"password_digest\":\"$2a$12$DBxNKwhcngNVlkABfFTMseCmgdnGtJc54dKEhTdyjTsOSSRehBl9u\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-10-28T23:20:11.817-04:00\",\"updated_at\":\"2023-10-28T23:20:11.859-04:00\",\"access_permissions\":[\"50/50\"]}"
+  },
+  {
+    "phone": "04140001515",
+    "user": "{\"id\":398,\"name\":\"50 50 012\",\"username\":\"50/50 - i36pNm\",\"email\":\"50-50-012@gmail.com\",\"cedula\":\"J29486754\",\"password_digest\":\"$2a$12$pGr9yC.MKS6Uov43erDW6OwiDL8kr0wlmF6eNHt.dczWdtjPhxlXG\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-10-30T09:51:45.543-04:00\",\"updated_at\":\"2023-10-30T09:51:45.557-04:00\",\"access_permissions\":[\"50/50\"]}"
+  },
+  {
+    "phone": "04142258580",
+    "user": "{\"id\":2,\"name\":\"Oswaldo Garcia\",\"username\":\"Oswaldo Garcia.\",\"email\":\"ogarciaecheto@gmail.com\",\"cedula\":\"V10414470\",\"password_digest\":\"$2a$12$XStpw14eNnHgQug0Ah888u2YCZP43a8iWnIHmMFgGXh0KfpAjmkp6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-21T12:19:37.071-04:00\",\"updated_at\":\"2022-10-21T12:53:10.149-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146901221",
+    "user": "{\"id\":6,\"name\":\"Anderson Dimas\",\"username\":\"Anderson Dimas\",\"email\":\"andersondimas1980@gmail.com\",\"cedula\":\"V15005323\",\"password_digest\":\"$2a$12$CaAvmndwODcJltqpZbg02O5XcJvhcquWL.6t8UCWLFRGI9RaM6fA2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-21T17:19:59.138-04:00\",\"updated_at\":\"2022-10-21T17:19:59.138-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146901221",
+    "user": "{\"id\":7,\"name\":\"Eladio Tovar\",\"username\":\"Eladio Tovar\",\"email\":\"eladiotovar99@gmail.com\",\"cedula\":\"V11870045\",\"password_digest\":\"$2a$12$9HFLkwULaYsffC96YAA0.uDIV2XQmPFpnYoa2sKcmmCFj50QvjHQe\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-21T17:21:40.131-04:00\",\"updated_at\":\"2022-10-21T17:21:40.131-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126406971",
+    "user": "{\"id\":8,\"name\":\"Rafael Diaz\",\"username\":\"RAFAEL DIAZ\",\"email\":\"rafa.e.diaz.mejias@gmail.com\",\"cedula\":\"V14524994\",\"password_digest\":\"$2a$12$gRR22ScBekK01ld1L8Mi.e/sCB6aXZAQoYlJTHY3SlNCXddoxF5im\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-21T18:20:23.221-04:00\",\"updated_at\":\"2023-04-16T03:01:02.009-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "no tiene",
+    "user": "{\"id\":9,\"name\":\"Antonio Paz\",\"username\":\"Antonio Paz\",\"email\":\"antoniopaz99@gmail.com\",\"cedula\":\"V5823718\",\"password_digest\":\"$2a$12$MbUObmEmTimySwJKOKvM1egOjoMoUKOoO/jgnynfBpJptdimIxysu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-22T09:53:46.525-04:00\",\"updated_at\":\"2022-10-22T09:53:46.525-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125133108",
+    "user": "{\"id\":10,\"name\":\"Waimer Sandoval\",\"username\":\"Waimer Sandoval\",\"email\":\"waimer_sandoval_castillo@hotmail.com\",\"cedula\":\"V23754031\",\"password_digest\":\"$2a$12$pxaxyfiVZVyKjBVcepMWBOgqv4Uu7x9ZvtqJ6t.2EYD0aai4ofT16\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-22T09:55:04.033-04:00\",\"updated_at\":\"2022-10-22T09:55:04.033-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04141641612",
+    "user": "{\"id\":11,\"name\":\"Andy Beltran\",\"username\":\"Andy Beltran\",\"email\":\"andybeltran99@gmail.com\",\"cedula\":\"V17086757\",\"password_digest\":\"$2a$12$F4FAZoaQNSrIiLPnXCYKiuCwp6MQW8ypCgDSSdeTJl8lieJZlEN.O\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-22T09:55:50.273-04:00\",\"updated_at\":\"2023-04-16T03:01:02.028-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120707124",
+    "user": "{\"id\":12,\"name\":\"Jose Gonzalez\",\"username\":\"Jose gonzalez\",\"email\":\"josejagonzalez@gmail.com\",\"cedula\":\"V16624736\",\"password_digest\":\"$2a$12$4hGxirhvKUd3SBVbvIQv7.JWz0Jo4iZCUAT6WmwXq8wFMi9smx6YS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-22T10:49:42.808-04:00\",\"updated_at\":\"2023-04-16T03:01:02.035-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04167805103",
+    "user": "{\"id\":13,\"name\":\"Richard Coello\",\"username\":\"Richard Coello\",\"email\":\"richardcoello@gmail.com\",\"cedula\":\"V16428767\",\"password_digest\":\"$2a$12$37GOcaqRUGOGY.rknVBfWeKBLioUUF65hiy8uFy8RCjxYdjGCKMKS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-24T20:57:54.389-04:00\",\"updated_at\":\"2022-10-24T20:57:54.389-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04124264494",
+    "user": "{\"id\":14,\"name\":\"Luis Rondon\",\"username\":\"Luis Rondon\",\"email\":\"luisrondon99@gmail.com\",\"cedula\":\"V16549006\",\"password_digest\":\"$2a$12$noO2XfxLH8LHgHmuuVXWyO3UJH4SFoRvrn1lZZJ/NiG0mp51lqNpm\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-25T08:27:50.873-04:00\",\"updated_at\":\"2022-10-25T08:27:50.873-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246211683",
+    "user": "{\"id\":15,\"name\":\"Eli Villalobos\",\"username\":\"ELI Villalobos\",\"email\":\"elivillalo68@gmail.com\",\"cedula\":\"V6802004\",\"password_digest\":\"$2a$12$klMIOfcoo2ZyfniMvFw6t.0FwqL1ie5TDaPKuE7a2k8g/q0K/fHxu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-25T14:07:30.496-04:00\",\"updated_at\":\"2022-10-25T14:07:30.496-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246719364",
+    "user": "{\"id\":17,\"name\":\"Alfredo Serrano\",\"username\":\"Alfredo Serrano\",\"email\":\"alfredoserrano@gmail.com\",\"cedula\":\"V7765659\",\"password_digest\":\"$2a$12$jZddrOf7VCgA5jNggTmG3Ow1Y7CAz2G3FXI3J/lcaGxTC4EV/YH2u\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-25T17:58:38.697-04:00\",\"updated_at\":\"2022-10-25T17:58:38.697-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121234053",
+    "user": "{\"id\":17,\"name\":\"Alfredo Serrano\",\"username\":\"Alfredo Serrano\",\"email\":\"alfredoserrano@gmail.com\",\"cedula\":\"V7765659\",\"password_digest\":\"$2a$12$jZddrOf7VCgA5jNggTmG3Ow1Y7CAz2G3FXI3J/lcaGxTC4EV/YH2u\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-25T17:58:38.697-04:00\",\"updated_at\":\"2022-10-25T17:58:38.697-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125124259",
+    "user": "{\"id\":18,\"name\":\"Danilo Morales\",\"username\":\"Mi ángel \",\"email\":\"danilomorales@gmail.com\",\"cedula\":\"V16457140\",\"password_digest\":\"$2a$12$HCmFpwjKfVhtYNT03aqVUeGOEfwnVWNg2bLagob7rtXxE4Wry/svS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-25T22:50:38.844-04:00\",\"updated_at\":\"2023-04-16T03:01:02.061-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04262637878",
+    "user": "{\"id\":19,\"name\":\"Juancho\",\"username\":\"Juancho\",\"email\":\"juancho@gmail.com\",\"cedula\":\"V16457149\",\"password_digest\":\"$2a$12$bb4qWcVbKMtrXoZ9xXdu5etY9J7D9LHsWxOsx9klq7zfXKnHIXMR2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-26T07:22:03.272-04:00\",\"updated_at\":\"2022-10-26T07:22:03.272-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04143161761",
+    "user": "{\"id\":20,\"name\":\"Luis Guillermo\",\"username\":\"Luis Guillermo\",\"email\":\"luisguillermo99@gmail.com\",\"cedula\":\"V3266156\",\"password_digest\":\"$2a$12$qSSSE6ULYXqE7ff4Nh67Vut3mi6LBIWKfI2p4rI0LA5DCN9VYnUZO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-26T08:13:30.742-04:00\",\"updated_at\":\"2022-10-26T08:13:30.742-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126511544",
+    "user": "{\"id\":21,\"name\":\"Ruco Finol\",\"username\":\"RUCO FINOL\",\"email\":\"rucofinol99@gmail.com\",\"cedula\":\"V2867515\",\"password_digest\":\"$2a$12$BCRksMRYUeP6D0iGmtmDLuPiRx4r15gObbmcx0fYBmZPOMmM1ItPO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-26T08:23:50.122-04:00\",\"updated_at\":\"2023-04-16T03:01:02.074-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121707018",
+    "user": "{\"id\":23,\"name\":\"Luis Fuenmayor\",\"username\":\"Luis Fuenmayor\",\"email\":\"luisfuen12@gmail.com\",\"cedula\":\"V27723192\",\"password_digest\":\"$2a$12$q/WmaknVI/KQWjceT2K3e.DmB/a.1JfGnuWkRP5Mdd8lpltIwBylq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-26T10:53:47.661-04:00\",\"updated_at\":\"2022-10-26T10:53:47.661-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121707018",
+    "user": "{\"id\":25,\"name\":\"Orlando Fuenmayor\",\"username\":\"Orlando Fuenmayor\",\"email\":\"orlandofuenmayor99@gmail.com\",\"cedula\":\"V14658325\",\"password_digest\":\"$2a$12$GwfYcthLD8zNam.8NxySP.xVMm0lroRpPnprSRhMocZ6HYwQ3SV3G\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-26T13:51:43.616-04:00\",\"updated_at\":\"2022-10-26T13:51:43.616-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04122365555",
+    "user": "{\"id\":26,\"name\":\"Pedro Perez\",\"username\":\"pedro\",\"email\":\"andyssfuenmayor@gmail.com\",\"cedula\":\"V15899859\",\"password_digest\":\"$2a$12$sC2OmLAzbuyUOx5gI7B.quj6wXuIdwImxEJm1yVK8oXvhqe0Ijwr.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-26T20:55:16.269-04:00\",\"updated_at\":\"2023-04-16T03:01:02.090-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04145506565",
+    "user": "{\"id\":27,\"name\":\"Luis Perez\",\"username\":\"Luis Perez\",\"email\":\"luisperez99@gmail.com\",\"cedula\":\"V20890325\",\"password_digest\":\"$2a$12$i5HMF7CQKTK41FWSBAOxCuVmUM..Hcw0ue4cfK1PhZ4FvmNYY0yEO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-27T10:47:52.043-04:00\",\"updated_at\":\"2022-10-27T10:47:52.043-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04140634636",
+    "user": "{\"id\":28,\"name\":\"Rangel Reverol\",\"username\":\"Rangel Reverol\",\"email\":\"rangelreverol99@gmail.com\",\"cedula\":\"V6885180\",\"password_digest\":\"$2a$12$tyP28lauaGBOitP0EwSQOOijdWWMYFWgcIhCTSxuZZSwIibHl30Ri\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-28T08:37:02.721-04:00\",\"updated_at\":\"2022-10-28T08:37:02.721-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146610696",
+    "user": "{\"id\":29,\"name\":\"Lisandro Chacin\",\"username\":\"LISANDRO CHACIN\",\"email\":\"lisandrochacin99@gmail.com\",\"cedula\":\"V3797313\",\"password_digest\":\"$2a$12$Bib6iGKNX1xaZAGlWksfPORJYfGBwbaEbi/hukQkIcEYBT38rZQ3i\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-28T17:47:22.047-04:00\",\"updated_at\":\"2023-04-16T03:01:02.106-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04128599128",
+    "user": "{\"id\":30,\"name\":\"Eddys Espina\",\"username\":\"Eddys Epina\",\"email\":\"eddysespina99@gmail.com\",\"cedula\":\"V11860002\",\"password_digest\":\"$2a$12$Xy5luxAyz1J5a/J2DzCae.4q7YqpquIRxa8IlpM86mGKtA5TVWGVe\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-29T09:33:20.946-04:00\",\"updated_at\":\"2022-10-29T09:33:20.946-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126522895",
+    "user": "{\"id\":31,\"name\":\"Melvin Ocando\",\"username\":\"Melvin Ocando\",\"email\":\"melvinoca15@gmail.com\",\"cedula\":\"V15763714\",\"password_digest\":\"$2a$12$zrpqtt.fTjaZ5NkY3juEROugsK40bTbqJk4Un8tMBY9iMfmrvwxy2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-10-29T10:42:22.749-04:00\",\"updated_at\":\"2022-10-29T10:42:22.749-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04262004433",
+    "user": "{\"id\":32,\"name\":\"David Semprun\",\"username\":\"betseven\",\"email\":\"yuviangelys16@gmail.com\",\"cedula\":\"V28451928\",\"password_digest\":\"$2a$12$5WzpTu2aQff4dBRWC9I8VOjZR5HJUg26n6.VeBuWdfunqJrvPb7LG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-01T10:08:19.809-04:00\",\"updated_at\":\"2022-11-01T10:08:19.809-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120606561",
+    "user": "{\"id\":33,\"name\":\"Angelo Bracho\",\"username\":\"BETSEVEN\",\"email\":\"angelobracho12@gmail.com\",\"cedula\":\"V19706257\",\"password_digest\":\"$2a$12$0A3E11DAq0A4qsJDOlLtSOSwenqUEWIGRuKzB3R1GCVXOLrTa9uvy\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-01T13:09:56.984-04:00\",\"updated_at\":\"2023-04-16T03:01:02.143-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121048712",
+    "user": "{\"id\":34,\"name\":\"Gerardo Rivera\",\"username\":\"Gerardo Rivera\",\"email\":\"gerardorivera99@gmail.com\",\"cedula\":\"V167827796\",\"password_digest\":\"$2a$12$lj3LPD1afnaXRLmneoHKfOk18dtxrkpFQIkwKEgOZ69GI8ziwvgaS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-02T09:50:58.303-04:00\",\"updated_at\":\"2022-11-02T09:50:58.303-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04122222211",
+    "user": "{\"id\":35,\"name\":\"Arnaldo Hernandez\",\"username\":\"ARNALDO HERNANDEZ\",\"email\":\"arnaldohernandez@gmail.com\",\"cedula\":\"V15937173\",\"password_digest\":\"$2a$12$t5hzDRXaR8jaDUVCBPhvyO7Bvlpv1F1fxFpNhi5TRffrsO8H7HrVW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-03T08:07:11.411-04:00\",\"updated_at\":\"2023-04-16T03:01:02.125-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04141234567",
+    "user": "{\"id\":37,\"name\":\"Edward Gonzalez\",\"username\":\"EDWARD GONZALEZ\",\"email\":\"edwardgonzalez99@gmail.com\",\"cedula\":\"V15061425\",\"password_digest\":\"$2a$12$Eh9UiiehJsAQ5LHA58yyFOA1KyWJTzw4ZeqXSSh8CTeDw4cs.79NO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-04T09:41:42.995-04:00\",\"updated_at\":\"2023-04-16T03:01:02.150-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121026153",
+    "user": "{\"id\":38,\"name\":\"Edgard Chacin\",\"username\":\"Edgard Cacin\",\"email\":\"edgardchacin99@gmail.com\",\"cedula\":\"V7608140\",\"password_digest\":\"$2a$12$6Y1NhO2rw1RAfiVOWx.DmeyGiuVikYUyJaR/4Lg9oXu.9wVvlToDe\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-04T16:16:36.912-04:00\",\"updated_at\":\"2022-11-04T16:16:36.912-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246779367",
+    "user": "{\"id\":39,\"name\":\"Edward Gonzalez\",\"username\":\"Edward Gonzalez\",\"email\":\"edwardgonzalez@gmail.com\",\"cedula\":\"V15061582\",\"password_digest\":\"$2a$12$bfFP6Cj/SyJ0MMyVr2.ecOtutknfIjnjaRKedvv8aqs/ZRCHao.cG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-04T16:24:06.634-04:00\",\"updated_at\":\"2022-11-04T16:24:06.634-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "0414-6171111",
+    "user": "{\"id\":1,\"name\":\"4 Bocas\",\"username\":\"4 Bocas\",\"email\":\"rifamax4bocas@gmail.com\",\"cedula\":\"J-74631293\",\"password_digest\":\"$2a$12$QRGVx1xry3eKgam.tNY/wON3cR75BHnDF/AxRk7RJ4eZ6VvpqIqJG\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2022-10-21T11:32:32.889-04:00\",\"updated_at\":\"2023-10-13T21:08:25.285-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146330258",
+    "user": "{\"id\":42,\"name\":\"Javier Sarache\",\"username\":\"javier sarache\",\"email\":\"yulimarloaiza@hotmail.com\",\"cedula\":\"V7960523\",\"password_digest\":\"$2a$12$O3WoP1RKxO0ooCx8.dNR5exKqb2yKsJDMwO26Y9kNQTWtsj/K9R9i\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-06T13:51:55.139-04:00\",\"updated_at\":\"2023-04-16T03:01:02.167-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246248770",
+    "user": "{\"id\":43,\"name\":\"Melannie \",\"username\":\"Los compadres\",\"email\":\"melannie.barroso@gmail.com\",\"cedula\":\"V28400184\",\"password_digest\":\"$2a$12$No3UzIz78Aykffn/qi3ptuAFF9Jo1lEY4YxD8r8qNiHPkOF4o/M9u\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-09T13:57:01.519-04:00\",\"updated_at\":\"2022-11-09T13:57:01.519-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04140634636",
+    "user": "{\"id\":44,\"name\":\"Emiliano Castillo\",\"username\":\"EMILIANO CASTILLO\",\"email\":\"emilianocastillo99@gmail.com\",\"cedula\":\"V7876666\",\"password_digest\":\"$2a$12$lBdqsjSKH5aHUIgKOH9cE.anZnjPzrh52hrxgdOCZSRBHsfWutEza\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-11T08:34:40.445-04:00\",\"updated_at\":\"2022-11-11T08:34:40.445-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04247044892",
+    "user": "{\"id\":45,\"name\":\"franklin semprun\",\"username\":\"betseven\",\"email\":\"yuviangelys16@gmail.com\",\"cedula\":\"V19645059\",\"password_digest\":\"$2a$12$wJxzkCJhmS9no14FhBlMsOIKYx03ZA8rK21HuPjWteZfxAhef8uJe\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-11T08:53:48.301-04:00\",\"updated_at\":\"2022-11-11T08:53:48.301-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127105382",
+    "user": "{\"id\":46,\"name\":\"Pascual Nava\",\"username\":\"PASCUAL NAVA\",\"email\":\"pascualnava99@gmail.com\",\"cedula\":\"V6802927\",\"password_digest\":\"$2a$12$uAZJ4ZBsKbPsHN8pT915S.g0HZJOYUiLl7/y2DYNjC.8HzSvxNCly\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-12T09:40:25.537-04:00\",\"updated_at\":\"2023-04-16T03:01:02.180-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126848355",
+    "user": "{\"id\":47,\"name\":\"Vianny Fernandez\",\"username\":\"VIANNY FERNANDEZ\",\"email\":\"viannyfernandez@gmail.com\",\"cedula\":\"V16188033\",\"password_digest\":\"$2a$12$ASG4f9RXvrkX81gQTzkmjOUvHHsOEBKhsIkXOmeubwoeVd.5xNODq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-12T10:01:47.603-04:00\",\"updated_at\":\"2023-04-16T03:01:02.185-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246271539",
+    "user": "{\"id\":49,\"name\":\"Ernesto Romero\",\"username\":\"Ernesto Romero\",\"email\":\"ernestoromer@gmail.com\",\"cedula\":\"V23272387\",\"password_digest\":\"$2a$12$MWSrMQoS4KxXNmJfUJyrq.3pJBKnAXOcGwANAv0C50wQ6Tu8YNtgK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-15T11:04:28.720-04:00\",\"updated_at\":\"2022-11-15T11:04:28.720-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04149009000",
+    "user": "{\"id\":51,\"name\":\"Oswaldo García \",\"username\":\"Oswaldo García \",\"email\":\"oswaldogarcia@gmail.com\",\"cedula\":\"V10455989\",\"password_digest\":\"$2a$12$h.9EwTkM5XhOHB6JQ2plDeZPVb2EbSu9K8luubHQ1LYfTbyCe2wyO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-16T14:11:55.384-04:00\",\"updated_at\":\"2022-11-16T14:11:55.384-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04129653349",
+    "user": "{\"id\":53,\"name\":\"Jhon Castillo\",\"username\":\"Jhon Castillo\",\"email\":\"jhoncastillo@gmail.com\",\"cedula\":\"V10409818\",\"password_digest\":\"$2a$12$6Z2x5z0mZpwqCUmIQbkYxOk78MUE286LfFjGluxJyt/RyyVQpk59q\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-16T15:40:06.728-04:00\",\"updated_at\":\"2022-11-16T15:40:06.728-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04262637878",
+    "user": "{\"id\":54,\"name\":\"Reinaldo Ferrer\",\"username\":\"Mi angel \",\"email\":\"reinaldo@gmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$6oV1is1xyOWyuCUqr2VayunzxU4/LbFQJuuALWIow3DdPQMjmy1ca\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-16T20:50:34.770-04:00\",\"updated_at\":\"2023-04-16T03:01:02.209-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125126103",
+    "user": "{\"id\":55,\"name\":\"Javier Molero\",\"username\":\"Mi Angel\",\"email\":\"javiermolero@gmail.com\",\"cedula\":\"V13456789\",\"password_digest\":\"$2a$12$w.x2PhZQsOSE20Yz1lUXZ.FgVANjHlAg9UhPIEyQlOTAJ3EWuOE4y\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-17T17:31:10.283-04:00\",\"updated_at\":\"2023-04-16T03:01:02.214-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120696825",
+    "user": "{\"id\":56,\"name\":\"Jorge Fuenmayor\",\"username\":\"JORGE FUENMAYOR\",\"email\":\"jorgefuenmayor99@gmail.com\",\"cedula\":\"V6830066\",\"password_digest\":\"$2a$12$sc0C/A7r7qtySh53H.NXrei6M16hP06mZMLjDC4Bf1Um633nZs3GK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-18T13:02:10.400-04:00\",\"updated_at\":\"2023-04-16T03:01:02.219-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121391416",
+    "user": "{\"id\":57,\"name\":\"Nerio Gonzalez\",\"username\":\"LOS COMPADRES\",\"email\":\"fsarache@outlook.com\",\"cedula\":\"J500544332\",\"password_digest\":\"$2a$12$UUXclwvkHa05YkSLYjJByO0Vx54xOgTu5LxiN.kVTGXqeWLCcff8S\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-18T14:35:44.487-04:00\",\"updated_at\":\"2023-04-16T03:01:02.225-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126449411",
+    "user": "{\"id\":58,\"name\":\"Manuel Rodriguez\",\"username\":\"MANUEL RODRIGUEZ\",\"email\":\"manuelrodriguez99@gmail.com\",\"cedula\":\"V9788586\",\"password_digest\":\"$2a$12$fk9NpZestpqj99wOpFKaj.xF79fb.NuAunD3y.00KesUPBBuGpv/S\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-19T10:53:21.866-04:00\",\"updated_at\":\"2023-04-16T03:01:02.229-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146178336",
+    "user": "{\"id\":59,\"name\":\"Yuviangelis  Ferrer\",\"username\":\"Yuviangelis Ferrer\",\"email\":\"yuvian21@gmail.com\",\"cedula\":\"V27257706\",\"password_digest\":\"$2a$12$QV2/OPvh.4lCpHGWdfvEHu/cuehkuHDk8bbizsXLcrw0Az1liFSsK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-19T13:15:03.763-04:00\",\"updated_at\":\"2022-11-19T13:15:03.763-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246312494",
+    "user": "{\"id\":60,\"name\":\"Guillermo Paz\",\"username\":\"GUILLERMO PAZ\",\"email\":\"guillermopaz99@gmail.com\",\"cedula\":\"V14922931\",\"password_digest\":\"$2a$12$rCWWhC8AhIiIf/obbLQg1.rcTJPKCeQx.BsqCmzf3nhnbi0gUiIgu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-21T10:09:57.790-04:00\",\"updated_at\":\"2023-04-16T03:01:02.238-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04128225954",
+    "user": "{\"id\":61,\"name\":\"Jose Gutierrez\",\"username\":\"JOSE GUTIERREZ\",\"email\":\"josegutierrez99@gmail.com\",\"cedula\":\"V17951284\",\"password_digest\":\"$2a$12$l7hs8qc.9xjAm7Kx8RxuxeDKFdIlNZNexDUpC6u7FuEENAQKuwFuG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-24T12:59:39.937-04:00\",\"updated_at\":\"2023-04-16T03:01:02.243-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246995276",
+    "user": "{\"id\":62,\"name\":\"Rafael Larreal\",\"username\":\"Rafael Larreal\",\"email\":\"rafaellarreal@gmail.com\",\"cedula\":\"V11068431\",\"password_digest\":\"$2a$12$hxTZVrxBm7nJ4r1s67gPA.lTDbxxuA1veD9w49JK7kRdoKAb7ofyi\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-25T10:18:09.857-04:00\",\"updated_at\":\"2022-11-25T10:18:09.857-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "0414686118",
+    "user": "{\"id\":63,\"name\":\"Henyerbeth Albornoz\",\"username\":\"Los compadres\",\"email\":\"albornoz_l6@hotmail.com\",\"cedula\":\"V20370508\",\"password_digest\":\"$2a$12$/Cr8My7/F.SeT5HK3sOgYes.Bqb/GDJ6cMfKiqbcVGIq8MiDTZ/JO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-25T10:45:27.342-04:00\",\"updated_at\":\"2022-11-25T10:45:27.342-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120773680",
+    "user": "{\"id\":65,\"name\":\"Alexander Bracho\",\"username\":\"ALEXANDER BRACHO\",\"email\":\"alexanderbracho99@gmail.com\",\"cedula\":\"V15561096\",\"password_digest\":\"$2a$12$KHVPMcVbwMoyqxuCboYUs.0nHvEGgF1HspIJ03D6Gasm24RM/68ui\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-26T09:32:43.768-04:00\",\"updated_at\":\"2023-04-16T03:01:02.258-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120633589",
+    "user": "{\"id\":66,\"name\":\"Jorge Villalobos\",\"username\":\"Jorge villalobos\",\"email\":\"jor12villa@gmail.com\",\"cedula\":\"V24461075\",\"password_digest\":\"$2a$12$qYJd26L.6792PL42Bag1lewKE8RqIEZ/iLlnZ8uRJC2Z.ldpZt/V.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-26T12:09:22.617-04:00\",\"updated_at\":\"2023-04-16T03:01:02.263-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04245507448",
+    "user": "{\"id\":67,\"name\":\"Eneiro Ferrer\",\"username\":\"los compadres\",\"email\":\"eneirof@gmail.com\",\"cedula\":\"V16367447\",\"password_digest\":\"$2a$12$ktnlWx/B1KgKHn2ThH2HnuLn0kSjKRpbNSbdNiPXJB2oRxBTdnOEO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-26T15:41:46.429-04:00\",\"updated_at\":\"2023-04-16T03:01:02.269-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121045730",
+    "user": "{\"id\":68,\"name\":\"Maria Mapari\",\"username\":\"MARIA MAPARI\",\"email\":\"mariamapari99@gmail.com\",\"cedula\":\"V13624525\",\"password_digest\":\"$2a$12$gStqYLKvP1cJH.fnEuSGoua03cwjz61h7GZU0FDps1Jp.E6.2u2dq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-28T08:52:52.301-04:00\",\"updated_at\":\"2023-04-16T03:01:02.274-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120647281",
+    "user": "{\"id\":69,\"name\":\"Antoni Soto\",\"username\":\"ANTONI SOTO\",\"email\":\"antonisoto99@gmail.com\",\"cedula\":\"V24737272\",\"password_digest\":\"$2a$12$RJUoo0DjkS/vzP6Zd63ceuMoBgNtLHmOJtITJ8VApI1sESgM8Zabi\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-01T08:41:01.784-04:00\",\"updated_at\":\"2023-04-16T03:01:02.278-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246535737",
+    "user": "{\"id\":71,\"name\":\"Antonio Finol\",\"username\":\"Antonio Finol\",\"email\":\"antoniofi14@gmail.com\",\"cedula\":\"V15626390\",\"password_digest\":\"$2a$12$1AbLVVw0pBUeJZxDcaBdpOYY6/PhOoJpJAw8i.Kfw.KhTyzz/QgA6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-02T09:33:08.583-04:00\",\"updated_at\":\"2022-12-02T09:33:08.583-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126923026",
+    "user": "{\"id\":72,\"name\":\"Jose Alberto Espina \",\"username\":\"Jose Alberto Espina\",\"email\":\"jose458@gmail.com\",\"cedula\":\"V16921282\",\"password_digest\":\"$2a$12$V4ZGzmPBABqiHqhf9WKquOb8pVLjr6IadHS4jH3QDA2qncHFHSaxK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-02T10:14:11.828-04:00\",\"updated_at\":\"2022-12-02T10:14:11.828-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146866118",
+    "user": "{\"id\":73,\"name\":\"Henyerbet Albornoz\",\"username\":\"los compadres\",\"email\":\"henyerbeta@gmil.com\",\"cedula\":\"V20370510\",\"password_digest\":\"$2a$12$Pqn2hfdYYOVYv7oJwLayyuuVIpnz/dG26PTzUxYyntBp3cg/wZQJS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-02T10:40:29.809-04:00\",\"updated_at\":\"2022-12-02T10:40:29.809-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246101386",
+    "user": "{\"id\":74,\"name\":\"Asnaldo Celedon\",\"username\":\"asnaldo celedon\",\"email\":\"asnaldoceledon@gmail.com\",\"cedula\":\"V13418705\",\"password_digest\":\"$2a$12$RX1YnrP3VdXI3WqMkKgTmOcRQHqNJJIAmBhTv4wPOox6ZbzNCRds2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-02T15:08:53.712-04:00\",\"updated_at\":\"2023-04-16T03:01:02.292-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146719254",
+    "user": "{\"id\":75,\"name\":\"Martin Finol\",\"username\":\"MARTIN FINOL\",\"email\":\"martinfinol99@gmail.com\",\"cedula\":\"V7978866\",\"password_digest\":\"$2a$12$Bz6hVA/ng4gE2xQtn61IQODMrlm.X3xJnVNvirLH8e1pX6c5LZIye\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-03T08:32:15.248-04:00\",\"updated_at\":\"2023-04-16T03:01:02.298-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127758457",
+    "user": "{\"id\":76,\"name\":\"Hugo Bermudez\",\"username\":\"HUGO BERMUDEZ\",\"email\":\"hugobermudez99@gmail.com\",\"cedula\":\"V16838888\",\"password_digest\":\"$2a$12$xzw9KJEn5VjzhxY9QCOqrO067UUgaeN4EgOuypERBOhS/B25J7ZeO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-03T08:56:07.404-04:00\",\"updated_at\":\"2023-04-16T03:01:02.303-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146326913",
+    "user": "{\"id\":77,\"name\":\"Jovanny Arias\",\"username\":\"Jovanny Arias\",\"email\":\"jovany147@gmail.com\",\"cedula\":\"V15887081\",\"password_digest\":\"$2a$12$3mSe3ekElDUn6rAblhpQEugwMxZn83pbSH0cCkKY7/ohqaBFDdOFG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-06T08:34:18.691-04:00\",\"updated_at\":\"2023-08-30T13:06:19.152-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04168687387",
+    "user": "{\"id\":78,\"name\":\"Pedro Parra\",\"username\":\"Pedro Parra\",\"email\":\"pedroparra@gmail.com\",\"cedula\":\"V17462615\",\"password_digest\":\"$2a$12$rjstBH/1W5PSS4Go55qQg.qhkIhGGT0MFPxOTOB5xLQCA3xZKE2Ha\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-06T11:04:08.055-04:00\",\"updated_at\":\"2022-12-06T11:04:08.055-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120707124",
+    "user": "{\"id\":48,\"name\":\"Eudo Fuenmayor\",\"username\":\"Eudo Fuenmayor\",\"email\":\"eudofuenmayor@gmail.com\",\"cedula\":\"V12514799\",\"password_digest\":\"$2a$12$7RTRg8k7tI1BtoJsrtXft.CgQ931mmm8vUtwcaW633u9kT03uafOG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-11-15T08:39:49.080-04:00\",\"updated_at\":\"2023-08-30T13:07:01.449-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246016070",
+    "user": "{\"id\":79,\"name\":\"Yuli Loaiza\",\"username\":\"los compadres\",\"email\":\"gilmariateodora012@gmail.com\",\"cedula\":\"V15406764\",\"password_digest\":\"$2a$12$wkfu6B/hCNk/lvDHsKprtuyRSQkSde2GMub.V87LsfSu3hkMnFsEC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-09T08:21:34.803-04:00\",\"updated_at\":\"2022-12-09T08:21:34.803-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04129692455",
+    "user": "{\"id\":80,\"name\":\"Randy Bermudez\",\"username\":\"Randy Bermudez\",\"email\":\"randybe123@gmail.com\",\"cedula\":\"V11254863\",\"password_digest\":\"$2a$12$fEUF/gkpxZykejfQxiOjgOINvmtGIUzifPzveiHeJKlfyT0Kd..KW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-12T11:44:12.561-04:00\",\"updated_at\":\"2022-12-12T11:44:12.561-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120641158",
+    "user": "{\"id\":81,\"name\":\"Nelson Gonzalez\",\"username\":\"Nelson Gonzalez\",\"email\":\"nelsongonzalez@gmail.com\",\"cedula\":\"V23753971\",\"password_digest\":\"$2a$12$.VFHIwD4zcrDsM2qEyM19umlbilMrKdlXcNQ2qVvQ5.bGvkTlDYya\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-13T09:59:00.907-04:00\",\"updated_at\":\"2022-12-13T09:59:00.907-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146315426",
+    "user": "{\"id\":82,\"name\":\"Brayan Bermudez\",\"username\":\"Brayan Bermudez\",\"email\":\"brayanber123@gmail.com\",\"cedula\":\"V26907320\",\"password_digest\":\"$2a$12$.ta/hhzaMKTnTbaew3Hc3.SHKWuqX7tYdLRL1K1PsEXxEmXx.aMby\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-15T09:26:53.058-04:00\",\"updated_at\":\"2022-12-15T09:26:53.058-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121683668",
+    "user": "{\"id\":83,\"name\":\"Angel Chirinos\",\"username\":\"Angek Chirinos\",\"email\":\"angelchirinos@gmail.com\",\"cedula\":\"V17836320\",\"password_digest\":\"$2a$12$KGeqd0RLE51NMaVTQzQcUeZ9l29IMpfB/PmTl3XGdNGCLfn6t9vAK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-16T09:18:55.384-04:00\",\"updated_at\":\"2022-12-16T09:18:55.384-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126765202",
+    "user": "{\"id\":84,\"name\":\"Yohandry Bohorquez\",\"username\":\"LOS COMPADRES\",\"email\":\"ambarsarache389@gmail.com\",\"cedula\":\"V23737193\",\"password_digest\":\"$2a$12$e.hIAtsEKgcnv8PK82L2uO/It0F.gv3fUmTAmiCkZ1YcHtuc6Hdgu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-16T14:19:37.145-04:00\",\"updated_at\":\"2023-04-16T03:01:02.332-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04129411377",
+    "user": "{\"id\":85,\"name\":\"Leonardo Boscan\",\"username\":\"Leonardo Boscan\",\"email\":\"leonardoboscan@gmail.com\",\"cedula\":\"V11068183\",\"password_digest\":\"$2a$12$k8woM3oby.zkJpZiXfURNeXTsIT5cqo0zLgdzyektJjXNq.C4llo2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-17T09:03:35.552-04:00\",\"updated_at\":\"2022-12-17T09:03:35.552-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127514564",
+    "user": "{\"id\":86,\"name\":\"Alvin Pirela\",\"username\":\"Alvin Pirela\",\"email\":\"alvinpirela@gmail.com\",\"cedula\":\"V12513907\",\"password_digest\":\"$2a$12$M5AdfIU4bZ8RH1qBaKmnru9bj2.epPMept9YQwJFINNEQqgIujOqK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-20T08:49:44.431-04:00\",\"updated_at\":\"2022-12-20T08:49:44.431-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121044891",
+    "user": "{\"id\":87,\"name\":\"Carlos Javier\",\"username\":\"CARLOS JAVIER\",\"email\":\"carlosjavier99@gmail.com\",\"cedula\":\"V24254544\",\"password_digest\":\"$2a$12$Uv7og4uZv/WuxTGpZNo0lu4QBC.W/nwdd65N5h.PRP99mzj.frYJG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-23T08:52:13.636-04:00\",\"updated_at\":\"2023-04-16T03:01:02.342-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246142083",
+    "user": "{\"id\":88,\"name\":\"Yordis Quintero\",\"username\":\"betseven\",\"email\":\"yordisquintero@gmail.com\",\"cedula\":\"V26189144\",\"password_digest\":\"$2a$12$zmlLZg/2/NYw8rq.zpXGXuH0Hns1usgt5ng1HrRTA.1h7cYzsq3DK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-23T08:54:26.766-04:00\",\"updated_at\":\"2022-12-23T08:54:26.766-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "041266666524",
+    "user": "{\"id\":89,\"name\":\"ORLANDO FUENMAYOR\",\"username\":\"ORLANDO FUENMAYOR\",\"email\":\"orlandofuenmayor99@gmail.com\",\"cedula\":\"V8489489\",\"password_digest\":\"$2a$12$XNbpcRbHI644P4U2evmYROUBgtf03Jh.j35u9JhS8YQeI6zadLWPe\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-23T12:05:17.898-04:00\",\"updated_at\":\"2022-12-23T12:05:17.898-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126914585",
+    "user": "{\"id\":90,\"name\":\"Alberto Gonzales\",\"username\":\"Alberto Gonzales\",\"email\":\"albertovilla147@gmail.com\",\"cedula\":\"V20687148\",\"password_digest\":\"$2a$12$CkKJ1/4/dEVSslj8SvV84.v/nGIg1RMgEvoLQ47yMj7l3aZESDxVO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-27T13:26:08.129-04:00\",\"updated_at\":\"2022-12-27T13:26:08.129-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146666666",
+    "user": "{\"id\":91,\"name\":\"Orlando Pacho\",\"username\":\"PACHO\",\"email\":\"orlandopacho99@gmail.com\",\"cedula\":\"V13416203\",\"password_digest\":\"$2a$12$HHUwXYs2O2FtLtwicsXNieupZzQqnZEdj3PQvszfF25YGICM0tgrO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2022-12-31T08:18:40.235-04:00\",\"updated_at\":\"2023-04-16T03:01:02.356-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246021469",
+    "user": "{\"id\":92,\"name\":\"Franklin Finol\",\"username\":\"Betseven01\",\"email\":\"franklin10@gmail.com\",\"cedula\":\"V7834253\",\"password_digest\":\"$2a$12$c8pfNB2bjoU.N2wFKOJC3eDOz6yQ4RCJUypDOfNod4pnje7FZN/uu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-04T08:48:20.686-04:00\",\"updated_at\":\"2023-04-16T03:01:02.363-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246105792",
+    "user": "{\"id\":93,\"name\":\"Keiber Fernandez\",\"username\":\"Betseven\",\"email\":\"keiber13@gmail.com\",\"cedula\":\"V31070290\",\"password_digest\":\"$2a$12$M00noxxDDp0UCW1ZfE.6yuhHaa759PMV8PF/Z69ONx3RZtTlc1ynK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-04T10:25:07.832-04:00\",\"updated_at\":\"2023-04-16T03:01:02.369-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146901221",
+    "user": "{\"id\":94,\"name\":\"Nelson Moran\",\"username\":\"NELSON MORAN\",\"email\":\"nelsonmoran99@gmail.com\",\"cedula\":\"V7607668\",\"password_digest\":\"$2a$12$9NQ0FMIY5lpkPMBxi7nvGOJK.D7H1X6Cecf3gudpl2cgKQRVieHWK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-07T11:08:21.092-04:00\",\"updated_at\":\"2023-04-16T03:01:02.374-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246915854",
+    "user": "{\"id\":95,\"name\":\"Nervis Vargas\",\"username\":\"Nervis Vargas\",\"email\":\"nervisvar@gmail.com\",\"cedula\":\"V7620654\",\"password_digest\":\"$2a$12$LoK84IrcLxqo.wh6LQD1Uu34zqLAyQwsFx.fyi/Fzqlu362Ehv/nS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-14T08:30:58.021-04:00\",\"updated_at\":\"2023-01-14T08:30:58.021-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04123983941",
+    "user": "{\"id\":96,\"name\":\"Rafael Paredes\",\"username\":\"RAFAEL PAREDES\",\"email\":\"rafaelgregorioparedes@gmail.com\",\"cedula\":\"V10409193\",\"password_digest\":\"$2a$12$AqOgIpE0RPsAkeAMEOC5peGNyWo7R9eoCaVz8H9/4uZD3OIk8P//S\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-14T09:29:14.417-04:00\",\"updated_at\":\"2023-04-16T03:01:02.384-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246848125",
+    "user": "{\"id\":97,\"name\":\"Rafael Fuenmayor\",\"username\":\"RAFAEL FUENMAYOR\",\"email\":\"rafaelfuenmayor99@gmail.com\",\"cedula\":\"V25599166\",\"password_digest\":\"$2a$12$4uDchB2kR1I9F.ult086uOkL5EBVtv3DRwNvwKMKnSyuzia6b/fmq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-17T08:50:13.355-04:00\",\"updated_at\":\"2023-04-16T03:01:02.389-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04142258580",
+    "user": "{\"id\":99,\"name\":\"Oswaldo Garcia\",\"username\":\"los compadres\",\"email\":\"argoca01@gmail.com\",\"cedula\":\"V6128181\",\"password_digest\":\"$2a$12$qyimz654lx30v5H5YWWu1uNK0ec3rywPcg1Q5HwEPTiIqncka.aOu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-19T15:13:43.782-04:00\",\"updated_at\":\"2023-04-16T03:01:02.394-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120000100",
+    "user": "{\"id\":103,\"name\":\"Edgar Naranjos\",\"username\":\"naranjos\",\"email\":\"edgar_naranjo16@hotmail.com\",\"cedula\":\"V23554307\",\"password_digest\":\"$2a$12$q3v6Vf.JNh7Hr78uSkdpg.gzFraaZoepC9465OzWBfJM8tioj2r8G\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-19T19:31:15.510-04:00\",\"updated_at\":\"2023-01-19T19:31:15.510-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146011968",
+    "user": "{\"id\":105,\"name\":\"Angel Fuenmayor\",\"username\":\"ANGEL FUENMAYOR\",\"email\":\"angelfuenmayor99@gmail.com\",\"cedula\":\"V11297010\",\"password_digest\":\"$2a$12$kqsxrRN6vQdCDwhJDtZ0heQ9CVfD7m.PRc7nVcOQAOf1mcha/ElzC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-23T09:57:33.911-04:00\",\"updated_at\":\"2023-04-16T03:01:02.403-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04129697333",
+    "user": "{\"id\":106,\"name\":\"Jose Bermudez\",\"username\":\"JOSE BERMUDEZ\",\"email\":\"josebermudez99@gmail.com\",\"cedula\":\"V19680215\",\"password_digest\":\"$2a$12$ScHyuxGt06EDwADyI8D4U.k5F1p7ZfACzB2EbZDeLFRFdpU8r7oDG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-25T16:41:33.532-04:00\",\"updated_at\":\"2023-04-16T03:01:02.408-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04129692031",
+    "user": "{\"id\":107,\"name\":\"Gustavo Luengo\",\"username\":\"Gustavo luengo\",\"email\":\"gustavoleungo@gmail.com\",\"cedula\":\"V18007521\",\"password_digest\":\"$2a$12$rte1XZnFqmI3hjRh0.u4R.RzrsX6IWQsGfZag6pd6HV2.radkYwRm\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-26T10:28:49.722-04:00\",\"updated_at\":\"2023-04-16T03:01:02.413-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246161934",
+    "user": "{\"id\":109,\"name\":\"Juan Ferrer\",\"username\":\"juan ferrer\",\"email\":\"juanferrer@gmail.com\",\"cedula\":\"V11068563\",\"password_digest\":\"$2a$12$CDSzLcg2KwcetkJ5cbPvYuzSKZ9dkm1iuGNYtVE2nlrH4g9ExNgJO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-27T08:46:48.011-04:00\",\"updated_at\":\"2023-01-27T08:46:48.011-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121003599",
+    "user": "{\"id\":110,\"name\":\"Johel Reverol\",\"username\":\"JOHEL REVEROL\",\"email\":\"johelreverol99@gmai.com\",\"cedula\":\"V15766265\",\"password_digest\":\"$2a$12$/Xgg/ZnP2kDxAbV.jhITF.sYt9E2Q5MO/7tquvclPhT7J38kBhdlS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-27T16:12:42.176-04:00\",\"updated_at\":\"2023-04-16T03:01:02.422-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246114129",
+    "user": "{\"id\":111,\"name\":\"Eduardo  Villalobos\",\"username\":\"EDUARDO VILLALOBOS\",\"email\":\"villaloboseduardo01@gmail.com\",\"cedula\":\"V23266358\",\"password_digest\":\"$2a$12$dRvqXAQQ1xpYNsmLmp5XxuMs8BGe2nfMMAdPZ9uPDaTWzdI45GVhu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-27T16:43:05.907-04:00\",\"updated_at\":\"2023-04-16T03:01:02.428-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125809525",
+    "user": "{\"id\":112,\"name\":\"Emilio Chacin\",\"username\":\"EMILIO CHACIN\",\"email\":\"emiliochacin99@gmail.com\",\"cedula\":\"V7875113\",\"password_digest\":\"$2a$12$xqkYIsMum2pwHQ57MQVP..KsZF3HSBP6X3ZVVDqHZ.PaPzDtIMkbu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-28T09:27:51.859-04:00\",\"updated_at\":\"2023-04-16T03:01:02.435-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04149662035",
+    "user": "{\"id\":113,\"name\":\"Johel Morales\",\"username\":\"Johel morales\",\"email\":\"johelm12@mail.com\",\"cedula\":\"V22010883\",\"password_digest\":\"$2a$12$/fE3mbG.htANkbzt7bTH9u93s1m.8c9JvN0XfOwa1tC23M2w5f4xu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-28T09:33:48.344-04:00\",\"updated_at\":\"2023-01-28T09:33:48.344-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246935090",
+    "user": "{\"id\":114,\"name\":\"Nestor Ledezma\",\"username\":\"los compadres\",\"email\":\"halbornoz@gmail.com\",\"cedula\":\"V27886714\",\"password_digest\":\"$2a$12$MptfMQy48UdNJaNDdlhOH.SYWj7VydZMtL0D/hH6HXSM.mwHNlUb2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-30T17:13:39.009-04:00\",\"updated_at\":\"2023-01-30T17:13:39.009-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126952963",
+    "user": "{\"id\":115,\"name\":\"Claudio Montiel\",\"username\":\"claudio montiel\",\"email\":\"claudiomon456@gmail.com\",\"cedula\":\"V15287595\",\"password_digest\":\"$2a$12$1DfTz3sXWQxGIoZldo6DEeww.ZsDuTTGHtsnJ13G1PA9DElSA2yjm\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-01-31T17:56:15.414-04:00\",\"updated_at\":\"2023-08-30T12:56:36.902-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04248934422",
+    "user": "{\"id\":116,\"name\":\"Leonaldo Bracho\",\"username\":\"leonaldo bracho\",\"email\":\"leonal1452@mail.com\",\"cedula\":\"V20277315\",\"password_digest\":\"$2a$12$9Bmdwpev34l4xsdGm7Lkg.SifoiN51rj1HUWbgNypgk3HD9YMlT/u\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-02-04T09:22:52.653-04:00\",\"updated_at\":\"2023-02-04T09:22:52.653-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04128498795",
+    "user": "{\"id\":117,\"name\":\"Wilfredo Chacin\",\"username\":\"wilfredo cgacin\",\"email\":\"wilfredo147@gmail.com\",\"cedula\":\"V21164649\",\"password_digest\":\"$2a$12$HfggW8mfJwqPSGeaultGIuIaRAdBlBekRM2uEtVGT2GuEkCDa8KkG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-02-11T12:04:46.157-04:00\",\"updated_at\":\"2023-02-11T12:04:46.157-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121684181",
+    "user": "{\"id\":120,\"name\":\"Larry Fuenmayor\",\"username\":\"LARRY FUENMAYOR\",\"email\":\"larryfuenmayor99@gmail.com\",\"cedula\":\"V14736286\",\"password_digest\":\"$2a$12$AvOwydQ2MzMa5NFrL588q.aJAo2kt/9stzTD6kB2TABOtq82FDCtK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-02-17T10:23:14.681-04:00\",\"updated_at\":\"2023-04-16T03:01:02.457-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "0426-5667432",
+    "user": "{\"id\":121,\"name\":\"Ronal Gonzales\",\"username\":\"Ronal Gonzales\",\"email\":\"ronal148@gmail.com\",\"cedula\":\"V24381353\",\"password_digest\":\"$2a$12$I/9jOO.4ABEOebGHOnA3I.0ZrfGQsRG5jd8YEPmgwwzTYn7X28wke\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-02-17T11:26:13.019-04:00\",\"updated_at\":\"2023-02-17T11:26:13.019-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146310390",
+    "user": "{\"id\":122,\"name\":\"Rolando Fuenmayor\",\"username\":\"ROLANDO FUENMAYOR\",\"email\":\"rolandofuenmayor14@gmail.com\",\"cedula\":\"V17951577\",\"password_digest\":\"$2a$12$sN.0zE4GZc3c9nX63vedsO6YHvSj1TiDTajcg.ki0m37iWAwzJvRS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-02-17T12:08:29.677-04:00\",\"updated_at\":\"2023-04-16T03:01:02.464-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125769735",
+    "user": "{\"id\":123,\"name\":\"Johan Rios\",\"username\":\"JOHAN RIOS\",\"email\":\"johanrios99@gmail.com\",\"cedula\":\"V18572746\",\"password_digest\":\"$2a$12$GD5UiFGR5jWL.wuU7PWpIuzz7QI6yiMayIVdm75etbjcLsjqsruya\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-02-17T12:41:50.271-04:00\",\"updated_at\":\"2023-04-16T03:01:02.474-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125140929",
+    "user": "{\"id\":124,\"name\":\"Omar Fuenmayor\",\"username\":\"OMAR FUENMAYOR\",\"email\":\"omarfuenmayor99@gmail.com\",\"cedula\":\"V18921262\",\"password_digest\":\"$2a$12$FxuwC58r06hj1lWleJXzE.Byapg2vfA3.1uc78L315rNiV73JsSOm\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-02-17T13:15:03.254-04:00\",\"updated_at\":\"2023-04-16T03:01:02.479-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126430003",
+    "user": "{\"id\":125,\"name\":\"Yohandry Gonzalez\",\"username\":\"yohandry gonzalez\",\"email\":\"yohandry16920843@gmail.com\",\"cedula\":\"V16920843\",\"password_digest\":\"$2a$12$b14UBTqOA/6TGRkg2JKAFutYl9SyevZhS.ACKF8ChHcnNVgH/VOU.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-02-21T11:48:00.455-04:00\",\"updated_at\":\"2023-04-16T03:01:02.485-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126705500",
+    "user": "{\"id\":126,\"name\":\"Yorvanis Chacin\",\"username\":\"yorvanis chacin\",\"email\":\"yorvanis789@mail.com\",\"cedula\":\"V27153454\",\"password_digest\":\"$2a$12$uyen4/2QvJxlNFm8VQqMm.pi4MCWUr63AmT.EANQ/0AYqWWXbNm9m\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-02-24T09:34:25.092-04:00\",\"updated_at\":\"2023-02-24T09:34:25.092-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04124736755",
+    "user": "{\"id\":127,\"name\":\"Yusbelly Quintero\",\"username\":\"los compadres\",\"email\":\"yusbelisquintero35@gmail.com\",\"cedula\":\"V16783627\",\"password_digest\":\"$2a$12$g8zS8HtweJKPmhyaiQFSJORIJBvs.wHbVX1hS0YocK39en0zwGWoy\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-01T10:59:27.868-04:00\",\"updated_at\":\"2023-03-01T10:59:27.868-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04149669747",
+    "user": "{\"id\":128,\"name\":\"Rony Urdaneta\",\"username\":\"rony urdaneta\",\"email\":\"roni458@gmail.com\",\"cedula\":\"V25396759\",\"password_digest\":\"$2a$12$T.hLzw.0HghvQA6PM/DL6uSHcDeHi5LwYbvz9udeWUPQYP2jcweNy\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-01T18:01:24.673-04:00\",\"updated_at\":\"2023-03-01T18:01:24.673-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "3145326786",
+    "user": "{\"id\":129,\"name\":\"Luis Quintero\",\"username\":\"luis quintero\",\"email\":\"luiserne458@gmail.com\",\"cedula\":\"V23854543\",\"password_digest\":\"$2a$12$eU.Ih/blwxelLgEuD68O1egVdT2Mn0YMtQDB61PXZ9bEZZpMUguKC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-04T08:20:20.457-04:00\",\"updated_at\":\"2023-03-04T08:20:20.457-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126446222",
+    "user": "{\"id\":130,\"name\":\"Rommel Nava\",\"username\":\"ROMMEL NAVA\",\"email\":\"rommelnava99@gmail.com\",\"cedula\":\"V6663679\",\"password_digest\":\"$2a$12$7dL89T93spPYe4U2mpKNquKgq/x0US6FlMjIlh7JOYvzdgUd262p.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-04T10:38:48.255-04:00\",\"updated_at\":\"2023-04-16T03:01:02.504-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "0412168466",
+    "user": "{\"id\":131,\"name\":\"Javier Diaz\",\"username\":\"Javier Diaz\",\"email\":\"javierdiazt406@gmail.com\",\"cedula\":\"V29543140\",\"password_digest\":\"$2a$12$4scA6aWDaAZf.vNpjiCxleHOp6c8AJ4LNFCOJffnughmrVsrHqNpG\",\"role\":\"Admin\",\"status\":true,\"created_at\":\"2023-03-05T20:59:20.486-04:00\",\"updated_at\":\"2023-04-16T03:01:02.614-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120759121",
+    "user": "{\"id\":132,\"name\":\"Yohangel Valbuena\",\"username\":\"Jhon castillo\",\"email\":\"yohangelvalbuena@gmail.com\",\"cedula\":\"V20442530\",\"password_digest\":\"$2a$12$jygbLao5EEk/EzL08eful.zrxD7mJaoHsRkFpzWCftx7TrMWU5OxO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-07T08:27:59.444-04:00\",\"updated_at\":\"2023-03-07T08:27:59.444-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126908346",
+    "user": "{\"id\":133,\"name\":\"Edwin Gonzalez\",\"username\":\"Jhon castillo\",\"email\":\"edwingonzalez@gmail.com\",\"cedula\":\"V10448289\",\"password_digest\":\"$2a$12$UKfGqmi0/.icffBeQTtNS.k/pNk/4vFjhPO3GLuniNO.oftp4FF4u\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-07T10:43:03.946-04:00\",\"updated_at\":\"2023-03-07T10:43:03.946-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04262635481",
+    "user": "{\"id\":134,\"name\":\"Fabiola Villalobos\",\"username\":\"fabiola villalobos\",\"email\":\"vfabiola162@gmail.com\",\"cedula\":\"V29787600\",\"password_digest\":\"$2a$12$FfcH8sK.fziasp6C5iZbl.NguqTMKWlmaUfW4m4FdcgAUOWyfgVny\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-07T16:41:49.118-04:00\",\"updated_at\":\"2023-04-16T03:01:02.516-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120624654",
+    "user": "{\"id\":136,\"name\":\"Carlos Finol\",\"username\":\"Jhon castillo\",\"email\":\"carlosfinol@gmail.com\",\"cedula\":\"V20686962\",\"password_digest\":\"$2a$12$8BcESzElNnL6xHmrVDbR4etdRYm2wZKJ5I/Z55.iwwgWALEmqSMMO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-10T13:09:00.523-04:00\",\"updated_at\":\"2023-04-16T03:01:02.528-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04169671889",
+    "user": "{\"id\":137,\"name\":\"Argimiro Fleires\",\"username\":\"Jhon castillo\",\"email\":\"argimirofleires@gmail.com\",\"cedula\":\"V09779444\",\"password_digest\":\"$2a$12$9lpX30ax9ofYjy5XAeOSEuWir5nFMti.YqT0sofUs7Xcwo53dkRRa\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-10T14:02:35.841-04:00\",\"updated_at\":\"2023-03-10T14:02:35.841-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125146641",
+    "user": "{\"id\":138,\"name\":\"Alberto Gonzalez\",\"username\":\"Jhon castillo\",\"email\":\"albertogonzalez@gmail.com\",\"cedula\":\"V020687148\",\"password_digest\":\"$2a$12$YHQL/Td83Y2nCuXAqO8S3.2.EzsT/7ul0udoQYuU.tPpoyVPbAqYK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-10T19:02:30.110-04:00\",\"updated_at\":\"2023-03-10T19:02:30.110-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121045829",
+    "user": "{\"id\":139,\"name\":\"Manuel Peley\",\"username\":\"MANUEL PELEY\",\"email\":\"manuelpeley99@gmail.com\",\"cedula\":\"V5035543\",\"password_digest\":\"$2a$12$KqqUlAlLugpQCk9r7a4uu.K1bOdcvlSVMT9CT75Ipe1y1qYAKbn9e\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-11T08:54:27.131-04:00\",\"updated_at\":\"2023-04-16T03:01:02.544-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125147436",
+    "user": "{\"id\":140,\"name\":\"Mauricio Madueño\",\"username\":\"Jhon castillo\",\"email\":\"mauriciojose@gmail.com\",\"cedula\":\"V14920396\",\"password_digest\":\"$2a$12$sciTSibuSMzpKUS9aZoqCugPsVmfEsf3KgWJPG4NZoxh1yvR1xUVS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-11T09:24:14.062-04:00\",\"updated_at\":\"2023-03-11T09:24:14.062-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120672669",
+    "user": "{\"id\":141,\"name\":\"Vladimir Beltran\",\"username\":\"VLADIMIR BELTRAN\",\"email\":\"vladimirbeltran25@gmail.com\",\"cedula\":\"V19072384\",\"password_digest\":\"$2a$12$sHUpPDHwzvmmSg8QHl./l.sa2h6VqVlPaRKo//d5MrjqHw22/xEnS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-11T10:42:38.999-04:00\",\"updated_at\":\"2023-04-16T03:01:02.555-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "0412555555",
+    "user": "{\"id\":143,\"name\":\"Gustavo\",\"username\":\"Gustavo Fuenmayor\",\"email\":\"gustavo@gmail.com\",\"cedula\":\"V1234567\",\"password_digest\":\"$2a$12$JAMw8BvyK4AlqWYVkX/Vu.WSizJZqtIA0c/NL2vI/71VMIDLozeh2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-13T18:03:36.633-04:00\",\"updated_at\":\"2023-03-13T18:03:36.633-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04149642448",
+    "user": "{\"id\":144,\"name\":\"Alexander Sanchez\",\"username\":\"PAPOTE\",\"email\":\"alexandersanchez99@gmail.com\",\"cedula\":\"V20846505\",\"password_digest\":\"$2a$12$jHgRy7xmBVrykIRIqV0TG.il4UYu3ljC6D70qB9cT9DTq9i5UAkO2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-17T09:21:24.717-04:00\",\"updated_at\":\"2023-04-16T02:52:16.323-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04169671889",
+    "user": "{\"id\":145,\"name\":\"Nelson Melea\",\"username\":\"Jhon castillo\",\"email\":\"nelsonmelea@gmail.com\",\"cedula\":\"V09776798\",\"password_digest\":\"$2a$12$WBmZiqZ51cRgwqjNN2kRtubgfocyLWU9BTco27QpTwpA8r.0EDGQC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-17T10:16:00.601-04:00\",\"updated_at\":\"2023-04-16T03:01:02.567-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "0414-6385468",
+    "user": "{\"id\":146,\"name\":\"Yusbelys Villalobos\",\"username\":\"El Cuji\",\"email\":\"rifamaxelcuji@gmail.com\",\"cedula\":\"V10424214\",\"password_digest\":\"$2a$12$bDm3TZhAT0zwW5aLJEZNVe2j4qpCsG/ozXbA3Wf5d1vshHoI64P.a\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-03-27T06:10:18.806-04:00\",\"updated_at\":\"2023-10-02T14:49:09.307-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126444779",
+    "user": "{\"id\":147,\"name\":\"Matilde Vilchez\",\"username\":\"Matilde Vilchez\",\"email\":\"rifamaxmvilchez@gmail.com\",\"cedula\":\"V5818166\",\"password_digest\":\"$2a$12$e4FQGMvMNs3O7Bb2f4a1Eem4dgEgkVBGPZ4.6ZzeC2eiRIiiKdDxq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-03-28T13:30:38.582-04:00\",\"updated_at\":\"2023-03-28T13:37:44.928-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04166662030",
+    "user": "{\"id\":148,\"name\":\"Luis Vilchez\",\"username\":\"Luis Vilchez\",\"email\":\"luisvilchez1@gmail.com\",\"cedula\":\"V10425995\",\"password_digest\":\"$2a$12$KZ7IHHTRe1AXAwMn/Qwp/ejDf7cjNgogvPDOTqstFueXsYtlLmPVu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-01T12:15:26.609-04:00\",\"updated_at\":\"2023-05-11T08:48:20.863-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "",
+    "user": "{\"id\":148,\"name\":\"Luis Vilchez\",\"username\":\"Luis Vilchez\",\"email\":\"luisvilchez1@gmail.com\",\"cedula\":\"V10425995\",\"password_digest\":\"$2a$12$KZ7IHHTRe1AXAwMn/Qwp/ejDf7cjNgogvPDOTqstFueXsYtlLmPVu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-01T12:15:26.609-04:00\",\"updated_at\":\"2023-05-11T08:48:20.863-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121992893",
+    "user": "{\"id\":149,\"name\":\"Jose Martinez\",\"username\":\"josemartinez\",\"email\":\"josemartinez@gmail.com\",\"cedula\":\"V10123756\",\"password_digest\":\"$2a$12$o3DkfSc6gwum3ItvgUw3ruHXCRZ5CWr0H5JD2t18d7MIlPUUyOeQi\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-05T23:36:33.100-04:00\",\"updated_at\":\"2023-05-11T08:48:20.858-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120707124",
+    "user": "{\"id\":151,\"name\":\"Wislevi Rios\",\"username\":\"wislevi17@gmail.com\",\"email\":\"wislevi17@gmail.com\",\"cedula\":\"V11068787\",\"password_digest\":\"$2a$12$7LvWbCqShkd6cSKCRwhgauCK0hdpH7garV2MlKJrqP1KZtBoK.Y.m\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-06T11:06:01.831-04:00\",\"updated_at\":\"2023-05-11T08:48:20.870-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04247841452",
+    "user": "{\"id\":152,\"name\":\"Jose Fernandez\",\"username\":\"JOSE FERNANDEZ\",\"email\":\"josefernandez99@gmail.com\",\"cedula\":\"V20846367\",\"password_digest\":\"$2a$12$QXra.RDESamCy9Q5VixWXueT6NCqc4fUlJXdAOI67J8n65v36U1TO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-12T09:51:34.374-04:00\",\"updated_at\":\"2023-05-11T08:48:20.875-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146647151",
+    "user": "{\"id\":153,\"name\":\"Alex  Villalobos\",\"username\":\"ALEXANDER\",\"email\":\"alexamdervillalobos99@gmail.com\",\"cedula\":\"V11067144\",\"password_digest\":\"$2a$12$nGkY2NySrP/62n.OZdvBfOYBJ2QtYMxNGDAW9Icx84oUmfOK89hYy\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-15T07:51:29.978-04:00\",\"updated_at\":\"2023-05-11T08:48:20.880-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04161143144",
+    "user": "{\"id\":154,\"name\":\"Yojand Fuenmayor\",\"username\":\"yojandrifu@gmail.com\",\"email\":\"yojandrifu@gmail.com\",\"cedula\":\"V29892243\",\"password_digest\":\"$2a$12$uRWlFzsYIvwlZfuEfC5ZIuW2Y.6rlTOEJ6tmOCJUPoB06xcE16ufm\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-15T10:27:41.212-04:00\",\"updated_at\":\"2023-05-11T08:48:20.888-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125148963",
+    "user": "{\"id\":155,\"name\":\"Jose Miguel Gonzalez\",\"username\":\"jhon castillo\",\"email\":\"josemiguel@gmail.com\",\"cedula\":\"V23753968\",\"password_digest\":\"$2a$12$AkleYtT.AjGGN3m2TtVgFOAZT5xFPN9xG4qKHT88hVYDbZPgH0Xt.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-20T10:12:20.668-04:00\",\"updated_at\":\"2023-05-11T08:48:20.895-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146292605",
+    "user": "{\"id\":156,\"name\":\"Marvi Ferrer\",\"username\":\"marviferrer\",\"email\":\"marviferrer@gmail.com\",\"cedula\":\"V15888567\",\"password_digest\":\"$2a$12$5KvqtJM7uurX1tvv4jYrMOf8aVNq9gX12QwMK7f67Ir7K9ZtZn8eS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-20T16:19:02.323-04:00\",\"updated_at\":\"2023-05-11T08:48:20.900-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04142543545",
+    "user": "{\"id\":157,\"name\":\"Chavela Bracho\",\"username\":\"CHAVELA BRACHO\",\"email\":\"chavelabracho99@gmail.com\",\"cedula\":\"V7845106\",\"password_digest\":\"$2a$12$CXXVZhS3S1jY4QzW.kwp8.prdE4k2DLEeoLCmOWIAxskU/Q/Dl59G\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-21T17:59:55.436-04:00\",\"updated_at\":\"2023-05-11T08:48:20.906-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121234727",
+    "user": "{\"id\":158,\"name\":\"Nerio Gonzalez\",\"username\":\"jhon castillo\",\"email\":\"neriogonzalez@gmail.com\",\"cedula\":\"V3111297\",\"password_digest\":\"$2a$12$3gY2PUcTM9/fgb4cLEBNbenkrkHL3196RE4FSXsSasbtiV4Zm5YC.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-22T08:12:17.423-04:00\",\"updated_at\":\"2023-05-11T08:48:20.910-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246479999",
+    "user": "{\"id\":159,\"name\":\"Luis Rios\",\"username\":\"LUIS RIOS\",\"email\":\"luisrios99@gmail.com\",\"cedula\":\"V11066647\",\"password_digest\":\"$2a$12$EEcXoVKfIEChacshkp8h/eoBHVcowsIQlqqwiFv8zCOro6HnS.qeK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-27T09:38:08.505-04:00\",\"updated_at\":\"2023-05-11T08:48:20.915-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126514346",
+    "user": "{\"id\":160,\"name\":\"Jose  Rios\",\"username\":\"jioserios\",\"email\":\"joserios@gmail.com\",\"cedula\":\"V24510386\",\"password_digest\":\"$2a$12$zqB9icjxA/BYtdvH6SrkJe6.jJ7n.BVTf0UU1DbR03/e/Wuqm8gDe\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-27T10:14:14.581-04:00\",\"updated_at\":\"2023-05-11T08:48:20.920-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125138030",
+    "user": "{\"id\":161,\"name\":\"Enyer Briceno\",\"username\":\"ENYER BRICENO\",\"email\":\"enyerbriceno99@gmail.com\",\"cedula\":\"V11066617\",\"password_digest\":\"$2a$12$dwVz9tRY4i4izYAqN.i2BuyL5mmofOYDqTXB0IC1s8lxiFQ3rKUCK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-27T17:50:33.085-04:00\",\"updated_at\":\"2023-05-11T08:48:20.925-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121201152",
+    "user": "{\"id\":162,\"name\":\"Jenifer  Barrios\",\"username\":\"jhon castillo\",\"email\":\"jeniferbarrios@gmail.com\",\"cedula\":\"V16081325\",\"password_digest\":\"$2a$12$XgDiXcuZ408E8/DIi5vpgetPxur7xnp11cfkLc7DthlugAStTM9PC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-28T18:32:54.174-04:00\",\"updated_at\":\"2023-05-11T08:48:20.929-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126953223",
+    "user": "{\"id\":163,\"name\":\"Ulices  Carrasquero\",\"username\":\"ulices\",\"email\":\"ulices147@gmail.com\",\"cedula\":\"V7787850\",\"password_digest\":\"$2a$12$ty8UUZHPwkmygaasU9hsXe5BEWGPPWvx9tqLdynIN2smuuA3xjR6i\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-29T08:22:03.759-04:00\",\"updated_at\":\"2023-05-11T08:48:20.934-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120759121",
+    "user": "{\"id\":164,\"name\":\"Yohangel Valbuena\",\"username\":\"yohangel\",\"email\":\"yoangel998@gmail.com\",\"cedula\":\"V24442530\",\"password_digest\":\"$2a$12$KNAsVaW/dAYhGhSRN8AQnOVRIpW1K/ENJc1orPScV9Z6DOtW2Cg16\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-29T10:10:31.932-04:00\",\"updated_at\":\"2023-05-11T08:48:20.938-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146011421",
+    "user": "{\"id\":165,\"name\":\"Darjunior Vilchez\",\"username\":\"darjunior\",\"email\":\"darjunior78@gmail.com\",\"cedula\":\"V26949798\",\"password_digest\":\"$2a$12$zHBf1j8BpdyBQQLd2JzC0eYEDQlyTcTynikKZ0x.l7cH6ewmr1glu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-04-29T10:15:52.731-04:00\",\"updated_at\":\"2023-05-11T08:48:20.942-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146385468",
+    "user": "{\"id\":166,\"name\":\"Yusvelys Villalobos\",\"username\":\"yusvelys\",\"email\":\"yusvelysvilla@gmail.com\",\"cedula\":\"V10424215\",\"password_digest\":\"$2a$12$wIFsEEfmJg5epPtKbektWep7VaLRUwbJ055dlRlkLKZ4IwQAYk636\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-03T14:47:00.243-04:00\",\"updated_at\":\"2023-05-11T08:48:20.946-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125147391",
+    "user": "{\"id\":167,\"name\":\"William Colmenares\",\"username\":\"WILLIAM COLMENARES\",\"email\":\"williamcolmenares99@gmail.com\",\"cedula\":\"V17918569\",\"password_digest\":\"$2a$12$Rlxq4I9oeYc6NQtNajlqTufPrAZY2EOSMsy0J3CZy6MDJP7L7zxw.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-06T10:23:04.397-04:00\",\"updated_at\":\"2023-05-11T08:48:20.851-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146317864",
+    "user": "{\"id\":168,\"name\":\"Pa' Que Evanan\",\"username\":\"El Banano\",\"email\":\"rifamaxpaqevanan@gmail.com\",\"cedula\":\"V28488961\",\"password_digest\":\"$2a$12$dxRKA3W.WZZswLbTrX8QbuJD1K7Cw/tU5GuKlozrPxKbntl0gyt92\",\"role\":\"Taquilla\",\"status\":true,\"created_at\":\"2023-05-08T08:55:51.720-04:00\",\"updated_at\":\"2023-10-02T16:52:45.155-04:00\",\"access_permissions\":[\"50/50\",\"X100\",\"Rifamax\"]}"
+  },
+  {
+    "phone": "573114236252",
+    "user": "{\"id\":169,\"name\":\"Eglis  Fernandez\",\"username\":\"eglisfernandez\",\"email\":\"eglisfernandez@gmail\",\"cedula\":\"V16188062\",\"password_digest\":\"$2a$12$eoC.AGclhbXHq8sjEbep6eFIYgA045qdG1zV/Zxga1flM0iluiinq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-11T09:14:53.792-04:00\",\"updated_at\":\"2023-05-11T09:14:53.792-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121026623",
+    "user": "{\"id\":170,\"name\":\"Alex  Fuenmayor\",\"username\":\"ALEX FUENMAYOR\",\"email\":\"alexfuenmayor99@gmail.com\",\"cedula\":\"V25975652\",\"password_digest\":\"$2a$12$hUl1NrL7SckLjY1vcwfL7.NMK31jZAkZvuCRKFLeE4T3fpjiAIk/e\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-12T11:42:19.984-04:00\",\"updated_at\":\"2023-05-12T11:42:19.984-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04129233811",
+    "user": "{\"id\":171,\"name\":\"Ana Paz\",\"username\":\"ANA PAZ\",\"email\":\"anapaz99@gmail.com\",\"cedula\":\"V7801806\",\"password_digest\":\"$2a$12$w07kboTckOiwnd5nNhIU0.Q6d0UdJDgru2TPag.blmzL45Rc87Gby\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-13T08:19:43.304-04:00\",\"updated_at\":\"2023-05-13T08:19:43.304-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04123653698",
+    "user": "{\"id\":172,\"name\":\"Joaquin Finol\",\"username\":\"JOAQUIN\",\"email\":\"joaquinfinol99@gmail.com\",\"cedula\":\"V9718712\",\"password_digest\":\"$2a$12$G69eyLwWhLR.XQs/VW702u.DPcudYiyKOTkvJZ6OzI63uon6Cofuq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-13T09:24:52.086-04:00\",\"updated_at\":\"2023-05-13T09:24:52.086-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04123648918",
+    "user": "{\"id\":173,\"name\":\"Yohimer Atencio\",\"username\":\"Yohimer\",\"email\":\"yohimeratencio@gmail.com\",\"cedula\":\"V20983491\",\"password_digest\":\"$2a$12$ymjxMSCuzflXC.AsTOTw..Z9M0/DerNO5dfboAkETTyic9Pv/Zp8i\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-13T11:22:30.614-04:00\",\"updated_at\":\"2023-05-13T11:22:30.614-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146170000",
+    "user": "{\"id\":174,\"name\":\"Prueba Cuji\",\"username\":\"Cujiprueba\",\"email\":\"pruebacuji@gmail.com\",\"cedula\":\"V15545959\",\"password_digest\":\"$2a$12$f2dQNYqyc./Ch/yaYvuOze/691B5bXGKbX1H/RriLhHyOxWuP3pfS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-13T11:54:39.123-04:00\",\"updated_at\":\"2023-05-13T11:54:39.123-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246942762",
+    "user": "{\"id\":175,\"name\":\"Fabiola  Villalobos\",\"username\":\"fabiolavillalobos\",\"email\":\"fabiolavillalobos@gmail.com\",\"cedula\":\"V20070972\",\"password_digest\":\"$2a$12$IDFafKafz48x5HRgIDrpcessKaBGfmEkhX.OWmc.n2l8THGf7Djhq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-13T11:55:48.547-04:00\",\"updated_at\":\"2023-05-13T11:55:48.547-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121041807",
+    "user": "{\"id\":176,\"name\":\"Eudio Castillo\",\"username\":\"Eudio\",\"email\":\"eudiocastillo@gmail.com\",\"cedula\":\"V3510539\",\"password_digest\":\"$2a$12$ZxyLxzwGChcfHnbhzlgzVuGWZdHeyiFqJsMUjH.jI6qj0broCbEEW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-16T09:44:08.902-04:00\",\"updated_at\":\"2023-05-16T09:44:08.902-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04128654527",
+    "user": "{\"id\":177,\"name\":\"Gustavo Fuenmayor\",\"username\":\"gustavo\",\"email\":\"fuenmayorgustavo675@gmail.com\",\"cedula\":\"V18428723\",\"password_digest\":\"$2a$12$vELkAIqZt8nihS4kHy7Mxu0a5ycMg5uGDNO0xUy/NRPcnKJSZk.n2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-19T09:18:16.453-04:00\",\"updated_at\":\"2023-05-19T09:18:16.453-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127882056",
+    "user": "{\"id\":178,\"name\":\"Dayana Lozano\",\"username\":\"dayana\",\"email\":\"dayanalozano@hotmail.com\",\"cedula\":\"V19569872\",\"password_digest\":\"$2a$12$c63LY9dtF0lya0BMh51z2.bggcKOCyu5mBptxm/RKnVOs8vJkQkrq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-19T09:28:12.822-04:00\",\"updated_at\":\"2023-05-19T09:28:12.822-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04123648918",
+    "user": "{\"id\":179,\"name\":\"Yoimer Atencio\",\"username\":\"yoimer\",\"email\":\"yoimeratencion@gimeil.com\",\"cedula\":\"V20983491\",\"password_digest\":\"$2a$12$3M6S1ouJh1QiJu76OSC6yeke0qc26taZ1cYTXy8ArdUINcdnrc2CO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-19T10:27:37.204-04:00\",\"updated_at\":\"2023-05-19T10:27:37.204-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120759121",
+    "user": "{\"id\":180,\"name\":\"Yohangel Valbuena\",\"username\":\"yohangel\",\"email\":\"yohangelvalbuena@gimail.com\",\"cedula\":\"V20442530\",\"password_digest\":\"$2a$12$uFUqQn0HcLiuVXfzdyy8k.geCB1Yvl4iFJF59cq/Lu5BI3e8el4Y.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-19T11:27:15.938-04:00\",\"updated_at\":\"2023-05-19T11:27:15.938-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120759121",
+    "user": "{\"id\":181,\"name\":\"Yohangel Valbuena\",\"username\":\"yohangel\",\"email\":\"yohangelvalbuena@gimail.com\",\"cedula\":\"V20442530\",\"password_digest\":\"$2a$12$bnJ7mwQ3yFyCV3jj/PolF.Ykj5li3VfAmmdKzMU62QSJPEp3JnxT6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-19T11:35:34.274-04:00\",\"updated_at\":\"2023-05-19T11:35:34.274-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127663557",
+    "user": "{\"id\":182,\"name\":\"Rodolfo  Pirela\",\"username\":\"rodolfo\",\"email\":\"rodolfopirela@gimail.com\",\"cedula\":\"V14747017\",\"password_digest\":\"$2a$12$xUtpw3Ik6Vh8e2gljB6V7.uSnLUdt.ep.1.u2.EHAG/mP2jCs/UKe\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-19T16:34:42.169-04:00\",\"updated_at\":\"2023-05-19T16:34:42.169-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121248367",
+    "user": "{\"id\":183,\"name\":\"Frank Leal\",\"username\":\"frank\",\"email\":\"frankleal@gimal.com\",\"cedula\":\"V15059166\",\"password_digest\":\"$2a$12$fn65IB48zqDGoqojrG7Juu7aDTFMuPALXdJfO7TLMmax4oHAb6M7q\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-20T08:31:45.620-04:00\",\"updated_at\":\"2023-05-20T08:31:45.620-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125366598",
+    "user": "{\"id\":184,\"name\":\"Rafael Arrieta\",\"username\":\"rafael\",\"email\":\"rafaelarrienta@gimail.com\",\"cedula\":\"V31196374\",\"password_digest\":\"$2a$12$fWfQqD4jzLD9UzOc2z7ZNuQb3JgHcMtp75T1C9dAZde8uapcjjXKu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-20T08:44:48.981-04:00\",\"updated_at\":\"2023-05-20T08:44:48.981-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4120759120",
+    "user": "{\"id\":185,\"name\":\"Yohangel  Valbuena\",\"username\":\"yohangel\",\"email\":\"valbuenayohangel@gimal.com\",\"cedula\":\"V20442530\",\"password_digest\":\"$2a$12$LdspwJ87RDVGtILQL2pJ6eYB2evKQ3Lqa81mgDU6vxD0rqF6Azz.C\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-20T17:33:42.100-04:00\",\"updated_at\":\"2023-05-20T17:33:42.100-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120759121",
+    "user": "{\"id\":186,\"name\":\"Yohangel Valbuena\",\"username\":\"yohangel\",\"email\":\"mariavalbuena@gimail.com\",\"cedula\":\"V20442530\",\"password_digest\":\"$2a$12$D94ShhAe6nT390xG.YWB3uizwk6L3rOJLrKf8bmCA08iJEcQ4IJpS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-20T17:41:49.969-04:00\",\"updated_at\":\"2023-05-20T17:41:49.969-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121994477",
+    "user": "{\"id\":187,\"name\":\"David Donado\",\"username\":\"David\",\"email\":\"daviddon12@gmail.com\",\"cedula\":\"V83162101\",\"password_digest\":\"$2a$12$m1cwRs58pREnAJ3ZtuI/r.k89HoeNoYm6vYt/YyE1xphLamolqice\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-22T10:39:34.756-04:00\",\"updated_at\":\"2023-05-22T10:39:34.756-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146162741",
+    "user": "{\"id\":188,\"name\":\"Ender Gonzales\",\"username\":\"Los Compadres \",\"email\":\"saracheolivara@gmail.com\",\"cedula\":\"V7960522\",\"password_digest\":\"$2a$12$mRQbGM0hinPEbzkuMLXsue/BZH06mNIOgLwXxGgI7xPWOx3fzO346\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-22T15:08:54.037-04:00\",\"updated_at\":\"2023-05-22T15:08:54.037-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04149679283",
+    "user": "{\"id\":189,\"name\":\"El Hueso Morales\",\"username\":\"hueso\",\"email\":\"huesomorales@himail.com\",\"cedula\":\"V5068910\",\"password_digest\":\"$2a$12$Ot5pDaYgMNYd7Nm8zF0PlertqNclexuilW8ki/6zpU5BYSjttYH3G\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-24T09:54:49.096-04:00\",\"updated_at\":\"2023-05-24T09:54:49.096-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04149679283",
+    "user": "{\"id\":190,\"name\":\"Luis Morales\",\"username\":\"luis\",\"email\":\"luismorales@homail.com\",\"cedula\":\"V17564067\",\"password_digest\":\"$2a$12$ox/.bCCasnvt8NCvnQHVge8XK1tjCNO1B/ofXYiw7As5VMPbOaog.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-25T08:54:26.397-04:00\",\"updated_at\":\"2023-05-25T08:54:26.397-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125132418",
+    "user": "{\"id\":191,\"name\":\"Miguel Diaz\",\"username\":\"MIGUEL DIAZ\",\"email\":\"migueldiaz99@gmail.com\",\"cedula\":\"V17087271\",\"password_digest\":\"$2a$12$GDnvRBfPHZKS6UJ7BespU.Ns9gvsIrYccoIZrd2gmP6d5srrJL2du\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-25T17:55:17.702-04:00\",\"updated_at\":\"2023-05-25T17:55:17.702-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04149679283",
+    "user": "{\"id\":192,\"name\":\"Hueso Morales\",\"username\":\"hueso\",\"email\":\"moraleshueso@gmail.com\",\"cedula\":\"V5068910\",\"password_digest\":\"$2a$12$9kpBLg80NMVqH/zWXNAlT./ig8edUp1YuXOecYQuDhWvr/SrmB972\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-26T09:40:46.262-04:00\",\"updated_at\":\"2023-05-26T09:40:46.262-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4127663556",
+    "user": "{\"id\":193,\"name\":\"Rodolfo Pirela\",\"username\":\"rodolfo\",\"email\":\"pirelarodolfo@gmail.com\",\"cedula\":\"V14747017\",\"password_digest\":\"$2a$12$sSkcdZzsCaqaCvAdUm/EvermdG.HqlOWbRA6457RlRs/cOMNyeWGe\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-26T12:53:40.104-04:00\",\"updated_at\":\"2023-05-26T12:53:40.104-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127663557",
+    "user": "{\"id\":194,\"name\":\"Rodolfo Pirela\",\"username\":\"rodolfo\",\"email\":\"rodolfopirela@gmail.com\",\"cedula\":\"V14747017\",\"password_digest\":\"$2a$12$WeztfgY4kQEligFaNnuIsuFaQCL2dHr4I3FxUrwqwCWMz5ntuqXae\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-26T13:59:12.298-04:00\",\"updated_at\":\"2023-05-26T13:59:12.298-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120759121",
+    "user": "{\"id\":195,\"name\":\"Yohangel Valbuena\",\"username\":\"yohangel\",\"email\":\"mariaacosta@gmail.com\",\"cedula\":\"V20442530\",\"password_digest\":\"$2a$12$qRuupGEo7loGik/WiZZefuIdV/w60DAb./pNPiFMOpbotqBzjuK.y\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-26T17:59:23.725-04:00\",\"updated_at\":\"2023-05-26T17:59:23.725-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04129664138",
+    "user": "{\"id\":196,\"name\":\"Euro  Villalobos\",\"username\":\"euro\",\"email\":\"eurovillalobos@gmail.com\",\"cedula\":\"V31049704\",\"password_digest\":\"$2a$12$3Uw99mtNPYMao5xJk.tZ3eAimfochAbDY7l5vjcs2xpWnMUJ6WqqG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-27T08:14:55.664-04:00\",\"updated_at\":\"2023-05-27T08:14:55.664-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04162640958",
+    "user": "{\"id\":197,\"name\":\"Teddy Barrios\",\"username\":\"teddy\",\"email\":\"teddybarrios@gmail.com\",\"cedula\":\"V7656048\",\"password_digest\":\"$2a$12$LAaIDNvazxu14FqqWectY.oNYMsD72usKjUTkLQ3.qHjb/lsJJM1K\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-27T08:24:31.760-04:00\",\"updated_at\":\"2023-05-27T08:24:31.760-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04143608454",
+    "user": "{\"id\":198,\"name\":\"Greomar  Hernandez\",\"username\":\"greomar\",\"email\":\"greo@1254gmail.com\",\"cedula\":\"V26423222\",\"password_digest\":\"$2a$12$8EaE0IrwGKRsZUuk1aL/xO6saHQUJTg91KEihWcy03FrDZlnrEkZ2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-27T08:30:37.702-04:00\",\"updated_at\":\"2023-05-27T08:30:37.702-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126443516",
+    "user": "{\"id\":199,\"name\":\"Carlos Castillo\",\"username\":\"carlos\",\"email\":\"carloscastillo@gmail.com\",\"cedula\":\"V16988090\",\"password_digest\":\"$2a$12$wiRnN8OxcwX0atrtyMWeWO/snbra4/uErumBPoMim5g6aL1RHHA7W\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-27T09:23:31.463-04:00\",\"updated_at\":\"2023-05-27T09:23:31.463-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126828113",
+    "user": "{\"id\":200,\"name\":\"Ovis Prieto\",\"username\":\"OVIS PRIETO\",\"email\":\"ovispriet99@gmail.com\",\"cedula\":\"V13879278\",\"password_digest\":\"$2a$12$dbRU5TORd1h.RjUQsioGBegXRYZTZuN1F8J25wcUTa3WstMOK04g6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-27T11:59:41.814-04:00\",\"updated_at\":\"2023-05-27T11:59:41.814-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125130592",
+    "user": "{\"id\":201,\"name\":\"Johandry Romero\",\"username\":\"Jhon castillo\",\"email\":\"johandryromero@gmail.com\",\"cedula\":\"V20983575\",\"password_digest\":\"$2a$12$rmxanpQd2kPMkAyOIKzgYeNBzBtHTfDkXwEpUPFUtE88FmQrzL5OO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-27T15:46:04.117-04:00\",\"updated_at\":\"2023-06-14T10:43:13.091-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120759121",
+    "user": "{\"id\":202,\"name\":\"Yohangel Valbuena\",\"username\":\"yohangel\",\"email\":\"kelymaria@gmail.com\",\"cedula\":\"V20442530\",\"password_digest\":\"$2a$12$zWdu2c2GFIqV/z51W8ymAOXY9X6SulJSTmulVLXX1FnFdDkq8dozC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-05-31T16:12:35.993-04:00\",\"updated_at\":\"2023-05-31T16:12:35.993-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120759121",
+    "user": "{\"id\":203,\"name\":\"Yohangel Valbuena\",\"username\":\"yohangel\",\"email\":\"anamaria@gmail.com\",\"cedula\":\"V20442530\",\"password_digest\":\"$2a$12$5ty6duu6lbLtcvy42D/yPO0mpyW3jYJnl1ZmsKJhkMCgfpbNRDl9y\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-01T18:12:08.623-04:00\",\"updated_at\":\"2023-06-01T18:12:08.623-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127663557",
+    "user": "{\"id\":204,\"name\":\"Rodolfo Pirela\",\"username\":\"rodolfo\",\"email\":\"luisvillalobos@gmail.com\",\"cedula\":\"V14747017\",\"password_digest\":\"$2a$12$8mjzexYNT.fqzU2h.tORKOwk5d/wzNIjpX.rcLUrRoDVyvqZ.DKXO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-02T15:13:51.277-04:00\",\"updated_at\":\"2023-06-02T15:13:51.277-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127663557",
+    "user": "{\"id\":205,\"name\":\"Rodolfo Pirela\",\"username\":\"rodolfo\",\"email\":\"luisvillalobos@gmail.com\",\"cedula\":\"V14747017\",\"password_digest\":\"$2a$12$j052rdC4yuk01Nb343b1qeISdJhXm82i9Q5EaXu/i77Nn2Q.XwKAW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-02T15:13:51.616-04:00\",\"updated_at\":\"2023-06-02T15:13:51.616-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127663557",
+    "user": "{\"id\":206,\"name\":\"Rodolfo Pirela\",\"username\":\"fabian\",\"email\":\"fabianvillalobos@gmail.com\",\"cedula\":\"V14747017\",\"password_digest\":\"$2a$12$bKDlKNqCf7KWt30mAQqOvOS3qZbGRT56YhcQnjFaSzzOvasRRMPdy\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-02T15:33:29.275-04:00\",\"updated_at\":\"2023-06-02T15:33:29.275-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121041807",
+    "user": "{\"id\":207,\"name\":\"Eudio Castillo\",\"username\":\"liliana\",\"email\":\"lilianacastillo@gmail.com\",\"cedula\":\"V3510539\",\"password_digest\":\"$2a$12$XwYx9SCh89CnLvT8Uj43XeYmq0gc/gIeMlX.vCaUM9hmUVp6ulrlC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-03T08:30:34.892-04:00\",\"updated_at\":\"2023-06-03T08:30:34.892-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120712021",
+    "user": "{\"id\":208,\"name\":\"Jose  Lozada\",\"username\":\"joseramon\",\"email\":\"jose547@gmail.com\",\"cedula\":\"V20441882\",\"password_digest\":\"$2a$12$JFLy3vwy8uOfJSKx5VJiKeTSxvSqCfteW8SnOMcvJCOfvuWvpwC/S\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-03T08:36:41.020-04:00\",\"updated_at\":\"2023-06-03T08:36:41.020-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4128654526",
+    "user": "{\"id\":209,\"name\":\"Gustavo Fuenmayor\",\"username\":\"gustavo\",\"email\":\"yacciafuenmayor@gmail.com\",\"cedula\":\"V18428723\",\"password_digest\":\"$2a$12$Wonp48usfMqGCdn1r7w1vuthE3qzsulgnZbkqjDNS6p7ZzHqyiKd.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-03T08:42:38.943-04:00\",\"updated_at\":\"2023-06-03T08:42:38.943-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04269600348",
+    "user": "{\"id\":210,\"name\":\"Dario Quintero\",\"username\":\"dario\",\"email\":\"darioquintero@gmail.com\",\"cedula\":\"V11863078\",\"password_digest\":\"$2a$12$IDmZzNRN2GN3MIy.RfufLu9oPQmdhLkDUbABFFZc9slCL5uey2k9e\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-03T08:48:12.975-04:00\",\"updated_at\":\"2023-06-03T08:48:12.975-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126427035",
+    "user": "{\"id\":211,\"name\":\"Dilvis Bravo\",\"username\":\"DILVIS\",\"email\":\"dilvisbravo@gmail.com\",\"cedula\":\"V16492940\",\"password_digest\":\"$2a$12$67eFKJIRou3MBibtvjAKRuinMbRjhdg06C4aDyKIsah9yTfc9jRci\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-03T09:39:59.977-04:00\",\"updated_at\":\"2023-06-03T09:39:59.977-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120759121",
+    "user": "{\"id\":212,\"name\":\"Yohangel Valbuena\",\"username\":\"yohangel\",\"email\":\"eugeniovillalobos@gmail.com\",\"cedula\":\"V20442530\",\"password_digest\":\"$2a$12$AvzmxbJ01oEleXkUrj90LO2TZWH1OxA6TLO96Qqr0j70dmjz1.x2y\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-05T15:06:09.522-04:00\",\"updated_at\":\"2023-06-05T15:06:09.522-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146895036",
+    "user": "{\"id\":213,\"name\":\"Robert Chacin\",\"username\":\"ROBERT\",\"email\":\"robertchacin99@gmail\",\"cedula\":\"V11067494\",\"password_digest\":\"$2a$12$3Dodn/wJnAcOqb/ZjsMM8uP8hsCowEhc3jErNRFO.c4pkIb55aEKy\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-06T09:20:50.016-04:00\",\"updated_at\":\"2023-06-06T09:20:50.016-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121764352",
+    "user": "{\"id\":214,\"name\":\"Edilia  Suarez\",\"username\":\"EDILIA\",\"email\":\"ediliasuarez99@gmail.com\",\"cedula\":\"V7628384\",\"password_digest\":\"$2a$12$8YNNDu1b4z/JL26B6kiMbeo/6gn72TCf4UH3wJ74q6DkSgzH5Wcay\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-08T10:18:16.104-04:00\",\"updated_at\":\"2023-06-08T10:18:16.104-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120759121",
+    "user": "{\"id\":215,\"name\":\"Yohangel Valbuena\",\"username\":\"yohangel\",\"email\":\"elisaulvalbuena@gmail.com\",\"cedula\":\"V20442530\",\"password_digest\":\"$2a$12$upuiuQN4t3C1w5q.e5oHKO.w2zckk9eQEg1IDmwbwdZglaX1Nw3Ri\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-08T17:27:12.418-04:00\",\"updated_at\":\"2023-06-08T17:27:12.418-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04248784257",
+    "user": "{\"id\":216,\"name\":\"Andry  Villalobos\",\"username\":\"andry\",\"email\":\"andrivilla458@gmail.com\",\"cedula\":\"V16730476\",\"password_digest\":\"$2a$12$voLgxTDYFrJS4uay38R.WezOcrzWQJPyxHP5j7/iawkShUWyEvOhC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-09T09:49:53.344-04:00\",\"updated_at\":\"2023-06-09T09:49:53.344-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04149679283",
+    "user": "{\"id\":217,\"name\":\"El Hueso Morales\",\"username\":\"hueso\",\"email\":\"huesomorales@gmail\",\"cedula\":\"V5068910\",\"password_digest\":\"$2a$12$9AwhSBLW3FXA.XZmkjMqHuZ3n3fwQborGItO5UqIP2Cqc7XbW4RK6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-09T09:58:36.797-04:00\",\"updated_at\":\"2023-06-09T09:58:36.797-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04123648918",
+    "user": "{\"id\":218,\"name\":\"Yoimer Atencio\",\"username\":\"yoimer\",\"email\":\"yoimeratencio@gmail.com\",\"cedula\":\"V20983491\",\"password_digest\":\"$2a$12$/1v4TmzSrZeausPQdJBGm.3EM2fAN9SrIfFCRK8pnnsaHlrstW9.O\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-10T08:37:39.140-04:00\",\"updated_at\":\"2023-06-10T08:37:39.140-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146115896",
+    "user": "{\"id\":219,\"name\":\"Alejandro Morales\",\"username\":\"ALEJANDRO\",\"email\":\"alejandromorales99@gmail.com\",\"cedula\":\"V16621020\",\"password_digest\":\"$2a$12$7xvnvS2T3evgq.pXOxuAmeeDsmfczVyKvfPSRV.mmKQg50m5B6Hye\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-10T10:23:53.680-04:00\",\"updated_at\":\"2023-06-10T10:23:53.680-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146908335",
+    "user": "{\"id\":220,\"name\":\"Javier  Polanco\",\"username\":\"javier polanco\",\"email\":\"javipolanco5@gmail.com\",\"cedula\":\"V14639531\",\"password_digest\":\"$2a$12$1AD4cIzqfE5wAr3omLmkAea0W0KiyLu/q49qS/hLsE5b5cC0scDH2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-12T17:30:20.634-04:00\",\"updated_at\":\"2023-06-12T17:30:20.634-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146171111",
+    "user": "{\"id\":222,\"name\":\"Andys Fuenmayor\",\"username\":\"andyscda\",\"email\":\"andysfuenmayor@gmail.com\",\"cedula\":\"V10453957\",\"password_digest\":\"$2a$12$KpyrtiYmr3RIfublZ0bs5e1u9eby2j2TqrHG.HhJyrpSF9lAAZJ3C\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-14T17:56:15.306-04:00\",\"updated_at\":\"2023-06-14T17:56:15.306-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120759121",
+    "user": "{\"id\":223,\"name\":\"Yohangel Valbuena\",\"username\":\"yohangel\",\"email\":\"luisalberto@gmail.com\",\"cedula\":\"V20442530\",\"password_digest\":\"$2a$12$Adyf.hwKs6WmbABPhbKf.OMUaLPEVoqFqYFygscbKENCaq6LApq6q\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-15T17:15:42.523-04:00\",\"updated_at\":\"2023-06-15T17:15:42.523-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04128654527",
+    "user": "{\"id\":224,\"name\":\"Gustavo Fuenmayor\",\"username\":\"gustavo\",\"email\":\"enderjose@gmail.com\",\"cedula\":\"V18428723\",\"password_digest\":\"$2a$12$dXXmh2JLiFtxDmfCbtIXKO8qQME68UFxEzFrvCX0X1lU.SXMApwXW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-16T17:17:31.288-04:00\",\"updated_at\":\"2023-06-16T17:17:31.288-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146637535",
+    "user": "{\"id\":225,\"name\":\"Luis  Villalobos\",\"username\":\"luis\",\"email\":\"luisgerardo@gmail.com\",\"cedula\":\"V25201980\",\"password_digest\":\"$2a$12$6iWaaI9sKbMGSUhmXrNbvO5Wtib8gsNJUj6k8/KI5dgLAEBdbhmWi\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-17T09:13:09.174-04:00\",\"updated_at\":\"2023-06-17T09:13:09.174-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126832201",
+    "user": "{\"id\":226,\"name\":\"Ever  Montilla\",\"username\":\"EVER MONTILLA\",\"email\":\"ever12@gmail.com\",\"cedula\":\"V15750730\",\"password_digest\":\"$2a$12$TGdcFHEiEQo6bYPKjyyt2ua4t/mH/7apYGxM7SI1nw4bGChTtASTe\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-19T15:17:53.921-04:00\",\"updated_at\":\"2023-06-19T15:17:53.921-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126832201",
+    "user": "{\"id\":227,\"name\":\"Andriu Briñez\",\"username\":\"ANDRIU BRIÑEZ\",\"email\":\"andriu14@gmail.com\",\"cedula\":\"V15750731\",\"password_digest\":\"$2a$12$YAtQqbM4U4plVj.ByA/yKOkTvSIzMHhhOtbJ3IKGb.tDlKDpo3qJi\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-19T15:41:18.775-04:00\",\"updated_at\":\"2023-06-19T15:41:18.775-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04129483462",
+    "user": "{\"id\":228,\"name\":\"Edin  Aguirre\",\"username\":\"jhon castillo\",\"email\":\"edinaguirre@gmail.com\",\"cedula\":\"V15410154\",\"password_digest\":\"$2a$12$au.SnScuBXBFmOo1f60qUOFaZc00nLcFfWGlxoZ8mMy4o6wm9o3uy\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-20T08:37:54.485-04:00\",\"updated_at\":\"2023-06-20T08:37:54.485-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125135081",
+    "user": "{\"id\":229,\"name\":\"Hector Cabrera\",\"username\":\"HECTOR\",\"email\":\"hectorcabrera99@gmail.com\",\"cedula\":\"V19570729\",\"password_digest\":\"$2a$12$68HNjlo/eyAMBpnLvbGywO11cnpzLFo1qSquEgqA4K4Fip/CLheCG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-20T08:52:19.115-04:00\",\"updated_at\":\"2023-06-20T08:52:19.115-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120707124",
+    "user": "{\"id\":230,\"name\":\"Jose  Morales\",\"username\":\"jose morales\",\"email\":\"josemora58@gmail.com\",\"cedula\":\"V13370421\",\"password_digest\":\"$2a$12$ZXeym.tYsGs6ESq1YQSZ9uhOngpRNp3sXKPmpeLx0Xy5H48R9Rg36\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-21T11:32:50.079-04:00\",\"updated_at\":\"2023-06-21T11:32:50.079-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121045097",
+    "user": "{\"id\":231,\"name\":\"Bartolo Quintero\",\"username\":\"BARTOLO\",\"email\":\"bartoloquintero99@gmail.com\",\"cedula\":\"V5825659\",\"password_digest\":\"$2a$12$w8HZbyO4PZzqLUA7ycbmi.7mUBHIcyVBl7qaranGhxf9h4.i3MD0.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-23T10:06:37.063-04:00\",\"updated_at\":\"2023-06-23T10:06:37.063-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121021980",
+    "user": "{\"id\":233,\"name\":\"Johan Nava\",\"username\":\"johan\",\"email\":\"johannava@gmail.com\",\"cedula\":\"V20206427\",\"password_digest\":\"$2a$12$0Q4LVJ3ZYYVndCHIbZJP6Ohpd3tVG8m0kR5CP9lzN3QQex3QNa/o2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-24T08:19:55.115-04:00\",\"updated_at\":\"2023-06-24T08:19:55.115-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04262637878",
+    "user": "{\"id\":234,\"name\":\"Alfredo  Vilchez\",\"username\":\"MI ANGEL\",\"email\":\"alfredovilchez@gmail.com\",\"cedula\":\"V12217642\",\"password_digest\":\"$2a$12$N.8VYyFkiIw6n/SYkHaoOO7p/Eh4HgHWSQ3iGfxEu/hH6BG4sb6Lu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-24T08:59:25.029-04:00\",\"updated_at\":\"2023-06-24T08:59:25.029-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4127207711",
+    "user": "{\"id\":235,\"name\":\"Maykel Añez\",\"username\":\"MI ANGEL\",\"email\":\"maykelanez12@gmail.com\",\"cedula\":\"V26701584\",\"password_digest\":\"$2a$12$QLookdUIpsKz2pv.SRk3ZurXOtW9jpPM30.53RPmNjWMRDVLiZVO2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-24T09:11:42.321-04:00\",\"updated_at\":\"2023-06-24T09:11:42.321-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4129725342",
+    "user": "{\"id\":236,\"name\":\"Johana Leal\",\"username\":\"yohana\",\"email\":\"johanaleal@gmail.com\",\"cedula\":\"V16186247\",\"password_digest\":\"$2a$12$ybkOhOqSYe4GMP6F5t5Quudq0eCcZEdsaT1QHi456lKF2Uvd9wWn6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-24T10:32:16.731-04:00\",\"updated_at\":\"2023-06-24T10:32:16.731-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146179331",
+    "user": "{\"id\":237,\"name\":\"Andy Fuenmayor\",\"username\":\"andy\",\"email\":\"fueandyy20@gmail.com\",\"cedula\":\"V26276212\",\"password_digest\":\"$2a$12$FxhW2/itEreV353WmvHWs.AOms1fQJr20fc3.6FYStNSHRAyZ/Yj2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-24T11:52:42.035-04:00\",\"updated_at\":\"2023-06-24T11:52:42.035-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126413339",
+    "user": "{\"id\":238,\"name\":\"Lino  Nava\",\"username\":\"MI ANGEL\",\"email\":\"linonava123@gmail.com\",\"cedula\":\"V17931573\",\"password_digest\":\"$2a$12$yPb2TMQrF4zbdpPk0o8LO.frHdMZH5uB3KZX5nUZUsbu7gjm7NkNa\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-27T08:29:48.666-04:00\",\"updated_at\":\"2023-06-27T08:29:48.666-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126832201",
+    "user": "{\"id\":239,\"name\":\"Ever Montilla\",\"username\":\"MAXIMA\",\"email\":\"ever@gmail.con\",\"cedula\":\"V7804427\",\"password_digest\":\"$2a$12$I3jK.ioxW9QNwv2sWA7IouHpVBzDk2bGi8ul5YcgnxlVEWIsknQM6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-27T19:44:52.702-04:00\",\"updated_at\":\"2023-06-27T19:44:52.702-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4246129474",
+    "user": "{\"id\":240,\"name\":\"Jose Correa Correa\",\"username\":\" MI ANGEL\",\"email\":\"yexsycastillo@hotmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$PefT/pTrtEeAsXz7ME0y0e87Nn5p9WFlycUMUoTIEV3H7ZXJ8Z4sK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-27T19:52:08.660-04:00\",\"updated_at\":\"2023-06-27T19:52:08.660-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126627146",
+    "user": "{\"id\":241,\"name\":\"Jose Cardenas\",\"username\":\"MAXIMA\",\"email\":\"jose@gmail.con\",\"cedula\":\"V31712108\",\"password_digest\":\"$2a$12$h9bwjorJJxKoGL7IUitG2.KDoMULoWXArBaFosXb0bjoW21IBzcFO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-28T13:51:59.468-04:00\",\"updated_at\":\"2023-06-28T13:51:59.468-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "000000",
+    "user": "{\"id\":242,\"name\":\"Pello Pello\",\"username\":\"mi angel\",\"email\":\"castilloyexsy@hotmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$iItpEv1Yj5YK.9/k7DxIAO0Nsqyg4MIvH32hzgzoacaqPFQoFCk4y\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-28T22:44:20.992-04:00\",\"updated_at\":\"2023-06-28T22:44:20.992-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126413339",
+    "user": "{\"id\":243,\"name\":\"Lino Nava\",\"username\":\"jhon castillo\",\"email\":\"linonava@gmail.com\",\"cedula\":\"V17931573\",\"password_digest\":\"$2a$12$.OoSY8OPvKdFZZ6wlpAcp.EpxbKWh8fNiv4RuIrS49eis4XYmsU0m\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-29T10:07:52.395-04:00\",\"updated_at\":\"2023-06-29T10:07:52.395-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127697388",
+    "user": "{\"id\":244,\"name\":\"Eduin  Villalobos\",\"username\":\"eduin\",\"email\":\"eduinvillalobos@gmail.com\",\"cedula\":\"V10424986\",\"password_digest\":\"$2a$12$Y2XQyLgDeu89ixveDgk4GespJgSAtOB3DQ7W43LWQRd1qLSpD5Mxe\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-29T12:19:08.378-04:00\",\"updated_at\":\"2023-06-29T12:19:08.378-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125146113",
+    "user": "{\"id\":245,\"name\":\"Darwin  Chirino\",\"username\":\"MI ANGEL\",\"email\":\"darwuin@hotmail.com\",\"cedula\":\"V15763377\",\"password_digest\":\"$2a$12$93Y/kCyAaPqGEJJbO/AGXeZq5087r2un6Ec86ISJHKAhI4WmfdcdW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-29T16:08:58.723-04:00\",\"updated_at\":\"2023-06-29T16:08:58.723-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126339575",
+    "user": "{\"id\":246,\"name\":\"Periquito Periquito\",\"username\":\"MI ANGEL\",\"email\":\"periquito@hotmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$FOiYdNqpnqXHdNRBuQ7E5uNR7hNZiyDOAdxU4K6H7EE2W8xw0oQK.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-29T20:08:20.154-04:00\",\"updated_at\":\"2023-06-29T20:08:20.154-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125126103",
+    "user": "{\"id\":247,\"name\":\"Javier Molero\",\"username\":\"MI ANGEL\",\"email\":\"javier@hotmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$J0tCQPoodkNoNGjl47LlaOizT5W3FOerrp.e76PQaRLrPrXQUbwKe\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-29T21:50:55.452-04:00\",\"updated_at\":\"2023-06-29T21:50:55.452-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "041275852643",
+    "user": "{\"id\":248,\"name\":\"Gabriel Chavez\",\"username\":\"MI ANGEL\",\"email\":\"gabriel@hotmail.com\",\"cedula\":\"V30284425\",\"password_digest\":\"$2a$12$OBvqkhG8ONq21zPzL.ULhOqubMmPc4JLfSF7Yy4GG0KIyJesIjfCm\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-29T22:18:54.113-04:00\",\"updated_at\":\"2023-06-29T22:18:54.113-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4267654320",
+    "user": "{\"id\":249,\"name\":\"Julio Labarca\",\"username\":\"mi angel\",\"email\":\"julio@hotmail.com\",\"cedula\":\"V12867702\",\"password_digest\":\"$2a$12$sPgMAqd3TjthFWclzpwNS.0u/MjR/BJZuf.WUg19w.JxEZhS12C96\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-30T07:38:36.169-04:00\",\"updated_at\":\"2023-06-30T07:38:36.169-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146132522",
+    "user": "{\"id\":250,\"name\":\"Betmax Betmax\",\"username\":\"betmax\",\"email\":\"betmax456@gmail.com\",\"cedula\":\"V406055948\",\"password_digest\":\"$2a$12$l.LwQXUZQ8VFs8ujBVyh3u0zFufccB/O3x5zoxt6ltuSKqM7urBlG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-30T10:57:52.704-04:00\",\"updated_at\":\"2023-06-30T10:57:52.704-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04149679283",
+    "user": "{\"id\":251,\"name\":\"Luis  Morales\",\"username\":\"angel\",\"email\":\"angelmorales@gmail.com\",\"cedula\":\"V17564067\",\"password_digest\":\"$2a$12$vlM/wTMA8r4Fqr1AFDFbX.0vN3QWuYiEGQ8uA32QnJGOUY0p14C1C\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-30T15:40:10.080-04:00\",\"updated_at\":\"2023-06-30T15:40:10.080-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120814332",
+    "user": "{\"id\":252,\"name\":\"Segundo  Paz\",\"username\":\"MI ANGEL\",\"email\":\"segundo@hotmail.com\",\"cedula\":\"V9709956\",\"password_digest\":\"$2a$12$88kzvCOuDcdE1Vqpx6x.SO.bvtrmrbs1fYwUcJqu2jOH9Oc.8hO7e\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-30T17:58:21.547-04:00\",\"updated_at\":\"2023-06-30T17:58:21.547-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121043074",
+    "user": "{\"id\":253,\"name\":\"Jose Morales\",\"username\":\"jose\",\"email\":\"josemorales@gmail\",\"cedula\":\"V25044021\",\"password_digest\":\"$2a$12$0MhTUPZw1A.DqSdiU.aFmeLizgDRwucz10McqHxwR4nhsmhFKcUpO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-30T19:02:41.597-04:00\",\"updated_at\":\"2023-06-30T19:02:41.597-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125347087",
+    "user": "{\"id\":254,\"name\":\"Alex Hernandez\",\"username\":\"MI ANGEL\",\"email\":\"inversionesl30@gmail.com\",\"cedula\":\"V11067278\",\"password_digest\":\"$2a$12$FzIds7uVGeG9knE7jd0Lm.i7iEZl.bE1bK6RUl6fnnmMwkUTbFqFa\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-30T19:15:41.500-04:00\",\"updated_at\":\"2023-06-30T19:15:41.500-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4125347086",
+    "user": "{\"id\":255,\"name\":\"Hernandez Alex\",\"username\":\"MI ANGEL\",\"email\":\"alex@hotmail-com\",\"cedula\":\"V11067278\",\"password_digest\":\"$2a$12$bC.HGWujd5TFw3jBHQcOzukJTy2gz9Oa3d.L2yGNZUVVIfmGyFFM6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-06-30T19:32:02.753-04:00\",\"updated_at\":\"2023-06-30T19:32:02.753-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04129650172",
+    "user": "{\"id\":256,\"name\":\"Neumy Gutierrez\",\"username\":\"jhon castillo\",\"email\":\"neunygutierrez@gmai.com\",\"cedula\":\"V18518576\",\"password_digest\":\"$2a$12$kJl48TbrIGo.7CtXacl5OuElI9/149KEvCv6ljTvMmPbC9XWEZHBi\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-01T09:13:31.084-04:00\",\"updated_at\":\"2023-07-01T09:13:31.084-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126992509",
+    "user": "{\"id\":257,\"name\":\"Daniel Acosta\",\"username\":\"jhon castillo\",\"email\":\"danielacosta@gmail.com\",\"cedula\":\"V15623567\",\"password_digest\":\"$2a$12$oNrL5X46QU0ktoz5bxXPEuUrTt1DfqgqRqMr/wPj.Qx6EyFQe08LW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-01T09:22:57.163-04:00\",\"updated_at\":\"2023-07-01T09:22:57.163-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126832201",
+    "user": "{\"id\":258,\"name\":\"Andriu Briñez\",\"username\":\"MAXIMA CARRASQUERO\",\"email\":\"a@gmail.com\",\"cedula\":\"V15750730\",\"password_digest\":\"$2a$12$V44iXJdDxBT3HZjgmLOSlunp/FvCNi7tSZaGiZfiqu4/stsgHKg9.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-01T10:12:29.772-04:00\",\"updated_at\":\"2023-07-01T10:12:29.772-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126738311",
+    "user": "{\"id\":259,\"name\":\"Yohandri  Fuenmayor\",\"username\":\"yohandr\",\"email\":\"yoandri45@gmail.com\",\"cedula\":\"V21489369\",\"password_digest\":\"$2a$12$RBwhL8a1VB4plMUxI/zVQOi4pUsOz8GzMWzkiB1Lq6kO.elt5b4Gm\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-01T16:41:53.536-04:00\",\"updated_at\":\"2023-07-01T16:41:53.536-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4127992418",
+    "user": "{\"id\":260,\"name\":\"Vicente Rodriguez\",\"username\":\"MI ANGEL 2\",\"email\":\"vicente@hotmail.com\",\"cedula\":\"V9753688\",\"password_digest\":\"$2a$12$G7kmWzKaH8v8RMdIjrwoae4oDnHlonfLeAk2R6JQXo9JqVJCVKC7i\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-03T16:01:42.950-04:00\",\"updated_at\":\"2023-07-03T16:01:42.950-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4127992418",
+    "user": "{\"id\":261,\"name\":\"Vicente Rodriguez\",\"username\":\"MI ANGEL 2\",\"email\":\"vicente@hotmail.com\",\"cedula\":\"V9753688\",\"password_digest\":\"$2a$12$KWeJwJ4SMmfqwxinxxKYh.lZETbUjs/h9QzFxX6FloZQYkMUx/iqC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-03T16:01:43.889-04:00\",\"updated_at\":\"2023-07-03T16:01:43.889-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04128654527",
+    "user": "{\"id\":262,\"name\":\"Gustavo  Fuenmayor\",\"username\":\"gustavo\",\"email\":\"fuenmayorgustavo@gmail.com\",\"cedula\":\"V18428723\",\"password_digest\":\"$2a$12$zdsNYsy34VzoKhsXzOVQhebg/Clrq3A3nYYHdkZ151IppWoXzf/ja\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-04T08:41:29.849-04:00\",\"updated_at\":\"2023-07-04T08:41:29.849-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04122981989",
+    "user": "{\"id\":263,\"name\":\"Luis  Paz\",\"username\":\"Luis Paz\",\"email\":\"luispaz00@gmail.com\",\"cedula\":\"V19706918\",\"password_digest\":\"$2a$12$qVCRHEowXNYJFHWU.6hgSO1TllpmjU3a.mroYwDhC8qnV4j8QnaIG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-04T12:47:19.552-04:00\",\"updated_at\":\"2023-07-04T12:47:19.552-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125125212",
+    "user": "{\"id\":264,\"name\":\"Rudy Villalobos\",\"username\":\"MAXIMA\",\"email\":\"rudy@gmail.con\",\"cedula\":\"V16.426752\",\"password_digest\":\"$2a$12$KQ0WnuZqnMVoXUnWpKk2qu1GaLm3wxMidJMrxChjGXIotjAwySNhW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-05T17:31:22.311-04:00\",\"updated_at\":\"2023-07-05T17:31:22.311-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127663557",
+    "user": "{\"id\":265,\"name\":\"Rodolfo Pirela\",\"username\":\"rodolfo\",\"email\":\"mariavictoria@gmail.com\",\"cedula\":\"V14747017\",\"password_digest\":\"$2a$12$/RuSS49doQe2Jn9Nwq2T7Ojgp5qtl/xbIZP..qFOyX/TunWezuesi\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-06T17:01:15.054-04:00\",\"updated_at\":\"2023-07-06T17:01:15.054-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126952963",
+    "user": "{\"id\":266,\"name\":\"Claudio Montiel\",\"username\":\"MAXIMA\",\"email\":\"claudio@gmail.con\",\"cedula\":\"V15287595\",\"password_digest\":\"$2a$12$Q8pH1p3sGhunry49KgBbm.6mESVrE29bbS./dgoq0KayshRzLv.RG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-07T09:30:50.082-04:00\",\"updated_at\":\"2023-07-07T09:30:50.082-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127663557",
+    "user": "{\"id\":269,\"name\":\"Rodolfo Pirela\",\"username\":\"rodolfo\",\"email\":\"miguelangel@gmail.com\",\"cedula\":\"V14747017\",\"password_digest\":\"$2a$12$95Qo2Gm7pxFfdqwYgrQoEOTVbXuFdd91NmEnhgKIEWEB8LtBs.wji\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-07T12:19:59.996-04:00\",\"updated_at\":\"2023-07-07T12:19:59.996-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125961926",
+    "user": "{\"id\":270,\"name\":\"Manuel  Gonzalez\",\"username\":\"jhon castillo\",\"email\":\"manuelgonzalez@gmail.com\",\"cedula\":\"V8489744\",\"password_digest\":\"$2a$12$hpibaRYSAiWXq4LXRBlmLurquPXYK641KAMD3p8DyUDblzt8I7FOK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-07T16:57:34.261-04:00\",\"updated_at\":\"2023-07-07T16:57:34.261-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121660827",
+    "user": "{\"id\":271,\"name\":\"Yorelys Arrieta\",\"username\":\"yorelys\",\"email\":\"yorelysarrieta@gmail.com\",\"cedula\":\"V17177171\",\"password_digest\":\"$2a$12$WVHZ.TTPzY3nxi8aoxm50u5nXw1dvQHrtxiixa10kuzsp6SW5zDsG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-11T18:00:41.936-04:00\",\"updated_at\":\"2023-07-11T18:00:41.936-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121660827",
+    "user": "{\"id\":272,\"name\":\"Yorelys Arrieta\",\"username\":\"yorelys\",\"email\":\"arrietayorelys@gimail.com\",\"cedula\":\"V17177171\",\"password_digest\":\"$2a$12$yJVvnPf.Uj/cvar6j.EkH.ez.8BzziuWZDruUkn5kKHzrAITA6nc2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-11T18:18:45.581-04:00\",\"updated_at\":\"2023-07-11T18:18:45.581-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "00000000",
+    "user": "{\"id\":274,\"name\":\"Richard Richard\",\"username\":\"MI ANGEL\",\"email\":\"richard123@gmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$x3w8sU2v2CCnO2grHyYj6O1ayomzgPIkg91ZUbzoGAGQLO8XGBVZq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-14T09:19:16.808-04:00\",\"updated_at\":\"2023-07-14T09:19:16.808-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "00000000",
+    "user": "{\"id\":274,\"name\":\"Richard Richard\",\"username\":\"MI ANGEL\",\"email\":\"richard123@gmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$x3w8sU2v2CCnO2grHyYj6O1ayomzgPIkg91ZUbzoGAGQLO8XGBVZq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-14T09:19:16.808-04:00\",\"updated_at\":\"2023-07-14T09:19:16.808-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121043074",
+    "user": "{\"id\":275,\"name\":\"Jose Morales\",\"username\":\"jose\",\"email\":\"moralesjose@gmail.com\",\"cedula\":\"V25044021\",\"password_digest\":\"$2a$12$LeMmKogyKmCpgKtyVJgxDu8r0imiapR0RIx.HwUMDm/w4DW12/OYW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-14T10:47:13.675-04:00\",\"updated_at\":\"2023-07-14T10:47:13.675-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146292605",
+    "user": "{\"id\":276,\"name\":\"Marvi Ferrer\",\"username\":\"marvi ferrer\",\"email\":\"marviferrer01@gmail.com\",\"cedula\":\"V15888567\",\"password_digest\":\"$2a$12$OoBeQlXzEHqGQYhGmzRLsuoe1DjP0rU.7PEWQR2s1Amc3gVuiqx3a\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-14T13:40:25.569-04:00\",\"updated_at\":\"2023-07-14T13:40:25.569-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121200039",
+    "user": "{\"id\":277,\"name\":\"Oscar Castillo\",\"username\":\"oscar\",\"email\":\"oscarcastillo@gmail.com\",\"cedula\":\"V19393440\",\"password_digest\":\"$2a$12$xYfn1Uszm5X8b2x/ylOdR.D3wYMOMNwo3g1OkCO.ywWOrdtabOQJa\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-15T08:21:34.234-04:00\",\"updated_at\":\"2023-07-15T08:21:34.234-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120646920",
+    "user": "{\"id\":278,\"name\":\"Dilson Salas\",\"username\":\"MAXIMA\",\"email\":\"dilson@gmail.con\",\"cedula\":\"V9756011\",\"password_digest\":\"$2a$12$LvhQl3UOSEezNJzFRP1oQul9rkXnB7GM878uRwSQZL6mvmdCdTHW.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-15T08:54:35.619-04:00\",\"updated_at\":\"2023-07-15T08:54:35.619-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "573114862415",
+    "user": "{\"id\":279,\"name\":\"Gregorio Fuentes\",\"username\":\"GREGORIO FUENTES\",\"email\":\"grgoriofuentes99@gmail.com\",\"cedula\":\"V26541348\",\"password_digest\":\"$2a$12$JoC/j5MgLhAMBmu6RoiPUerjQFTbxMl4n/02G4Y3gqEuaCWxHrh6O\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-15T12:24:25.071-04:00\",\"updated_at\":\"2023-07-15T12:24:25.071-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121047164",
+    "user": "{\"id\":280,\"name\":\"Eugenio Pirela\",\"username\":\"jhon castillo\",\"email\":\"eugeniopirela@gmail.com\",\"cedula\":\"V14005382\",\"password_digest\":\"$2a$12$V83mGk2h.bFoNdUKLrOGjO68wBd1/tpR36JuVno4sIWHDCUwct9HS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-18T07:52:28.916-04:00\",\"updated_at\":\"2023-07-18T07:52:28.916-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120746801",
+    "user": "{\"id\":281,\"name\":\"Juan  Ruiz\",\"username\":\"jhon castillo\",\"email\":\"juanruiz@gmail\",\"cedula\":\"V5807498\",\"password_digest\":\"$2a$12$C3A.Kglsim93l8.H/YYK6OdDVVqzo2tE835Cet1oMUjuzMSPVvRlC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-18T08:15:52.791-04:00\",\"updated_at\":\"2023-07-18T08:15:52.791-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125126103",
+    "user": "{\"id\":282,\"name\":\"Javier  Molero\",\"username\":\"MI ANGEL\",\"email\":\"javier@hotmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$OwfIu/l8vJQPe3qmmfUD2OoWUEznqaV3NE6nUFfN92KBR9URAf/Hy\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-20T07:40:49.662-04:00\",\"updated_at\":\"2023-07-20T07:40:49.662-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04263629210",
+    "user": "{\"id\":283,\"name\":\"Fernando Pulgar\",\"username\":\"MI ANGEL\",\"email\":\"fernando@hotmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$bUOmStgRwGnVOVnUxQo11.gcO1cMbxAJXhQ2aygRnQBkIK4HBucHa\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-20T07:49:52.497-04:00\",\"updated_at\":\"2023-07-20T07:49:52.497-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04263629210",
+    "user": "{\"id\":284,\"name\":\"Fernando Jose Pulgar\",\"username\":\"MI ANGEL\",\"email\":\"fernando@hotmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$jTCnIHxdys4cnodPv.Wjee0BYCMIjVrMUmNW876sUkzcoEGuFST5C\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-20T07:54:13.339-04:00\",\"updated_at\":\"2023-07-20T07:54:13.339-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126836770",
+    "user": "{\"id\":285,\"name\":\"Domingo Navarro\",\"username\":\"MI ANGEL\",\"email\":\"domingo@hotmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$moCFPuHwjSsxknMmhkKMZe/kcQgXbilywQt4LUbQZNPndD9E./oBK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-20T07:57:53.143-04:00\",\"updated_at\":\"2023-07-20T07:57:53.143-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121660827",
+    "user": "{\"id\":286,\"name\":\"Yorelis Arrieta\",\"username\":\"jhon castillo\",\"email\":\"yorelisarrieta@gmail.com\",\"cedula\":\"V17177171\",\"password_digest\":\"$2a$12$fzZzjdV/AkmlZgXAS9Z4L.ACOz25G.WoMOfh.8ryjTbCqokvUWHCu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-20T15:11:08.454-04:00\",\"updated_at\":\"2023-07-20T15:11:08.454-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121200039",
+    "user": "{\"id\":287,\"name\":\"Oscar Castillo\",\"username\":\"androcle\",\"email\":\"androclecastillo@gmail.com\",\"cedula\":\"V19393440\",\"password_digest\":\"$2a$12$xM.0hcw8x4OFaS2uGxR95OT.AlxxLnYoZmH84YwXdCMawJR3MiUty\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-21T08:17:35.908-04:00\",\"updated_at\":\"2023-07-21T08:17:35.908-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126903521",
+    "user": "{\"id\":288,\"name\":\"Nerio Sanchez\",\"username\":\"MAXIMA\",\"email\":\"nerio123@gmail.con\",\"cedula\":\"V18572300\",\"password_digest\":\"$2a$12$4tZApY7zhly5Qj.WFw90AehcM/JPlIIE7Fg9SFCNlTr4b0H6.3pyy\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-21T13:48:07.076-04:00\",\"updated_at\":\"2023-07-21T13:48:07.076-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "01426582356",
+    "user": "{\"id\":289,\"name\":\"Yaritza Moran\",\"username\":\"MAXIMA\",\"email\":\"yari125@gmail.con\",\"cedula\":\"V22252409\",\"password_digest\":\"$2a$12$u7rQ6Ldogc6Zuf.u81bU0.xPVszDf29dTVKbnC9gNelfsmG2/lpli\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-21T18:33:18.840-04:00\",\"updated_at\":\"2023-07-21T18:33:18.840-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "01426832201",
+    "user": "{\"id\":290,\"name\":\"Ever Montilla\",\"username\":\"MAXIMA\",\"email\":\"ever147@gmail.con\",\"cedula\":\"V8.258569\",\"password_digest\":\"$2a$12$f3XzYURlo0uTUoefUQ7DbOZa.chCJE1oEWpbe4HgBFMAQo.eRszT.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-21T20:22:00.308-04:00\",\"updated_at\":\"2023-07-21T20:22:00.308-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04122476699",
+    "user": "{\"id\":291,\"name\":\"Roman Garcia\",\"username\":\"roman\",\"email\":\"romangarcia@gmail.com\",\"cedula\":\"V18006468\",\"password_digest\":\"$2a$12$HJrLP0YRYWUG1t8t.KaF/OXIBKlEMZN2ND/lZyto5BQw3bv6Ka0be\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-22T09:06:25.277-04:00\",\"updated_at\":\"2023-07-22T09:06:25.277-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125144933",
+    "user": "{\"id\":292,\"name\":\"Jesus Boscan\",\"username\":\"jesus\",\"email\":\"jesusboscan@gmail.com\",\"cedula\":\"V16783673\",\"password_digest\":\"$2a$12$CU9fUH.drAzwxjq6iI8D1.kBg.6L6OvMGJc4uT.YzdAeLPAIc37nC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-22T10:17:31.479-04:00\",\"updated_at\":\"2023-07-22T10:17:31.479-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121045582",
+    "user": "{\"id\":293,\"name\":\"Maike Bozo\",\"username\":\"jhon castillo\",\"email\":\"maikebozo@gmail.com\",\"cedula\":\"V30839225\",\"password_digest\":\"$2a$12$FDODRXuPPLZHTzcZeMAxcu1r4WGcK11.DyicpknNIfMHoUd2rH1Y6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-22T10:20:41.390-04:00\",\"updated_at\":\"2023-07-22T10:20:41.390-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127663557",
+    "user": "{\"id\":294,\"name\":\"Rodolfo Pirela\",\"username\":\"el papi\",\"email\":\"inesmaria@gmail.com\",\"cedula\":\"V14747017\",\"password_digest\":\"$2a$12$3a8h.ardtCTQe25Z/PxFueNeZYPk1nN0TN8GyywBP8KuJbajPZDGC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-25T15:21:45.351-04:00\",\"updated_at\":\"2023-07-25T15:21:45.351-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246647335",
+    "user": "{\"id\":295,\"name\":\"Luis Villalobos\",\"username\":\"luis\",\"email\":\"mariajosefina@gmail.com\",\"cedula\":\"V25201980\",\"password_digest\":\"$2a$12$G90OMfkNFiHLRh4OBulmFek.Wxog3ZcFIrNccGKfEnetzAARiRyoa\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-25T17:52:15.978-04:00\",\"updated_at\":\"2023-07-25T17:52:15.978-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04149679283",
+    "user": "{\"id\":296,\"name\":\"Luis Morales\",\"username\":\"nataly\",\"email\":\"natalyroo@gmail.com\",\"cedula\":\"V17564067\",\"password_digest\":\"$2a$12$3To/vOnKg8vMYNVapicwdOzBb4ydz8E1ZmRai/s5MzjSxKykQfY6O\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-25T18:09:02.434-04:00\",\"updated_at\":\"2023-07-25T18:09:02.434-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146497346",
+    "user": "{\"id\":297,\"name\":\"Sorsire Araujo\",\"username\":\"Sorsire\",\"email\":\"sorsirearaujo@gmail.com\",\"cedula\":\"V11868125\",\"password_digest\":\"$2a$12$0Va6BJ.gJcrjNSnDa1eIyu6BeSFjFckCe2ZJ30RIXaG4ije7I1xFC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-25T20:16:22.172-04:00\",\"updated_at\":\"2023-07-25T20:16:22.172-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125120690",
+    "user": "{\"id\":298,\"name\":\"Edward Ferrer\",\"username\":\"MI ANGEL\",\"email\":\"edward@hotmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$8r16EXWErTcDUX.BmandKu3oqsV.2w.4s5FwecSchC9hR7qbRowkS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-26T07:43:00.294-04:00\",\"updated_at\":\"2023-07-26T07:43:00.294-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121043100",
+    "user": "{\"id\":299,\"name\":\"Yamarys Paz\",\"username\":\"YAMARYS PAZ\",\"email\":\"yamaryspaz99@gmail.com\",\"cedula\":\"V11066965\",\"password_digest\":\"$2a$12$aahrnCPUUIRZc5nz0DffAO8UHq8atlcjc82OMBbsEgEKIIJoyZfPS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-26T08:50:01.083-04:00\",\"updated_at\":\"2023-07-26T08:50:01.083-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "56949955292",
+    "user": "{\"id\":300,\"name\":\"Yamile Matos\",\"username\":\"MI ANGEL\",\"email\":\"yamilematos12@gmail.com\",\"cedula\":\"V11066983\",\"password_digest\":\"$2a$12$0g5XdjdGtPW15.9R9T8VYu9v54H/BQSZnmQ4mo9i9SgEhCSvXos8a\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-26T10:05:14.359-04:00\",\"updated_at\":\"2023-07-26T10:05:14.359-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04160638657",
+    "user": "{\"id\":301,\"name\":\"Alfredo  Nava\",\"username\":\"MI ANGEL\",\"email\":\"alfredonava13@gmail.com\",\"cedula\":\"V20690428\",\"password_digest\":\"$2a$12$YOJzellUTr0bxYeXvmgBreo1ArbxXsVvdV6zZpSyXUrmttzlE6bqi\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-26T12:08:05.822-04:00\",\"updated_at\":\"2023-07-26T12:08:05.822-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04128654527",
+    "user": "{\"id\":302,\"name\":\"Gustavo Fuenmayor\",\"username\":\"gustavo\",\"email\":\"jarvisfuenmayor@gmail.com\",\"cedula\":\"V18428723\",\"password_digest\":\"$2a$12$LD3FvD6EmnddvE6f.tLBi.Cd4aT3XDFfKr9BsqXjfqKgX98SkLS46\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-26T17:55:29.859-04:00\",\"updated_at\":\"2023-07-26T17:55:29.859-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127668077",
+    "user": "{\"id\":303,\"name\":\"Luis  Fuenmayor\",\"username\":\"Luis Fuenmayor\",\"email\":\"niuriamagdalitabreu@gmail.com\",\"cedula\":\"V14416975\",\"password_digest\":\"$2a$12$SEzLVXRmV63JS5EK7tPaIeJ86jTLRJdpXjz5Lnyhshhb4GQq4KtYW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-26T21:12:52.016-04:00\",\"updated_at\":\"2023-07-26T21:12:52.016-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120681884",
+    "user": "{\"id\":304,\"name\":\"Nelly Granadillo\",\"username\":\"MAXIMA\",\"email\":\"nelly125@gmail.con\",\"cedula\":\"V4993329\",\"password_digest\":\"$2a$12$O1Z19/GIE8ezENZhdM6OdONSmfg3A/HapcfrmMNvkHCN7UoDazuni\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-27T09:51:57.747-04:00\",\"updated_at\":\"2023-07-27T09:51:57.747-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127663557",
+    "user": "{\"id\":305,\"name\":\"Rodolfo Pirela\",\"username\":\"Ilario\",\"email\":\"ilariopirela@gmail.com\",\"cedula\":\"V14747017\",\"password_digest\":\"$2a$12$TPSzAIsEFm0DM.mM4FDVdOzK/dW.9rG08tkYZCUq11qE0jT5NnSpG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-28T08:44:10.075-04:00\",\"updated_at\":\"2023-07-28T08:44:10.075-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04149679283",
+    "user": "{\"id\":306,\"name\":\"El Hueso Morales\",\"username\":\"el hueso\",\"email\":\"elhuesomorales@gmail.com\",\"cedula\":\"V5068910\",\"password_digest\":\"$2a$12$zXKFpU8CL77m2oQ6mJDmCuP6tIY5J9zlT8i8H9G3OjuUNzT8l006.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-28T15:12:56.139-04:00\",\"updated_at\":\"2023-07-28T15:12:56.139-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127663557",
+    "user": "{\"id\":307,\"name\":\"Rodolfo Pirela\",\"username\":\"jesus\",\"email\":\"mariajesus@gmail.com\",\"cedula\":\"V14747017\",\"password_digest\":\"$2a$12$cBwdaNDNBlCIUKsUQ/afjOI4PYFk390TvDdtKauW0P/zoo1GU/Yrq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-28T17:50:51.534-04:00\",\"updated_at\":\"2023-07-28T17:50:51.534-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121043074",
+    "user": "{\"id\":308,\"name\":\"Jose Morales\",\"username\":\"jose\",\"email\":\"betaniagarcia@gmail.com\",\"cedula\":\"V25044021\",\"password_digest\":\"$2a$12$D5.chA4/NRKXanS38M8jmOR0ouymXzgAVLnHlbx7ztGyu/8Jlb8qK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-28T18:17:31.190-04:00\",\"updated_at\":\"2023-07-28T18:17:31.190-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121045582",
+    "user": "{\"id\":309,\"name\":\"Carlos Rios\",\"username\":\"jhon castillo\",\"email\":\"carlosrios@gmail.com\",\"cedula\":\"V19075923\",\"password_digest\":\"$2a$12$lwbQszFCaI6ak34avTlPjuv9eEcF7Mz1w9aiQNz2FeIV/trJxifIW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-29T07:48:16.679-04:00\",\"updated_at\":\"2023-07-29T07:48:16.679-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4121041806",
+    "user": "{\"id\":310,\"name\":\"Eudio Castillo\",\"username\":\"eudio\",\"email\":\"aurimaria@gmail.com\",\"cedula\":\"V3510539\",\"password_digest\":\"$2a$12$wRmEk7gNKpe1Hd8wL3DR6e5pkmT272tO30qD22CUAWRcv9Hx3SWge\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-29T08:16:13.331-04:00\",\"updated_at\":\"2023-07-29T08:16:13.331-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4121200038",
+    "user": "{\"id\":311,\"name\":\"Oscar Castillo\",\"username\":\"oscar\",\"email\":\"marinacastillo@gmail.com\",\"cedula\":\"V19393440\",\"password_digest\":\"$2a$12$wxdOk.mWEOEoyU3oTpUVluuGQBqxoKlOcVoXlsS1xzUmK2CvzYoa.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-29T08:58:36.630-04:00\",\"updated_at\":\"2023-07-29T08:58:36.630-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121048463",
+    "user": "{\"id\":312,\"name\":\"Richard Romer\",\"username\":\"jhon castillo\",\"email\":\"richardromero@gmail.com\",\"cedula\":\"V11069015\",\"password_digest\":\"$2a$12$y4SAWypQVrgYbxSifG/91OvH5h29gR9gg/HGBqsTAe7ucyQL5NxNG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-31T13:06:42.427-04:00\",\"updated_at\":\"2023-07-31T13:06:42.427-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04147661439",
+    "user": "{\"id\":313,\"name\":\"Jose Delmoral\",\"username\":\"josedelmoral\",\"email\":\"josedelmoral0129@gmail.com\",\"cedula\":\"V16215272\",\"password_digest\":\"$2a$12$oDdQCQTe63HvyEVL5xI42eD6ZlyVQA8cug7egbJQO7ZXLqOvw6o5i\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-07-31T18:42:36.281-04:00\",\"updated_at\":\"2023-07-31T18:42:36.281-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125140452",
+    "user": "{\"id\":314,\"name\":\"Amancio Navarro\",\"username\":\"AMANCIO\",\"email\":\"amancionavarro99@gmail.com\",\"cedula\":\"V27887177\",\"password_digest\":\"$2a$12$KdjDVXmgb2QLe/9kdlTBJeyWIm5B2jJO/tfiZt5H7htAoPIXMy9nK\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-01T08:41:09.059-04:00\",\"updated_at\":\"2023-08-01T08:41:09.059-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04147661439",
+    "user": "{\"id\":315,\"name\":\"Jose  Delmoral\",\"username\":\"jose delmoral\",\"email\":\"josedelmoral@gmail.com\",\"cedula\":\"V16215292\",\"password_digest\":\"$2a$12$Hq6f2TYUzYL6bhAEkSwzauyNv.PUj9IadTTdhh3ANR.1/GbT5mh9m\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-01T18:22:03.363-04:00\",\"updated_at\":\"2023-08-01T18:22:03.363-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126997110",
+    "user": "{\"id\":316,\"name\":\"Jose  Chavez\",\"username\":\"joseg4012@gmail.com\",\"email\":\"joseg4012@gmail.com\",\"cedula\":\"V7875901\",\"password_digest\":\"$2a$12$lyZ2KdcvdL47VzVeDYPXHeWmQKBzHcf649R1VN2rPToOgmCqt4WS.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-03T09:37:48.648-04:00\",\"updated_at\":\"2023-08-03T09:37:48.648-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04142258580",
+    "user": "{\"id\":318,\"name\":\"Oswaldo Garcia\",\"username\":\"BETMAX \",\"email\":\"ogarciaechetos@gmail.com\",\"cedula\":\"V10414470\",\"password_digest\":\"$2a$12$K.oVhsh13gNr2.8TCPHRjOGqOpznMTHrYnLdlBtr/mrpefZKGAAv2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-03T18:32:02.786-04:00\",\"updated_at\":\"2023-08-03T18:32:02.786-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146497401",
+    "user": "{\"id\":319,\"name\":\"Juan Aguirre\",\"username\":\"juan aguirre\",\"email\":\"juanagui4546@gmail.com\",\"cedula\":\"V16079034\",\"password_digest\":\"$2a$12$mLrn7XI8G0JiOKbp1wvox.4.sSiTQMSIs6CfKBTJthyOFg2mZ021.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-04T10:54:17.224-04:00\",\"updated_at\":\"2023-08-04T10:54:17.224-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246278275",
+    "user": "{\"id\":320,\"name\":\"Duque  Baldovino\",\"username\":\"DUQUE\",\"email\":\"duquebaldovino99@gmail.com\",\"cedula\":\"V24953548\",\"password_digest\":\"$2a$12$ox4vOUniblPYGbK2NJcepuw/aqUHjSrnNXNievZal97BZdHvbC7Zm\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-05T09:13:11.227-04:00\",\"updated_at\":\"2023-08-05T09:13:11.227-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4126850833",
+    "user": "{\"id\":321,\"name\":\"Jhohan Chacin\",\"username\":\"jhohan\",\"email\":\"jhohanchacin@gmail.com\",\"cedula\":\"V15560054\",\"password_digest\":\"$2a$12$V11F4TWyJuufRQ.mHfhvPO2MQqio6ZOwLyeD64SjfcM04e0v3FKzO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-05T09:52:09.379-04:00\",\"updated_at\":\"2023-08-05T09:52:09.379-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146370303",
+    "user": "{\"id\":322,\"name\":\"Martin  Gonzalez\",\"username\":\"BETMAX\",\"email\":\"rifacarro01@gmail.com\",\"cedula\":\"V7611922\",\"password_digest\":\"$2a$12$zHj9EkEFzHnKGAsyfK3xVOMV8diIQlYtJ3WWrLFiClFwQzJiiKXd6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-06T09:51:44.003-04:00\",\"updated_at\":\"2023-08-06T09:51:44.003-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246270352",
+    "user": "{\"id\":323,\"name\":\"Ender Montiel\",\"username\":\"MAXIMA\",\"email\":\"endre14@gmail.con\",\"cedula\":\"V15939316\",\"password_digest\":\"$2a$12$fLUq.DRFrYy103aHUzqJs.dKcHkOAYDz6onNvGb/d3mXFUowdOVre\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-07T08:39:27.846-04:00\",\"updated_at\":\"2023-08-29T10:31:16.739-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146497346",
+    "user": "{\"id\":324,\"name\":\"Sol  Araujo\",\"username\":\"BETMAX \",\"email\":\"solaa29@gmail.com\",\"cedula\":\"V11.868125\",\"password_digest\":\"$2a$12$MDprqQ0ez8jEa.nAdGTuWuxcsW7ZUMHPKGTeqB85bzm/hICfZmKYO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-07T12:29:52.071-04:00\",\"updated_at\":\"2023-08-07T12:29:52.071-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04147661439",
+    "user": "{\"id\":325,\"name\":\"Jose  Delmoral\",\"username\":\"BETMAX \",\"email\":\"josedelmorak0129@gmail.com\",\"cedula\":\"V13593046\",\"password_digest\":\"$2a$12$BjC6BvnNlnOsYMfyO10bFuYYnRdYR0fpHTovKS7tU7t86wG/IJ2Ia\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-07T13:27:09.359-04:00\",\"updated_at\":\"2023-08-07T13:27:09.359-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146689267",
+    "user": "{\"id\":326,\"name\":\"Danilo Fuenmayor\",\"username\":\"BETMAX\",\"email\":\"dani2015fuenmayor@gmail.com\",\"cedula\":\"V7.889620\",\"password_digest\":\"$2a$12$Hejjp5BpZ3tNeXaQS32bl.V51d4lE4F16U4w5SDhDeJ6beEL5CeMm\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-07T13:40:45.970-04:00\",\"updated_at\":\"2023-08-07T13:40:45.970-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125134061",
+    "user": "{\"id\":327,\"name\":\"Miguel Escalona\",\"username\":\"MIGUEL\",\"email\":\"miguelescalona99@gmail.com\",\"cedula\":\"V23754005\",\"password_digest\":\"$2a$12$aw9lPJpU8ET6DZPH5dGy2el885yANM29iv5URFKIxOluwqa8px4pe\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-10T10:17:33.917-04:00\",\"updated_at\":\"2023-08-10T10:17:33.917-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125135405",
+    "user": "{\"id\":328,\"name\":\"Yujana Cardenas\",\"username\":\"MAXIMA\",\"email\":\"yuja@gmil.con\",\"cedula\":\"V17738228\",\"password_digest\":\"$2a$12$Kejs7aie4FF2mgHMViVStelLYbi8CAn8mCI4d5D7Ym4Z1/7CXmjKW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-11T11:33:14.579-04:00\",\"updated_at\":\"2023-08-11T11:33:14.579-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04123565904",
+    "user": "{\"id\":329,\"name\":\"Joe Peñaloza\",\"username\":\"jhon castillo\",\"email\":\"joeloza@gmail.com\",\"cedula\":\"V15944345\",\"password_digest\":\"$2a$12$LqCaQxlVgSNDrPWl7twGLulwQTErEvrLpfjk675HtxmFKnSDzec.y\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-12T09:47:43.288-04:00\",\"updated_at\":\"2023-08-12T09:47:43.288-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121084616",
+    "user": "{\"id\":330,\"name\":\"Yohana Villalobo\",\"username\":\"jhon castillo\",\"email\":\"yohanavillalobos@gmail.com\",\"cedula\":\"V15194649\",\"password_digest\":\"$2a$12$0gj5t8PdosodB75MR5cx3OQoer7yCJe7l5pc87iUn8YAfZFHpdleS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-12T10:12:11.854-04:00\",\"updated_at\":\"2023-08-12T10:12:11.854-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125149336",
+    "user": "{\"id\":331,\"name\":\"Angel  Fuenmayor\",\"username\":\"jhon castillo\",\"email\":\"angelfuenmayor@gmail.com\",\"cedula\":\"V20203782\",\"password_digest\":\"$2a$12$I/PYWXpH/JKUstHWoSXPD.gFof61Y6NZJaqCIbZ00L9VrWsFy.gbG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-12T10:34:28.632-04:00\",\"updated_at\":\"2023-08-12T10:34:28.632-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04149697562",
+    "user": "{\"id\":332,\"name\":\"Luis  Fuenmayor\",\"username\":\"BETMAX\",\"email\":\"luisfuenmayor376@mail.com\",\"cedula\":\"V19210269\",\"password_digest\":\"$2a$12$S52tFlaR5HfDRxUeVVeFcOR6x/cTPc0tUqoYwLYMr5dAG.r8VWE/i\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-14T09:31:37.989-04:00\",\"updated_at\":\"2023-08-14T09:31:37.989-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126692523",
+    "user": "{\"id\":333,\"name\":\"La Cachi Martines\",\"username\":\"MAXIMA\",\"email\":\"lacachi@gmail.con\",\"cedula\":\"V83254535\",\"password_digest\":\"$2a$12$0VO5TGkWarj8W3SFEnXebutjmO4XVU56pQp5q7QFnZKO35NoOhT9O\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-14T12:11:50.167-04:00\",\"updated_at\":\"2023-08-14T12:11:50.167-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04269641445",
+    "user": "{\"id\":334,\"name\":\"Richard Quero\",\"username\":\"richard\",\"email\":\"richardquero@gmail.com\",\"cedula\":\"V17806307\",\"password_digest\":\"$2a$12$4FRKLSNt7JnOTawtSATCUOfzQ53F0LWcVnLI5/VQ.viSmgYQ/xc7y\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-14T13:53:28.144-04:00\",\"updated_at\":\"2023-08-14T13:53:28.144-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04160654362",
+    "user": "{\"id\":335,\"name\":\"Eudo Fuenmayor\",\"username\":\"jhon castillo\",\"email\":\"eudofuenmayor1@gmail.com\",\"cedula\":\"V12514799\",\"password_digest\":\"$2a$12$MBcwfOqtm5nuKHVdmI3wLeYoX.ePaf8mUEadmS.vMbdTiwklWf9Sm\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-15T09:08:54.488-04:00\",\"updated_at\":\"2023-08-15T09:08:54.488-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121247614",
+    "user": "{\"id\":336,\"name\":\"Maria Semprun\",\"username\":\"MAXIMA\",\"email\":\"mari@gmail.con\",\"cedula\":\"V16623922\",\"password_digest\":\"$2a$12$1wlYpwAaoM9R8VO80IKfJeO20JeZFwhjoBsIuLMB4gI59n0gMS4aS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-18T18:11:39.491-04:00\",\"updated_at\":\"2023-08-18T18:11:39.491-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125132571",
+    "user": "{\"id\":337,\"name\":\"Jose Arrieta\",\"username\":\"jose\",\"email\":\"josearrieta@gmail.com\",\"cedula\":\"V10445902\",\"password_digest\":\"$2a$12$HRgKq.h72iKfQi27G63UCek7l8E1xaZFgLNdOj2TA8/jOM/pZPrzS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-19T08:32:20.232-04:00\",\"updated_at\":\"2023-08-19T08:32:20.232-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125149336",
+    "user": "{\"id\":338,\"name\":\"Angel Fuenmayor\",\"username\":\"angel\",\"email\":\"josefuenmayor@gmail.com\",\"cedula\":\"V20203782\",\"password_digest\":\"$2a$12$4p5gEAT26MNiPF1U0jhLz.kE8jiuWzCvBD3UiabtlQM3u.u6RX2fS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-19T09:49:04.095-04:00\",\"updated_at\":\"2023-08-19T09:49:04.095-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04140374369",
+    "user": "{\"id\":339,\"name\":\"Rose Figueroa\",\"username\":\"rosefigueroa\",\"email\":\"rosefiger12@gmail.com\",\"cedula\":\"V30599201\",\"password_digest\":\"$2a$12$u8Gu7Yo70g7tq6MyYvvmUeS8J6MHwXSdWvKZmotY2SkMLLpw6uzIm\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-19T13:08:47.904-04:00\",\"updated_at\":\"2023-08-19T13:08:47.904-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126885674",
+    "user": "{\"id\":340,\"name\":\"Enrique Garcia\",\"username\":\"enrique\",\"email\":\"enriquegarcia@gmail.com\",\"cedula\":\"V6834827\",\"password_digest\":\"$2a$12$HHo1v.KswsYlmS1j3MMUreJt8/A8Z5mckpxUQTBUVZsOS3O1pWSRa\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-22T09:50:16.203-04:00\",\"updated_at\":\"2023-08-22T09:50:16.203-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "041251354054",
+    "user": "{\"id\":341,\"name\":\"Elida D Cuadro\",\"username\":\"MAXIMA\",\"email\":\"eli112@gmail.con\",\"cedula\":\"V22153552\",\"password_digest\":\"$2a$12$YdOzJ8BUj9ARpahKOL9h7OO9kPcqThyY9cN2pxe0f/stIKh7avG8O\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-25T09:51:15.963-04:00\",\"updated_at\":\"2023-08-25T09:51:15.963-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246469952",
+    "user": "{\"id\":342,\"name\":\"Manuel Finol\",\"username\":\"MANUEL FINOL\",\"email\":\"manuelfinol99@gmail.com\",\"cedula\":\"V16018747\",\"password_digest\":\"$2a$12$aDvzAGhpfqZO7JATea9ITuKoG28JiLTDqJgXjKBdi4Y.7obt6QF8m\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-26T08:11:02.703-04:00\",\"updated_at\":\"2023-08-26T08:11:02.703-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125135405",
+    "user": "{\"id\":343,\"name\":\"Richard Coello\",\"username\":\"MAXIMA\",\"email\":\"123@gmil.con\",\"cedula\":\"V16428767\",\"password_digest\":\"$2a$12$eXKye1qGagbUc.cQE/bkruLbsgKuqQdPD7SqxbQbt2QdAPbYfszL.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-26T09:08:55.973-04:00\",\"updated_at\":\"2023-08-26T09:08:55.973-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125143846",
+    "user": "{\"id\":344,\"name\":\"Jesus Chuo Gomez\",\"username\":\"JESUS GOMEZ\",\"email\":\"jesusgomez99@gmail.com\",\"cedula\":\"V9980112\",\"password_digest\":\"$2a$12$lrvKPGCm4NjcaFiqG0uBQO4iXr27PWbcJDo945xMQbcnsGbEBA1.W\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-26T11:21:19.137-04:00\",\"updated_at\":\"2023-08-26T11:21:19.137-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04160638657",
+    "user": "{\"id\":345,\"name\":\"Alfredo  Nava\",\"username\":\"MI ANGEL\",\"email\":\"alfredonava218@gmail.com\",\"cedula\":\"V29787600\",\"password_digest\":\"$2a$12$DSg2kPSo1h.aMr.kQUjp/OUFGXSBlGZbf8Lm0wI7.mEwPFN/xhsey\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-08-29T12:29:53.211-04:00\",\"updated_at\":\"2023-08-29T12:29:53.211-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "041463617864",
+    "user": "{\"id\":346,\"name\":\"Evanardo  Semprun\",\"username\":\"paqeevanan\",\"email\":\"evanancrack@gmail.com\",\"cedula\":\"V5555555\",\"password_digest\":\"$2a$12$2yKATmNEvLVwrW2OUXwbO.9oyMWl9i1Nwf7U8QfIkTCZGcMX/pWPi\",\"role\":\"Rifero\",\"status\":false,\"created_at\":\"2023-09-05T11:29:34.667-04:00\",\"updated_at\":\"2023-09-05T13:11:51.168-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "02617195508",
+    "user": "{\"id\":347,\"name\":\"Alejandro Castro\",\"username\":\"alemax\",\"email\":\"alerx@gmail.com\",\"cedula\":\"V666666\",\"password_digest\":\"$2a$12$yhW3n3SCSIrMmNLe9cYQMedXW1vOTFBw0J.6TNPrztGnRPRtucmPS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-05T13:13:37.043-04:00\",\"updated_at\":\"2023-09-05T13:13:37.043-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127663557",
+    "user": "{\"id\":348,\"name\":\"Rafael Arrieta\",\"username\":\"rafael\",\"email\":\"rafaelarrieta@gmail.com\",\"cedula\":\"V15238877\",\"password_digest\":\"$2a$12$HYjUuVseITMUv5m3BI3giePZgxquJlyEzpGSN8z/Mn6/lgtpd345G\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-08T09:03:44.700-04:00\",\"updated_at\":\"2023-09-08T09:03:44.700-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4123667303",
+    "user": "{\"id\":349,\"name\":\"Leobardo Boscan\",\"username\":\"leobardo\",\"email\":\"leobardoboscan@gmail.com\",\"cedula\":\"V10429589\",\"password_digest\":\"$2a$12$WsVSOi2QI7lqUctlMkCSpO41gPZzMFINc/qNKbD9Xm9aAIx8QLf5e\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-09T09:18:58.495-04:00\",\"updated_at\":\"2023-09-09T09:18:58.495-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "573227693175",
+    "user": "{\"id\":350,\"name\":\"Yohimer  Garcia\",\"username\":\"jhon castillo\",\"email\":\"yohimergarcia@gmail.com\",\"cedula\":\"V20983491\",\"password_digest\":\"$2a$12$S5I8ZJ1VXOx4avfspjOSSeQEcKsevvBmdLJJt1BHA8BlkD0Pfpkce\",\"role\":\"Rifero\",\"status\":false,\"created_at\":\"2023-09-09T10:32:04.972-04:00\",\"updated_at\":\"2023-09-11T08:07:40.118-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "00000",
+    "user": "{\"id\":351,\"name\":\"Richar Richar\",\"username\":\"MI ANGEL\",\"email\":\"richar@hotmail.com\",\"cedula\":\"V13416022\",\"password_digest\":\"$2a$12$Kvv5K3s9G4xkckmOI/K7tu/d1GbCCrdDXFKWRW57miFRUv6OnBb5i\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-14T09:32:58.503-04:00\",\"updated_at\":\"2023-09-14T09:32:58.503-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04263694024",
+    "user": "{\"id\":352,\"name\":\"Alexis  Sebriant\",\"username\":\"alexissebriant\",\"email\":\"alexisebriant@gmail.com\",\"cedula\":\"V18824264\",\"password_digest\":\"$2a$12$5yygZIBaO.iS7efnIHkB/etjkBd6ScGz3uFLZiumqdT2zh3K7Domu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-15T09:33:43.033-04:00\",\"updated_at\":\"2023-09-15T09:33:43.033-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4124270422",
+    "user": "{\"id\":353,\"name\":\"Egal Lareal\",\"username\":\"MAXIMA\",\"email\":\"ega14@gmail.com\",\"cedula\":\"V15193646\",\"password_digest\":\"$2a$12$WeOWgy1WrQsxw55kFublCe8ChE2ukU1DZVExlgV2QwD5cygQ6zdwC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-15T16:21:17.706-04:00\",\"updated_at\":\"2023-09-15T16:21:17.706-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125146554",
+    "user": "{\"id\":354,\"name\":\"Edy Romero\",\"username\":\"Edy\",\"email\":\"edyromero@gmail.com\",\"cedula\":\"V11068950\",\"password_digest\":\"$2a$12$R3gkzaVbjkBxMjm7JcVSt.FjLLh.HO4FJGVy1OEiCOnUvdtJwvHiy\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-16T09:36:32.669-04:00\",\"updated_at\":\"2023-09-16T09:36:32.669-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04128857541",
+    "user": "{\"id\":355,\"name\":\"Angel  Chacon\",\"username\":\"ANGEL CHACON\",\"email\":\"angelchacon99@gmail.com\",\"cedula\":\"V12871036\",\"password_digest\":\"$2a$12$t67d757hScrByPChn9qIFepUh8xfXhMc3gAfaRqCZvEz98H3RIdEm\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-16T09:45:54.136-04:00\",\"updated_at\":\"2023-09-16T09:45:54.136-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121077331",
+    "user": "{\"id\":356,\"name\":\"Maria Sanchez\",\"username\":\"MAXIMA\",\"email\":\"maria14@gmail.con\",\"cedula\":\"V9777084\",\"password_digest\":\"$2a$12$fGXCQoaGD9mn7T7k04MOqeAuRGxx/0sIgpEunp/zb/ANTyjNWwQa.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-16T10:22:37.695-04:00\",\"updated_at\":\"2023-09-16T10:22:37.695-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121077331",
+    "user": "{\"id\":357,\"name\":\"Maria Sanchez\",\"username\":\"MAXIMA\",\"email\":\"maria14@gmail.con\",\"cedula\":\"V9777084\",\"password_digest\":\"$2a$12$w3ipbWf9tyOCVHSzhgK4Kek0lcL.oa2Uo9AHI7SddZzCX6gyrycf.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-16T10:22:38.149-04:00\",\"updated_at\":\"2023-09-16T10:22:38.149-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120605899",
+    "user": "{\"id\":358,\"name\":\"Rony Barboza\",\"username\":\"rony\",\"email\":\"ronybarboza@gmail.com\",\"cedula\":\"V17230526\",\"password_digest\":\"$2a$12$nwDAOruIpqHk8v4xTsNUBe3S8qChYVHraC7shzyneOrd2ME7T1vn.\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-16T11:42:45.662-04:00\",\"updated_at\":\"2023-09-16T11:42:45.662-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146142477",
+    "user": "{\"id\":359,\"name\":\"Ender Uriana\",\"username\":\"Los compadres \",\"email\":\"torrenegra.dahirana.saj@gmail.com\",\"cedula\":\"V20058637\",\"password_digest\":\"$2a$12$EiYAL6opvFWalB3x.NJrP.hOTCFHtV8ND7bB6rwlLUX/j8uK6jEJq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-18T19:59:04.480-04:00\",\"updated_at\":\"2023-09-18T19:59:04.480-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120705360",
+    "user": "{\"id\":360,\"name\":\"Angel Quintero\",\"username\":\"ANGEL\",\"email\":\"angelquintero99@gmail.com\",\"cedula\":\"V18743748\",\"password_digest\":\"$2a$12$oklB4qd4pmvNLSvqdSY5.eprWcAH5GLhfspP1ASXDuwmR.I8t/1Gi\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-20T08:23:26.385-04:00\",\"updated_at\":\"2023-09-20T08:23:26.385-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120827922",
+    "user": "{\"id\":361,\"name\":\"Grisbel Chourio\",\"username\":\"MAXIMA\",\"email\":\"gre158@gmail.con\",\"cedula\":\"V176844523\",\"password_digest\":\"$2a$12$hwfynkHu3YHETe6.m.HFSungruvenn/FLHuLVCyRJRH.tFk9WRVP6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-21T17:51:08.967-04:00\",\"updated_at\":\"2023-09-21T17:51:08.967-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "041411111",
+    "user": "{\"id\":362,\"name\":\"Nel Li Villalobos\",\"username\":\"nelli\",\"email\":\"nellivillalobos99@gmai.com\",\"cedula\":\"V9751942\",\"password_digest\":\"$2a$12$cBtW8QxgXZo8ZsSdu658G.Zb/CSIfjhPSJ8Hi7PF7rd2ZCyfvneSO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-23T08:21:34.033-04:00\",\"updated_at\":\"2023-09-23T08:21:34.033-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121378904",
+    "user": "{\"id\":363,\"name\":\"Omar Chacin\",\"username\":\"OMAR\",\"email\":\"omarchacin99@gmail.com\",\"cedula\":\"V17804557\",\"password_digest\":\"$2a$12$o7IZ1a1m8W2P/F28Mw5xeuJdFKASqZcB5DjqffvF5T/f8uG2ASe56\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-23T09:19:11.653-04:00\",\"updated_at\":\"2023-09-23T09:19:11.653-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4121053009",
+    "user": "{\"id\":365,\"name\":\"Carlos Abreu\",\"username\":\"MAXIMA\",\"email\":\"car125@gmail.con\",\"cedula\":\"V26693468\",\"password_digest\":\"$2a$12$YbGkxYDtYapem35ggZLQTujht/Ecnu534zX54lRYKMMCPf67CUQYS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-25T08:33:03.868-04:00\",\"updated_at\":\"2023-09-25T08:33:03.868-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4121053009",
+    "user": "{\"id\":366,\"name\":\"Carlos Abreu\",\"username\":\"MAXIMA\",\"email\":\"car125@gmail.con\",\"cedula\":\"V26693468\",\"password_digest\":\"$2a$12$fe4pBGOR.a/n3qB2tT3oreVVAunpFEPie9uKDLsveuaFeORAo4Iiu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-25T08:33:04.222-04:00\",\"updated_at\":\"2023-09-25T08:33:04.222-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4121053009",
+    "user": "{\"id\":366,\"name\":\"Carlos Abreu\",\"username\":\"MAXIMA\",\"email\":\"car125@gmail.con\",\"cedula\":\"V26693468\",\"password_digest\":\"$2a$12$fe4pBGOR.a/n3qB2tT3oreVVAunpFEPie9uKDLsveuaFeORAo4Iiu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-25T08:33:04.222-04:00\",\"updated_at\":\"2023-09-25T08:33:04.222-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04263694024",
+    "user": "{\"id\":367,\"name\":\"Alexis Sebriant\",\"username\":\"ALEXIS\",\"email\":\"alexisebriant99@gmail.com\",\"cedula\":\"V18824264\",\"password_digest\":\"$2a$12$TDLhgevr41jUPqBkYoVhU.M8qjAOt1HSexAGcwl0Kq4zoz4rMhauq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-27T10:30:44.024-04:00\",\"updated_at\":\"2023-09-27T10:30:44.024-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125125267",
+    "user": "{\"id\":368,\"name\":\"Jhon  Polanco\",\"username\":\"MAXIMA\",\"email\":\"mocho@gmil.con\",\"cedula\":\"V20.776219\",\"password_digest\":\"$2a$12$lgCSt61tPic7avkbBEOJ8uQHcQgRECp1jbV0vBC0AT6sFl.1R.E1y\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-09-30T09:02:52.339-04:00\",\"updated_at\":\"2023-09-30T09:02:52.339-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "00000",
+    "user": "{\"id\":370,\"name\":\"Richar Blanco\",\"username\":\"MI ANGEL\",\"email\":\"richarblanco2@hotmail.com\",\"cedula\":\"V146657607\",\"password_digest\":\"$2a$12$3iKQZ3sHGIBuFDseFKh6Cuz62K19YubENjfoBBDxzcaMNC6Y/XY/u\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-10-07T09:05:03.372-04:00\",\"updated_at\":\"2023-10-07T09:05:03.372-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121688991",
+    "user": "{\"id\":371,\"name\":\"Eudo Sanchez\",\"username\":\"MAXIMA\",\"email\":\"eudo14@gmail.con\",\"cedula\":\"V31.108574\",\"password_digest\":\"$2a$12$qTBk.cdVY5OHPzYMqcNE2u5KO9R5N0TQHEbn.uVxO3GBK2CoHZeJS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-10-07T14:30:29.556-04:00\",\"updated_at\":\"2023-10-07T14:30:29.556-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121027545",
+    "user": "{\"id\":372,\"name\":\"Jesus Carru\",\"username\":\"JESUS\",\"email\":\"angelquintero99@gmail.com\",\"cedula\":\"V5111518\",\"password_digest\":\"$2a$12$nQR4zlVxAuTztpI7cR3Iiu22qsy7748hWBEEWbmr.jmlGsy85DNPm\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-10-17T11:15:40.617-04:00\",\"updated_at\":\"2023-10-17T11:15:40.617-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "0000000",
+    "user": "{\"id\":373,\"name\":\"El Parce Parce\",\"username\":\"mi angel\",\"email\":\"elparce@hotmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$GHte0h1ZLjti62nP9L1TNe2uoEU7aai1RDli9klLQNCS6CrUYY2vi\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-10-18T16:31:04.621-04:00\",\"updated_at\":\"2023-10-18T16:31:04.621-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125134977",
+    "user": "{\"id\":374,\"name\":\"Mario  D´Rrico\",\"username\":\"betmax\",\"email\":\"marioluisderrico@gmail.com\",\"cedula\":\"V9765464\",\"password_digest\":\"$2a$12$OX7GwMKNnT0exb1/q0cjNuurXKwWcGO5U26hOvEpMGK0vpOoZd9T6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-10-19T11:48:12.086-04:00\",\"updated_at\":\"2023-10-19T11:48:12.086-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "0424-6171997",
+    "user": "{\"id\":385,\"name\":\"Jose Portillo\",\"username\":\"Jose Portillo\",\"email\":\"joseportillo@gmail.com\",\"cedula\":\"V25234768\",\"password_digest\":\"$2a$12$Dn1FxkW1xbCOHis46m0wbeExQwypjeZzD/4hxBohm/SZmQSTbVhyW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-10-20T11:23:10.951-04:00\",\"updated_at\":\"2023-10-20T11:23:10.951-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04121688466",
+    "user": "{\"id\":396,\"name\":\"Javier Diaz\",\"username\":\"Javier Diaz\",\"email\":\"rifamaxjavier@gmail.com\",\"cedula\":\"V29543140\",\"password_digest\":\"$2a$12$fRRhXRb1Jjj0bpjVA4sB5.7VQQxWZCUL/NM24DRYv7CyKj8ezZTnm\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-10-28T22:54:55.469-04:00\",\"updated_at\":\"2023-10-28T22:54:55.469-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246381843",
+    "user": "{\"id\":399,\"name\":\"Yoel Villalobos\",\"username\":\"yoel\",\"email\":\"yoelvillalobos99@gmail.com\",\"cedula\":\"V25599215\",\"password_digest\":\"$2a$12$ZIcFUnj08oSTFbg.kRf2neHblp0.WhnaPH/bRrIT2FKKx7dGpfGfW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-10-30T10:22:15.312-04:00\",\"updated_at\":\"2023-10-30T10:22:15.312-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04127067540",
+    "user": "{\"id\":400,\"name\":\"Alexis Caipana\",\"username\":\"MAXIMA\",\"email\":\"45ale@gmail\",\"cedula\":\"V24613512\",\"password_digest\":\"$2a$12$1ZX/pTJhyI9eR/.LsWVppewFBXy7hWENNGm.spLP78YqKQtK/2xcS\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-10-31T09:37:50.660-04:00\",\"updated_at\":\"2023-10-31T09:37:50.660-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146292605",
+    "user": "{\"id\":401,\"name\":\"Diego Urrutia\",\"username\":\"pa q diego\",\"email\":\"xdiegourrutia@gmail.com\",\"cedula\":\"V28822282\",\"password_digest\":\"$2a$12$CTYuXeu.KRfTCmvu2GsXuukX/qnvnNRJjhVtp267QcsOvksbB3GFO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-03T16:44:00.536-04:00\",\"updated_at\":\"2023-11-03T16:44:00.536-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "573229273269",
+    "user": "{\"id\":402,\"name\":\"Nestor  Moreno\",\"username\":\"jhon Castillo\",\"email\":\"nestormoreno@gmail.com\",\"cedula\":\"V9773661\",\"password_digest\":\"$2a$12$wfHogjBDQkyFEYu8ExwpkeXpGek2PLefHLM0lb.2n/iVDu29NA/SC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-04T10:41:26.580-04:00\",\"updated_at\":\"2023-11-04T10:41:26.580-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146518374",
+    "user": "{\"id\":403,\"name\":\"Maicol Oquendo\",\"username\":\"maicol\",\"email\":\"maicoloquendo99@gmail.com\",\"cedula\":\"V21487850\",\"password_digest\":\"$2a$12$vmf5Xy.mvah9zQAw/3YvjuiSEJgId2hS79zm3DV5ijvzAtcuBsRQC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-09T10:25:36.352-04:00\",\"updated_at\":\"2023-11-09T10:25:36.352-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04120282041",
+    "user": "{\"id\":404,\"name\":\"Rolando Brachp\",\"username\":\"rolando\",\"email\":\"rolandobracho99@gmail.com\",\"cedula\":\"V11067030\",\"password_digest\":\"$2a$12$zZcIAjM2OjAwVSOq7Q0jVeBKBnVUgx2N6hPec1wCL/QvrxnDB80gO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-09T16:20:13.045-04:00\",\"updated_at\":\"2023-11-09T16:20:13.045-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125675869",
+    "user": "{\"id\":405,\"name\":\"Emiro Villalobos\",\"username\":\"MAXIMA\",\"email\":\"emi785@gmail.con\",\"cedula\":\"V20692440\",\"password_digest\":\"$2a$12$7u.vfJAJBy1.5pfE6p7y2OURqwJrwYnYWnb9B0HpWJPlyjSPUiktW\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-10T19:40:00.914-04:00\",\"updated_at\":\"2023-11-10T19:40:00.914-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246399693",
+    "user": "{\"id\":406,\"name\":\"Erwuin Moreno\",\"username\":\"MAXIMA\",\"email\":\"erw564@mail.con\",\"cedula\":\"V14135465\",\"password_digest\":\"$2a$12$/0ck10nCK4NKwzDk0I0Q5Oh21/wVvbGWTPTPr1MgLIQ512Rzxv9M2\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-11T08:01:03.833-04:00\",\"updated_at\":\"2023-11-11T08:01:03.833-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246148146",
+    "user": "{\"id\":407,\"name\":\"Luis Urbina\",\"username\":\"luis\",\"email\":\"luisurbina123@gmail.com\",\"cedula\":\"V6667451\",\"password_digest\":\"$2a$12$uPxmQgaQYMUOWUin/.IdnudzhuWJ.ljULlELraWDJPApiCZdMQm0y\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-16T09:21:05.417-04:00\",\"updated_at\":\"2023-11-16T09:21:05.417-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146361123",
+    "user": "{\"id\":408,\"name\":\"Alberto Gonzalez\",\"username\":\"alberto\",\"email\":\"albertojosegonzalez@gmail.com\",\"cedula\":\"V20687146\",\"password_digest\":\"$2a$12$juDHW0dhLSWNxrvfPcBGe.as5WhKmniwsw7jOQz1QfskVNO93.G96\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-16T12:32:21.218-04:00\",\"updated_at\":\"2023-11-16T12:32:21.218-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04125133789",
+    "user": "{\"id\":409,\"name\":\"Yohimer  Atencio\",\"username\":\"jhon castillo\",\"email\":\"yohimeratncio@gmail.com\",\"cedula\":\"V20983491\",\"password_digest\":\"$2a$12$UTIxoAIldhs.eXA90Nrx1.tEwWkrEura/MdVabHUaTa.cCmXjt1li\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-16T16:33:24.456-04:00\",\"updated_at\":\"2023-11-16T16:33:24.456-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126889969",
+    "user": "{\"id\":410,\"name\":\"Nelson Finol\",\"username\":\"nelsito\",\"email\":\"nelsonjosefinol95@gmail.com\",\"cedula\":\"V25290350\",\"password_digest\":\"$2a$12$CqcxvkA6xe0T7MoNz3IX5O8coBbUZpuX.4b5Pls8mByUWSrpU7edu\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-16T16:51:44.192-04:00\",\"updated_at\":\"2023-11-16T16:51:44.192-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04123254665",
+    "user": "{\"id\":411,\"name\":\"Rafito Rodriguez\",\"username\":\"Rafito\",\"email\":\"rafitorodriguez99@gmail.com\",\"cedula\":\"V3507827\",\"password_digest\":\"$2a$12$BhMNs2NCucZD0nwQE6NXYO3leOOADdlo7Nv14C1/FJLxVIJOGCOp6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-20T08:09:53.114-04:00\",\"updated_at\":\"2023-11-20T08:09:53.114-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04265656582",
+    "user": "{\"id\":412,\"name\":\"Deivi Villalovos\",\"username\":\"MI ANGEL 2\",\"email\":\"villalobos@hotmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$AcxkbI3I8YPNDlE/HOqQ8.D23oXroPKXvAt64YuL7cCNIsPWdQWc6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-21T15:59:18.154-04:00\",\"updated_at\":\"2023-11-21T15:59:18.154-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4121026349",
+    "user": "{\"id\":413,\"name\":\"Ingri Blanco\",\"username\":\"MAXIMA\",\"email\":\"ingri89@gmail.con\",\"cedula\":\"V17.181051\",\"password_digest\":\"$2a$12$P7qtIjKtfwSGJOECzs2cAO6wJhZ2k7bcIfjiRB8WmIFq6klHe0uQ6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-22T08:51:41.559-04:00\",\"updated_at\":\"2023-11-22T08:51:41.559-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04265656582",
+    "user": "{\"id\":414,\"name\":\"Deivi Villalobos\",\"username\":\"MI ANGEL 1\",\"email\":\"villabos@hotmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$PykMF0fWIa88F0uRv2q0oeUBqEfGeWdJJ8nKSyu99XcOOGlfXwacO\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-23T19:13:38.887-04:00\",\"updated_at\":\"2023-11-23T19:13:38.887-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04265656582",
+    "user": "{\"id\":415,\"name\":\"Deivi Villalobos\",\"username\":\"MI ANGEL1\",\"email\":\"deivi@hotmail.com\",\"cedula\":\"V14657607\",\"password_digest\":\"$2a$12$3XrH7xacu2jhBVbqF4os.ONeqihIb0fbGVB3ksrtxot640sf.NKYC\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-23T19:21:01.197-04:00\",\"updated_at\":\"2023-11-23T19:21:01.197-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04146316947",
+    "user": "{\"id\":416,\"name\":\"Omar Labarca\",\"username\":\"Omar\",\"email\":\"omarlabarca@gmail.com\",\"cedula\":\"V14748220\",\"password_digest\":\"$2a$12$.Mky1alMefL0ZBftUmnrMu8UA2Ace/I4vBfFA.F2jj0.M6VdYTtQy\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-24T14:18:10.525-04:00\",\"updated_at\":\"2023-11-24T14:18:10.525-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04246025056",
+    "user": "{\"id\":417,\"name\":\"Redy  Bernal\",\"username\":\"redy\",\"email\":\"redybernal@gmail.com\",\"cedula\":\"V20275661\",\"password_digest\":\"$2a$12$5Cd5roJas2KzgGV6vLyqTeYtRWocwqpKdBr2k.pl9sMaNWxi24uHG\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-24T19:26:56.652-04:00\",\"updated_at\":\"2023-11-24T19:26:56.652-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04122968930",
+    "user": "{\"id\":418,\"name\":\"Nelvin Castillo\",\"username\":\"MAXIMA\",\"email\":\"nel896@gmail.con\",\"cedula\":\"V9799668\",\"password_digest\":\"$2a$12$n586RsFe31OWgSejGQU2ke.3tDEj51GPaMXGjE9rNhko42FsMNTH6\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-25T08:52:15.096-04:00\",\"updated_at\":\"2023-11-25T08:52:15.096-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "04126449401",
+    "user": "{\"id\":419,\"name\":\"Julio D Vicente\",\"username\":\"MAXIMA\",\"email\":\"jui125@mail.con\",\"cedula\":\"V20844038\",\"password_digest\":\"$2a$12$SJ1nJ2rlaeAUI/kWl22usuRGLMP0DjO55Pu1CJwR7R5tN8a3F1YDq\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-25T09:04:06.453-04:00\",\"updated_at\":\"2023-11-25T09:04:06.453-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  },
+  {
+    "phone": "4120707123",
+    "user": "{\"id\":420,\"name\":\"Elio Fuenmayor\",\"username\":\"Elio\",\"email\":\"eliofuenmayor@gmail.com\",\"cedula\":\"V7791616\",\"password_digest\":\"$2a$12$t9RrhUgWRewp.mJrUiTqEOd.sexzTwEDl6FCGy6fd5z7jbWYd2Fly\",\"role\":\"Rifero\",\"status\":true,\"created_at\":\"2023-11-25T09:14:02.630-04:00\",\"updated_at\":\"2023-11-25T09:14:02.630-04:00\",\"access_permissions\":[\"Rifamax\"]}"
+  }
+]

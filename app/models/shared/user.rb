@@ -22,6 +22,7 @@ class Shared::User < ApplicationRecord
   has_secure_password
 
   after_create :generate_wallet
+  after_create :generate_slug
 
   enum :role, { 
                 Admin: 'admin', 
@@ -36,6 +37,8 @@ class Shared::User < ApplicationRecord
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
+  # Validations
+  
   validates :name, 
             presence: true
   
@@ -55,6 +58,35 @@ class Shared::User < ApplicationRecord
             presence: true,
             uniqueness: { case_sensitive: false },
             length: { minimum: 6 }
+
+  validate :validate_riferos
+
+  def taquillas
+    if !['Rifero', 'Admin'].include?(self.role)
+      return "Can't show taquillas, user are not rifero or admin."
+    else
+      case self.role
+        when 'Rifero'
+        Shared::User.where("rifero_ids @> ARRAY[?]", self.id)
+        when 'Admin'
+        Shared::User.where(role: 'Taquilla')
+      end
+    end
+  end
+
+  def wallet
+    self.shared_wallet
+  end
+
+  def validate_riferos
+    if (self.role != 'Taquilla' && self.rifero_ids.length > 0)
+      errors.add(:rifero_ids, "Cannot add riferos")
+    end
+  end
+
+  def generate_slug
+    self.slug = self.name.parameterize
+  end
 
   def generate_wallet
     Shared::Wallet.create(shared_user_id: self.id)

@@ -22,4 +22,10 @@
 #
 class Rifamax::Ticket < ApplicationRecord
   belongs_to :rifamax_raffle, class_name: 'Rifamax::Raffle', foreign_key: 'rifamax_raffle_id'
+
+  private
+
+  def generate_invoices
+    
+  end
 end

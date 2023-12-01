@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: shared_exchanges
+#
+#  id               :bigint           not null, primary key
+#  automatic        :boolean
+#  mainstream_money :string
+#  value_bs         :float
+#  value_cop        :float
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+one:
+  automatic: false
+  value_bs: 1.5
+  value_cop: 1.5
+  mainstream_money: MyString
+
+two:
+  automatic: false
+  value_bs: 1.5
+  value_cop: 1.5
+  mainstream_money: MyString
