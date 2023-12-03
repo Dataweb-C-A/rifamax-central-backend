@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 app_module = Shared::ApplicationModule
 user = Shared::User
 
@@ -40,14 +42,10 @@ users_info = [
 
 # Crear módulos de aplicación
 modules.each do |app|
-  if app_module.where(title: app).empty?
-    app_module.create(title: app)
-  end
+  app_module.create(title: app) if app_module.where(title: app).empty?
 end
 
 # Crear usuarios usando each
 users_info.each do |user_data|
-  if user.where(dni: user_data[:dni]).empty?
-    user.create(user_data)
-  end
+  user.create(user_data) if user.where(dni: user_data[:dni]).empty?
 end

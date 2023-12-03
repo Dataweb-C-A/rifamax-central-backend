@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: shared_users
@@ -17,10 +19,12 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
-require "test_helper"
+require 'test_helper'
 
-class Shared::UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+module Shared
+  class UserTest < ActiveSupport::TestCase
+    # test "the truth" do
+    #   assert true
+    # end
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: x100_clients
@@ -10,6 +12,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class X100::ClientSerializer < ActiveModel::Serializer
-  attributes :id, :name, :dni, :phone, :email
+module X100
+  class ClientSerializer < ActiveModel::Serializer
+    attributes :id, :name, :dni, :phone, :email
+  end
 end

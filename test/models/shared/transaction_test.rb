@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: shared_transactions
@@ -17,10 +19,12 @@
 #
 #  fk_rails_...  (shared_wallet_id => shared_wallets.id)
 #
-require "test_helper"
+require 'test_helper'
 
-class Shared::TransactionTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+module Shared
+  class TransactionTest < ActiveSupport::TestCase
+    # test "the truth" do
+    #   assert true
+    # end
+  end
 end

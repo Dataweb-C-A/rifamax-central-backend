@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 file_path = Rails.root.join('public', 'venezuela.json')
 json_data = File.read(file_path)
 data = JSON.parse(json_data, symbolize_names: true)

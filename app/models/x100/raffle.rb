@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: x100_raffles
@@ -24,207 +26,192 @@
 #  updated_at              :datetime         not null
 #  shared_user_id          :integer          not null
 #
-class X100::Raffle < ApplicationRecord
-  after_create :generate_tickets
-  after_create :initialize_status
-  after_create :initialize_winners
+module X100
+  class Raffle < ApplicationRecord
+    after_create :generate_tickets
+    after_create :initialize_status
+    after_create :initialize_winners
 
-  validates :title,
-            presence: true,
-            length: {
-                      minimum: 5,
-                    }
+    validates :title,
+              presence: true,
+              length: {
+                minimum: 5
+              }
 
-  validates :numbers,
-            presence: true,
-            numericality: { 
-                            only_integer: true, 
-                            greater_than_or_equal_to: 1, 
-                            less_than_or_equal_to: 999 
-                          }
+    validates :numbers,
+              presence: true,
+              numericality: {
+                only_integer: true,
+                greater_than_or_equal_to: 1,
+                less_than_or_equal_to: 999
+              }
 
-  validates :price_unit,
-            presence: true,
-            numericality: {
-                            greater_than_or_equal_to: 0.1
-                          }
+    validates :price_unit,
+              presence: true,
+              numericality: {
+                greater_than_or_equal_to: 0.1
+              }
 
-  validates :limit,
-            presence: true,
-            numericality: {
-                            only_integer: true,
-                            greater_than_or_equal_to: 1,
-                            less_than_or_equal_to: 100
-                          },
-            if: -> { draw_type == 'Progresiva' }
+    validates :limit,
+              presence: true,
+              numericality: {
+                only_integer: true,
+                greater_than_or_equal_to: 1,
+                less_than_or_equal_to: 100
+              },
+              if: -> { draw_type == 'Progresiva' }
 
-  validates :lotery,
-            presence: true
-  
-  validates :expired_date,
-            presence: true,
-            if: -> { draw_type == 'Fecha limite' }
+    validates :lotery,
+              presence: true
 
-  validates :init_date,
-            presence: true
+    validates :expired_date,
+              presence: true,
+              if: -> { draw_type == 'Fecha limite' }
 
-  validates :draw_type,
-            presence: true
+    validates :init_date,
+              presence: true
 
-  validates :money,
-            presence: true,
-            inclusion: { in: %w[BsF $ COP] }
+    validates :draw_type,
+              presence: true
 
-  validates :tickets_count,
-            presence: true,
-            numericality: {
-                            only_integer: true,
-                            greater_than_or_equal_to: 100,
-                            less_than_or_equal_to: 1000
-                          },
-            if: -> { raffle_type != 'Infinito' }
+    validates :money,
+              presence: true,
+              inclusion: { in: %w[BsF $ COP] }
 
-  validates :shared_user_id,
-            presence: true,
-            numericality: {
-                            only_integer: true
-                          }
+    validates :tickets_count,
+              presence: true,
+              numericality: {
+                only_integer: true,
+                greater_than_or_equal_to: 100,
+                less_than_or_equal_to: 1000
+              },
+              if: -> { raffle_type != 'Infinito' }
 
-  validates :raffle_type,
-            presence: true,
-            inclusion: { in: %w[Infinito Terminal Triple] }
+    validates :shared_user_id,
+              presence: true,
+              numericality: {
+                only_integer: true
+              }
 
-  validate :validates_prizes_structure
+    validates :raffle_type,
+              presence: true,
+              inclusion: { in: %w[Infinito Terminal Triple] }
 
-  validate :validates_winners_structure
+    validate :validates_prizes_structure
 
-  validate :validates_draw_types
+    validate :validates_winners_structure
 
-  validate :validates_shared_user
+    validate :validates_draw_types
 
-  validate :validates_automatic_taquillas
+    validate :validates_shared_user
 
-  def self.raffles_by_user(user)
-    case user.role
-    when 'Taquilla'
-      X100::Raffle.where(shared_user_id: user.id).select { |item| item.status != 'Cerrada' }
-    when 'Autotaquilla'
-      X100::Raffle.select { |item| item.automatic_taquillas_ids.include?(user.id) && item.status != 'Cerrada' }
-    when 'Admin'
-      X100::Raffle.select { |item| item.status != 'Cerrada' }
-    end
-  end
+    validate :validates_automatic_taquillas
 
-  private
-
-  def initialize_status
-    self.status = 'En venta'
-    self.save
-  end
-
-  def initialize_winners
-    self.has_winners = false
-    self.save
-  end 
-
-  def validates_winners_structure
-    if !self.winners.nil? 
-      if self.winners.length > 0
-        self.winners.each do |winner|
-          if winner[:name] == nil
-            errors.add(:winners, 'Debe agregar un nombre al ganador')
-          end
-
-          if winner[:phone] == nil
-            errors.add(:winners, 'Debe agregar un telefono al ganador')
-          end
-
-          if winner[:dni] == nil
-            errors.add(:winners, 'Debe agregar un dni al ganador')
-          end
-
-          if winner[:prize_position] == nil
-            errors.add(:winners, 'Debe agregar una posicion al ganador')
-          end
-
-          if winner[:ticket_winner] == nil
-            errors.add(:winners, 'Debe agregar un ticket al ganador')
-          end
-        end
+    def self.raffles_by_user(user)
+      case user.role
+      when 'Taquilla'
+        X100::Raffle.where(shared_user_id: user.id).reject { |item| item.status == 'Cerrada' }
+      when 'Autotaquilla'
+        X100::Raffle.select { |item| item.automatic_taquillas_ids.include?(user.id) && item.status != 'Cerrada' }
+      when 'Admin'
+        X100::Raffle.reject { |item| item.status == 'Cerrada' }
       end
     end
-  end
 
-  def validates_prizes_structure
-    if self.prizes.nil? 
-      errors.add(:prizes, 'Debe agregar al menos un premio')
-    else
-      if self.prizes.length == 0 
+    private
+
+    def initialize_status
+      self.status = 'En venta'
+      save
+    end
+
+    def initialize_winners
+      self.has_winners = false
+      save
+    end
+
+    def validates_winners_structure
+      return if winners.nil?
+      return unless winners.length.positive?
+
+      winners.each do |winner|
+        errors.add(:winners, 'Debe agregar un nombre al ganador') if winner[:name].nil?
+
+        errors.add(:winners, 'Debe agregar un telefono al ganador') if winner[:phone].nil?
+
+        errors.add(:winners, 'Debe agregar un dni al ganador') if winner[:dni].nil?
+
+        errors.add(:winners, 'Debe agregar una posicion al ganador') if winner[:prize_position].nil?
+
+        errors.add(:winners, 'Debe agregar un ticket al ganador') if winner[:ticket_winner].nil?
+      end
+    end
+
+    def validates_prizes_structure
+      if prizes.nil?
         errors.add(:prizes, 'Debe agregar al menos un premio')
-      end
-  
-      self.prizes.each do |prize|
-        if prize["name"] == nil
-          errors.add(:prizes, 'Debe agregar un nombre al premio')
-        end
-  
-        if prize["prize_position"] == nil
-          errors.add(:prizes, 'Debe agregar una posicion al premio')
+      else
+        errors.add(:prizes, 'Debe agregar al menos un premio') if prizes.empty?
+
+        prizes.each do |prize|
+          errors.add(:prizes, 'Debe agregar un nombre al premio') if prize['name'].nil?
+
+          errors.add(:prizes, 'Debe agregar una posicion al premio') if prize['prize_position'].nil?
         end
       end
     end
-  end 
 
-  def validates_draw_types
-    allowed_draw_types = ['Progresiva', 'Fecha limite', 'Infinito']
-  
-    if allowed_draw_types.include?(self.draw_type) == false
+    def validates_draw_types
+      allowed_draw_types = ['Progresiva', 'Fecha limite', 'Infinito']
+
+      return unless allowed_draw_types.include?(draw_type) == false
+
       errors.add(:draw_type, 'Tipo de rifa no permitido')
     end
-  end
 
-  def validates_automatic_taquillas
-    if self.automatic_taquillas_ids.length > 0
-      self.automatic_taquillas_ids.each do |taquilla_id|
+    def validates_automatic_taquillas
+      return unless automatic_taquillas_ids.length.positive?
+
+      automatic_taquillas_ids.each do |taquilla_id|
         if Shared::User.find(taquilla_id).role != 'Taquilla'
           errors.add(:automatic_taquillas_ids, 'El usuario no es una taquilla')
         end
       end
     end
-  end
 
-  def validates_shared_user
-    if Shared::User.find(self.shared_user_id).role != 'Taquilla'
+    def validates_shared_user
+      return unless Shared::User.find(shared_user_id).role != 'Taquilla'
+
       errors.add(:shared_user_id, 'El usuario no es una taquilla')
     end
-  end
 
-  def generate_tickets
-    redis = Redis.new
+    def generate_tickets
+      redis = Redis.new
 
-    @tickets = []
+      @tickets = []
 
-    self.tickets_count.times do |index|
-      @tickets << {
-        position: index + 1,
-        is_sold: false,
-        sold_to: {},
-        serial: SecureRandom.hex(32) + index.to_s
-      }
-    end
+      tickets_count.times do |index|
+        @tickets << {
+          position: index + 1,
+          is_sold: false,
+          sold_to: {},
+          serial: SecureRandom.hex(32) + index.to_s
+        }
+      end
 
-    case self.tickets_count
-    when 100
-      self.raffle_type = 'Terminal'
-      self.save
-      redis.set("raffle_tickets:#{self.id}", @tickets.to_json)
-    when 1000
-      self.raffle_type = 'Triple'
-      self.save
-      redis.set("raffle_tickets:#{self.id}", @tickets.to_json)
-    else
-      self.raffle_type = 'Infinito'
-      self.save
+      case tickets_count
+      when 100
+        self.raffle_type = 'Terminal'
+        save
+        redis.set("raffle_tickets:#{id}", @tickets.to_json)
+      when 1000
+        self.raffle_type = 'Triple'
+        save
+        redis.set("raffle_tickets:#{id}", @tickets.to_json)
+      else
+        self.raffle_type = 'Infinito'
+        save
+      end
     end
   end
 end

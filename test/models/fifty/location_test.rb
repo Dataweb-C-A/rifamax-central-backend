@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: fifty_locations
@@ -10,10 +12,12 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-require "test_helper"
+require 'test_helper'
 
-class Fifty::LocationTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+module Fifty
+  class LocationTest < ActiveSupport::TestCase
+    # test "the truth" do
+    #   assert true
+    # end
+  end
 end

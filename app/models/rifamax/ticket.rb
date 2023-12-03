@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: rifamax_tickets
@@ -20,12 +22,12 @@
 #
 #  fk_rails_...  (rifamax_raffle_id => rifamax_raffles.id)
 #
-class Rifamax::Ticket < ApplicationRecord
-  belongs_to :rifamax_raffle, class_name: 'Rifamax::Raffle', foreign_key: 'rifamax_raffle_id'
+module Rifamax
+  class Ticket < ApplicationRecord
+    belongs_to :rifamax_raffle, class_name: 'Rifamax::Raffle', foreign_key: 'rifamax_raffle_id'
 
-  private
+    private
 
-  def generate_invoices
-    
+    def generate_invoices; end
   end
 end

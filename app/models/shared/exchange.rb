@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: shared_exchanges
@@ -10,48 +12,50 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
-class Shared::Exchange < ApplicationRecord
-  include HTTParty
-  require 'nokogiri'
-  require 'open-uri'
-  
-  after_create :change_exchange
+module Shared
+  class Exchange < ApplicationRecord
+    include HTTParty
+    require 'nokogiri'
+    require 'open-uri'
 
-  def self.get_cop
-    fx = Currencyapi::Endpoints.new(:apikey => 'cur_live_yPWZk5kwhQRmQPenFQXWUnmuZKeNEHgGCwYnR5za')
+    after_create :change_exchange
 
-    string = fx.latest("USD", "COP")
+    def self.get_cop
+      fx = Currencyapi::Endpoints.new(apikey: 'cur_live_yPWZk5kwhQRmQPenFQXWUnmuZKeNEHgGCwYnR5za')
 
-    json_string = string.gsub(/\A"|"\z/, '').gsub('\\"', '"')
+      string = fx.latest('USD', 'COP')
 
-    json_object = JSON.parse(json_string)
+      json_string = string.gsub(/\A"|"\z/, '').gsub('\\"', '"')
 
-    value = json_object['data']['COP']['value']
+      json_object = JSON.parse(json_string)
 
-    value.round(2)
-  end
+      value = json_object['data']['COP']['value']
 
-  def self.get_bsd
-    url = 'https://www.bcv.org.ve'
+      value.round(2)
+    end
 
-    agent = Mechanize.new
-    
-    agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    def self.get_bsd
+      url = 'https://www.bcv.org.ve'
 
-    html = agent.get(url).body
+      agent = Mechanize.new
 
-    doc = Nokogiri::HTML(html)
-  
-    dolar_value = doc.at_css('#dolar strong').content.strip
-  
-    dolar_value.gsub(',', '.').to_f.round(2)
-  end
-  
-  def change_exchange
-    if self.automatic
-      self.value_bs = Shared::Exchange.get_bsd()
-      self.value_cop = Shared::Exchange.get_cop()
-      self.save
+      agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+      html = agent.get(url).body
+
+      doc = Nokogiri::HTML(html)
+
+      dolar_value = doc.at_css('#dolar strong').content.strip
+
+      dolar_value.gsub(',', '.').to_f.round(2)
+    end
+
+    def change_exchange
+      return unless automatic
+
+      self.value_bs = Shared::Exchange.get_bsd
+      self.value_cop = Shared::Exchange.get_cop
+      save
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: rifamax_raffles
@@ -23,10 +25,12 @@
 #  rifero_id     :integer
 #  taquilla_id   :integer
 #
-require "test_helper"
+require 'test_helper'
 
-class Rifamax::RaffleTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+module Rifamax
+  class RaffleTest < ActiveSupport::TestCase
+    # test "the truth" do
+    #   assert true
+    # end
+  end
 end

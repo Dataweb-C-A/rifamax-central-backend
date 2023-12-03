@@ -1,9 +1,13 @@
+# frozen_string_literal: true
+
 require 'sidekiq-scheduler'
 
-class Shared::GenerateExchangesWorker
-  include Sidekiq::Worker
+module Shared
+  class GenerateExchangesWorker
+    include Sidekiq::Worker
 
-  def perform(*args)
-    Shared::Exchange.create(automatic: true)
+    def perform(*_args)
+      Shared::Exchange.create(automatic: true)
+    end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # db/seeds.rb
 
 module_to_run = ENV['MODULE']
@@ -9,7 +11,7 @@ if module_to_run.blank?
 end
 
 if module_to_run === 'all'
-  puts "Running all migrations from all enviroments..."
+  puts 'Running all migrations from all enviroments...'
   module_to_run = '*'
 end
 

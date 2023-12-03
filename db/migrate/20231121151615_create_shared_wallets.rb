@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateSharedWallets < ActiveRecord::Migration[7.0]
   def change
     create_table :shared_wallets do |t|

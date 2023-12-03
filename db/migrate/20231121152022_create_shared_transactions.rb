@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateSharedTransactions < ActiveRecord::Migration[7.0]
   def change
     create_table :shared_transactions do |t|

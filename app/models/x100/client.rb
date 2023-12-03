@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: x100_clients
@@ -10,5 +12,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class X100::Client < ApplicationRecord
+module X100
+  class Client < ApplicationRecord
+  end
 end

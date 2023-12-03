@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateRifamaxTickets < ActiveRecord::Migration[7.0]
   def change
     create_table :rifamax_tickets do |t|

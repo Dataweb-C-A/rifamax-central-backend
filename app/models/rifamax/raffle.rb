@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: rifamax_raffles
@@ -23,62 +25,64 @@
 #  rifero_id     :integer
 #  taquilla_id   :integer
 #
-class Rifamax::Raffle < ApplicationRecord
-  has_many :rifamax_tickets, class_name: 'Rifamax::Ticket', foreign_key: 'rifamax_raffle_id'
-  after_create :generate_tickets
+module Rifamax
+  class Raffle < ApplicationRecord
+    has_many :rifamax_tickets, class_name: 'Rifamax::Ticket', foreign_key: 'rifamax_raffle_id'
+    after_create :generate_tickets
 
-  ZODIAC = [
-    'Aries',
-    'Tauro',
-    'Geminis',
-    'Cancer',
-    'Leo',
-    'Virgo',
-    'Libra',
-    'Escorpio',
-    'Sagitario',
-    'Capricornio',
-    'Acuario',
-    'Piscis'
-  ].freeze
+    ZODIAC = %w[
+      Aries
+      Tauro
+      Geminis
+      Cancer
+      Leo
+      Virgo
+      Libra
+      Escorpio
+      Sagitario
+      Capricornio
+      Acuario
+      Piscis
+    ].freeze
 
-  WILDCARDS = [
-    'Baloncesto',
-    'Beisbol',
-    'Futbol',
-    'Voleibol',
-    'Playa',
-    'Golf',
-    'Futbol Americano',
-    'Tenis',
-    'Billar',
-    'Bowling',
-    'Ping Pong',
-    'Hockey',
-  ].freeze
+    WILDCARDS = [
+      'Baloncesto',
+      'Beisbol',
+      'Futbol',
+      'Voleibol',
+      'Playa',
+      'Golf',
+      'Futbol Americano',
+      'Tenis',
+      'Billar',
+      'Bowling',
+      'Ping Pong',
+      'Hockey'
+    ].freeze
 
-  def generate_tickets
-    case game
-    when 'Zodiac'
-      generate_tickets_for_category(ZODIAC)
-    when 'Wildcards'
-      generate_tickets_for_category(WILDCARDS)
+    def generate_tickets
+      case game
+      when 'Zodiac'
+        generate_tickets_for_category(ZODIAC)
+      when 'Wildcards'
+        generate_tickets_for_category(WILDCARDS)
+      end
     end
-  end
 
-  private
+    private
 
-  def generate_tickets_for_category(category)
-    ActiveRecord::Base.transaction do
-      category.each_with_index do |item, index|
-        Rifamax::Ticket.create(
-          sign: item,
-          number: numbers,
-          ticket_nro: index + 1,
-          serial: SecureRandom.hex(5),
-          is_sold: false,
-          rifamax_raffle_id: self.id
-        )
+    def generate_tickets_for_category(category)
+      ActiveRecord::Base.transaction do
+        category.each_with_index do |item, index|
+          Rifamax::Ticket.create(
+            sign: item,
+            number: numbers,
+            ticket_nro: index + 1,
+            serial: SecureRandom.hex(5),
+            is_sold: false,
+            rifamax_raffle_id: id
+          )
+        end
       end
     end
   end

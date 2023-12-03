@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: x100_raffles
@@ -24,10 +26,12 @@
 #  updated_at              :datetime         not null
 #  shared_user_id          :integer          not null
 #
-require "test_helper"
+require 'test_helper'
 
-class X100::RaffleTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+module X100
+  class RaffleTest < ActiveSupport::TestCase
+    # test "the truth" do
+    #   assert true
+    # end
+  end
 end

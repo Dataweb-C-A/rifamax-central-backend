@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: rifamax_tickets
@@ -20,10 +22,12 @@
 #
 #  fk_rails_...  (rifamax_raffle_id => rifamax_raffles.id)
 #
-require "test_helper"
+require 'test_helper'
 
-class Rifamax::TicketTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+module Rifamax
+  class TicketTest < ActiveSupport::TestCase
+    # test "the truth" do
+    #   assert true
+    # end
+  end
 end

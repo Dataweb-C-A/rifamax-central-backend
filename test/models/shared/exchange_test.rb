@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: shared_exchanges
@@ -10,10 +12,12 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
-require "test_helper"
+require 'test_helper'
 
-class Shared::ExchangeTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+module Shared
+  class ExchangeTest < ActiveSupport::TestCase
+    # test "the truth" do
+    #   assert true
+    # end
+  end
 end

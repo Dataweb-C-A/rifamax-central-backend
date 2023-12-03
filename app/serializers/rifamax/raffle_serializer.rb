@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: rifamax_raffles
@@ -23,6 +25,8 @@
 #  rifero_id     :integer
 #  taquilla_id   :integer
 #
-class Rifamax::RaffleSerializer < ActiveModel::Serializer
-  attributes :id
+module Rifamax
+  class RaffleSerializer < ActiveModel::Serializer
+    attributes :id
+  end
 end

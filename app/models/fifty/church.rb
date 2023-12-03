@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: fifty_churches
@@ -16,6 +18,8 @@
 #
 #  fk_rails_...  (fifty_town_id => fifty_towns.id)
 #
-class Fifty::Church < ApplicationRecord
-  belongs_to :fifty_town, class_name: 'Fifty::Town', foreign_key: 'fifty_town_id'
+module Fifty
+  class Church < ApplicationRecord
+    belongs_to :fifty_town, class_name: 'Fifty::Town', foreign_key: 'fifty_town_id'
+  end
 end

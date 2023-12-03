@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: rifamax_tickets
@@ -20,6 +22,8 @@
 #
 #  fk_rails_...  (rifamax_raffle_id => rifamax_raffles.id)
 #
-class Rifamax::TicketSerializer < ActiveModel::Serializer
-  attributes :id
+module Rifamax
+  class TicketSerializer < ActiveModel::Serializer
+    attributes :id
+  end
 end

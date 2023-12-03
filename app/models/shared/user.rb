@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: shared_users
@@ -17,78 +19,78 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
-class Shared::User < ApplicationRecord
-  has_one :shared_wallet, class_name: 'Shared::Wallet', foreign_key: 'shared_user_id'
-  has_secure_password
+module Shared
+  class User < ApplicationRecord
+    has_one :shared_wallet, class_name: 'Shared::Wallet', foreign_key: 'shared_user_id'
+    has_secure_password
 
-  after_create :generate_wallet
-  after_create :generate_slug
+    after_create :generate_wallet
+    after_create :generate_slug
 
-  enum :role, { 
-                Admin: 'admin', 
-                Agente: 'agente', 
-                Taquilla: 'taquilla', 
-                Rifero: 'rifero', 
-                Autotaquilla: 'autotaquilla' 
-              }
-  
-  scope :active, -> { where(is_active: true) }
-  scope :inactive, -> { where(is_active: false) }
+    enum :role, {
+      Admin: 'admin',
+      Agente: 'agente',
+      Taquilla: 'taquilla',
+      Rifero: 'rifero',
+      Autotaquilla: 'autotaquilla'
+    }
 
-  EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    scope :active, -> { where(is_active: true) }
+    scope :inactive, -> { where(is_active: false) }
 
-  # Validations
-  
-  validates :name, 
-            presence: true
-  
-  validates :role, 
-            presence: :true
-  
-  validates :email, 
-            presence: true, 
-            uniqueness: { case_sensitive: false }, 
-            format: { with: EMAIL_REGEX }
+    EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates :password,
-            length: { minimum: 8 },
-            if: -> { new_record? || !password.nil? }
+    # Validations
 
-  validates :dni,
-            presence: true,
-            uniqueness: { case_sensitive: false },
-            length: { minimum: 6 }
+    validates :name,
+              presence: true
 
-  validate :validate_riferos
+    validates :role,
+              presence: true
 
-  def taquillas
-    if !['Rifero', 'Admin'].include?(self.role)
-      return "Can't show taquillas, user are not rifero or admin."
-    else
-      case self.role
-        when 'Rifero'
-        Shared::User.where("rifero_ids @> ARRAY[?]", self.id)
-        when 'Admin'
+    validates :email,
+              presence: true,
+              uniqueness: { case_sensitive: false },
+              format: { with: EMAIL_REGEX }
+
+    validates :password,
+              length: { minimum: 8 },
+              if: -> { new_record? || !password.nil? }
+
+    validates :dni,
+              presence: true,
+              uniqueness: { case_sensitive: false },
+              length: { minimum: 6 }
+
+    validate :validate_riferos
+
+    def taquillas
+      return "Can't show taquillas, user are not rifero or admin." unless %w[Rifero Admin].include?(role)
+
+      case role
+      when 'Rifero'
+        Shared::User.where('rifero_ids @> ARRAY[?]', id)
+      when 'Admin'
         Shared::User.where(role: 'Taquilla')
       end
     end
-  end
 
-  def wallet
-    self.shared_wallet
-  end
-
-  def validate_riferos
-    if (self.role != 'Taquilla' && self.rifero_ids.length > 0)
-      errors.add(:rifero_ids, "Cannot add riferos")
+    def wallet
+      shared_wallet
     end
-  end
 
-  def generate_slug
-    self.slug = self.name.parameterize
-  end
+    def validate_riferos
+      return unless role != 'Taquilla' && rifero_ids.length.positive?
 
-  def generate_wallet
-    Shared::Wallet.create(shared_user_id: self.id)
+      errors.add(:rifero_ids, 'Cannot add riferos')
+    end
+
+    def generate_slug
+      self.slug = name.parameterize
+    end
+
+    def generate_wallet
+      Shared::Wallet.create(shared_user_id: id)
+    end
   end
 end

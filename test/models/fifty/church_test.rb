@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: fifty_churches
@@ -16,10 +18,12 @@
 #
 #  fk_rails_...  (fifty_town_id => fifty_towns.id)
 #
-require "test_helper"
+require 'test_helper'
 
-class Fifty::ChurchTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+module Fifty
+  class ChurchTest < ActiveSupport::TestCase
+    # test "the truth" do
+    #   assert true
+    # end
+  end
 end

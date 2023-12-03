@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: shared_application_modules
@@ -7,5 +9,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Shared::ApplicationModule < ApplicationRecord
+module Shared
+  class ApplicationModule < ApplicationRecord
+  end
 end

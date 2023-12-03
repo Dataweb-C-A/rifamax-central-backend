@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: shared_wallets
@@ -19,13 +21,15 @@
 #
 #  fk_rails_...  (shared_user_id => shared_users.id)
 #
-class Shared::Wallet < ApplicationRecord
-  belongs_to :shared_user, class_name: 'Shared::User', foreign_key: 'shared_user_id'
-  has_many :shared_transactions, class_name: 'Shared::Transaction', foreign_key: 'share_wallet_id'
+module Shared
+  class Wallet < ApplicationRecord
+    belongs_to :shared_user, class_name: 'Shared::User', foreign_key: 'shared_user_id'
+    has_many :shared_transactions, class_name: 'Shared::Transaction', foreign_key: 'share_wallet_id'
 
-  after_create :generate_token
+    after_create :generate_token
 
-  def generate_token
-    self.update(token: SecureRandom.uuid)
+    def generate_token
+      update(token: SecureRandom.uuid)
+    end
   end
 end

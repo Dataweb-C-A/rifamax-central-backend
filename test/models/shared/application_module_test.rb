@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: shared_application_modules
@@ -7,10 +9,12 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-require "test_helper"
+require 'test_helper'
 
-class Shared::ApplicationModuleTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+module Shared
+  class ApplicationModuleTest < ActiveSupport::TestCase
+    # test "the truth" do
+    #   assert true
+    # end
+  end
 end
