@@ -74,6 +74,6 @@ gem 'cors', '~> 1.0'
 
 gem 'sidekiq-scheduler', '~> 5.0'
 
-gem 'rubocop', require: false
+gem 'rubocop', '~> 1.58.0'
 
-gem "rubocop-rails", "~> 2.22"
+gem 'rubocop-rails', '~> 2.22'

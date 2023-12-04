@@ -28,6 +28,8 @@
 #
 module X100
   class Raffle < ApplicationRecord
+    has_many :x100_tickets, class_name: 'X100::Ticket', foreign_key: 'x100_raffle_id'
+
     after_create :generate_tickets
     after_create :initialize_status
     after_create :initialize_winners
@@ -116,6 +118,16 @@ module X100
       when 'Admin'
         X100::Raffle.reject { |item| item.status == 'Cerrada' }
       end
+    end
+
+    def tickets
+      redis = Redis.new
+
+      @tickets ||= JSON.parse(redis.get("raffle_tickets:#{id}"))
+    end
+
+    def tickets_winner
+      self.x100_tickets
     end
 
     private
