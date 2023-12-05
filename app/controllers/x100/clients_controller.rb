@@ -6,9 +6,13 @@ module X100
 
     # GET /x100/clients
     def index
-      @x100_clients = X100::Client.all
+      @x100_clients = X100::Client.find_by(phone: fetch_user[:phone])
 
-      render json: @x100_clients
+      if @x100_clients.nil?
+        render json: { message: "Client with phone: #{fetch_user[:phone]} doesn't exist" }, status: :not_found
+      else
+        render json: @x100_clients, status: :ok
+      end
     end
 
     # GET /x100/clients/1
@@ -46,6 +50,10 @@ module X100
     # Use callbacks to share common setup or constraints between actions.
     def set_x100_client
       @x100_client = X100::Client.find(params[:id])
+    end
+
+    def fetch_user
+      params.permit(:phone)
     end
 
     # Only allow a list of trusted parameters through.

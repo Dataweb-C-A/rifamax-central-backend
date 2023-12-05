@@ -173,6 +173,7 @@ GEM
       stringio
       time
       uri
+    pagy (6.2.0)
     parallel (1.23.0)
     parser (3.2.2.4)
       ast (~> 2.4.1)
@@ -299,6 +300,7 @@ DEPENDENCIES
   mechanize (~> 2.9)
   nokogiri (~> 1.15)
   open-uri (~> 0.4.0)
+  pagy (~> 6.2)
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors

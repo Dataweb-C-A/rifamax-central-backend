@@ -20,27 +20,48 @@ module X100
               presence: true
 
     validates :dni,
-              uniqueness: true,
-              presence: true,
-              length: {
-                minimum: 8
+              uniqueness: {
+                message: 'Ya existe un cliente con este número de cédula'
               },
-              inclusion: { in: ["V-", "J-", "E-", "G-"] },
-              if: -> { self.phone[0..3] == "+58 " }
+              presence: {
+                message: 'Debe introducir un número de cédula'
+              },
+              length: {
+                minimum: 8,
+                message: 'Debe ser mayor a 8 digitos'
+              },
+              format: { 
+                with: /\A[VEJG]-\d{1,8}\z/,
+                message: "Debe incluir (V J E G)"
+              },
+              if: -> { phone[0..3] == '+58 ' }
 
     validates :phone,
-              presence: true,
-              format: { 
-                      with: /\A\+\d{1,4} \(\d{1,4}\) \d{1,10}-\d{1,10}\z/, 
-                      message: "Introduzca un número de teléfono válido en el formato: +prefijo telefónico (codigo de area) tres primeros dígitos - dígitos restantes, por ejemplo: +58 (416) 000-0000"
+              presence: {
+                message: 'Debe introducir un número de teléfono'
+              },
+              uniqueness: {
+                message: 'Ya existe un cliente con este número de teléfono'
+              },
+              format: {
+                with: /\A\+\d{1,4} \(\d{1,4}\) \d{1,10}-\d{1,10}\z/,
+                message: 'Introduzca un número de teléfono válido en el formato: +prefijo telefónico (codigo de area) tres primeros dígitos - dígitos restantes, por ejemplo: +58 (416) 000-0000'
               }
 
     validates :email,
-              presence: true,
-              uniqueness: true
+              presence: {
+                message: 'Debe introducir un correo electrónico'
+              },
+              format: {
+                with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
+                message: 'Introduzca un correo electrónico válido'
+              },
+              uniqueness: {
+                message: 'Ya existe un cliente con este correo electrónico'
+              }
 
     def tickets
-      self.x100_tickets
-    end              
+      x100_tickets
+    end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: x100_tickets
@@ -21,10 +23,12 @@
 #  fk_rails_...  (x100_client_id => x100_clients.id)
 #  fk_rails_...  (x100_raffle_id => x100_raffles.id)
 #
-require "test_helper"
+require 'test_helper'
 
-class X100::TicketTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+module X100
+  class TicketTest < ActiveSupport::TestCase
+    # test "the truth" do
+    #   assert true
+    # end
+  end
 end

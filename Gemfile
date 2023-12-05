@@ -77,3 +77,5 @@ gem 'sidekiq-scheduler', '~> 5.0'
 gem 'rubocop', '~> 1.58.0'
 
 gem 'rubocop-rails', '~> 2.22'
+
+gem "pagy", "~> 6.2"

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/login', to: 'authentication#login'
 
   namespace :x100 do
+    resources :tickets
     resources :raffles
     resources :clients
   end

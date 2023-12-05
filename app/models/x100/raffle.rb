@@ -127,7 +127,7 @@ module X100
     end
 
     def tickets_winner
-      self.x100_tickets
+      x100_tickets
     end
 
     private
