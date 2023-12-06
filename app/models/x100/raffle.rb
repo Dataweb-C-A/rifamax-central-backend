@@ -126,7 +126,7 @@ module X100
       @tickets ||= JSON.parse(redis.get("raffle_tickets:#{id}"))
     end
 
-    def tickets_winner
+    def tickets_sold
       x100_tickets
     end
 

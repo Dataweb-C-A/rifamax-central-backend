@@ -30,9 +30,9 @@ module X100
                 minimum: 8,
                 message: 'Debe ser mayor a 8 digitos'
               },
-              format: { 
+              format: {
                 with: /\A[VEJG]-\d{1,8}\z/,
-                message: "Debe incluir (V J E G)"
+                message: 'Debe incluir (V J E G)'
               },
               if: -> { phone[0..3] == '+58 ' }
 

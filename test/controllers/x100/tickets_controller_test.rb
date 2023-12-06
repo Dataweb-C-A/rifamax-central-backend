@@ -1,13 +1,17 @@
-require "test_helper"
+# frozen_string_literal: true
 
-class X100::TicketsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get x100_tickets_index_url
-    assert_response :success
-  end
+require 'test_helper'
 
-  test "should get sold" do
-    get x100_tickets_sold_url
-    assert_response :success
+module X100
+  class TicketsControllerTest < ActionDispatch::IntegrationTest
+    test 'should get index' do
+      get x100_tickets_index_url
+      assert_response :success
+    end
+
+    test 'should get sold' do
+      get x100_tickets_sold_url
+      assert_response :success
+    end
   end
 end
