@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: x100_stats
@@ -17,10 +19,12 @@
 #
 #  fk_rails_...  (x100_raffle_id => x100_raffles.id)
 #
-require "test_helper"
+require 'test_helper'
 
-class X100::StatTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+module X100
+  class StatTest < ActiveSupport::TestCase
+    # test "the truth" do
+    #   assert true
+    # end
+  end
 end

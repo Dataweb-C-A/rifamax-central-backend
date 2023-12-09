@@ -3,7 +3,7 @@
 require_relative 'boot'
 
 require 'rails/all'
-require "action_cable/engine"
+require 'action_cable/engine'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -26,7 +26,7 @@ module RifamaxCentralBackend
 
     # One threaded dedicated for tasks without concurrency
     config.global_thread = Mutex.new
-    config.global_queue = Array.new
+    config.global_queue = []
 
     # Configuration for the application, engines, and railties goes here.
     #

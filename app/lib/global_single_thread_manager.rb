@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GlobalSingleThreadManager
   @mutex = Rails.application.config.global_thread
   @queue = Rails.application.config.global_queue.reverse
@@ -16,17 +18,15 @@ class GlobalSingleThreadManager
     request = @queue.pop
     if request
       puts "Processing request: #{request.args}"
-      @mutex.synchronize { request.block.call() }
+      @mutex.synchronize { request.block.call }
     else
-      puts "Queue is empty"
+      puts 'Queue is empty'
       sleep 1
     end
   end
-  
+
   def self.run_all
-    while @queue.length > 0
-      run
-    end
+    run while @queue.length.positive?
   end
 
   def self.add_tasks(args, block)
@@ -37,6 +37,6 @@ class GlobalSingleThreadManager
 
   def self.flush
     @queue.clear
-    puts "Queue flushed"
+    puts 'Queue flushed'
   end
 end

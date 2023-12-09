@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'pagy/extras/array'
 
 module X100
@@ -5,7 +7,7 @@ module X100
     include Pagy::Backend
 
     def subscribed
-      stream_from "x100_tickets"
+      stream_from 'x100_tickets'
 
       redis = Redis.new
 
@@ -19,20 +21,21 @@ module X100
       @x100_ticket = JSON.parse(@petition) unless @petition.nil?
 
       if @x100_ticket.nil?
-        ActionCable.server.broadcast("x100_tickets", { message: "Raffle with ID: #{@initials[:raffle_id]} doesn't exist" })
+        ActionCable.server.broadcast('x100_tickets',
+                                     { message: "Raffle with ID: #{@initials[:raffle_id]} doesn't exist" })
       else
         @pagy, @tickets = pagy_array(@x100_ticket, items: @initials[:items_per_page], page: @initials[:current_page])
 
-        ActionCable.server.broadcast("x100_tickets", {
-          metadata: {
-            page: @pagy.page,
-            count: @pagy.count,
-            items: @pagy.items,
-            pages: @pagy.pages,
-            channel: "x100_tickets"
-          },
-          tickets: @tickets
-        })
+        ActionCable.server.broadcast('x100_tickets', {
+                                       metadata: {
+                                         page: @pagy.page,
+                                         count: @pagy.count,
+                                         items: @pagy.items,
+                                         pages: @pagy.pages,
+                                         channel: 'x100_tickets'
+                                       },
+                                       tickets: @tickets
+                                     })
       end
     end
 

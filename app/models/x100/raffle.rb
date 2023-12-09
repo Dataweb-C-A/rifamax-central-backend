@@ -124,22 +124,21 @@ module X100
 
     def which(search = [], status = 'available')
       results = {}
-    
+
       results[:tickets] = handle_tickets_search(status) if search.include?('tickets')
       results[:raffle] = self if search.include?('raffle')
       results[:winners] = handle_winners_search if search.include?('winners')
       results[:stats] = handle_stats_search if search.include?('stats')
-    
+
       results.empty? ? { message: "Provide valid search params: ['tickets', 'raffle', 'winners', 'stats']" } : results
     end
-    
-    
+
     def tickets
       redis = Redis.new
 
       @tickets ||= JSON.parse(redis.get("x100_raffle_tickets:#{id}"))
     end
-    
+
     def tickets_sold
       x100_tickets
     end
@@ -155,20 +154,20 @@ module X100
       self.has_winners = false
       save
     end
-    
+
     def when_raffle_expires
       redis = Redis.new
-      if self.status == "Cerrada"
-        redis.expire("x100_raffle_tickets:#{self.id}", 259200)
+      return unless status == 'Cerrada'
 
-        X100::Stat.create(
-          x100_raffle_id: self.id,
-          tickets_sold: self.tickets_sould.count,
-          profit: self.tickets_sold.count * self.price_unit
-        )
-      end
+      redis.expire("x100_raffle_tickets:#{id}", 259_200)
+
+      X100::Stat.create(
+        x100_raffle_id: id,
+        tickets_sold: tickets_sould.count,
+        profit: tickets_sold.count * price_unit
+      )
     end
-    
+
     def handle_tickets_search(status)
       case status
       when 'available'
@@ -177,22 +176,22 @@ module X100
         sold_tickets
       end
     end
-    
+
     def parse_raffle_tickets
       redis = Redis.new
       JSON.parse(redis.get("x100_raffle_tickets:#{id}"))
     end
-    
+
     def sold_tickets
       tickets.select { |item| item['is_sold'] == true }
     end
-    
+
     def handle_winners_search
-      winners.nil? ? { message: "No winners yet" } : winners
+      winners.nil? ? { message: 'No winners yet' } : winners
     end
-    
+
     def handle_stats_search
-      x100_stat.nil? ? { message: "No stats yet" } : x100_stat
+      x100_stat.nil? ? { message: 'No stats yet' } : x100_stat
     end
 
     def validates_winners_structure
