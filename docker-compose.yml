@@ -3,34 +3,34 @@ version: "2"
 volumes:
   db_prod: {}
 services:
-  db:
-    image: postgres
-    environment:
-      - POSTGRES_HOST_AUTH_METHOD=trust
-      - DATABASE_HOST=127.0.0.1
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=root  
-    ports:
-      - "5432:5432"
-    volumes:
-      - ./tmp/db:/var/lib/postgresql/data
-  redis:
-    image: redis:7-alpine
-    container_name: redis
-    ports:
-      - "6379:6379"
-    volumes:
-    - ./temp/redis_data:/var/lib/redis/data
-  sidekiq:
-    build:
-      context: .
-    command: bundle exec sidekiq
-    environment:
-      TZ: "America/Caracas"
-      REDIS_HOST:  '127.0.0.1'
-      POSTGRES_HOST: '127.0.0.1'
-    container_name: puestos_sidekiq
+  # db:
+  #   image: postgres
+  #   environment:
+  #     - POSTGRES_HOST_AUTH_METHOD=trust
+  #     - DATABASE_HOST=127.0.0.1
+  #     - POSTGRES_USER=root
+  #     - POSTGRES_PASSWORD=root
+  #     - POSTGRES_DB=root  
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - ./tmp/db:/var/lib/postgresql/data
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #   - ./temp/redis_data:/var/lib/redis/data
+  # sidekiq:
+  #   build:
+  #     context: .
+  #   command: bundle exec sidekiq
+  #   environment:
+  #     TZ: "America/Caracas"
+  #     REDIS_HOST:  '127.0.0.1'
+  #     POSTGRES_HOST: '127.0.0.1'
+  #   container_name: puestos_sidekiq
   app:
     build:
       context: .
@@ -38,8 +38,8 @@ services:
     environment:
       TZ: "America/Caracas"
       RAILS_ENV: development
-      REDIS_HOST:  '127.0.0.1'
-      POSTGRES_HOST: '127.0.0.1'
+      # REDIS_HOST:  '10.116.0.3'
+      # POSTGRES_HOST: '10.116.0.3'
     ports:
       - "3000:3000"
     container_name: puestos_admin
