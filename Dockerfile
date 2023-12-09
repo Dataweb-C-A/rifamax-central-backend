@@ -1,19 +1,24 @@
-FROM ruby:3.1.2 as base
+FROM ruby:3.1.2
 
-RUN apt-get update -qq && apt-get install -y build-essential apt-utils libpq-dev
+WORKDIR /app
 
-WORKDIR /docker/app
+COPY . .
 
-RUN gem install bundler
+RUN apt-get update -yqq \
+  && apt-get install -yqq --no-install-recommends \
+  postgresql-client nodejs \
+  nano \
+  && rm -rf /var/lib/apt/lists
+ENV TZ=America/Caracas
 
-COPY Gemfile* ./
+RUN gem install bundler -v 2.4.17
 
 RUN bundle install
 
-ADD . /docker/app
+ENV RAILS_ENV=development
 
-ARG DEFAULT_PORT 3000
+# RUN bundle exec rails assets:precompile
 
-EXPOSE ${DEFAULT_PORT}
+EXPOSE 3000
 
-CMD ["rails", "server"]
+CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3000", "-e", "development"]

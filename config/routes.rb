@@ -3,8 +3,6 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  # mount Sidekiq::Web, to: '/sidekiq'
-
   post '/login', to: 'authentication#login'
 
   namespace :x100 do
@@ -24,4 +22,7 @@ Rails.application.routes.draw do
   namespace :shared do
     resources :users
   end
+
+  mount ActionCable.server => '/cable'
+  mount Sidekiq::Web => '/sidekiq'
 end

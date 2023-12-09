@@ -37,9 +37,7 @@ module X100
       end
     end
 
-    def sell_tickets
-      
-    end
+    def sell_tickets; end
 
     private
 

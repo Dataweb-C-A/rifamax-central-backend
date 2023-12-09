@@ -2,9 +2,9 @@
 
 module X100
   class GenerateDrawsTicketsJob
-    include Sidekiq::Worker 
+    include Sidekiq::Worker
 
-    def perform(raffle_id, tickets_buy)
+    def perform(raffle_id, _tickets_buy)
       raffle = X100::Raffle.find(raffle_id)
       tickets = []
 

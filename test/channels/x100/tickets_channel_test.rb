@@ -1,8 +1,12 @@
-require "test_helper"
+# frozen_string_literal: true
 
-class X100::TicketsChannelTest < ActionCable::Channel::TestCase
-  # test "subscribes" do
-  #   subscribe
-  #   assert subscription.confirmed?
-  # end
+require 'test_helper'
+
+module X100
+  class TicketsChannelTest < ActionCable::Channel::TestCase
+    # test "subscribes" do
+    #   subscribe
+    #   assert subscription.confirmed?
+    # end
+  end
 end
