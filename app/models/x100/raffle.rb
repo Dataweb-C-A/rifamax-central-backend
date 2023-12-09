@@ -34,6 +34,7 @@ module X100
     after_create :generate_tickets
     after_create :initialize_status
     after_create :initialize_winners
+    after_commit :when_raffle_expires
 
     validates :title,
               presence: true,
@@ -159,6 +160,12 @@ module X100
       redis = Redis.new
       if self.status == "Cerrada"
         redis.expire("x100_raffle_tickets:#{self.id}", 259200)
+
+        X100::Stat.create(
+          x100_raffle_id: self.id,
+          tickets_sold: self.tickets_sould.count,
+          profit: self.tickets_sold.count * self.price_unit
+        )
       end
     end
     
