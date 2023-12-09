@@ -29,6 +29,7 @@
 module X100
   class Raffle < ApplicationRecord
     has_many :x100_tickets, class_name: 'X100::Ticket', foreign_key: 'x100_raffle_id'
+    has_one :x100_stat, class_name: 'X100::Stat', foreign_key: 'x100_raffle_id'
 
     after_create :generate_tickets
     after_create :initialize_status
@@ -120,12 +121,24 @@ module X100
       end
     end
 
+    def which(search = [], status = 'available')
+      results = {}
+    
+      results[:tickets] = handle_tickets_search(status) if search.include?('tickets')
+      results[:raffle] = self if search.include?('raffle')
+      results[:winners] = handle_winners_search if search.include?('winners')
+      results[:stats] = handle_stats_search if search.include?('stats')
+    
+      results.empty? ? { message: "Provide valid search params: ['tickets', 'raffle', 'winners', 'stats']" } : results
+    end
+    
+    
     def tickets
       redis = Redis.new
 
-      @tickets ||= JSON.parse(redis.get("raffle_tickets:#{id}"))
+      @tickets ||= JSON.parse(redis.get("x100_raffle_tickets:#{id}"))
     end
-
+    
     def tickets_sold
       x100_tickets
     end
@@ -140,6 +153,39 @@ module X100
     def initialize_winners
       self.has_winners = false
       save
+    end
+    
+    def when_raffle_expires
+      redis = Redis.new
+      if self.status == "Cerrada"
+        redis.expire("x100_raffle_tickets:#{self.id}", 259200)
+      end
+    end
+    
+    def handle_tickets_search(status)
+      case status
+      when 'available'
+        parse_raffle_tickets
+      when 'sold'
+        sold_tickets
+      end
+    end
+    
+    def parse_raffle_tickets
+      redis = Redis.new
+      JSON.parse(redis.get("x100_raffle_tickets:#{id}"))
+    end
+    
+    def sold_tickets
+      tickets.select { |item| item['is_sold'] == true }
+    end
+    
+    def handle_winners_search
+      winners.nil? ? { message: "No winners yet" } : winners
+    end
+    
+    def handle_stats_search
+      x100_stat.nil? ? { message: "No stats yet" } : x100_stat
     end
 
     def validates_winners_structure
@@ -215,11 +261,11 @@ module X100
       when 100
         self.raffle_type = 'Terminal'
         save
-        redis.set("raffle_tickets:#{id}", @tickets.to_json)
+        redis.set("x100_raffle_tickets:#{id}", @tickets.to_json)
       when 1000
         self.raffle_type = 'Triple'
         save
-        redis.set("raffle_tickets:#{id}", @tickets.to_json)
+        redis.set("x100_raffle_tickets:#{id}", @tickets.to_json)
       else
         self.raffle_type = 'Infinito'
         save

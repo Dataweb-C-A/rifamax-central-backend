@@ -1,9 +1,9 @@
 class GlobalSingleThreadManager
   @mutex = Rails.application.config.global_thread
-  @queue = Rails.application.config.global_queue
+  @queue = Rails.application.config.global_queue.reverse
   Request = Struct.new(:args, :block)
 
-  def self.add_request(args, block)
+  def self.add_task_to_queue(args, block)
     @queue.push(Request.new(args, block))
     puts "Added request to queue: #{args}"
   end
@@ -19,8 +19,20 @@ class GlobalSingleThreadManager
       @mutex.synchronize { request.block.call() }
     else
       puts "Queue is empty"
-      sleep 1  # Sleep for a short duration to avoid busy-waiting
+      sleep 1
     end
+  end
+  
+  def self.run_all
+    while @queue.length > 0
+      run
+    end
+  end
+
+  def self.add_tasks(args, block)
+    @queue.push(Request.new(args, block))
+    puts "Added request to queue: #{args}"
+    run_all
   end
 
   def self.flush

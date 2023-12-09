@@ -30,7 +30,7 @@ services:
   #     TZ: "America/Caracas"
   #     REDIS_HOST:  '127.0.0.1'
   #     POSTGRES_HOST: '127.0.0.1'
-  #   container_name: puestos_sidekiq
+  #   container_name: rifamax_sidekiq
   app:
     build:
       context: .
@@ -42,4 +42,4 @@ services:
       # POSTGRES_HOST: '10.116.0.3'
     ports:
       - "3000:3000"
-    container_name: puestos_admin
+    container_name: rifamax_central_backend
