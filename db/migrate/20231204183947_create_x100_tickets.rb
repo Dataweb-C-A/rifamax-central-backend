@@ -9,6 +9,7 @@ class CreateX100Tickets < ActiveRecord::Migration[7.0]
       t.float :price
       t.string :money
       t.string :ticket_number
+      t.integer :perform_at
       t.references :x100_raffle, null: false, foreign_key: true
       t.references :x100_client, null: false, foreign_key: true
 

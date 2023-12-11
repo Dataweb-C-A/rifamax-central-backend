@@ -63,5 +63,9 @@ module X100
     def tickets
       x100_tickets
     end
+
+    def exists?
+      X100::Client.where(dni: dni).or(X100::Client.where(phone: phone)).or(X100::Client.where(email: email)).exists?
+    end
   end
 end

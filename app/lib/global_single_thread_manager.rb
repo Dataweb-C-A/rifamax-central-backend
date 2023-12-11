@@ -5,7 +5,7 @@ class GlobalSingleThreadManager
   @queue = Rails.application.config.global_queue.reverse
   Request = Struct.new(:args, :block)
 
-  def self.add_task_to_queue(args, block)
+  def self.job_later(args, block)
     @queue.push(Request.new(args, block))
     puts "Added request to queue: #{args}"
   end
@@ -16,12 +16,14 @@ class GlobalSingleThreadManager
 
   def self.run
     request = @queue.pop
-    if request
-      puts "Processing request: #{request.args}"
-      @mutex.synchronize { request.block.call }
-    else
-      puts 'Queue is empty'
-      sleep 1
+    Thread.new do
+      if request
+        puts "Processing request: #{request.args}"
+        @mutex.synchronize { request.block.call }
+      else
+        puts 'Queue is empty'
+        sleep 1
+      end
     end
   end
 
