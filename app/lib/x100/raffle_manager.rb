@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# this method is multi-threaded, need to be change to works just one thread per transaction
-
 module X100
   module RaffleManager
     @redis = Redis.new
@@ -21,7 +19,7 @@ module X100
     end
     
     def self.fetch_raffle(raffle_id)
-      JSON.parse(@redis.get("raffle_tickets:#{raffle_id}")) if @redis.exists("raffle_tickets:#{raffle_id}")
+      return JSON.parse(@redis.get("raffle_tickets:#{raffle_id}")) if @redis.exists("raffle_tickets:#{raffle_id}")
     end
     
     def self.handle_sell(raffle_id, positions = [], client = {})
@@ -33,6 +31,8 @@ module X100
 
       return GlobalSingleThreadManager.add_tasks(DateTime.now.to_i, lambda { sell(raffle_id, positions, client) })
     end
+
+    # Validations
 
     def self.validates_params(raffle_id, positions = [], client = {})
       validate_raffle_id(raffle_id)
@@ -47,24 +47,23 @@ module X100
     def self.validate_positions(positions = [])
       raise ArgumentError, "Please provide valid positions (integer array) parameter" unless positions.is_a?(Array) && !positions.empty? && positions.all? { |i| i.is_a?(Integer) }
     end
-
+  
     def self.validate_client(client = {})
       client_model = X100::Client.new(client)
+
+      return if client_model.exists?
 
       unless client_model.valid?
         raise ArgumentError, client_model.errors.full_messages.join(', ')
       end
 
-      if !client_model.exists?
-        if client_model.save
-          puts "Client #{client_model.name} saved"
-        else
-          raise ArgumentError, client_model.errors.full_messages.join(', ')
-        end
+      if client_model.save
+        puts "Client #{client_model.name} saved"
       end
-      
-      nil # Return nil if validation passes
     end
+
+
+    # Sell
 
     private
 
@@ -74,6 +73,15 @@ module X100
         positions: positions,
         client: client
       }
+
+      @raffle = fetch_raffle(@initials[:raffle_id])
+
+      @initials[:positions].each do |position|
+        @ticket = @raffle.find { |item| item['position'] == position }
+
+        next if @ticket.nil?
+
+      end
 
       return @initials
     end
