@@ -4,10 +4,10 @@ require 'pagy/extras/array'
 
 module X100
   class TicketsController < ApplicationController
-    include Pagy::Backend
-
     before_action :authorize_request, only: %i[sell_tickets]
     before_action :fetch_tickets, only: %i[index]
+    
+    include Pagy::Backend
 
     def index
       redis = Redis.new
@@ -37,7 +37,9 @@ module X100
       end
     end
 
-    def sell_tickets; end
+    def sell_tickets
+      
+    end
 
     private
 

@@ -75,6 +75,14 @@ module Shared
       end
     end
 
+    def self.has_role?(role)
+      Shared::User.where(role: role).count.positive?
+    end
+
+    def has_role?(role)
+      self.role == role
+    end
+
     def wallet
       shared_wallet
     end
