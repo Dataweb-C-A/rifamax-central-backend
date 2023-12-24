@@ -16,6 +16,8 @@ module X100
         action: params[:action] || 'GET_AVAILABLE_TICKETS'
       }
 
+      puts(params[:visit_id])
+
       X100::TicketCableManager.actions(@initials)
     end
 

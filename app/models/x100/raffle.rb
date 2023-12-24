@@ -166,6 +166,10 @@ module X100
         tickets_sold: tickets_sould.count,
         profit: tickets_sold.count * price_unit
       )
+
+      @raffles = X100::Raffle.all
+
+      ActionCable.server.broadcast('x100_raffles', @raffles)
     end
 
     def handle_tickets_search(status)
@@ -254,6 +258,10 @@ module X100
 
       @tickets = []
 
+      @raffles = X100::Raffle.all
+
+      ActionCable.server.broadcast('x100_raffles', @raffles)
+
       tickets_count.times do |index|
         @tickets << {
           position: index + 1,
@@ -276,6 +284,9 @@ module X100
         self.raffle_type = 'Infinito'
         save
       end
+    end
+
+    def sell_tickets
     end
   end
 end

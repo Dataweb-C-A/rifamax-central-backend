@@ -3,7 +3,9 @@ module X100
     def self.actions(payload)
       reducer = X100::TicketCableReducer.new
 
-      case payload[:action]
+      @payload_parsed = JSON.parse(payload)
+
+      case @payload_parsed["action"]
       when 'GET_AVAILABLE_TICKETS'
         reducer.return_tickets(payload)
       when 'APART_TICKETS'

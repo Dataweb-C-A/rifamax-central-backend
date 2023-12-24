@@ -52,7 +52,7 @@ module X100
       client_model = X100::Client.new(client)
 
       return if client_model.exists?
-
+ 
       unless client_model.valid?
         raise ArgumentError, client_model.errors.full_messages.join(', ')
       end
