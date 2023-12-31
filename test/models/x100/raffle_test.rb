@@ -7,6 +7,7 @@
 #  id                      :bigint           not null, primary key
 #  ad                      :string
 #  automatic_taquillas_ids :integer          default([]), is an Array
+#  combos                  :jsonb
 #  draw_type               :string
 #  expired_date            :datetime
 #  has_winners             :boolean

@@ -7,6 +7,7 @@
 #  id                      :bigint           not null, primary key
 #  ad                      :string
 #  automatic_taquillas_ids :integer          default([]), is an Array
+#  combos                  :jsonb
 #  draw_type               :string
 #  expired_date            :datetime
 #  has_winners             :boolean
@@ -28,6 +29,7 @@
 #
 module X100
   class Raffle < ApplicationRecord
+    mount_uploader :ad, X100::AdUploader
     has_many :x100_tickets, class_name: 'X100::Ticket', foreign_key: 'x100_raffle_id'
     has_one :x100_stat, class_name: 'X100::Stat', foreign_key: 'x100_raffle_id'
 
@@ -101,13 +103,15 @@ module X100
               presence: true,
               inclusion: { in: %w[Infinito Terminal Triple] }
 
-    validate :validates_prizes_structure
+    # validate :validates_prizes_structure
 
-    validate :validates_winners_structure
+    # validate :validates_winners_structure
+
+    # validate :validates_combos_structure
 
     validate :validates_draw_types
 
-    validate :validates_shared_user
+    # validate :validates_shared_user
 
     validate :validates_automatic_taquillas
 
@@ -226,6 +230,17 @@ module X100
 
           errors.add(:prizes, 'Debe agregar una posicion al premio') if prize['prize_position'].nil?
         end
+      end
+    end
+
+    def validates_combos_structure
+      return if combos.nil?
+      return unless combos.length.positive?
+
+      combos.each do |combo|
+        errors.add(:combos, 'Debe agregar la cantidad de ticket del combo') if combo[:quantity].nil?
+
+        errors.add(:combos, 'Debe agregar el precio del combo') if combo[:price].nil? 
       end
     end
 

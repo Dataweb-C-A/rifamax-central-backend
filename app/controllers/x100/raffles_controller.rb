@@ -36,9 +36,13 @@ module X100
     # PATCH/PUT /x100/raffles/1
     def update
       if @x100_raffle_taquilla.update(edit_x100_raffle_params)
+        @raffles = X100::Raffle.order(:id).reverse
+
+        ActionCable.server.broadcast('x100_raffles', @raffles)
         render json: @x100_raffle_taquilla, status: :ok
       else
-        render json: @x100_raffle.errors, status: :unprocessable_entity
+        puts @x100_raffle_taquilla.errors.full_messages
+        render json: @x100_raffle_taquilla.errors.full_messages, status: :unprocessable_entity
       end
     end
 
@@ -81,6 +85,9 @@ module X100
         prizes: %i[
           name prize_position
         ],
+        combos: %i[
+          price quantity
+        ],
         automatic_taquillas_ids: []
       )
     end
@@ -103,7 +110,10 @@ module X100
         automatic_taquillas_ids: [],
         prizes: %i[
           name prize_position
-        ]
+        ],
+        combos: %i[
+          prize quantity
+        ],
       )
     end
   end

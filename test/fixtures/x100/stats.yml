@@ -17,7 +17,6 @@
 #
 #  fk_rails_...  (x100_raffle_id => x100_raffles.id)
 #
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
   tickets_sold: 1
