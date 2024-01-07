@@ -9,16 +9,7 @@ module X100
     def subscribed
       stream_from 'x100_tickets'
 
-      @initials = {
-        raffle_id: params[:raffle_id], 
-        current_page: params[:current_page],
-        items_per_page: params[:items_per_page] || 100,
-        action: params[:action] || 'GET_AVAILABLE_TICKETS'
-      }
-
-      puts(params[:visit_id])
-
-      X100::TicketCableManager.actions(@initials)
+      ActionCable.server.broadcast()
     end
 
     def unsubscribed

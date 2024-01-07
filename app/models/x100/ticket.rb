@@ -27,5 +27,35 @@ module X100
   class Ticket < ApplicationRecord
     belongs_to :x100_raffle, class_name: 'X100::Raffle', foreign_key: 'x100_raffle_id'
     belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id'
+
+    def self.all_sold_tickets
+      raffles = X100::Raffle.all
+
+      result = []
+
+      raffles.each do |raffle|
+        result << {
+          raffle_id: raffle.id,
+          positions: raffle.tickets_sold.select { |item| item.x100_raffle_id === raffle.id }.map(&:position)
+        }
+      end
+
+      return result
+    end
+
+    def self.sold_tickets(raffle_id)
+      raffles = X100::Raffle.where(id: raffle_id)
+
+      result = []
+
+      raffles.each do |raffle|
+        result << {
+          raffle_id: raffle.id,
+          positions: raffle.tickets_sold.select { |item| item.x100_raffle_id === raffle.id }.map(&:position)
+        }
+      end
+
+      return result
+    end
   end
 end

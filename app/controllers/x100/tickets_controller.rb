@@ -10,30 +10,17 @@ module X100
     include Pagy::Backend
 
     def index
-      redis = Redis.new
+      @tickets = X100::Ticket.all_sold_tickets
 
-      @initials = {
-        raffle_id: fetch_tickets[:raffle_id] || 'Not provided',
-        current_page: fetch_tickets[:current_page] || 1,
-        items_per_page: fetch_tickets[:items_per_page] || 100
-      }
+      render json: @tickets, status: :ok
+    end
 
-      @petition = redis.get("x100_raffle_tickets:#{@initials[:raffle_id]}")
-      @x100_ticket = JSON.parse(@petition) unless @petition.nil?
-
-      if @x100_ticket.nil?
-        render json: { message: "Raffle with ID: #{@initials[:raffle_id]} doesn't exist" }, status: :not_found
+    def show
+      @x100_ticket = X100::Ticket.sold_tickets(params[:id])[0]
+      if @x100_ticket == nil
+        render json: { message: "Raffle with ID: #{params[:id]} not found" }, status: :not_found
       else
-        @pagy, @tickets = pagy_array(@x100_ticket, items: @initials[:items_per_page], page: @initials[:current_page])
-        render json: {
-          metadata: {
-            page: @pagy.page,
-            count: @pagy.count,
-            items: @pagy.items,
-            pages: @pagy.pages
-          },
-          tickets: @tickets
-        }, status: :ok
+        render json: @x100_ticket, status: :ok
       end
     end
 
