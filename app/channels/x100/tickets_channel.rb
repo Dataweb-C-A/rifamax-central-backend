@@ -9,7 +9,9 @@ module X100
     def subscribed
       stream_from 'x100_tickets'
 
-      ActionCable.server.broadcast()
+      @tickets = X100::Ticket.all_sold_tickets
+
+      ActionCable.server.broadcast('x100_tickets', @tickets)
     end
 
     def unsubscribed
