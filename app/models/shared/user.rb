@@ -83,7 +83,7 @@ module Shared
               format: { with: EMAIL_REGEX }
 
     validates :password,
-              length: { minimum: 8 },
+              length: { minimum: 6 },
               if: -> { new_record? || !password.nil? }
 
     validates :dni,
