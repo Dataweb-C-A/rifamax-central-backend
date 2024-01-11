@@ -48,50 +48,50 @@ module Shared
     validates :role,
               presence: true
 
-    validates :dni,
-              uniqueness: {
-                message: 'Ya existe un cliente con este número de cédula'
-              },
-              presence: {
-                message: 'Debe introducir un número de cédula'
-              },
-              length: {
-                minimum: 8,
-                message: 'Debe ser mayor a 8 digitos'
-              },
-              format: {
-                with: /\A[VEJG]-\d{1,8}\z/,
-                message: 'Debe incluir (V J E G)'
-              },
-              if: -> { phone[0..3] == '+58 ' }
+    # validates :dni,
+    #           uniqueness: {
+    #             message: 'Ya existe un cliente con este número de cédula'
+    #           },
+    #           presence: {
+    #             message: 'Debe introducir un número de cédula'
+    #           },
+    #           length: {
+    #             minimum: 8,
+    #             message: 'Debe ser mayor a 8 digitos'
+    #           },
+    #           format: {
+    #             with: /\A[VEJG]-\d{1,8}\z/,
+    #             message: 'Debe incluir (V J E G)'
+    #           },
+    #           if: -> { phone[0..3] == '+58 ' }
               
-    validates :phone,
-              presence: {
-                message: 'Debe introducir un número de teléfono'
-              },
-              uniqueness: {
-                message: 'Ya existe un cliente con este número de teléfono'
-              },
-              format: {
-                with: /\A\+\d{1,4} \(\d{1,4}\) \d{1,10}-\d{1,10}\z/,
-                message: 'Introduzca un número de teléfono válido en el formato: +prefijo telefónico (codigo de area) tres primeros dígitos - dígitos restantes, por ejemplo: +58 (416) 000-0000'
-              }
+    # validates :phone,
+    #           presence: {
+    #             message: 'Debe introducir un número de teléfono'
+    #           },
+    #           uniqueness: {
+    #             message: 'Ya existe un cliente con este número de teléfono'
+    #           },
+    #           format: {
+    #             with: /\A\+\d{1,4} \(\d{1,4}\) \d{1,10}-\d{1,10}\z/,
+    #             message: 'Introduzca un número de teléfono válido en el formato: +prefijo telefónico (codigo de area) tres primeros dígitos - dígitos restantes, por ejemplo: +58 (416) 000-0000'
+    #           }
 
-    validates :email,
-              presence: true,
-              uniqueness: { case_sensitive: false },
-              format: { with: EMAIL_REGEX }
+    # validates :email,
+    #           presence: true,
+    #           uniqueness: { case_sensitive: false },
+    #           format: { with: EMAIL_REGEX }
 
-    validates :password,
-              length: { minimum: 6 },
-              if: -> { new_record? || !password.nil? }
+    # # validates :password,
+    # #           length: { minimum: 6 },
+    # #           if: -> { new_record? || !password.nil? }
 
-    validates :dni,
-              presence: true,
-              uniqueness: { case_sensitive: false },
-              length: { minimum: 6 }
+    # validates :dni,
+    #           presence: true,
+    #           uniqueness: { case_sensitive: false },
+    #           length: { minimum: 6 }
 
-    validate :validate_riferos
+    # validate :validate_riferos
 
     def taquillas
       return "Can't show taquillas, user are not rifero or admin." unless %w[Rifero Admin].include?(role)
