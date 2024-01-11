@@ -1,0 +1,2725 @@
+[
+  {
+    "id": 1,
+    "rifero_id": 1,
+    "taquilla_id": 1,
+    "created_at": "2022-10-21T16:19:44.110065",
+    "updated_at": "2022-10-21T16:19:44.110065"
+  },
+  {
+    "id": 2,
+    "rifero_id": 2,
+    "taquilla_id": 2,
+    "created_at": "2022-10-21T21:20:11.976396",
+    "updated_at": "2022-10-21T21:20:11.976396"
+  },
+  {
+    "id": 3,
+    "rifero_id": 3,
+    "taquilla_id": 2,
+    "created_at": "2022-10-21T21:21:43.444703",
+    "updated_at": "2022-10-21T21:21:43.444703"
+  },
+  {
+    "id": 4,
+    "rifero_id": 4,
+    "taquilla_id": 2,
+    "created_at": "2022-10-21T22:20:35.054251",
+    "updated_at": "2022-10-21T22:20:35.054251"
+  },
+  {
+    "id": 9,
+    "rifero_id": 9,
+    "taquilla_id": 2,
+    "created_at": "2022-10-22T13:53:59.9131",
+    "updated_at": "2022-10-22T13:53:59.9131"
+  },
+  {
+    "id": 10,
+    "rifero_id": 10,
+    "taquilla_id": 2,
+    "created_at": "2022-10-22T13:55:13.087801",
+    "updated_at": "2022-10-22T13:55:13.087801"
+  },
+  {
+    "id": 11,
+    "rifero_id": 11,
+    "taquilla_id": 2,
+    "created_at": "2022-10-22T13:55:59.778507",
+    "updated_at": "2022-10-22T13:55:59.778507"
+  },
+  {
+    "id": 12,
+    "rifero_id": 12,
+    "taquilla_id": 1,
+    "created_at": "2022-10-22T14:50:05.855371",
+    "updated_at": "2022-10-22T14:50:05.855371"
+  },
+  {
+    "id": 13,
+    "rifero_id": 13,
+    "taquilla_id": 1,
+    "created_at": "2022-10-25T00:58:12.105405",
+    "updated_at": "2022-10-25T00:58:12.105405"
+  },
+  {
+    "id": 14,
+    "rifero_id": 14,
+    "taquilla_id": 2,
+    "created_at": "2022-10-25T12:27:59.852323",
+    "updated_at": "2022-10-25T12:27:59.852323"
+  },
+  {
+    "id": 20,
+    "rifero_id": 20,
+    "taquilla_id": 1,
+    "created_at": "2022-10-25T18:07:47.93261",
+    "updated_at": "2022-10-25T18:07:47.93261"
+  },
+  {
+    "id": 23,
+    "rifero_id": 23,
+    "taquilla_id": 1,
+    "created_at": "2022-10-25T21:58:51.179363",
+    "updated_at": "2022-10-25T21:58:51.179363"
+  },
+  {
+    "id": 24,
+    "rifero_id": 24,
+    "taquilla_id": 3,
+    "created_at": "2022-10-26T02:47:56.514035",
+    "updated_at": "2022-10-26T02:47:56.514035"
+  },
+  {
+    "id": 25,
+    "rifero_id": 25,
+    "taquilla_id": 3,
+    "created_at": "2022-10-26T02:50:44.13761",
+    "updated_at": "2022-10-26T02:50:44.13761"
+  },
+  {
+    "id": 26,
+    "rifero_id": 26,
+    "taquilla_id": 3,
+    "created_at": "2022-10-26T11:22:17.495743",
+    "updated_at": "2022-10-26T11:22:17.495743"
+  },
+  {
+    "id": 27,
+    "rifero_id": 27,
+    "taquilla_id": 2,
+    "created_at": "2022-10-26T12:13:42.800595",
+    "updated_at": "2022-10-26T12:13:42.800595"
+  },
+  {
+    "id": 28,
+    "rifero_id": 28,
+    "taquilla_id": 2,
+    "created_at": "2022-10-26T12:24:00.88764",
+    "updated_at": "2022-10-26T12:24:00.88764"
+  },
+  {
+    "id": 29,
+    "rifero_id": 29,
+    "taquilla_id": 1,
+    "created_at": "2022-10-26T14:54:00.233058",
+    "updated_at": "2022-10-26T14:54:00.233058"
+  },
+  {
+    "id": 30,
+    "rifero_id": 30,
+    "taquilla_id": 1,
+    "created_at": "2022-10-26T17:50:06.485909",
+    "updated_at": "2022-10-26T17:50:06.485909"
+  },
+  {
+    "id": 31,
+    "rifero_id": 31,
+    "taquilla_id": 1,
+    "created_at": "2022-10-26T17:52:12.513709",
+    "updated_at": "2022-10-26T17:52:12.513709"
+  },
+  {
+    "id": 32,
+    "rifero_id": 32,
+    "taquilla_id": 1,
+    "created_at": "2022-10-27T00:55:29.908917",
+    "updated_at": "2022-10-27T00:55:29.908917"
+  },
+  {
+    "id": 33,
+    "rifero_id": 33,
+    "taquilla_id": 1,
+    "created_at": "2022-10-27T14:48:01.173324",
+    "updated_at": "2022-10-27T14:48:01.173324"
+  },
+  {
+    "id": 34,
+    "rifero_id": 34,
+    "taquilla_id": 2,
+    "created_at": "2022-10-28T12:37:12.419384",
+    "updated_at": "2022-10-28T12:37:12.419384"
+  },
+  {
+    "id": 35,
+    "rifero_id": 35,
+    "taquilla_id": 2,
+    "created_at": "2022-10-28T21:47:31.521557",
+    "updated_at": "2022-10-28T21:47:31.521557"
+  },
+  {
+    "id": 36,
+    "rifero_id": 36,
+    "taquilla_id": 2,
+    "created_at": "2022-10-29T13:33:35.67739",
+    "updated_at": "2022-10-29T13:33:35.67739"
+  },
+  {
+    "id": 37,
+    "rifero_id": 37,
+    "taquilla_id": 1,
+    "created_at": "2022-10-29T14:42:36.95026",
+    "updated_at": "2022-10-29T14:42:36.95026"
+  },
+  {
+    "id": 38,
+    "rifero_id": 38,
+    "taquilla_id": 1,
+    "created_at": "2022-11-01T14:08:33.688887",
+    "updated_at": "2022-11-01T14:08:33.688887"
+  },
+  {
+    "id": 39,
+    "rifero_id": 39,
+    "taquilla_id": 1,
+    "created_at": "2022-11-01T17:10:13.700243",
+    "updated_at": "2022-11-01T17:10:13.700243"
+  },
+  {
+    "id": 40,
+    "rifero_id": 40,
+    "taquilla_id": 2,
+    "created_at": "2022-11-02T13:51:12.074521",
+    "updated_at": "2022-11-02T13:51:12.074521"
+  },
+  {
+    "id": 41,
+    "rifero_id": 41,
+    "taquilla_id": 2,
+    "created_at": "2022-11-03T12:08:22.067057",
+    "updated_at": "2022-11-03T12:08:22.067057"
+  },
+  {
+    "id": 42,
+    "rifero_id": 42,
+    "taquilla_id": 2,
+    "created_at": "2022-11-04T13:42:17.813999",
+    "updated_at": "2022-11-04T13:42:17.813999"
+  },
+  {
+    "id": 43,
+    "rifero_id": 43,
+    "taquilla_id": 2,
+    "created_at": "2022-11-04T20:17:25.642813",
+    "updated_at": "2022-11-04T20:17:25.642813"
+  },
+  {
+    "id": 44,
+    "rifero_id": 44,
+    "taquilla_id": 2,
+    "created_at": "2022-11-04T20:24:33.352586",
+    "updated_at": "2022-11-04T20:24:33.352586"
+  },
+  {
+    "id": 46,
+    "rifero_id": 47,
+    "taquilla_id": 4,
+    "created_at": "2022-11-06T17:52:07.63025",
+    "updated_at": "2022-11-06T17:52:07.63025"
+  },
+  {
+    "id": 47,
+    "rifero_id": 48,
+    "taquilla_id": 4,
+    "created_at": "2022-11-09T17:57:18.025493",
+    "updated_at": "2022-11-09T17:57:18.025493"
+  },
+  {
+    "id": 48,
+    "rifero_id": 49,
+    "taquilla_id": 2,
+    "created_at": "2022-11-11T12:34:59.306883",
+    "updated_at": "2022-11-11T12:34:59.306883"
+  },
+  {
+    "id": 49,
+    "rifero_id": 50,
+    "taquilla_id": 1,
+    "created_at": "2022-11-11T12:53:59.863324",
+    "updated_at": "2022-11-11T12:53:59.863324"
+  },
+  {
+    "id": 50,
+    "rifero_id": 51,
+    "taquilla_id": 2,
+    "created_at": "2022-11-12T13:40:35.074465",
+    "updated_at": "2022-11-12T13:40:35.074465"
+  },
+  {
+    "id": 51,
+    "rifero_id": 52,
+    "taquilla_id": 2,
+    "created_at": "2022-11-12T14:02:45.807485",
+    "updated_at": "2022-11-12T14:02:45.807485"
+  },
+  {
+    "id": 52,
+    "rifero_id": 53,
+    "taquilla_id": 1,
+    "created_at": "2022-11-15T12:39:58.876975",
+    "updated_at": "2022-11-15T12:39:58.876975"
+  },
+  {
+    "id": 53,
+    "rifero_id": 54,
+    "taquilla_id": 1,
+    "created_at": "2022-11-15T15:04:54.510462",
+    "updated_at": "2022-11-15T15:04:54.510462"
+  },
+  {
+    "id": 54,
+    "rifero_id": 55,
+    "taquilla_id": 3,
+    "created_at": "2022-11-16T18:12:06.303756",
+    "updated_at": "2022-11-16T18:12:06.303756"
+  },
+  {
+    "id": 55,
+    "rifero_id": 57,
+    "taquilla_id": 5,
+    "created_at": "2022-11-16T19:40:24.928054",
+    "updated_at": "2022-11-16T19:40:24.928054"
+  },
+  {
+    "id": 56,
+    "rifero_id": 58,
+    "taquilla_id": 3,
+    "created_at": "2022-11-17T00:50:43.054544",
+    "updated_at": "2022-11-17T00:50:43.054544"
+  },
+  {
+    "id": 57,
+    "rifero_id": 59,
+    "taquilla_id": 3,
+    "created_at": "2022-11-17T21:31:48.88509",
+    "updated_at": "2022-11-17T21:31:48.88509"
+  },
+  {
+    "id": 58,
+    "rifero_id": 60,
+    "taquilla_id": 2,
+    "created_at": "2022-11-18T17:02:18.653353",
+    "updated_at": "2022-11-18T17:02:18.653353"
+  },
+  {
+    "id": 59,
+    "rifero_id": 61,
+    "taquilla_id": 4,
+    "created_at": "2022-11-18T18:36:15.189842",
+    "updated_at": "2022-11-18T18:36:15.189842"
+  },
+  {
+    "id": 60,
+    "rifero_id": 62,
+    "taquilla_id": 2,
+    "created_at": "2022-11-19T14:53:36.694812",
+    "updated_at": "2022-11-19T14:53:36.694812"
+  },
+  {
+    "id": 61,
+    "rifero_id": 63,
+    "taquilla_id": 1,
+    "created_at": "2022-11-19T17:15:30.417836",
+    "updated_at": "2022-11-19T17:15:30.417836"
+  },
+  {
+    "id": 62,
+    "rifero_id": 64,
+    "taquilla_id": 2,
+    "created_at": "2022-11-21T14:10:07.61145",
+    "updated_at": "2022-11-21T14:10:07.61145"
+  },
+  {
+    "id": 63,
+    "rifero_id": 65,
+    "taquilla_id": 2,
+    "created_at": "2022-11-24T16:59:53.933919",
+    "updated_at": "2022-11-24T16:59:53.933919"
+  },
+  {
+    "id": 64,
+    "rifero_id": 66,
+    "taquilla_id": 1,
+    "created_at": "2022-11-25T14:18:19.410513",
+    "updated_at": "2022-11-25T14:18:19.410513"
+  },
+  {
+    "id": 65,
+    "rifero_id": 67,
+    "taquilla_id": 4,
+    "created_at": "2022-11-25T14:45:42.116569",
+    "updated_at": "2022-11-25T14:45:42.116569"
+  },
+  {
+    "id": 66,
+    "rifero_id": 68,
+    "taquilla_id": 2,
+    "created_at": "2022-11-26T13:33:02.805287",
+    "updated_at": "2022-11-26T13:33:02.805287"
+  },
+  {
+    "id": 67,
+    "rifero_id": 69,
+    "taquilla_id": 1,
+    "created_at": "2022-11-26T16:09:30.785001",
+    "updated_at": "2022-11-26T16:09:30.785001"
+  },
+  {
+    "id": 68,
+    "rifero_id": 70,
+    "taquilla_id": 4,
+    "created_at": "2022-11-26T19:41:56.531636",
+    "updated_at": "2022-11-26T19:41:56.531636"
+  },
+  {
+    "id": 69,
+    "rifero_id": 71,
+    "taquilla_id": 2,
+    "created_at": "2022-11-28T12:53:15.198247",
+    "updated_at": "2022-11-28T12:53:15.198247"
+  },
+  {
+    "id": 70,
+    "rifero_id": 72,
+    "taquilla_id": 2,
+    "created_at": "2022-12-01T12:41:11.052517",
+    "updated_at": "2022-12-01T12:41:11.052517"
+  },
+  {
+    "id": 72,
+    "rifero_id": 74,
+    "taquilla_id": 1,
+    "created_at": "2022-12-02T13:33:20.111801",
+    "updated_at": "2022-12-02T13:33:20.111801"
+  },
+  {
+    "id": 73,
+    "rifero_id": 75,
+    "taquilla_id": 1,
+    "created_at": "2022-12-02T14:14:24.718062",
+    "updated_at": "2022-12-02T14:14:24.718062"
+  },
+  {
+    "id": 74,
+    "rifero_id": 76,
+    "taquilla_id": 4,
+    "created_at": "2022-12-02T14:40:46.835044",
+    "updated_at": "2022-12-02T14:40:46.835044"
+  },
+  {
+    "id": 75,
+    "rifero_id": 77,
+    "taquilla_id": 5,
+    "created_at": "2022-12-02T19:09:14.177861",
+    "updated_at": "2022-12-02T19:09:14.177861"
+  },
+  {
+    "id": 76,
+    "rifero_id": 78,
+    "taquilla_id": 2,
+    "created_at": "2022-12-03T12:32:22.483295",
+    "updated_at": "2022-12-03T12:32:22.483295"
+  },
+  {
+    "id": 77,
+    "rifero_id": 79,
+    "taquilla_id": 2,
+    "created_at": "2022-12-03T12:56:19.17018",
+    "updated_at": "2022-12-03T12:56:19.17018"
+  },
+  {
+    "id": 78,
+    "rifero_id": 80,
+    "taquilla_id": 1,
+    "created_at": "2022-12-06T12:34:34.885207",
+    "updated_at": "2022-12-06T12:34:34.885207"
+  },
+  {
+    "id": 79,
+    "rifero_id": 81,
+    "taquilla_id": 5,
+    "created_at": "2022-12-06T15:04:17.822607",
+    "updated_at": "2022-12-06T15:04:17.822607"
+  },
+  {
+    "id": 80,
+    "rifero_id": 82,
+    "taquilla_id": 4,
+    "created_at": "2022-12-09T12:21:53.324956",
+    "updated_at": "2022-12-09T12:21:53.324956"
+  },
+  {
+    "id": 81,
+    "rifero_id": 83,
+    "taquilla_id": 1,
+    "created_at": "2022-12-12T15:44:34.442213",
+    "updated_at": "2022-12-12T15:44:34.442213"
+  },
+  {
+    "id": 82,
+    "rifero_id": 84,
+    "taquilla_id": 5,
+    "created_at": "2022-12-13T13:59:08.311266",
+    "updated_at": "2022-12-13T13:59:08.311266"
+  },
+  {
+    "id": 83,
+    "rifero_id": 85,
+    "taquilla_id": 1,
+    "created_at": "2022-12-15T13:27:20.221772",
+    "updated_at": "2022-12-15T13:27:20.221772"
+  },
+  {
+    "id": 84,
+    "rifero_id": 86,
+    "taquilla_id": 1,
+    "created_at": "2022-12-16T13:19:10.508324",
+    "updated_at": "2022-12-16T13:19:10.508324"
+  },
+  {
+    "id": 85,
+    "rifero_id": 87,
+    "taquilla_id": 4,
+    "created_at": "2022-12-16T18:20:08.113392",
+    "updated_at": "2022-12-16T18:20:08.113392"
+  },
+  {
+    "id": 86,
+    "rifero_id": 88,
+    "taquilla_id": 5,
+    "created_at": "2022-12-17T13:04:14.78183",
+    "updated_at": "2022-12-17T13:04:14.78183"
+  },
+  {
+    "id": 87,
+    "rifero_id": 89,
+    "taquilla_id": 1,
+    "created_at": "2022-12-20T12:50:00.408145",
+    "updated_at": "2022-12-20T12:50:00.408145"
+  },
+  {
+    "id": 88,
+    "rifero_id": 90,
+    "taquilla_id": 2,
+    "created_at": "2022-12-23T12:52:28.730257",
+    "updated_at": "2022-12-23T12:52:28.730257"
+  },
+  {
+    "id": 89,
+    "rifero_id": 91,
+    "taquilla_id": 1,
+    "created_at": "2022-12-23T12:54:46.101653",
+    "updated_at": "2022-12-23T12:54:46.101653"
+  },
+  {
+    "id": 90,
+    "rifero_id": 92,
+    "taquilla_id": 2,
+    "created_at": "2022-12-23T16:06:31.252636",
+    "updated_at": "2022-12-23T16:06:31.252636"
+  },
+  {
+    "id": 91,
+    "rifero_id": 93,
+    "taquilla_id": 1,
+    "created_at": "2022-12-27T17:26:16.546189",
+    "updated_at": "2022-12-27T17:26:16.546189"
+  },
+  {
+    "id": 92,
+    "rifero_id": 94,
+    "taquilla_id": 2,
+    "created_at": "2022-12-31T12:19:02.311978",
+    "updated_at": "2022-12-31T12:19:02.311978"
+  },
+  {
+    "id": 93,
+    "rifero_id": 95,
+    "taquilla_id": 1,
+    "created_at": "2023-01-04T12:48:30.631354",
+    "updated_at": "2023-01-04T12:48:30.631354"
+  },
+  {
+    "id": 94,
+    "rifero_id": 96,
+    "taquilla_id": 1,
+    "created_at": "2023-01-04T14:25:16.687307",
+    "updated_at": "2023-01-04T14:25:16.687307"
+  },
+  {
+    "id": 95,
+    "rifero_id": 97,
+    "taquilla_id": 2,
+    "created_at": "2023-01-07T15:08:36.578629",
+    "updated_at": "2023-01-07T15:08:36.578629"
+  },
+  {
+    "id": 96,
+    "rifero_id": 98,
+    "taquilla_id": 1,
+    "created_at": "2023-01-14T12:31:11.370162",
+    "updated_at": "2023-01-14T12:31:11.370162"
+  },
+  {
+    "id": 97,
+    "rifero_id": 99,
+    "taquilla_id": 2,
+    "created_at": "2023-01-14T13:29:26.672432",
+    "updated_at": "2023-01-14T13:29:26.672432"
+  },
+  {
+    "id": 98,
+    "rifero_id": 100,
+    "taquilla_id": 2,
+    "created_at": "2023-01-17T12:50:42.194816",
+    "updated_at": "2023-01-17T12:50:42.194816"
+  },
+  {
+    "id": 100,
+    "rifero_id": 102,
+    "taquilla_id": 4,
+    "created_at": "2023-01-19T19:14:02.616352",
+    "updated_at": "2023-01-19T19:14:02.616352"
+  },
+  {
+    "id": 106,
+    "rifero_id": 107,
+    "taquilla_id": 2,
+    "created_at": "2023-01-23T13:59:09.689056",
+    "updated_at": "2023-01-23T13:59:09.689056"
+  },
+  {
+    "id": 107,
+    "rifero_id": 108,
+    "taquilla_id": 2,
+    "created_at": "2023-01-25T20:41:45.104121",
+    "updated_at": "2023-01-25T20:41:45.104121"
+  },
+  {
+    "id": 108,
+    "rifero_id": 109,
+    "taquilla_id": 5,
+    "created_at": "2023-01-26T14:29:00.795648",
+    "updated_at": "2023-01-26T14:29:00.795648"
+  },
+  {
+    "id": 110,
+    "rifero_id": 111,
+    "taquilla_id": 1,
+    "created_at": "2023-01-27T12:47:01.472654",
+    "updated_at": "2023-01-27T12:47:01.472654"
+  },
+  {
+    "id": 111,
+    "rifero_id": 112,
+    "taquilla_id": 2,
+    "created_at": "2023-01-27T20:12:55.975917",
+    "updated_at": "2023-01-27T20:12:55.975917"
+  },
+  {
+    "id": 112,
+    "rifero_id": 113,
+    "taquilla_id": 2,
+    "created_at": "2023-01-27T20:43:13.665656",
+    "updated_at": "2023-01-27T20:43:13.665656"
+  },
+  {
+    "id": 113,
+    "rifero_id": 114,
+    "taquilla_id": 2,
+    "created_at": "2023-01-28T13:28:01.130575",
+    "updated_at": "2023-01-28T13:28:01.130575"
+  },
+  {
+    "id": 114,
+    "rifero_id": 115,
+    "taquilla_id": 1,
+    "created_at": "2023-01-28T13:33:57.744863",
+    "updated_at": "2023-01-28T13:33:57.744863"
+  },
+  {
+    "id": 115,
+    "rifero_id": 116,
+    "taquilla_id": 4,
+    "created_at": "2023-01-30T21:27:21.316088",
+    "updated_at": "2023-01-30T21:27:21.316088"
+  },
+  {
+    "id": 116,
+    "rifero_id": 117,
+    "taquilla_id": 1,
+    "created_at": "2023-01-31T21:56:31.281973",
+    "updated_at": "2023-01-31T21:56:31.281973"
+  },
+  {
+    "id": 117,
+    "rifero_id": 118,
+    "taquilla_id": 1,
+    "created_at": "2023-02-04T13:23:05.113941",
+    "updated_at": "2023-02-04T13:23:05.113941"
+  },
+  {
+    "id": 118,
+    "rifero_id": 119,
+    "taquilla_id": 1,
+    "created_at": "2023-02-11T16:05:10.432762",
+    "updated_at": "2023-02-11T16:05:10.432762"
+  },
+  {
+    "id": 119,
+    "rifero_id": 120,
+    "taquilla_id": 2,
+    "created_at": "2023-02-17T14:23:24.074255",
+    "updated_at": "2023-02-17T14:23:24.074255"
+  },
+  {
+    "id": 120,
+    "rifero_id": 121,
+    "taquilla_id": 1,
+    "created_at": "2023-02-17T15:26:20.6713",
+    "updated_at": "2023-02-17T15:26:20.6713"
+  },
+  {
+    "id": 121,
+    "rifero_id": 122,
+    "taquilla_id": 2,
+    "created_at": "2023-02-17T16:08:41.34497",
+    "updated_at": "2023-02-17T16:08:41.34497"
+  },
+  {
+    "id": 122,
+    "rifero_id": 123,
+    "taquilla_id": 2,
+    "created_at": "2023-02-17T16:41:57.972693",
+    "updated_at": "2023-02-17T16:41:57.972693"
+  },
+  {
+    "id": 123,
+    "rifero_id": 124,
+    "taquilla_id": 2,
+    "created_at": "2023-02-17T17:15:12.359055",
+    "updated_at": "2023-02-17T17:15:12.359055"
+  },
+  {
+    "id": 124,
+    "rifero_id": 125,
+    "taquilla_id": 1,
+    "created_at": "2023-02-21T15:48:29.981532",
+    "updated_at": "2023-02-21T15:48:29.981532"
+  },
+  {
+    "id": 125,
+    "rifero_id": 126,
+    "taquilla_id": 1,
+    "created_at": "2023-02-24T13:34:38.35673",
+    "updated_at": "2023-02-24T13:34:38.35673"
+  },
+  {
+    "id": 126,
+    "rifero_id": 127,
+    "taquilla_id": 4,
+    "created_at": "2023-03-01T14:59:41.785612",
+    "updated_at": "2023-03-01T14:59:41.785612"
+  },
+  {
+    "id": 127,
+    "rifero_id": 128,
+    "taquilla_id": 1,
+    "created_at": "2023-03-01T22:01:39.744735",
+    "updated_at": "2023-03-01T22:01:39.744735"
+  },
+  {
+    "id": 128,
+    "rifero_id": 129,
+    "taquilla_id": 1,
+    "created_at": "2023-03-04T12:21:01.439768",
+    "updated_at": "2023-03-04T12:21:01.439768"
+  },
+  {
+    "id": 129,
+    "rifero_id": 130,
+    "taquilla_id": 2,
+    "created_at": "2023-03-04T14:38:58.625413",
+    "updated_at": "2023-03-04T14:38:58.625413"
+  },
+  {
+    "id": 130,
+    "rifero_id": 131,
+    "taquilla_id": 1,
+    "created_at": "2023-03-06T00:59:26.348171",
+    "updated_at": "2023-03-06T00:59:26.348171"
+  },
+  {
+    "id": 131,
+    "rifero_id": 132,
+    "taquilla_id": 5,
+    "created_at": "2023-03-07T12:28:12.906866",
+    "updated_at": "2023-03-07T12:28:12.906866"
+  },
+  {
+    "id": 132,
+    "rifero_id": 133,
+    "taquilla_id": 5,
+    "created_at": "2023-03-07T14:43:19.342282",
+    "updated_at": "2023-03-07T14:43:19.342282"
+  },
+  {
+    "id": 133,
+    "rifero_id": 134,
+    "taquilla_id": 3,
+    "created_at": "2023-03-07T20:42:00.019964",
+    "updated_at": "2023-03-07T20:42:00.019964"
+  },
+  {
+    "id": 134,
+    "rifero_id": 135,
+    "taquilla_id": 5,
+    "created_at": "2023-03-10T17:09:12.746508",
+    "updated_at": "2023-03-10T17:09:12.746508"
+  },
+  {
+    "id": 135,
+    "rifero_id": 136,
+    "taquilla_id": 5,
+    "created_at": "2023-03-10T18:04:11.639312",
+    "updated_at": "2023-03-10T18:04:11.639312"
+  },
+  {
+    "id": 136,
+    "rifero_id": 137,
+    "taquilla_id": 5,
+    "created_at": "2023-03-10T23:07:33.518127",
+    "updated_at": "2023-03-10T23:07:33.518127"
+  },
+  {
+    "id": 137,
+    "rifero_id": 138,
+    "taquilla_id": 2,
+    "created_at": "2023-03-11T12:54:57.076764",
+    "updated_at": "2023-03-11T12:54:57.076764"
+  },
+  {
+    "id": 138,
+    "rifero_id": 139,
+    "taquilla_id": 5,
+    "created_at": "2023-03-11T13:25:12.524003",
+    "updated_at": "2023-03-11T13:25:12.524003"
+  },
+  {
+    "id": 139,
+    "rifero_id": 140,
+    "taquilla_id": 2,
+    "created_at": "2023-03-11T14:42:50.887375",
+    "updated_at": "2023-03-11T14:42:50.887375"
+  },
+  {
+    "id": 140,
+    "rifero_id": 142,
+    "taquilla_id": 2,
+    "created_at": "2023-03-17T13:21:37.809666",
+    "updated_at": "2023-03-17T13:21:37.809666"
+  },
+  {
+    "id": 141,
+    "rifero_id": 143,
+    "taquilla_id": 5,
+    "created_at": "2023-03-17T14:16:41.701259",
+    "updated_at": "2023-03-17T14:16:41.701259"
+  },
+  {
+    "id": 142,
+    "rifero_id": 145,
+    "taquilla_id": 5,
+    "created_at": "2023-03-28T17:33:04.680454",
+    "updated_at": "2023-03-28T17:33:04.680454"
+  },
+  {
+    "id": 143,
+    "rifero_id": 146,
+    "taquilla_id": 5,
+    "created_at": "2023-04-01T16:22:33.821393",
+    "updated_at": "2023-04-01T16:22:33.821393"
+  },
+  {
+    "id": 144,
+    "rifero_id": 147,
+    "taquilla_id": 1,
+    "created_at": "2023-04-05T07:56:20.840332",
+    "updated_at": "2023-04-05T07:56:20.840332"
+  },
+  {
+    "id": 145,
+    "rifero_id": 148,
+    "taquilla_id": 1,
+    "created_at": "2023-04-06T03:36:33.339781",
+    "updated_at": "2023-04-06T03:36:33.339781"
+  },
+  {
+    "id": 147,
+    "rifero_id": 150,
+    "taquilla_id": 1,
+    "created_at": "2023-04-06T15:06:02.102428",
+    "updated_at": "2023-04-06T15:06:02.102428"
+  },
+  {
+    "id": 148,
+    "rifero_id": 151,
+    "taquilla_id": 2,
+    "created_at": "2023-04-12T13:51:34.555719",
+    "updated_at": "2023-04-12T13:51:34.555719"
+  },
+  {
+    "id": 149,
+    "rifero_id": 152,
+    "taquilla_id": 2,
+    "created_at": "2023-04-15T11:51:30.190462",
+    "updated_at": "2023-04-15T11:51:30.190462"
+  },
+  {
+    "id": 150,
+    "rifero_id": 153,
+    "taquilla_id": 1,
+    "created_at": "2023-04-15T14:27:41.407762",
+    "updated_at": "2023-04-15T14:27:41.407762"
+  },
+  {
+    "id": 151,
+    "rifero_id": 154,
+    "taquilla_id": 5,
+    "created_at": "2023-04-20T14:12:20.926054",
+    "updated_at": "2023-04-20T14:12:20.926054"
+  },
+  {
+    "id": 152,
+    "rifero_id": 155,
+    "taquilla_id": 1,
+    "created_at": "2023-04-20T20:19:02.532211",
+    "updated_at": "2023-04-20T20:19:02.532211"
+  },
+  {
+    "id": 153,
+    "rifero_id": 156,
+    "taquilla_id": 2,
+    "created_at": "2023-04-21T21:59:55.642258",
+    "updated_at": "2023-04-21T21:59:55.642258"
+  },
+  {
+    "id": 154,
+    "rifero_id": 157,
+    "taquilla_id": 5,
+    "created_at": "2023-04-22T12:12:17.740171",
+    "updated_at": "2023-04-22T12:12:17.740171"
+  },
+  {
+    "id": 155,
+    "rifero_id": 158,
+    "taquilla_id": 2,
+    "created_at": "2023-04-27T13:38:08.719601",
+    "updated_at": "2023-04-27T13:38:08.719601"
+  },
+  {
+    "id": 156,
+    "rifero_id": 159,
+    "taquilla_id": 1,
+    "created_at": "2023-04-27T14:14:14.763427",
+    "updated_at": "2023-04-27T14:14:14.763427"
+  },
+  {
+    "id": 157,
+    "rifero_id": 160,
+    "taquilla_id": 2,
+    "created_at": "2023-04-27T21:50:33.284065",
+    "updated_at": "2023-04-27T21:50:33.284065"
+  },
+  {
+    "id": 158,
+    "rifero_id": 161,
+    "taquilla_id": 5,
+    "created_at": "2023-04-28T22:32:54.439696",
+    "updated_at": "2023-04-28T22:32:54.439696"
+  },
+  {
+    "id": 159,
+    "rifero_id": 162,
+    "taquilla_id": 1,
+    "created_at": "2023-04-29T12:22:03.947995",
+    "updated_at": "2023-04-29T12:22:03.947995"
+  },
+  {
+    "id": 160,
+    "rifero_id": 163,
+    "taquilla_id": 1,
+    "created_at": "2023-04-29T14:10:32.135868",
+    "updated_at": "2023-04-29T14:10:32.135868"
+  },
+  {
+    "id": 161,
+    "rifero_id": 164,
+    "taquilla_id": 1,
+    "created_at": "2023-04-29T14:15:52.850105",
+    "updated_at": "2023-04-29T14:15:52.850105"
+  },
+  {
+    "id": 162,
+    "rifero_id": 165,
+    "taquilla_id": 7,
+    "created_at": "2023-05-03T18:47:00.470405",
+    "updated_at": "2023-05-03T18:47:00.470405"
+  },
+  {
+    "id": 163,
+    "rifero_id": 166,
+    "taquilla_id": 2,
+    "created_at": "2023-05-06T14:23:04.599755",
+    "updated_at": "2023-05-06T14:23:04.599755"
+  },
+  {
+    "id": 164,
+    "rifero_id": 167,
+    "taquilla_id": 1,
+    "created_at": "2023-05-08T12:55:52.280773",
+    "updated_at": "2023-05-08T12:55:52.280773"
+  },
+  {
+    "id": 165,
+    "rifero_id": 168,
+    "taquilla_id": 1,
+    "created_at": "2023-05-11T13:14:53.988241",
+    "updated_at": "2023-05-11T13:14:53.988241"
+  },
+  {
+    "id": 166,
+    "rifero_id": 169,
+    "taquilla_id": 2,
+    "created_at": "2023-05-12T15:42:20.184906",
+    "updated_at": "2023-05-12T15:42:20.184906"
+  },
+  {
+    "id": 167,
+    "rifero_id": 170,
+    "taquilla_id": 2,
+    "created_at": "2023-05-13T12:19:43.496269",
+    "updated_at": "2023-05-13T12:19:43.496269"
+  },
+  {
+    "id": 168,
+    "rifero_id": 171,
+    "taquilla_id": 2,
+    "created_at": "2023-05-13T13:24:52.199232",
+    "updated_at": "2023-05-13T13:24:52.199232"
+  },
+  {
+    "id": 169,
+    "rifero_id": 172,
+    "taquilla_id": 7,
+    "created_at": "2023-05-13T15:22:30.840545",
+    "updated_at": "2023-05-13T15:22:30.840545"
+  },
+  {
+    "id": 170,
+    "rifero_id": 173,
+    "taquilla_id": 7,
+    "created_at": "2023-05-13T15:54:39.307449",
+    "updated_at": "2023-05-13T15:54:39.307449"
+  },
+  {
+    "id": 171,
+    "rifero_id": 174,
+    "taquilla_id": 7,
+    "created_at": "2023-05-13T15:55:48.706056",
+    "updated_at": "2023-05-13T15:55:48.706056"
+  },
+  {
+    "id": 172,
+    "rifero_id": 175,
+    "taquilla_id": 7,
+    "created_at": "2023-05-16T13:44:09.294574",
+    "updated_at": "2023-05-16T13:44:09.294574"
+  },
+  {
+    "id": 173,
+    "rifero_id": 176,
+    "taquilla_id": 7,
+    "created_at": "2023-05-19T13:18:16.676534",
+    "updated_at": "2023-05-19T13:18:16.676534"
+  },
+  {
+    "id": 174,
+    "rifero_id": 177,
+    "taquilla_id": 7,
+    "created_at": "2023-05-19T13:28:13.029061",
+    "updated_at": "2023-05-19T13:28:13.029061"
+  },
+  {
+    "id": 175,
+    "rifero_id": 178,
+    "taquilla_id": 7,
+    "created_at": "2023-05-19T14:27:37.400322",
+    "updated_at": "2023-05-19T14:27:37.400322"
+  },
+  {
+    "id": 176,
+    "rifero_id": 179,
+    "taquilla_id": 7,
+    "created_at": "2023-05-19T15:27:16.120913",
+    "updated_at": "2023-05-19T15:27:16.120913"
+  },
+  {
+    "id": 177,
+    "rifero_id": 180,
+    "taquilla_id": 7,
+    "created_at": "2023-05-19T15:35:34.42064",
+    "updated_at": "2023-05-19T15:35:34.42064"
+  },
+  {
+    "id": 178,
+    "rifero_id": 181,
+    "taquilla_id": 7,
+    "created_at": "2023-05-19T20:34:42.355681",
+    "updated_at": "2023-05-19T20:34:42.355681"
+  },
+  {
+    "id": 179,
+    "rifero_id": 182,
+    "taquilla_id": 7,
+    "created_at": "2023-05-20T12:31:45.8",
+    "updated_at": "2023-05-20T12:31:45.8"
+  },
+  {
+    "id": 180,
+    "rifero_id": 183,
+    "taquilla_id": 7,
+    "created_at": "2023-05-20T12:44:49.16266",
+    "updated_at": "2023-05-20T12:44:49.16266"
+  },
+  {
+    "id": 181,
+    "rifero_id": 184,
+    "taquilla_id": 7,
+    "created_at": "2023-05-20T21:33:42.29726",
+    "updated_at": "2023-05-20T21:33:42.29726"
+  },
+  {
+    "id": 182,
+    "rifero_id": 185,
+    "taquilla_id": 7,
+    "created_at": "2023-05-20T21:41:50.1517",
+    "updated_at": "2023-05-20T21:41:50.1517"
+  },
+  {
+    "id": 183,
+    "rifero_id": 186,
+    "taquilla_id": 1,
+    "created_at": "2023-05-22T14:39:34.95925",
+    "updated_at": "2023-05-22T14:39:34.95925"
+  },
+  {
+    "id": 184,
+    "rifero_id": 187,
+    "taquilla_id": 4,
+    "created_at": "2023-05-22T19:08:54.445085",
+    "updated_at": "2023-05-22T19:08:54.445085"
+  },
+  {
+    "id": 185,
+    "rifero_id": 188,
+    "taquilla_id": 7,
+    "created_at": "2023-05-24T13:54:49.28155",
+    "updated_at": "2023-05-24T13:54:49.28155"
+  },
+  {
+    "id": 186,
+    "rifero_id": 189,
+    "taquilla_id": 7,
+    "created_at": "2023-05-25T12:54:26.601194",
+    "updated_at": "2023-05-25T12:54:26.601194"
+  },
+  {
+    "id": 187,
+    "rifero_id": 190,
+    "taquilla_id": 2,
+    "created_at": "2023-05-25T21:55:17.879644",
+    "updated_at": "2023-05-25T21:55:17.879644"
+  },
+  {
+    "id": 188,
+    "rifero_id": 191,
+    "taquilla_id": 7,
+    "created_at": "2023-05-26T13:40:46.451155",
+    "updated_at": "2023-05-26T13:40:46.451155"
+  },
+  {
+    "id": 189,
+    "rifero_id": 192,
+    "taquilla_id": 7,
+    "created_at": "2023-05-26T16:53:40.30076",
+    "updated_at": "2023-05-26T16:53:40.30076"
+  },
+  {
+    "id": 190,
+    "rifero_id": 193,
+    "taquilla_id": 7,
+    "created_at": "2023-05-26T17:59:12.487984",
+    "updated_at": "2023-05-26T17:59:12.487984"
+  },
+  {
+    "id": 191,
+    "rifero_id": 194,
+    "taquilla_id": 7,
+    "created_at": "2023-05-26T21:59:23.929276",
+    "updated_at": "2023-05-26T21:59:23.929276"
+  },
+  {
+    "id": 192,
+    "rifero_id": 195,
+    "taquilla_id": 7,
+    "created_at": "2023-05-27T12:14:55.867313",
+    "updated_at": "2023-05-27T12:14:55.867313"
+  },
+  {
+    "id": 193,
+    "rifero_id": 196,
+    "taquilla_id": 7,
+    "created_at": "2023-05-27T12:24:31.880952",
+    "updated_at": "2023-05-27T12:24:31.880952"
+  },
+  {
+    "id": 194,
+    "rifero_id": 197,
+    "taquilla_id": 1,
+    "created_at": "2023-05-27T12:30:37.895818",
+    "updated_at": "2023-05-27T12:30:37.895818"
+  },
+  {
+    "id": 195,
+    "rifero_id": 198,
+    "taquilla_id": 7,
+    "created_at": "2023-05-27T13:23:31.666034",
+    "updated_at": "2023-05-27T13:23:31.666034"
+  },
+  {
+    "id": 196,
+    "rifero_id": 199,
+    "taquilla_id": 2,
+    "created_at": "2023-05-27T15:59:42.008469",
+    "updated_at": "2023-05-27T15:59:42.008469"
+  },
+  {
+    "id": 197,
+    "rifero_id": 200,
+    "taquilla_id": 5,
+    "created_at": "2023-05-27T19:46:04.427067",
+    "updated_at": "2023-05-27T19:46:04.427067"
+  },
+  {
+    "id": 198,
+    "rifero_id": 201,
+    "taquilla_id": 7,
+    "created_at": "2023-05-31T20:12:36.176669",
+    "updated_at": "2023-05-31T20:12:36.176669"
+  },
+  {
+    "id": 199,
+    "rifero_id": 202,
+    "taquilla_id": 7,
+    "created_at": "2023-06-01T22:12:08.821316",
+    "updated_at": "2023-06-01T22:12:08.821316"
+  },
+  {
+    "id": 200,
+    "rifero_id": 203,
+    "taquilla_id": 7,
+    "created_at": "2023-06-02T19:13:51.501316",
+    "updated_at": "2023-06-02T19:13:51.501316"
+  },
+  {
+    "id": 201,
+    "rifero_id": 204,
+    "taquilla_id": 7,
+    "created_at": "2023-06-02T19:13:51.72587",
+    "updated_at": "2023-06-02T19:13:51.72587"
+  },
+  {
+    "id": 202,
+    "rifero_id": 205,
+    "taquilla_id": 7,
+    "created_at": "2023-06-02T19:33:29.406885",
+    "updated_at": "2023-06-02T19:33:29.406885"
+  },
+  {
+    "id": 203,
+    "rifero_id": 206,
+    "taquilla_id": 7,
+    "created_at": "2023-06-03T12:30:35.089183",
+    "updated_at": "2023-06-03T12:30:35.089183"
+  },
+  {
+    "id": 204,
+    "rifero_id": 207,
+    "taquilla_id": 1,
+    "created_at": "2023-06-03T12:36:41.219099",
+    "updated_at": "2023-06-03T12:36:41.219099"
+  },
+  {
+    "id": 205,
+    "rifero_id": 208,
+    "taquilla_id": 7,
+    "created_at": "2023-06-03T12:42:39.159656",
+    "updated_at": "2023-06-03T12:42:39.159656"
+  },
+  {
+    "id": 206,
+    "rifero_id": 209,
+    "taquilla_id": 7,
+    "created_at": "2023-06-03T12:48:13.092127",
+    "updated_at": "2023-06-03T12:48:13.092127"
+  },
+  {
+    "id": 207,
+    "rifero_id": 210,
+    "taquilla_id": 2,
+    "created_at": "2023-06-03T13:40:00.200765",
+    "updated_at": "2023-06-03T13:40:00.200765"
+  },
+  {
+    "id": 208,
+    "rifero_id": 211,
+    "taquilla_id": 7,
+    "created_at": "2023-06-05T19:06:09.708467",
+    "updated_at": "2023-06-05T19:06:09.708467"
+  },
+  {
+    "id": 209,
+    "rifero_id": 212,
+    "taquilla_id": 2,
+    "created_at": "2023-06-06T13:20:50.204201",
+    "updated_at": "2023-06-06T13:20:50.204201"
+  },
+  {
+    "id": 210,
+    "rifero_id": 213,
+    "taquilla_id": 2,
+    "created_at": "2023-06-08T14:18:16.294112",
+    "updated_at": "2023-06-08T14:18:16.294112"
+  },
+  {
+    "id": 211,
+    "rifero_id": 214,
+    "taquilla_id": 7,
+    "created_at": "2023-06-08T21:27:12.600073",
+    "updated_at": "2023-06-08T21:27:12.600073"
+  },
+  {
+    "id": 212,
+    "rifero_id": 215,
+    "taquilla_id": 1,
+    "created_at": "2023-06-09T13:49:53.533758",
+    "updated_at": "2023-06-09T13:49:53.533758"
+  },
+  {
+    "id": 213,
+    "rifero_id": 216,
+    "taquilla_id": 7,
+    "created_at": "2023-06-09T13:58:37.002053",
+    "updated_at": "2023-06-09T13:58:37.002053"
+  },
+  {
+    "id": 214,
+    "rifero_id": 217,
+    "taquilla_id": 7,
+    "created_at": "2023-06-10T12:37:39.324415",
+    "updated_at": "2023-06-10T12:37:39.324415"
+  },
+  {
+    "id": 215,
+    "rifero_id": 218,
+    "taquilla_id": 2,
+    "created_at": "2023-06-10T14:23:53.885932",
+    "updated_at": "2023-06-10T14:23:53.885932"
+  },
+  {
+    "id": 216,
+    "rifero_id": 219,
+    "taquilla_id": 1,
+    "created_at": "2023-06-12T21:30:20.831403",
+    "updated_at": "2023-06-12T21:30:20.831403"
+  },
+  {
+    "id": 217,
+    "rifero_id": 220,
+    "taquilla_id": 8,
+    "created_at": "2023-06-14T21:56:15.518016",
+    "updated_at": "2023-06-14T21:56:15.518016"
+  },
+  {
+    "id": 218,
+    "rifero_id": 221,
+    "taquilla_id": 7,
+    "created_at": "2023-06-15T21:15:42.693591",
+    "updated_at": "2023-06-15T21:15:42.693591"
+  },
+  {
+    "id": 219,
+    "rifero_id": 222,
+    "taquilla_id": 7,
+    "created_at": "2023-06-16T21:17:31.480825",
+    "updated_at": "2023-06-16T21:17:31.480825"
+  },
+  {
+    "id": 220,
+    "rifero_id": 223,
+    "taquilla_id": 7,
+    "created_at": "2023-06-17T13:13:09.360858",
+    "updated_at": "2023-06-17T13:13:09.360858"
+  },
+  {
+    "id": 221,
+    "rifero_id": 224,
+    "taquilla_id": 1,
+    "created_at": "2023-06-19T19:17:54.119805",
+    "updated_at": "2023-06-19T19:17:54.119805"
+  },
+  {
+    "id": 222,
+    "rifero_id": 225,
+    "taquilla_id": 1,
+    "created_at": "2023-06-19T19:41:18.880332",
+    "updated_at": "2023-06-19T19:41:18.880332"
+  },
+  {
+    "id": 223,
+    "rifero_id": 226,
+    "taquilla_id": 5,
+    "created_at": "2023-06-20T12:37:54.744102",
+    "updated_at": "2023-06-20T12:37:54.744102"
+  },
+  {
+    "id": 224,
+    "rifero_id": 227,
+    "taquilla_id": 2,
+    "created_at": "2023-06-20T12:52:19.295408",
+    "updated_at": "2023-06-20T12:52:19.295408"
+  },
+  {
+    "id": 225,
+    "rifero_id": 228,
+    "taquilla_id": 1,
+    "created_at": "2023-06-21T15:32:50.253782",
+    "updated_at": "2023-06-21T15:32:50.253782"
+  },
+  {
+    "id": 226,
+    "rifero_id": 229,
+    "taquilla_id": 2,
+    "created_at": "2023-06-23T14:06:37.262379",
+    "updated_at": "2023-06-23T14:06:37.262379"
+  },
+  {
+    "id": 227,
+    "rifero_id": 230,
+    "taquilla_id": 7,
+    "created_at": "2023-06-24T12:19:55.301286",
+    "updated_at": "2023-06-24T12:19:55.301286"
+  },
+  {
+    "id": 228,
+    "rifero_id": 231,
+    "taquilla_id": 3,
+    "created_at": "2023-06-24T12:59:25.385792",
+    "updated_at": "2023-06-24T12:59:25.385792"
+  },
+  {
+    "id": 229,
+    "rifero_id": 232,
+    "taquilla_id": 3,
+    "created_at": "2023-06-24T13:11:42.617686",
+    "updated_at": "2023-06-24T13:11:42.617686"
+  },
+  {
+    "id": 230,
+    "rifero_id": 233,
+    "taquilla_id": 7,
+    "created_at": "2023-06-24T14:32:17.292255",
+    "updated_at": "2023-06-24T14:32:17.292255"
+  },
+  {
+    "id": 231,
+    "rifero_id": 234,
+    "taquilla_id": 8,
+    "created_at": "2023-06-24T15:52:42.252883",
+    "updated_at": "2023-06-24T15:52:42.252883"
+  },
+  {
+    "id": 232,
+    "rifero_id": 235,
+    "taquilla_id": 3,
+    "created_at": "2023-06-27T12:29:49.04942",
+    "updated_at": "2023-06-27T12:29:49.04942"
+  },
+  {
+    "id": 233,
+    "rifero_id": 236,
+    "taquilla_id": 8,
+    "created_at": "2023-06-27T23:44:52.887161",
+    "updated_at": "2023-06-27T23:44:52.887161"
+  },
+  {
+    "id": 234,
+    "rifero_id": 237,
+    "taquilla_id": 3,
+    "created_at": "2023-06-27T23:52:09.278402",
+    "updated_at": "2023-06-27T23:52:09.278402"
+  },
+  {
+    "id": 235,
+    "rifero_id": 238,
+    "taquilla_id": 8,
+    "created_at": "2023-06-28T17:51:59.665934",
+    "updated_at": "2023-06-28T17:51:59.665934"
+  },
+  {
+    "id": 236,
+    "rifero_id": 239,
+    "taquilla_id": 3,
+    "created_at": "2023-06-29T02:44:21.681635",
+    "updated_at": "2023-06-29T02:44:21.681635"
+  },
+  {
+    "id": 237,
+    "rifero_id": 240,
+    "taquilla_id": 5,
+    "created_at": "2023-06-29T14:07:52.560656",
+    "updated_at": "2023-06-29T14:07:52.560656"
+  },
+  {
+    "id": 238,
+    "rifero_id": 241,
+    "taquilla_id": 7,
+    "created_at": "2023-06-29T16:19:08.55992",
+    "updated_at": "2023-06-29T16:19:08.55992"
+  },
+  {
+    "id": 239,
+    "rifero_id": 242,
+    "taquilla_id": 3,
+    "created_at": "2023-06-29T20:08:59.106635",
+    "updated_at": "2023-06-29T20:08:59.106635"
+  },
+  {
+    "id": 240,
+    "rifero_id": 243,
+    "taquilla_id": 3,
+    "created_at": "2023-06-30T00:08:20.544031",
+    "updated_at": "2023-06-30T00:08:20.544031"
+  },
+  {
+    "id": 241,
+    "rifero_id": 244,
+    "taquilla_id": 3,
+    "created_at": "2023-06-30T01:50:56.1393",
+    "updated_at": "2023-06-30T01:50:56.1393"
+  },
+  {
+    "id": 242,
+    "rifero_id": 245,
+    "taquilla_id": 3,
+    "created_at": "2023-06-30T02:18:54.532393",
+    "updated_at": "2023-06-30T02:18:54.532393"
+  },
+  {
+    "id": 243,
+    "rifero_id": 246,
+    "taquilla_id": 3,
+    "created_at": "2023-06-30T11:38:36.500459",
+    "updated_at": "2023-06-30T11:38:36.500459"
+  },
+  {
+    "id": 244,
+    "rifero_id": 247,
+    "taquilla_id": 1,
+    "created_at": "2023-06-30T14:57:52.902797",
+    "updated_at": "2023-06-30T14:57:52.902797"
+  },
+  {
+    "id": 245,
+    "rifero_id": 248,
+    "taquilla_id": 7,
+    "created_at": "2023-06-30T19:40:10.25443",
+    "updated_at": "2023-06-30T19:40:10.25443"
+  },
+  {
+    "id": 246,
+    "rifero_id": 249,
+    "taquilla_id": 3,
+    "created_at": "2023-06-30T21:58:21.982535",
+    "updated_at": "2023-06-30T21:58:21.982535"
+  },
+  {
+    "id": 247,
+    "rifero_id": 250,
+    "taquilla_id": 7,
+    "created_at": "2023-06-30T23:02:41.767472",
+    "updated_at": "2023-06-30T23:02:41.767472"
+  },
+  {
+    "id": 248,
+    "rifero_id": 251,
+    "taquilla_id": 3,
+    "created_at": "2023-06-30T23:15:41.758372",
+    "updated_at": "2023-06-30T23:15:41.758372"
+  },
+  {
+    "id": 249,
+    "rifero_id": 252,
+    "taquilla_id": 3,
+    "created_at": "2023-06-30T23:32:02.968412",
+    "updated_at": "2023-06-30T23:32:02.968412"
+  },
+  {
+    "id": 250,
+    "rifero_id": 253,
+    "taquilla_id": 5,
+    "created_at": "2023-07-01T13:13:31.283892",
+    "updated_at": "2023-07-01T13:13:31.283892"
+  },
+  {
+    "id": 251,
+    "rifero_id": 254,
+    "taquilla_id": 5,
+    "created_at": "2023-07-01T13:22:57.443601",
+    "updated_at": "2023-07-01T13:22:57.443601"
+  },
+  {
+    "id": 252,
+    "rifero_id": 255,
+    "taquilla_id": 8,
+    "created_at": "2023-07-01T14:12:30.004897",
+    "updated_at": "2023-07-01T14:12:30.004897"
+  },
+  {
+    "id": 253,
+    "rifero_id": 256,
+    "taquilla_id": 1,
+    "created_at": "2023-07-01T20:41:53.712173",
+    "updated_at": "2023-07-01T20:41:53.712173"
+  },
+  {
+    "id": 254,
+    "rifero_id": 257,
+    "taquilla_id": 3,
+    "created_at": "2023-07-03T20:01:43.885118",
+    "updated_at": "2023-07-03T20:01:43.885118"
+  },
+  {
+    "id": 255,
+    "rifero_id": 258,
+    "taquilla_id": 3,
+    "created_at": "2023-07-03T20:01:44.087435",
+    "updated_at": "2023-07-03T20:01:44.087435"
+  },
+  {
+    "id": 256,
+    "rifero_id": 259,
+    "taquilla_id": 7,
+    "created_at": "2023-07-04T12:41:30.038718",
+    "updated_at": "2023-07-04T12:41:30.038718"
+  },
+  {
+    "id": 257,
+    "rifero_id": 260,
+    "taquilla_id": 8,
+    "created_at": "2023-07-04T16:47:19.856268",
+    "updated_at": "2023-07-04T16:47:19.856268"
+  },
+  {
+    "id": 258,
+    "rifero_id": 261,
+    "taquilla_id": 8,
+    "created_at": "2023-07-05T21:31:22.52381",
+    "updated_at": "2023-07-05T21:31:22.52381"
+  },
+  {
+    "id": 259,
+    "rifero_id": 262,
+    "taquilla_id": 7,
+    "created_at": "2023-07-06T21:01:15.254676",
+    "updated_at": "2023-07-06T21:01:15.254676"
+  },
+  {
+    "id": 260,
+    "rifero_id": 263,
+    "taquilla_id": 8,
+    "created_at": "2023-07-07T13:30:54.767062",
+    "updated_at": "2023-07-07T13:30:54.767062"
+  },
+  {
+    "id": 261,
+    "rifero_id": 264,
+    "taquilla_id": 7,
+    "created_at": "2023-07-07T16:20:00.269572",
+    "updated_at": "2023-07-07T16:20:00.269572"
+  },
+  {
+    "id": 262,
+    "rifero_id": 265,
+    "taquilla_id": 5,
+    "created_at": "2023-07-07T20:57:34.520153",
+    "updated_at": "2023-07-07T20:57:34.520153"
+  },
+  {
+    "id": 263,
+    "rifero_id": 266,
+    "taquilla_id": 7,
+    "created_at": "2023-07-11T22:00:42.155324",
+    "updated_at": "2023-07-11T22:00:42.155324"
+  },
+  {
+    "id": 264,
+    "rifero_id": 267,
+    "taquilla_id": 7,
+    "created_at": "2023-07-11T22:18:45.771183",
+    "updated_at": "2023-07-11T22:18:45.771183"
+  },
+  {
+    "id": 265,
+    "rifero_id": 268,
+    "taquilla_id": 3,
+    "created_at": "2023-07-14T13:19:20.846753",
+    "updated_at": "2023-07-14T13:19:20.846753"
+  },
+  {
+    "id": 266,
+    "rifero_id": 269,
+    "taquilla_id": 3,
+    "created_at": "2023-07-14T13:19:20.983508",
+    "updated_at": "2023-07-14T13:19:20.983508"
+  },
+  {
+    "id": 267,
+    "rifero_id": 270,
+    "taquilla_id": 7,
+    "created_at": "2023-07-14T14:47:13.929785",
+    "updated_at": "2023-07-14T14:47:13.929785"
+  },
+  {
+    "id": 268,
+    "rifero_id": 271,
+    "taquilla_id": 8,
+    "created_at": "2023-07-14T17:40:25.825397",
+    "updated_at": "2023-07-14T17:40:25.825397"
+  },
+  {
+    "id": 269,
+    "rifero_id": 272,
+    "taquilla_id": 7,
+    "created_at": "2023-07-15T12:21:34.514267",
+    "updated_at": "2023-07-15T12:21:34.514267"
+  },
+  {
+    "id": 270,
+    "rifero_id": 273,
+    "taquilla_id": 8,
+    "created_at": "2023-07-15T12:54:35.851135",
+    "updated_at": "2023-07-15T12:54:35.851135"
+  },
+  {
+    "id": 271,
+    "rifero_id": 274,
+    "taquilla_id": 2,
+    "created_at": "2023-07-15T16:24:25.302649",
+    "updated_at": "2023-07-15T16:24:25.302649"
+  },
+  {
+    "id": 272,
+    "rifero_id": 275,
+    "taquilla_id": 5,
+    "created_at": "2023-07-18T11:52:29.104096",
+    "updated_at": "2023-07-18T11:52:29.104096"
+  },
+  {
+    "id": 273,
+    "rifero_id": 276,
+    "taquilla_id": 5,
+    "created_at": "2023-07-18T12:15:52.910026",
+    "updated_at": "2023-07-18T12:15:52.910026"
+  },
+  {
+    "id": 274,
+    "rifero_id": 277,
+    "taquilla_id": 3,
+    "created_at": "2023-07-20T11:40:49.953236",
+    "updated_at": "2023-07-20T11:40:49.953236"
+  },
+  {
+    "id": 275,
+    "rifero_id": 278,
+    "taquilla_id": 3,
+    "created_at": "2023-07-20T11:49:52.796605",
+    "updated_at": "2023-07-20T11:49:52.796605"
+  },
+  {
+    "id": 276,
+    "rifero_id": 279,
+    "taquilla_id": 3,
+    "created_at": "2023-07-20T11:54:13.582341",
+    "updated_at": "2023-07-20T11:54:13.582341"
+  },
+  {
+    "id": 277,
+    "rifero_id": 280,
+    "taquilla_id": 3,
+    "created_at": "2023-07-20T11:57:53.441112",
+    "updated_at": "2023-07-20T11:57:53.441112"
+  },
+  {
+    "id": 278,
+    "rifero_id": 281,
+    "taquilla_id": 5,
+    "created_at": "2023-07-20T19:11:08.637554",
+    "updated_at": "2023-07-20T19:11:08.637554"
+  },
+  {
+    "id": 279,
+    "rifero_id": 282,
+    "taquilla_id": 7,
+    "created_at": "2023-07-21T12:17:36.139994",
+    "updated_at": "2023-07-21T12:17:36.139994"
+  },
+  {
+    "id": 280,
+    "rifero_id": 283,
+    "taquilla_id": 8,
+    "created_at": "2023-07-21T17:48:07.31919",
+    "updated_at": "2023-07-21T17:48:07.31919"
+  },
+  {
+    "id": 281,
+    "rifero_id": 284,
+    "taquilla_id": 8,
+    "created_at": "2023-07-21T22:33:19.059107",
+    "updated_at": "2023-07-21T22:33:19.059107"
+  },
+  {
+    "id": 282,
+    "rifero_id": 285,
+    "taquilla_id": 8,
+    "created_at": "2023-07-22T00:22:00.532303",
+    "updated_at": "2023-07-22T00:22:00.532303"
+  },
+  {
+    "id": 283,
+    "rifero_id": 286,
+    "taquilla_id": 7,
+    "created_at": "2023-07-22T13:06:25.470162",
+    "updated_at": "2023-07-22T13:06:25.470162"
+  },
+  {
+    "id": 284,
+    "rifero_id": 287,
+    "taquilla_id": 7,
+    "created_at": "2023-07-22T14:17:31.667446",
+    "updated_at": "2023-07-22T14:17:31.667446"
+  },
+  {
+    "id": 285,
+    "rifero_id": 288,
+    "taquilla_id": 5,
+    "created_at": "2023-07-22T14:20:41.593043",
+    "updated_at": "2023-07-22T14:20:41.593043"
+  },
+  {
+    "id": 286,
+    "rifero_id": 289,
+    "taquilla_id": 7,
+    "created_at": "2023-07-25T19:21:45.590163",
+    "updated_at": "2023-07-25T19:21:45.590163"
+  },
+  {
+    "id": 287,
+    "rifero_id": 290,
+    "taquilla_id": 7,
+    "created_at": "2023-07-25T21:52:16.157788",
+    "updated_at": "2023-07-25T21:52:16.157788"
+  },
+  {
+    "id": 288,
+    "rifero_id": 291,
+    "taquilla_id": 7,
+    "created_at": "2023-07-25T22:09:02.629042",
+    "updated_at": "2023-07-25T22:09:02.629042"
+  },
+  {
+    "id": 289,
+    "rifero_id": 292,
+    "taquilla_id": 1,
+    "created_at": "2023-07-26T00:16:22.433885",
+    "updated_at": "2023-07-26T00:16:22.433885"
+  },
+  {
+    "id": 290,
+    "rifero_id": 293,
+    "taquilla_id": 3,
+    "created_at": "2023-07-26T11:43:00.671929",
+    "updated_at": "2023-07-26T11:43:00.671929"
+  },
+  {
+    "id": 291,
+    "rifero_id": 294,
+    "taquilla_id": 2,
+    "created_at": "2023-07-26T12:50:01.398475",
+    "updated_at": "2023-07-26T12:50:01.398475"
+  },
+  {
+    "id": 292,
+    "rifero_id": 295,
+    "taquilla_id": 3,
+    "created_at": "2023-07-26T14:05:17.514794",
+    "updated_at": "2023-07-26T14:05:17.514794"
+  },
+  {
+    "id": 293,
+    "rifero_id": 296,
+    "taquilla_id": 3,
+    "created_at": "2023-07-26T16:08:07.070672",
+    "updated_at": "2023-07-26T16:08:07.070672"
+  },
+  {
+    "id": 294,
+    "rifero_id": 297,
+    "taquilla_id": 7,
+    "created_at": "2023-07-26T21:55:30.118358",
+    "updated_at": "2023-07-26T21:55:30.118358"
+  },
+  {
+    "id": 295,
+    "rifero_id": 298,
+    "taquilla_id": 1,
+    "created_at": "2023-07-27T01:12:52.379884",
+    "updated_at": "2023-07-27T01:12:52.379884"
+  },
+  {
+    "id": 296,
+    "rifero_id": 299,
+    "taquilla_id": 8,
+    "created_at": "2023-07-27T13:51:57.933483",
+    "updated_at": "2023-07-27T13:51:57.933483"
+  },
+  {
+    "id": 297,
+    "rifero_id": 300,
+    "taquilla_id": 7,
+    "created_at": "2023-07-28T12:44:11.508819",
+    "updated_at": "2023-07-28T12:44:11.508819"
+  },
+  {
+    "id": 298,
+    "rifero_id": 301,
+    "taquilla_id": 7,
+    "created_at": "2023-07-28T19:12:56.329013",
+    "updated_at": "2023-07-28T19:12:56.329013"
+  },
+  {
+    "id": 299,
+    "rifero_id": 302,
+    "taquilla_id": 7,
+    "created_at": "2023-07-28T21:50:51.730027",
+    "updated_at": "2023-07-28T21:50:51.730027"
+  },
+  {
+    "id": 300,
+    "rifero_id": 303,
+    "taquilla_id": 7,
+    "created_at": "2023-07-28T22:17:31.39111",
+    "updated_at": "2023-07-28T22:17:31.39111"
+  },
+  {
+    "id": 301,
+    "rifero_id": 304,
+    "taquilla_id": 5,
+    "created_at": "2023-07-29T11:48:16.863573",
+    "updated_at": "2023-07-29T11:48:16.863573"
+  },
+  {
+    "id": 302,
+    "rifero_id": 305,
+    "taquilla_id": 7,
+    "created_at": "2023-07-29T12:16:13.627678",
+    "updated_at": "2023-07-29T12:16:13.627678"
+  },
+  {
+    "id": 303,
+    "rifero_id": 306,
+    "taquilla_id": 7,
+    "created_at": "2023-07-29T12:58:36.836805",
+    "updated_at": "2023-07-29T12:58:36.836805"
+  },
+  {
+    "id": 304,
+    "rifero_id": 307,
+    "taquilla_id": 5,
+    "created_at": "2023-07-31T17:06:42.628086",
+    "updated_at": "2023-07-31T17:06:42.628086"
+  },
+  {
+    "id": 305,
+    "rifero_id": 308,
+    "taquilla_id": 1,
+    "created_at": "2023-07-31T22:42:36.458513",
+    "updated_at": "2023-07-31T22:42:36.458513"
+  },
+  {
+    "id": 306,
+    "rifero_id": 309,
+    "taquilla_id": 2,
+    "created_at": "2023-08-01T12:41:09.318722",
+    "updated_at": "2023-08-01T12:41:09.318722"
+  },
+  {
+    "id": 307,
+    "rifero_id": 310,
+    "taquilla_id": 1,
+    "created_at": "2023-08-01T22:22:03.548627",
+    "updated_at": "2023-08-01T22:22:03.548627"
+  },
+  {
+    "id": 308,
+    "rifero_id": 311,
+    "taquilla_id": 1,
+    "created_at": "2023-08-03T13:37:48.856106",
+    "updated_at": "2023-08-03T13:37:48.856106"
+  },
+  {
+    "id": 309,
+    "rifero_id": 312,
+    "taquilla_id": 10,
+    "created_at": "2023-08-03T22:32:03.05058",
+    "updated_at": "2023-08-03T22:32:03.05058"
+  },
+  {
+    "id": 310,
+    "rifero_id": 313,
+    "taquilla_id": 1,
+    "created_at": "2023-08-04T14:54:17.431123",
+    "updated_at": "2023-08-04T14:54:17.431123"
+  },
+  {
+    "id": 311,
+    "rifero_id": 314,
+    "taquilla_id": 2,
+    "created_at": "2023-08-05T13:13:11.54252",
+    "updated_at": "2023-08-05T13:13:11.54252"
+  },
+  {
+    "id": 312,
+    "rifero_id": 315,
+    "taquilla_id": 7,
+    "created_at": "2023-08-05T13:52:09.644025",
+    "updated_at": "2023-08-05T13:52:09.644025"
+  },
+  {
+    "id": 313,
+    "rifero_id": 316,
+    "taquilla_id": 10,
+    "created_at": "2023-08-06T13:51:44.246173",
+    "updated_at": "2023-08-06T13:51:44.246173"
+  },
+  {
+    "id": 314,
+    "rifero_id": 317,
+    "taquilla_id": 8,
+    "created_at": "2023-08-07T12:39:28.046785",
+    "updated_at": "2023-08-07T12:39:28.046785"
+  },
+  {
+    "id": 315,
+    "rifero_id": 318,
+    "taquilla_id": 10,
+    "created_at": "2023-08-07T16:29:52.326306",
+    "updated_at": "2023-08-07T16:29:52.326306"
+  },
+  {
+    "id": 316,
+    "rifero_id": 319,
+    "taquilla_id": 10,
+    "created_at": "2023-08-07T17:27:09.544691",
+    "updated_at": "2023-08-07T17:27:09.544691"
+  },
+  {
+    "id": 317,
+    "rifero_id": 320,
+    "taquilla_id": 10,
+    "created_at": "2023-08-07T17:40:46.120647",
+    "updated_at": "2023-08-07T17:40:46.120647"
+  },
+  {
+    "id": 318,
+    "rifero_id": 321,
+    "taquilla_id": 2,
+    "created_at": "2023-08-10T14:17:34.177717",
+    "updated_at": "2023-08-10T14:17:34.177717"
+  },
+  {
+    "id": 319,
+    "rifero_id": 322,
+    "taquilla_id": 8,
+    "created_at": "2023-08-11T15:33:14.796192",
+    "updated_at": "2023-08-11T15:33:14.796192"
+  },
+  {
+    "id": 320,
+    "rifero_id": 323,
+    "taquilla_id": 5,
+    "created_at": "2023-08-12T13:47:43.474047",
+    "updated_at": "2023-08-12T13:47:43.474047"
+  },
+  {
+    "id": 321,
+    "rifero_id": 324,
+    "taquilla_id": 5,
+    "created_at": "2023-08-12T14:12:11.965197",
+    "updated_at": "2023-08-12T14:12:11.965197"
+  },
+  {
+    "id": 322,
+    "rifero_id": 325,
+    "taquilla_id": 5,
+    "created_at": "2023-08-12T14:34:28.756128",
+    "updated_at": "2023-08-12T14:34:28.756128"
+  },
+  {
+    "id": 323,
+    "rifero_id": 326,
+    "taquilla_id": 10,
+    "created_at": "2023-08-14T13:31:38.240839",
+    "updated_at": "2023-08-14T13:31:38.240839"
+  },
+  {
+    "id": 324,
+    "rifero_id": 327,
+    "taquilla_id": 8,
+    "created_at": "2023-08-14T16:11:50.393409",
+    "updated_at": "2023-08-14T16:11:50.393409"
+  },
+  {
+    "id": 325,
+    "rifero_id": 328,
+    "taquilla_id": 7,
+    "created_at": "2023-08-14T17:53:28.543826",
+    "updated_at": "2023-08-14T17:53:28.543826"
+  },
+  {
+    "id": 326,
+    "rifero_id": 329,
+    "taquilla_id": 5,
+    "created_at": "2023-08-15T13:08:54.701186",
+    "updated_at": "2023-08-15T13:08:54.701186"
+  },
+  {
+    "id": 327,
+    "rifero_id": 330,
+    "taquilla_id": 8,
+    "created_at": "2023-08-18T22:11:39.702107",
+    "updated_at": "2023-08-18T22:11:39.702107"
+  },
+  {
+    "id": 328,
+    "rifero_id": 331,
+    "taquilla_id": 7,
+    "created_at": "2023-08-19T12:32:20.413833",
+    "updated_at": "2023-08-19T12:32:20.413833"
+  },
+  {
+    "id": 329,
+    "rifero_id": 332,
+    "taquilla_id": 7,
+    "created_at": "2023-08-19T13:49:04.355659",
+    "updated_at": "2023-08-19T13:49:04.355659"
+  },
+  {
+    "id": 330,
+    "rifero_id": 333,
+    "taquilla_id": 1,
+    "created_at": "2023-08-19T17:08:48.120546",
+    "updated_at": "2023-08-19T17:08:48.120546"
+  },
+  {
+    "id": 331,
+    "rifero_id": 334,
+    "taquilla_id": 7,
+    "created_at": "2023-08-22T13:50:16.380813",
+    "updated_at": "2023-08-22T13:50:16.380813"
+  },
+  {
+    "id": 332,
+    "rifero_id": 335,
+    "taquilla_id": 8,
+    "created_at": "2023-08-25T13:51:16.181418",
+    "updated_at": "2023-08-25T13:51:16.181418"
+  },
+  {
+    "id": 333,
+    "rifero_id": 336,
+    "taquilla_id": 2,
+    "created_at": "2023-08-26T12:11:03.062873",
+    "updated_at": "2023-08-26T12:11:03.062873"
+  },
+  {
+    "id": 334,
+    "rifero_id": 337,
+    "taquilla_id": 8,
+    "created_at": "2023-08-26T13:08:56.205019",
+    "updated_at": "2023-08-26T13:08:56.205019"
+  },
+  {
+    "id": 335,
+    "rifero_id": 338,
+    "taquilla_id": 2,
+    "created_at": "2023-08-26T15:21:19.33927",
+    "updated_at": "2023-08-26T15:21:19.33927"
+  },
+  {
+    "id": 336,
+    "rifero_id": 339,
+    "taquilla_id": 3,
+    "created_at": "2023-08-29T16:29:53.536141",
+    "updated_at": "2023-08-29T16:29:53.536141"
+  },
+  {
+    "id": 337,
+    "rifero_id": 340,
+    "taquilla_id": 11,
+    "created_at": "2023-09-05T15:29:34.880954",
+    "updated_at": "2023-09-05T15:29:34.880954"
+  },
+  {
+    "id": 338,
+    "rifero_id": 341,
+    "taquilla_id": 11,
+    "created_at": "2023-09-05T17:13:37.218268",
+    "updated_at": "2023-09-05T17:13:37.218268"
+  },
+  {
+    "id": 339,
+    "rifero_id": 342,
+    "taquilla_id": 7,
+    "created_at": "2023-09-08T13:03:44.892854",
+    "updated_at": "2023-09-08T13:03:44.892854"
+  },
+  {
+    "id": 340,
+    "rifero_id": 343,
+    "taquilla_id": 7,
+    "created_at": "2023-09-09T13:18:59.836875",
+    "updated_at": "2023-09-09T13:18:59.836875"
+  },
+  {
+    "id": 341,
+    "rifero_id": 344,
+    "taquilla_id": 5,
+    "created_at": "2023-09-09T14:32:05.27808",
+    "updated_at": "2023-09-09T14:32:05.27808"
+  },
+  {
+    "id": 342,
+    "rifero_id": 345,
+    "taquilla_id": 3,
+    "created_at": "2023-09-14T13:32:58.934457",
+    "updated_at": "2023-09-14T13:32:58.934457"
+  },
+  {
+    "id": 343,
+    "rifero_id": 346,
+    "taquilla_id": 2,
+    "created_at": "2023-09-15T13:33:43.26143",
+    "updated_at": "2023-09-15T13:33:43.26143"
+  },
+  {
+    "id": 344,
+    "rifero_id": 347,
+    "taquilla_id": 8,
+    "created_at": "2023-09-15T20:21:17.996326",
+    "updated_at": "2023-09-15T20:21:17.996326"
+  },
+  {
+    "id": 345,
+    "rifero_id": 348,
+    "taquilla_id": 7,
+    "created_at": "2023-09-16T13:36:32.908237",
+    "updated_at": "2023-09-16T13:36:32.908237"
+  },
+  {
+    "id": 346,
+    "rifero_id": 349,
+    "taquilla_id": 2,
+    "created_at": "2023-09-16T13:45:54.386723",
+    "updated_at": "2023-09-16T13:45:54.386723"
+  },
+  {
+    "id": 347,
+    "rifero_id": 350,
+    "taquilla_id": 8,
+    "created_at": "2023-09-16T14:22:38.198402",
+    "updated_at": "2023-09-16T14:22:38.198402"
+  },
+  {
+    "id": 348,
+    "rifero_id": 351,
+    "taquilla_id": 8,
+    "created_at": "2023-09-16T14:22:38.538549",
+    "updated_at": "2023-09-16T14:22:38.538549"
+  },
+  {
+    "id": 349,
+    "rifero_id": 352,
+    "taquilla_id": 7,
+    "created_at": "2023-09-16T15:42:45.844507",
+    "updated_at": "2023-09-16T15:42:45.844507"
+  },
+  {
+    "id": 350,
+    "rifero_id": 353,
+    "taquilla_id": 4,
+    "created_at": "2023-09-18T23:59:04.831411",
+    "updated_at": "2023-09-18T23:59:04.831411"
+  },
+  {
+    "id": 351,
+    "rifero_id": 354,
+    "taquilla_id": 2,
+    "created_at": "2023-09-20T12:23:26.625583",
+    "updated_at": "2023-09-20T12:23:26.625583"
+  },
+  {
+    "id": 352,
+    "rifero_id": 355,
+    "taquilla_id": 8,
+    "created_at": "2023-09-21T21:51:09.538824",
+    "updated_at": "2023-09-21T21:51:09.538824"
+  },
+  {
+    "id": 353,
+    "rifero_id": 356,
+    "taquilla_id": 2,
+    "created_at": "2023-09-23T12:21:34.252651",
+    "updated_at": "2023-09-23T12:21:34.252651"
+  },
+  {
+    "id": 354,
+    "rifero_id": 357,
+    "taquilla_id": 2,
+    "created_at": "2023-09-23T13:19:11.79129",
+    "updated_at": "2023-09-23T13:19:11.79129"
+  },
+  {
+    "id": 355,
+    "rifero_id": 359,
+    "taquilla_id": 8,
+    "created_at": "2023-09-25T12:33:04.601297",
+    "updated_at": "2023-09-25T12:33:04.601297"
+  },
+  {
+    "id": 356,
+    "rifero_id": 358,
+    "taquilla_id": 8,
+    "created_at": "2023-09-25T12:33:04.637077",
+    "updated_at": "2023-09-25T12:33:04.637077"
+  },
+  {
+    "id": 357,
+    "rifero_id": 360,
+    "taquilla_id": 8,
+    "created_at": "2023-09-25T12:33:04.74577",
+    "updated_at": "2023-09-25T12:33:04.74577"
+  },
+  {
+    "id": 358,
+    "rifero_id": 361,
+    "taquilla_id": 2,
+    "created_at": "2023-09-27T14:30:44.247982",
+    "updated_at": "2023-09-27T14:30:44.247982"
+  },
+  {
+    "id": 359,
+    "rifero_id": 362,
+    "taquilla_id": 8,
+    "created_at": "2023-09-30T13:02:52.601772",
+    "updated_at": "2023-09-30T13:02:52.601772"
+  },
+  {
+    "id": 360,
+    "rifero_id": 363,
+    "taquilla_id": 3,
+    "created_at": "2023-10-07T13:05:03.620805",
+    "updated_at": "2023-10-07T13:05:03.620805"
+  },
+  {
+    "id": 361,
+    "rifero_id": 364,
+    "taquilla_id": 8,
+    "created_at": "2023-10-07T18:30:29.838968",
+    "updated_at": "2023-10-07T18:30:29.838968"
+  },
+  {
+    "id": 362,
+    "rifero_id": 365,
+    "taquilla_id": 2,
+    "created_at": "2023-10-17T15:15:40.840475",
+    "updated_at": "2023-10-17T15:15:40.840475"
+  },
+  {
+    "id": 363,
+    "rifero_id": 366,
+    "taquilla_id": 3,
+    "created_at": "2023-10-18T20:31:04.855126",
+    "updated_at": "2023-10-18T20:31:04.855126"
+  },
+  {
+    "id": 364,
+    "rifero_id": 367,
+    "taquilla_id": 10,
+    "created_at": "2023-10-19T15:48:12.302057",
+    "updated_at": "2023-10-19T15:48:12.302057"
+  },
+  {
+    "id": 365,
+    "rifero_id": 368,
+    "taquilla_id": 8,
+    "created_at": "2023-10-20T18:34:38.008157",
+    "updated_at": "2023-10-20T18:34:38.008157"
+  },
+  {
+    "id": 366,
+    "rifero_id": 369,
+    "taquilla_id": 11,
+    "created_at": "2023-10-29T02:54:55.758237",
+    "updated_at": "2023-10-29T02:54:55.758237"
+  },
+  {
+    "id": 367,
+    "rifero_id": 370,
+    "taquilla_id": 2,
+    "created_at": "2023-10-30T14:22:15.537296",
+    "updated_at": "2023-10-30T14:22:15.537296"
+  },
+  {
+    "id": 368,
+    "rifero_id": 371,
+    "taquilla_id": 8,
+    "created_at": "2023-10-31T13:37:50.932593",
+    "updated_at": "2023-10-31T13:37:50.932593"
+  },
+  {
+    "id": 369,
+    "rifero_id": 372,
+    "taquilla_id": 11,
+    "created_at": "2023-11-03T20:44:00.831473",
+    "updated_at": "2023-11-03T20:44:00.831473"
+  },
+  {
+    "id": 370,
+    "rifero_id": 373,
+    "taquilla_id": 5,
+    "created_at": "2023-11-04T14:41:26.988003",
+    "updated_at": "2023-11-04T14:41:26.988003"
+  },
+  {
+    "id": 371,
+    "rifero_id": 374,
+    "taquilla_id": 2,
+    "created_at": "2023-11-09T14:25:36.572189",
+    "updated_at": "2023-11-09T14:25:36.572189"
+  },
+  {
+    "id": 372,
+    "rifero_id": 375,
+    "taquilla_id": 2,
+    "created_at": "2023-11-09T20:20:13.268296",
+    "updated_at": "2023-11-09T20:20:13.268296"
+  },
+  {
+    "id": 373,
+    "rifero_id": 376,
+    "taquilla_id": 8,
+    "created_at": "2023-11-10T23:40:01.289337",
+    "updated_at": "2023-11-10T23:40:01.289337"
+  },
+  {
+    "id": 374,
+    "rifero_id": 377,
+    "taquilla_id": 8,
+    "created_at": "2023-11-11T12:01:04.206193",
+    "updated_at": "2023-11-11T12:01:04.206193"
+  },
+  {
+    "id": 375,
+    "rifero_id": 378,
+    "taquilla_id": 1,
+    "created_at": "2023-11-16T13:21:05.685299",
+    "updated_at": "2023-11-16T13:21:05.685299"
+  },
+  {
+    "id": 376,
+    "rifero_id": 379,
+    "taquilla_id": 7,
+    "created_at": "2023-11-16T16:32:21.559648",
+    "updated_at": "2023-11-16T16:32:21.559648"
+  },
+  {
+    "id": 377,
+    "rifero_id": 380,
+    "taquilla_id": 5,
+    "created_at": "2023-11-16T20:33:24.776118",
+    "updated_at": "2023-11-16T20:33:24.776118"
+  },
+  {
+    "id": 378,
+    "rifero_id": 381,
+    "taquilla_id": 2,
+    "created_at": "2023-11-16T20:51:44.447325",
+    "updated_at": "2023-11-16T20:51:44.447325"
+  },
+  {
+    "id": 379,
+    "rifero_id": 382,
+    "taquilla_id": 2,
+    "created_at": "2023-11-20T12:09:53.326583",
+    "updated_at": "2023-11-20T12:09:53.326583"
+  },
+  {
+    "id": 380,
+    "rifero_id": 383,
+    "taquilla_id": 3,
+    "created_at": "2023-11-21T19:59:18.768723",
+    "updated_at": "2023-11-21T19:59:18.768723"
+  },
+  {
+    "id": 381,
+    "rifero_id": 384,
+    "taquilla_id": 8,
+    "created_at": "2023-11-22T12:51:41.904013",
+    "updated_at": "2023-11-22T12:51:41.904013"
+  },
+  {
+    "id": 382,
+    "rifero_id": 385,
+    "taquilla_id": 3,
+    "created_at": "2023-11-23T23:13:39.142939",
+    "updated_at": "2023-11-23T23:13:39.142939"
+  },
+  {
+    "id": 383,
+    "rifero_id": 386,
+    "taquilla_id": 3,
+    "created_at": "2023-11-23T23:21:01.315808",
+    "updated_at": "2023-11-23T23:21:01.315808"
+  },
+  {
+    "id": 384,
+    "rifero_id": 387,
+    "taquilla_id": 1,
+    "created_at": "2023-11-24T18:18:10.691928",
+    "updated_at": "2023-11-24T18:18:10.691928"
+  },
+  {
+    "id": 385,
+    "rifero_id": 388,
+    "taquilla_id": 1,
+    "created_at": "2023-11-24T23:26:56.846369",
+    "updated_at": "2023-11-24T23:26:56.846369"
+  },
+  {
+    "id": 386,
+    "rifero_id": 389,
+    "taquilla_id": 8,
+    "created_at": "2023-11-25T12:52:15.380096",
+    "updated_at": "2023-11-25T12:52:15.380096"
+  },
+  {
+    "id": 387,
+    "rifero_id": 390,
+    "taquilla_id": 8,
+    "created_at": "2023-11-25T13:04:06.697872",
+    "updated_at": "2023-11-25T13:04:06.697872"
+  },
+  {
+    "id": 388,
+    "rifero_id": 391,
+    "taquilla_id": 1,
+    "created_at": "2023-11-25T13:14:02.871491",
+    "updated_at": "2023-11-25T13:14:02.871491"
+  },
+  {
+    "id": 389,
+    "rifero_id": 392,
+    "taquilla_id": 5,
+    "created_at": "2023-11-28T16:44:54.790841",
+    "updated_at": "2023-11-28T16:44:54.790841"
+  },
+  {
+    "id": 390,
+    "rifero_id": 393,
+    "taquilla_id": 2,
+    "created_at": "2023-12-01T13:16:45.350697",
+    "updated_at": "2023-12-01T13:16:45.350697"
+  },
+  {
+    "id": 391,
+    "rifero_id": 394,
+    "taquilla_id": 7,
+    "created_at": "2023-12-01T19:10:00.796351",
+    "updated_at": "2023-12-01T19:10:00.796351"
+  },
+  {
+    "id": 392,
+    "rifero_id": 395,
+    "taquilla_id": 2,
+    "created_at": "2023-12-01T20:29:58.358683",
+    "updated_at": "2023-12-01T20:29:58.358683"
+  },
+  {
+    "id": 393,
+    "rifero_id": 396,
+    "taquilla_id": 2,
+    "created_at": "2023-12-01T20:33:41.90835",
+    "updated_at": "2023-12-01T20:33:41.90835"
+  },
+  {
+    "id": 394,
+    "rifero_id": 397,
+    "taquilla_id": 7,
+    "created_at": "2023-12-02T15:42:32.188857",
+    "updated_at": "2023-12-02T15:42:32.188857"
+  },
+  {
+    "id": 395,
+    "rifero_id": 398,
+    "taquilla_id": 2,
+    "created_at": "2023-12-06T15:36:56.166189",
+    "updated_at": "2023-12-06T15:36:56.166189"
+  },
+  {
+    "id": 396,
+    "rifero_id": 399,
+    "taquilla_id": 8,
+    "created_at": "2023-12-07T15:08:42.728878",
+    "updated_at": "2023-12-07T15:08:42.728878"
+  },
+  {
+    "id": 397,
+    "rifero_id": 400,
+    "taquilla_id": 7,
+    "created_at": "2023-12-11T21:48:06.511901",
+    "updated_at": "2023-12-11T21:48:06.511901"
+  },
+  {
+    "id": 398,
+    "rifero_id": 401,
+    "taquilla_id": 5,
+    "created_at": "2023-12-16T13:51:35.189562",
+    "updated_at": "2023-12-16T13:51:35.189562"
+  },
+  {
+    "id": 399,
+    "rifero_id": 402,
+    "taquilla_id": 8,
+    "created_at": "2023-12-16T16:25:36.753154",
+    "updated_at": "2023-12-16T16:25:36.753154"
+  },
+  {
+    "id": 400,
+    "rifero_id": 403,
+    "taquilla_id": 10,
+    "created_at": "2023-12-18T16:14:21.045863",
+    "updated_at": "2023-12-18T16:14:21.045863"
+  },
+  {
+    "id": 401,
+    "rifero_id": 404,
+    "taquilla_id": 2,
+    "created_at": "2023-12-20T14:13:05.013754",
+    "updated_at": "2023-12-20T14:13:05.013754"
+  },
+  {
+    "id": 402,
+    "rifero_id": 405,
+    "taquilla_id": 2,
+    "created_at": "2023-12-21T13:48:33.339385",
+    "updated_at": "2023-12-21T13:48:33.339385"
+  },
+  {
+    "id": 403,
+    "rifero_id": 406,
+    "taquilla_id": 2,
+    "created_at": "2023-12-27T20:16:45.8421",
+    "updated_at": "2023-12-27T20:16:45.8421"
+  },
+  {
+    "id": 404,
+    "rifero_id": 407,
+    "taquilla_id": 7,
+    "created_at": "2023-12-28T22:32:47.176816",
+    "updated_at": "2023-12-28T22:32:47.176816"
+  },
+  {
+    "id": 405,
+    "rifero_id": 408,
+    "taquilla_id": 8,
+    "created_at": "2023-12-29T13:11:03.566101",
+    "updated_at": "2023-12-29T13:11:03.566101"
+  },
+  {
+    "id": 406,
+    "rifero_id": 409,
+    "taquilla_id": 1,
+    "created_at": "2023-12-30T12:38:16.241368",
+    "updated_at": "2023-12-30T12:38:16.241368"
+  },
+  {
+    "id": 407,
+    "rifero_id": 410,
+    "taquilla_id": 1,
+    "created_at": "2023-12-30T12:48:16.12501",
+    "updated_at": "2023-12-30T12:48:16.12501"
+  },
+  {
+    "id": 408,
+    "rifero_id": 411,
+    "taquilla_id": 2,
+    "created_at": "2023-12-30T14:45:15.534539",
+    "updated_at": "2023-12-30T14:45:15.534539"
+  },
+  {
+    "id": 409,
+    "rifero_id": 412,
+    "taquilla_id": 1,
+    "created_at": "2023-12-31T13:24:17.356393",
+    "updated_at": "2023-12-31T13:24:17.356393"
+  },
+  {
+    "id": 410,
+    "rifero_id": 413,
+    "taquilla_id": 5,
+    "created_at": "2024-01-04T22:11:46.209184",
+    "updated_at": "2024-01-04T22:11:46.209184"
+  }
+]
