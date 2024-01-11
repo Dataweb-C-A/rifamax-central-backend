@@ -168,20 +168,6 @@
     "rifero_ids": []
   },
   {
-    "id": 17,
-    "avatar": null,
-    "name": "Alfredo Serrano",
-    "email": "alfredoserrano@gmail.com",
-    "dni": "V-7765659",
-    "password_digest": "$2a$12$jZddrOf7VCgA5jNggTmG3Ow1Y7CAz2G3FXI3J/lcaGxTC4EV/YH2u",
-    "role": "Rifero",
-    "created_at": "2022-10-25T21:58:38.697504",
-    "updated_at": "2022-10-25T21:58:38.697504",
-    "module_assigned": [1],
-    "phone": "+58 (412) 123-4053",
-    "rifero_ids": []
-  },
-  {
     "id": 18,
     "avatar": null,
     "name": "Danilo Morales",
