@@ -1,12 +1,16 @@
 class X100::OrdersController < ApplicationController
-  before_action :authorize_request
-  before_action :set_x100_order, only: %i[ show update destroy ]
+  before_action :authorize_request, except: %i[index]
+  before_action :set_x100_order, only: %i[show update destroy ]
 
   # GET /x100/orders
   def index
-    @x100_orders = X100::Order.all
+    @x100_orders = X100::Order.find_by(serial: fetch_order[:serial])
 
-    render json: @x100_orders
+    if @x100_orders.nil?
+      render json: { message: "Order with serial: #{fetch_order[:serial]} doesn't exist" }, status: :not_found
+    else
+      render json: @x100_orders, status: :ok
+    end
   end
 
   # GET /x100/orders/1
@@ -48,5 +52,9 @@ class X100::OrdersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def x100_order_params
       params.require(:x100_order).permit(:products, :amount, :serial, :ordered_at, :shared_user_id, :x100_client_id)
+    end
+
+    def fetch_order
+      params.permit(:serial)
     end
 end

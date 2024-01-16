@@ -32,6 +32,9 @@ module X100
     belongs_to :x100_raffle, class_name: 'X100::Raffle', foreign_key: 'x100_raffle_id'
     belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id'
 
+    after_create :generate_serial
+    after_create :generate_order
+
     def self.all_sold_tickets
       raffles = X100::Raffle.all
 
@@ -60,6 +63,28 @@ module X100
       end
 
       return result
+    end
+
+    def generate_serial
+      update(serial: SecureRandom.uuid)
+    end
+
+    def generate_order
+      order = X100::Order.new(
+        products: self.positions, 
+        amount: self.price, 
+        serial: "ORD-#{SecureRandom.hex(6).upcase}", 
+        ordered_at: DateTime.now, 
+        shared_user_id: self.x100_raffle.shared_user_id, 
+        x100_client_id: self.x100_client_id,
+        x100_raffle_id: self.x100_raffle_id
+      )
+
+      if order.save
+        puts 'saved'
+      else
+        puts order.errors.full_messages
+      end
     end
   end
 end
