@@ -1,4 +1,5 @@
 class X100::OrdersController < ApplicationController
+  before_action :authorize_request
   before_action :set_x100_order, only: %i[ show update destroy ]
 
   # GET /x100/orders

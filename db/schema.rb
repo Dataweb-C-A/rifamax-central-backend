@@ -150,7 +150,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_16_150824) do
   end
 
   create_table "x100_orders", force: :cascade do |t|
-    t.integer "products"
+    t.integer "products", default: [], array: true
     t.float "amount"
     t.string "serial"
     t.datetime "ordered_at"

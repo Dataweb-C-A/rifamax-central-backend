@@ -1,7 +1,7 @@
 class CreateX100Orders < ActiveRecord::Migration[7.0]
   def change
     create_table :x100_orders do |t|
-      t.integer :products
+      t.integer :products, array: true, default: []
       t.float :amount
       t.string :serial
       t.datetime :ordered_at

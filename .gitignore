@@ -29,3 +29,5 @@
 /config/master.key
 
 /public/uploads/*
+
+/public/uploads/raffle/ad/*

@@ -5,7 +5,7 @@
 #  id             :bigint           not null, primary key
 #  amount         :float
 #  ordered_at     :datetime
-#  products       :integer
+#  products       :integer          default([]), is an Array
 #  serial         :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
@@ -22,7 +22,6 @@
 #  fk_rails_...  (shared_user_id => shared_users.id)
 #  fk_rails_...  (x100_client_id => x100_clients.id)
 #
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
   products: 1

@@ -5,7 +5,7 @@
 #  id             :bigint           not null, primary key
 #  amount         :float
 #  ordered_at     :datetime
-#  products       :integer
+#  products       :integer          default([]), is an Array
 #  serial         :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
