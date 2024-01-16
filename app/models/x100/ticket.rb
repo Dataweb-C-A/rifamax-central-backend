@@ -5,13 +5,10 @@
 # Table name: x100_tickets
 #
 #  id             :bigint           not null, primary key
-#  is_sold        :boolean
 #  money          :string
-#  perform_at     :integer
 #  positions      :integer          not null, is an Array
 #  price          :float
 #  serial         :string
-#  ticket_number  :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  x100_client_id :bigint           not null
@@ -43,7 +40,7 @@ module X100
       raffles.each do |raffle|
         result << {
           raffle_id: raffle.id,
-          positions: raffle.tickets_sold.select { |item| item.x100_raffle_id === raffle.id }.map(&:position)
+          positions: raffle.x100_tickets.map(&:positions).flatten
         }
       end
 
@@ -58,7 +55,7 @@ module X100
       raffles.each do |raffle|
         result << {
           raffle_id: raffle.id,
-          positions: raffle.tickets_sold.select { |item| item.x100_raffle_id === raffle.id }.map(&:position)
+          positions: raffle.x100_tickets.map(&:positions).flatten
         }
       end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_16_150824) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_16_214321) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -199,12 +199,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_16_150824) do
 
   create_table "x100_tickets", force: :cascade do |t|
     t.integer "positions", null: false, array: true
-    t.boolean "is_sold"
     t.string "serial"
     t.float "price"
     t.string "money"
-    t.string "ticket_number"
-    t.integer "perform_at"
     t.bigint "x100_raffle_id", null: false
     t.bigint "x100_client_id", null: false
     t.datetime "created_at", null: false
