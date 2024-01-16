@@ -32,6 +32,7 @@ module X100
     mount_uploader :ad, X100::AdUploader
     has_many :x100_tickets, class_name: 'X100::Ticket', foreign_key: 'x100_raffle_id'
     has_one :x100_stat, class_name: 'X100::Stat', foreign_key: 'x100_raffle_id'
+    has_many :x100_orders, class_name: 'X100::Order', foreign_key: 'x100_raffle_id'
 
     after_create :generate_tickets
     after_create :initialize_status

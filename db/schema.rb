@@ -156,10 +156,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_16_150824) do
     t.datetime "ordered_at"
     t.bigint "shared_user_id", null: false
     t.bigint "x100_client_id", null: false
+    t.bigint "x100_raffle_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shared_user_id"], name: "index_x100_orders_on_shared_user_id"
     t.index ["x100_client_id"], name: "index_x100_orders_on_x100_client_id"
+    t.index ["x100_raffle_id"], name: "index_x100_orders_on_x100_raffle_id"
   end
 
   create_table "x100_raffles", force: :cascade do |t|
@@ -219,6 +221,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_16_150824) do
   add_foreign_key "shared_wallets", "shared_users"
   add_foreign_key "x100_orders", "shared_users"
   add_foreign_key "x100_orders", "x100_clients"
+  add_foreign_key "x100_orders", "x100_raffles"
   add_foreign_key "x100_stats", "x100_raffles"
   add_foreign_key "x100_tickets", "x100_clients"
   add_foreign_key "x100_tickets", "x100_raffles"
