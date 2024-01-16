@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_16_214321) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_16_150824) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -130,7 +130,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_16_214321) do
   end
 
   create_table "shared_wallets", force: :cascade do |t|
-    t.string "token", default: "45f0b910-e243-41b1-beaf-5999dc6e9a2d"
+    t.string "token", default: "8c456bb7-1ac8-4a91-b2e1-2a7072917b24"
     t.float "found", default: 0.0
     t.float "debt", default: 0.0
     t.float "debt_limit", default: 20.0

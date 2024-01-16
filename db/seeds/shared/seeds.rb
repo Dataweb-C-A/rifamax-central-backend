@@ -2,7 +2,7 @@
 
 app_module = Shared::ApplicationModule
 user = Shared::User
-old_users = JSON.parse(File.open('./old/users.json').read).sort_by { |hash| hash['id'].to_i }
+old_users = JSON.parse(File.open('./old/users_finish.json').read).sort_by { |hash| hash['id'].to_i }
 
 modules = ['Rifamax', 'X100', '50/50']
 
