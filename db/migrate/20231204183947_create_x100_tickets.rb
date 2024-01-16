@@ -3,7 +3,7 @@
 class CreateX100Tickets < ActiveRecord::Migration[7.0]
   def change
     create_table :x100_tickets do |t|
-      t.integer :position
+      t.integer :positions, array: true, null: false
       t.boolean :is_sold
       t.string :serial
       t.float :price

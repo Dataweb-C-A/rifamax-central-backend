@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_31_173409) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_16_150824) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -130,7 +130,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_31_173409) do
   end
 
   create_table "shared_wallets", force: :cascade do |t|
-    t.string "token", default: "c7ba7d94-ce98-4086-828a-54290b66704f"
+    t.string "token", default: "45f0b910-e243-41b1-beaf-5999dc6e9a2d"
     t.float "found", default: 0.0
     t.float "debt", default: 0.0
     t.float "debt_limit", default: 20.0
@@ -147,6 +147,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_31_173409) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "x100_orders", force: :cascade do |t|
+    t.integer "products"
+    t.float "amount"
+    t.string "serial"
+    t.datetime "ordered_at"
+    t.bigint "shared_user_id", null: false
+    t.bigint "x100_client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shared_user_id"], name: "index_x100_orders_on_shared_user_id"
+    t.index ["x100_client_id"], name: "index_x100_orders_on_x100_client_id"
   end
 
   create_table "x100_raffles", force: :cascade do |t|
@@ -183,9 +196,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_31_173409) do
   end
 
   create_table "x100_tickets", force: :cascade do |t|
-    t.integer "position"
+    t.integer "positions", null: false, array: true
     t.boolean "is_sold"
     t.string "serial"
+    t.float "price"
+    t.string "money"
+    t.string "ticket_number"
+    t.integer "perform_at"
     t.bigint "x100_raffle_id", null: false
     t.bigint "x100_client_id", null: false
     t.datetime "created_at", null: false
@@ -200,6 +217,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_31_173409) do
   add_foreign_key "rifamax_tickets", "rifamax_raffles"
   add_foreign_key "shared_transactions", "shared_wallets"
   add_foreign_key "shared_wallets", "shared_users"
+  add_foreign_key "x100_orders", "shared_users"
+  add_foreign_key "x100_orders", "x100_clients"
   add_foreign_key "x100_stats", "x100_raffles"
   add_foreign_key "x100_tickets", "x100_clients"
   add_foreign_key "x100_tickets", "x100_raffles"

@@ -4,7 +4,6 @@ module X100
   class ClientsController < ApplicationController
     before_action :authorize_request, only: %i[show update destroy]
     before_action :set_x100_client, only: %i[show update destroy]
-    before_action :verify_user_admin, only: %i[show update destroy]
 
     # GET /x100/clients
     def index
@@ -19,7 +18,11 @@ module X100
 
     # GET /x100/clients/1
     def show
-      render json: @x100_client, status: :ok
+      if admin? 
+        render json: @x100_client, status: :ok
+      else
+        render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized
+      end
     end
     
     # POST /x100/clients
@@ -35,16 +38,28 @@ module X100
 
     # PATCH/PUT /x100/clients/1
     def update
-      if @x100_client.update(x100_client_params)
-        render json: @x100_client
+      if admin?
+        if @x100_client.update(x100_client_params)
+          render json: @x100_client
+        else
+          render json: @x100_client.errors, status: :unprocessable_entity
+        end
       else
-        render json: @x100_client.errors, status: :unprocessable_entity
+        render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized
       end
     end
 
     # DELETE /x100/clients/1
     def destroy
-      @x100_client.destroy
+      if admin?
+        if @x100_client.destroy
+          render json: { message: 'Client was successfully deleted', user: @x100_client }, status: :ok
+        else
+          render json: @x100_client.errors, status: :unprocessable_entity
+        end
+      else
+        render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized
+      end
     end
 
     private
@@ -54,8 +69,8 @@ module X100
       @x100_client = X100::Client.find(params[:id])
     end
 
-    def verify_user_admin 
-      render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized unless @current_user.Admin?
+    def admin?
+      @current_user.role == 'Admin'
     end
 
     def fetch_user

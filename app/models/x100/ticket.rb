@@ -6,8 +6,12 @@
 #
 #  id             :bigint           not null, primary key
 #  is_sold        :boolean
-#  position       :integer
+#  money          :string
+#  perform_at     :integer
+#  positions      :integer          not null, is an Array
+#  price          :float
 #  serial         :string
+#  ticket_number  :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  x100_client_id :bigint           not null

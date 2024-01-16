@@ -15,6 +15,7 @@
 module X100
   class Client < ApplicationRecord
     has_many :x100_tickets, class_name: 'X100::Ticket', foreign_key: 'x100_client_id'
+    has_many :x100_orders, class_name: 'X100::Order', foreign_key: 'x100_client_id'
 
     validates :name,
               presence: true

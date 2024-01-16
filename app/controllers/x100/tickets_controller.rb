@@ -17,6 +17,7 @@ module X100
 
     def show
       @x100_ticket = X100::Ticket.sold_tickets(params[:id])[0]
+      
       if @x100_ticket == nil
         render json: { message: "Raffle with ID: #{params[:id]} not found" }, status: :not_found
       else
@@ -24,11 +25,25 @@ module X100
       end
     end
 
-    def sell_tickets
-      
+    def create
+      next if @current_user.verify_roles(['Admin', 'Taquilla']) == true
+      @x100_ticket = X100::Ticket.new(create_x100_ticket_params)
+
+      if @x100_ticket.save
+        @tickets = X100::Ticket.all_sold_tickets
+
+        ActionCable.server.broadcast('x100_tickets', @tickets)
+        render json: @x100_ticket, status: :created, location: @x100_ticket
+      else
+        render json: @x100_ticket.errors, status: :unprocessable_entity
+      end
     end
 
     private
+
+    def create_x100_ticket_params
+      params.permit(:x100_raffle_id, :x100_client_id, positions: [])
+    end
 
     def fetch_tickets
       params.permit(:raffle_id, :current_page, :items_per_page)

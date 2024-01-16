@@ -3,9 +3,11 @@
 module Shared
   class UsersController < ApplicationController
     before_action :set_shared_user, only: %i[show update destroy]
+    before_action :authorize_request
 
     # GET /shared/users
     def index
+      next if @current_user.verify_role('Admin') == true
       @shared_users = Shared::User.all
 
       render json: @shared_users
@@ -18,6 +20,7 @@ module Shared
 
     # POST /shared/users
     def create
+      next if @current_user.verify_role('Admin') == true
       @shared_user = Shared::User.new(shared_user_params)
 
       if @shared_user.save
@@ -38,7 +41,11 @@ module Shared
 
     # DELETE /shared/users/1
     def destroy
-      @shared_user.destroy
+      if @shared_user.destroy
+        render json: { message: 'User deleted', user: @shared_user }, status: :ok, location: @shared_user
+      else
+        render json: @shared_user.errors, status: :unprocessable_entity
+      end
     end
 
     private
