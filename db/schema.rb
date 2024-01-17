@@ -130,7 +130,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_16_150824) do
   end
 
   create_table "shared_wallets", force: :cascade do |t|
-    t.string "token", default: "8c456bb7-1ac8-4a91-b2e1-2a7072917b24"
+    t.string "token", default: "404953db-9439-493b-b7b1-da3cc555bd62"
     t.float "found", default: 0.0
     t.float "debt", default: 0.0
     t.float "debt_limit", default: 20.0
