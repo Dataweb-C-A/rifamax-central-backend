@@ -41,7 +41,7 @@ module X100
     private
 
     def create_x100_ticket_params
-      params.permit(:x100_raffle_id, :x100_client_id, :price, :money, positions: [])
+      params.require(:x100_ticket).permit(:x100_raffle_id, :x100_client_id, :price, :money, positions: [])
     end
 
     def x100_order_params
