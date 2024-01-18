@@ -84,9 +84,9 @@ module Shared
               uniqueness: { case_sensitive: false },
               format: { with: EMAIL_REGEX }
 
-    validates :password,
-              length: { minimum: 6 },
-              if: -> { new_record? || !password.nil? }
+#    validates :password,
+#              length: { minimum: 6 },
+#              if: -> { new_record? || !password.nil? }
 
     validates :dni,
               presence: true,

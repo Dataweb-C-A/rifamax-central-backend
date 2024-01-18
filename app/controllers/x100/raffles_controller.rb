@@ -52,6 +52,9 @@ module X100
     # DELETE /x100/raffles/1
     def destroy
       if @x100_raffle_taquilla.nil?
+	@raffles = X100::Raffle.order(:id).reverse
+
+        ActionCable.server.broadcast('x100_raffles', @raffles)
         render json: { message: "Raffle with id: #{params[:id]} not found" }, status: :not_found
       else
         @x100_raffle_taquilla.destroy
