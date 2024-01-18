@@ -30,8 +30,10 @@ module X100
 
       if @x100_ticket.save
         @tickets = X100::Ticket.all_sold_tickets
+        @raffles = X100::Raffle.order(:id).reverse
 
         ActionCable.server.broadcast('x100_tickets', @tickets)
+        ActionCable.server.broadcast('x100_raffles', @raffles)
         render json: @x100_ticket, status: :created, location: @x100_ticket
       else
         render json: @x100_ticket.errors, status: :unprocessable_entity

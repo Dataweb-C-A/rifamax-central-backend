@@ -27,6 +27,9 @@ module X100
       @x100_raffle.shared_user_id = @current_user.id if @current_user.role == 'Taquilla'
 
       if @x100_raffle.save
+        @raffles = X100::Raffle.order(:id).reverse
+
+        ActionCable.server.broadcast('x100_raffles', @raffles)
         render json: @x100_raffle, status: :created, location: @x100_raffle
       else
         render json: @x100_raffle.errors, status: :unprocessable_entity
