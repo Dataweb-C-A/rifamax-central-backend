@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module X100
   class AdUploader < CarrierWave::Uploader::Base
     # Include RMagick or MiniMagick support:

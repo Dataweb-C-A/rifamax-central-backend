@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: x100_orders
@@ -25,8 +27,10 @@
 #  fk_rails_...  (x100_client_id => x100_clients.id)
 #  fk_rails_...  (x100_raffle_id => x100_raffles.id)
 #
-class X100::Order < ApplicationRecord
-  belongs_to :shared_user, class_name: 'Shared::User', foreign_key: 'shared_user_id'
-  belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id'
-  belongs_to :x100_raffle, class_name: 'X100::Raffle', foreign_key: 'x100_raffle_id'
+module X100
+  class Order < ApplicationRecord
+    belongs_to :shared_user, class_name: 'Shared::User', foreign_key: 'shared_user_id'
+    belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id'
+    belongs_to :x100_raffle, class_name: 'X100::Raffle', foreign_key: 'x100_raffle_id'
+  end
 end

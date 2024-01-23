@@ -22,7 +22,7 @@
 module Shared
   class UserSerializer < ActiveModel::Serializer
     attributes :id, :name, :dni, :is_active, :access, :phone, :role, :riferos
-    
+
     def access
       modules = [
         {

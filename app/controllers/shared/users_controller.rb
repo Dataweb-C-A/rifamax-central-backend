@@ -8,6 +8,7 @@ module Shared
     # GET /shared/users
     def index
       next if @current_user.verify_role('Admin') == true
+
       @shared_users = Shared::User.all
 
       render json: @shared_users
@@ -21,6 +22,7 @@ module Shared
     # POST /shared/users
     def create
       next if @current_user.verify_role('Admin') == true
+
       @shared_user = Shared::User.new(shared_user_params)
 
       if @shared_user.save

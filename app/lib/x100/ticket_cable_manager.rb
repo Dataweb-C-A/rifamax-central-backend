@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module X100
   module TicketCableManager
     def self.actions(payload)
@@ -5,7 +7,7 @@ module X100
 
       @payload_parsed = JSON.parse(payload)
 
-      case @payload_parsed["action"]
+      case @payload_parsed['action']
       when 'GET_AVAILABLE_TICKETS'
         reducer.return_tickets(payload)
       when 'APART_TICKETS'

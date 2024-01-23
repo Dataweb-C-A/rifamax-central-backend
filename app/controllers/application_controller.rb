@@ -17,26 +17,20 @@ class ApplicationController < ActionController::API
       @current_user = Shared::User.find(@decoded[:user_id])
 
       def verify_role(role)
-        if (@current_user.role == role)
-          return true
-        else
-          unauthorized_message()
-        end
-      end
-      
-      def verify_roles(roles)
-        if (roles.include?(@current_user.role))
-          return true
-        else
-          unauthorized_message()
-        end
+        return true if @current_user.role == role
+
+        unauthorized_message
       end
 
+      def verify_roles(roles)
+        return true if roles.include?(@current_user.role)
+
+        unauthorized_message
+      end
     rescue ActiveRecord::RecordNotFound => e
       render json: { errors: e.message }, status: :unauthorized
     rescue JWT::DecodeError => e
       render json: { errors: e.message }, status: :unauthorized
     end
   end
-
 end

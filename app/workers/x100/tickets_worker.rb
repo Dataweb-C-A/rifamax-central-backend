@@ -1,14 +1,16 @@
-module X100 
+# frozen_string_literal: true
+
+module X100
   class TicketsWorker
     include Sidekiq::Worker
     sidekiq_options queue: :default
 
-    def perform(*args) 
+    def perform(*_args)
       X100::Ticket
-      .reserved
-      .where('updated_at < ?', 1.minutes.ago)
-      .each do |ticket|
-        if (ticket.status == 'reserved')
+        .reserved
+        .where('updated_at < ?', 1.minutes.ago)
+        .each do |ticket|
+        if ticket.status == 'reserved'
           ticket.turn_available!
           puts("Ticket with id: #{ticket.id} is now available!")
           ticket.update(x100_client_id: nil)

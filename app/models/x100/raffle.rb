@@ -180,18 +180,18 @@ module X100
     def generate_tickets
       tickets = []
 
-      self.tickets_count.times do |position|
+      tickets_count.times do |position|
         tickets << {
           position: position + 1,
           price: nil,
           money: nil,
-          x100_raffle_id: self.id,
+          x100_raffle_id: id,
           x100_client_id: nil,
           serial: SecureRandom.uuid
         }
       end
 
-      return X100::Ticket.insert_all(tickets)
+      X100::Ticket.insert_all(tickets)
     end
 
     def self.all_sold_tickets
@@ -207,26 +207,26 @@ module X100
         }
       end
 
-      return result
+      result
     end
 
     def self.current_progress_of_actives
       raffles = X100::Raffle.where(status: 'En venta').order(id: :desc)
       progresses = []
-    
+
       raffles.each do |raffle|
         progress = case raffle.tickets_count
                    when 100
                      raffle.x100_tickets.where(status: 'sold').count
                    when 1000
-                     ((raffle.x100_tickets.where(status: 'sold').count.to_f / raffle.tickets_count.to_f) * 100).round(2)
+                     ((raffle.x100_tickets.where(status: 'sold').count.to_f / raffle.tickets_count) * 100).round(2)
                    else
                      100
                    end
-    
-        progresses << { raffle_id: raffle.id, progress: progress }
+
+        progresses << { raffle_id: raffle.id, progress: }
       end
-    
+
       progresses
     end
 
@@ -294,7 +294,7 @@ module X100
       combos.each do |combo|
         errors.add(:combos, 'Debe agregar la cantidad de ticket del combo') if combo[:quantity].nil?
 
-        errors.add(:combos, 'Debe agregar el precio del combo') if combo[:price].nil? 
+        errors.add(:combos, 'Debe agregar el precio del combo') if combo[:price].nil?
       end
     end
 
@@ -320,9 +320,8 @@ module X100
       return unless Shared::User.find(shared_user_id).role != 'Taquilla'
 
       errors.add(:shared_user_id, 'El usuario no es una taquilla')
-    end 
-
-    def sell_tickets
     end
+
+    def sell_tickets; end
   end
 end

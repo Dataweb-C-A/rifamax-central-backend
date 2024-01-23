@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: x100_raffles
@@ -65,15 +67,13 @@ module X100
 
       tickets_count = object.tickets_count
 
-      current_progress = 0
-
       case tickets_count
       when 100
-        current_progress = tickets.count
+        tickets.count
       when 1000
-        current_progress = ((tickets.count.to_f / tickets_count.to_f) * 100).round(2)
+        ((tickets.count.to_f / tickets_count) * 100).round(2)
       else
-        current_progress = 0
+        0
       end
     end
 

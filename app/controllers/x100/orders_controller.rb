@@ -1,49 +1,53 @@
-class X100::OrdersController < ApplicationController
-  before_action :authorize_request, except: %i[index]
-  before_action :set_x100_order, only: %i[show update destroy ]
+# frozen_string_literal: true
 
-  # GET /x100/orders
-  def index
-    @x100_orders = X100::Order.find_by(serial: fetch_order[:serial])
+module X100
+  class OrdersController < ApplicationController
+    before_action :authorize_request, except: %i[index]
+    before_action :set_x100_order, only: %i[show update destroy]
 
-    if @x100_orders.nil?
-      render json: { message: "Order with serial: #{fetch_order[:serial]} doesn't exist" }, status: :not_found
-    else
-      render json: @x100_orders, status: :ok
+    # GET /x100/orders
+    def index
+      @x100_orders = X100::Order.find_by(serial: fetch_order[:serial])
+
+      if @x100_orders.nil?
+        render json: { message: "Order with serial: #{fetch_order[:serial]} doesn't exist" }, status: :not_found
+      else
+        render json: @x100_orders, status: :ok
+      end
     end
-  end
 
-  # GET /x100/orders/1
-  def show
-    render json: @x100_order
-  end
-
-  # POST /x100/orders
-  def create
-    @x100_order = X100::Order.new(x100_order_params)
-
-    if @x100_order.save
-      render json: @x100_order, status: :created, location: @x100_order
-    else
-      render json: @x100_order.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /x100/orders/1
-  def update
-    if @x100_order.update(x100_order_params)
+    # GET /x100/orders/1
+    def show
       render json: @x100_order
-    else
-      render json: @x100_order.errors, status: :unprocessable_entity
     end
-  end
 
-  # DELETE /x100/orders/1
-  def destroy
-    @x100_order.destroy
-  end
+    # POST /x100/orders
+    def create
+      @x100_order = X100::Order.new(x100_order_params)
 
-  private
+      if @x100_order.save
+        render json: @x100_order, status: :created, location: @x100_order
+      else
+        render json: @x100_order.errors, status: :unprocessable_entity
+      end
+    end
+
+    # PATCH/PUT /x100/orders/1
+    def update
+      if @x100_order.update(x100_order_params)
+        render json: @x100_order
+      else
+        render json: @x100_order.errors, status: :unprocessable_entity
+      end
+    end
+
+    # DELETE /x100/orders/1
+    def destroy
+      @x100_order.destroy
+    end
+
+    private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_x100_order
       @x100_order = X100::Order.find(params[:id])
@@ -57,4 +61,5 @@ class X100::OrdersController < ApplicationController
     def fetch_order
       params.permit(:serial)
     end
+  end
 end

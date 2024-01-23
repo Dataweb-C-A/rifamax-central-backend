@@ -36,17 +36,16 @@ module X100
               render_ticket_not_sold(position)
               return
             elsif @x100_ticket.update!(
-                    price: X100::Raffle.find(@x100_ticket.x100_raffle_id).price_unit,
-                    money: ticket_params[:money],
-                    x100_raffle_id: ticket_params[:x100_raffle_id],
-                    x100_client_id: ticket_params[:x100_client_id]
-                  )
-              if X100::Ticket.sell_ticket(@x100_ticket.id)
-                @x100_ticket.status = "sold"
-                success_sold << @x100_ticket
-              else
-                raise ActiveRecord::Rollback, "Failed to sell ticket"
-              end
+              price: X100::Raffle.find(@x100_ticket.x100_raffle_id).price_unit,
+              money: ticket_params[:money],
+              x100_raffle_id: ticket_params[:x100_raffle_id],
+              x100_client_id: ticket_params[:x100_client_id]
+            )
+              raise ActiveRecord::Rollback, 'Failed to sell ticket' unless X100::Ticket.sell_ticket(@x100_ticket.id)
+
+              @x100_ticket.status = 'sold'
+              success_sold << @x100_ticket
+
             end
           end
 
@@ -64,9 +63,10 @@ module X100
               x100_client_id: sell_x100_ticket_params[:x100_client_id],
               x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]
             )
-            render json: { message: "Tickets sold", tickets: success_sold }, status: :ok
+            render json: { message: 'Tickets sold', tickets: success_sold }, status: :ok
           else
-            render json: { message: "Oops! An error has occurred: #{success_sold.length} of #{positions.length} tickets sold" }, status: :unprocessable_entity
+            render json: { message: "Oops! An error has occurred: #{success_sold.length} of #{positions.length} tickets sold" },
+                   status: :unprocessable_entity
           end
         end
       end
@@ -77,26 +77,26 @@ module X100
 
       if @x100_ticket.nil?
         render_not_found("Ticket with position: #{create_x100_raffle_params[:position]} can't be apart")
-      else
-        if @x100_ticket.update!(status: "apart")
-          @tickets = X100::Ticket.all_sold_tickets
+      elsif @x100_ticket.update!(status: 'apart')
+        @tickets = X100::Ticket.all_sold_tickets
 
-          ActionCable.server.broadcast('x100_tickets', @tickets)
-          render json: { message: "Ticket aparted", ticket: @x100_ticket }, status: :ok
-        else
-          render json: { message: "Ticket with position: #{create_x100_raffle_params[:position]} can't be apart" }, status: :unprocessable_entity
-        end
+        ActionCable.server.broadcast('x100_tickets', @tickets)
+        render json: { message: 'Ticket aparted', ticket: @x100_ticket }, status: :ok
+      else
+        render json: { message: "Ticket with position: #{create_x100_raffle_params[:position]} can't be apart" },
+               status: :unprocessable_entity
       end
     end
 
     private
 
     def before_action_callbacks
-      [:authorize_request, :fetch_tickets]
+      %i[authorize_request fetch_tickets]
     end
 
     def find_reserved_ticket(position)
-      X100::Ticket.find_by(x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id], position: position, status: 'reserved')
+      X100::Ticket.find_by(x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id], position:,
+                           status: 'reserved')
     end
 
     def render_ticket_not_sold(position)
@@ -112,7 +112,7 @@ module X100
     end
 
     def render_not_found(message)
-      render json: { message: message }, status: :not_found
+      render json: { message: }, status: :not_found
     end
 
     def sell_x100_ticket_params
@@ -120,7 +120,8 @@ module X100
     end
 
     def parameter_require_error
-      render json: { message: "Oops! An error has been occurred: Parameter(s) is required" }, status: :unprocessable_entity
+      render json: { message: 'Oops! An error has been occurred: Parameter(s) is required' },
+             status: :unprocessable_entity
     end
 
     def x100_order_params

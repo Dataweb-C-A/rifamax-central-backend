@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateX100Orders < ActiveRecord::Migration[7.0]
   def change
     create_table :x100_orders do |t|

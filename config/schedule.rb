@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Use this file to easily define all of your cron jobs.
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
@@ -19,8 +21,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-
 # Cron of tickets
 every 1.minute do
-  runner "X100::TicketsWorker.perform_async"
+  runner 'X100::TicketsWorker.perform_async'
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: x100_orders
@@ -25,8 +27,10 @@
 #  fk_rails_...  (x100_client_id => x100_clients.id)
 #  fk_rails_...  (x100_raffle_id => x100_raffles.id)
 #
-class X100::OrderSerializer < ActiveModel::Serializer
-  attributes :id, :products, :amount, :serial, :ordered_at
-  has_one :shared_user
-  has_one :x100_client
+module X100
+  class OrderSerializer < ActiveModel::Serializer
+    attributes :id, :products, :amount, :serial, :ordered_at
+    has_one :shared_user
+    has_one :x100_client
+  end
 end

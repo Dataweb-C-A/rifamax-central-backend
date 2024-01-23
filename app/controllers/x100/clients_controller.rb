@@ -18,13 +18,13 @@ module X100
 
     # GET /x100/clients/1
     def show
-      if admin? 
+      if admin?
         render json: @x100_client, status: :ok
       else
         render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized
       end
     end
-    
+
     # POST /x100/clients
     def create
       @x100_client = X100::Client.new(x100_client_params)

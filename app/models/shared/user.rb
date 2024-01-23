@@ -23,7 +23,7 @@ module Shared
   class User < ApplicationRecord
     has_one :shared_wallet, class_name: 'Shared::Wallet', foreign_key: 'shared_user_id', dependent: :destroy
     has_many :x100_order, class_name: 'X100::Order', foreign_key: 'shared_user_id', dependent: :destroy
-    
+
     has_secure_password
 
     after_create :generate_wallet
@@ -66,7 +66,7 @@ module Shared
                 message: 'Debe incluir (V J E G)'
               },
               if: -> { phone[0..3] == '+58 ' }
-              
+
     validates :phone,
               presence: {
                 message: 'Debe introducir un número de teléfono'
@@ -84,9 +84,9 @@ module Shared
               uniqueness: { case_sensitive: false },
               format: { with: EMAIL_REGEX }
 
-#    validates :password,
-#              length: { minimum: 6 },
-#              if: -> { new_record? || !password.nil? }
+    #    validates :password,
+    #              length: { minimum: 6 },
+    #              if: -> { new_record? || !password.nil? }
 
     validates :dni,
               presence: true,
@@ -107,7 +107,7 @@ module Shared
     end
 
     def self.has_role?(role)
-      Shared::User.where(role: role).count.positive?
+      Shared::User.where(role:).count.positive?
     end
 
     def has_role?(role)

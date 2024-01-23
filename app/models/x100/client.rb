@@ -66,7 +66,7 @@ module X100
     end
 
     def exists?
-      X100::Client.where(X100::Client.where(phone: phone)).exists?
+      X100::Client.where(X100::Client.where(phone:)).exists?
     end
   end
 end

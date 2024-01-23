@@ -34,8 +34,7 @@ module X100
 
     after_create :generate_order
 
-
-    aasm column: "status" do
+    aasm column: 'status' do
       state :available, initial: true
       state :reserved
       state :sold
@@ -47,7 +46,7 @@ module X100
       event :sell do
         transitions from: :reserved, to: :sold
       end
-    
+
       event :turn_available do
         transitions from: :reserved, to: :available
       end
@@ -66,7 +65,7 @@ module X100
         }
       end
 
-      return result
+      result
     end
 
     def self.all_reserved_tickets
@@ -81,12 +80,12 @@ module X100
         }
       end
 
-      return result
+      result
     end
 
     def self.apart_ticket(id)
-      ActiveRecord::Base.transaction do 
-        ticket = X100::Ticket.lock("FOR UPDATE NOWAIT").find(id)
+      ActiveRecord::Base.transaction do
+        ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').find(id)
         X100::TicketsWorker.perform_at(1.minutes.from_now)
         ticket.apart!
         ticket.save!
@@ -95,8 +94,8 @@ module X100
 
     def self.sell_ticket(id)
       ActiveRecord::Base.transaction do
-        ticket = X100::Ticket.lock("FOR UPDATE NOWAIT").find(id)
-        if (ticket.status == 'reserved')
+        ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').find(id)
+        if ticket.status == 'reserved'
           ticket.sell!
           ticket.save!
         end
@@ -105,13 +104,13 @@ module X100
 
     def self.generate_order(positions)
       order = X100::Order.new(
-        products: positions, 
-        amount: self.price, 
-        serial: "ORD-#{SecureRandom.hex(8).upcase}", 
-        ordered_at: DateTime.now, 
-        shared_user_id: self.x100_raffle.shared_user_id, 
-        x100_client_id: self.x100_client_id,
-        x100_raffle_id: self.x100_raffle_id
+        products: positions,
+        amount: price,
+        serial: "ORD-#{SecureRandom.hex(8).upcase}",
+        ordered_at: DateTime.now,
+        shared_user_id: x100_raffle.shared_user_id,
+        x100_client_id:,
+        x100_raffle_id:
       )
 
       if order.save
