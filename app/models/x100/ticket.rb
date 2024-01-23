@@ -6,12 +6,13 @@
 #
 #  id             :bigint           not null, primary key
 #  money          :string
-#  positions      :integer          not null, is an Array
+#  position       :integer
 #  price          :float
-#  serial         :string
+#  serial         :string           default("8211942d-2e22-48b5-ad9d-bbb38523f0c4")
+#  status         :string           default("available")
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  x100_client_id :bigint           not null
+#  x100_client_id :bigint
 #  x100_raffle_id :bigint           not null
 #
 # Indexes
@@ -26,11 +27,31 @@
 #
 module X100
   class Ticket < ApplicationRecord
-    belongs_to :x100_raffle, class_name: 'X100::Raffle', foreign_key: 'x100_raffle_id'
-    belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id'
+    include AASM
 
-    after_create :generate_serial
+    belongs_to :x100_raffle, class_name: 'X100::Raffle', foreign_key: 'x100_raffle_id'
+    belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id', optional: true
+
     after_create :generate_order
+
+
+    aasm column: "status" do
+      state :available, initial: true
+      state :reserved
+      state :sold
+
+      event :apart do
+        transitions from: :available, to: :reserved
+      end
+
+      event :sell do
+        transitions from: :reserved, to: :sold
+      end
+    
+      event :turn_available do
+        transitions from: :reserved, to: :available
+      end
+    end
 
     def self.all_sold_tickets
       raffles = X100::Raffle.all
@@ -40,37 +61,53 @@ module X100
       raffles.each do |raffle|
         result << {
           raffle_id: raffle.id,
-          positions: raffle.x100_tickets.map(&:positions).flatten
+          sold: raffle.x100_tickets.where(status: 'sold').map(&:position).flatten,
+          reserved: raffle.x100_tickets.where(status: 'reserved').map(&:position).flatten
         }
       end
 
       return result
     end
 
-    def self.sold_tickets(raffle_id)
-      raffles = X100::Raffle.where(id: raffle_id)
+    def self.all_reserved_tickets
+      raffles = X100::Raffle.all
 
       result = []
 
       raffles.each do |raffle|
         result << {
           raffle_id: raffle.id,
-          positions: raffle.x100_tickets.map(&:positions).flatten
+          positions: raffle.x100_tickets.where(status: 'reserved').map(&:position).flatten
         }
       end
 
       return result
     end
 
-    def generate_serial
-      update(serial: SecureRandom.uuid)
+    def self.apart_ticket(id)
+      ActiveRecord::Base.transaction do 
+        ticket = X100::Ticket.lock("FOR UPDATE NOWAIT").find(id)
+        X100::TicketsWorker.perform_at(1.minutes.from_now)
+        ticket.apart!
+        ticket.save!
+      end
     end
 
-    def generate_order
+    def self.sell_ticket(id)
+      ActiveRecord::Base.transaction do
+        ticket = X100::Ticket.lock("FOR UPDATE NOWAIT").find(id)
+        if (ticket.status == 'reserved')
+          ticket.sell!
+          ticket.save!
+        end
+      end
+    end
+
+    def self.generate_order(positions)
       order = X100::Order.new(
-        products: self.positions, 
+        products: positions, 
         amount: self.price, 
-        serial: "ORD-#{SecureRandom.hex(6).upcase}", 
+        serial: "ORD-#{SecureRandom.hex(8).upcase}", 
         ordered_at: DateTime.now, 
         shared_user_id: self.x100_raffle.shared_user_id, 
         x100_client_id: self.x100_client_id,

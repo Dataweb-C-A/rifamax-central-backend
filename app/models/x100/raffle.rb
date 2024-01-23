@@ -30,7 +30,7 @@
 module X100
   class Raffle < ApplicationRecord
     mount_uploader :ad, X100::AdUploader
-    has_many :x100_tickets, class_name: 'X100::Ticket', foreign_key: 'x100_raffle_id'
+    has_many :x100_tickets, class_name: 'X100::Ticket', foreign_key: 'x100_raffle_id', dependent: :destroy
     has_one :x100_stat, class_name: 'X100::Stat', foreign_key: 'x100_raffle_id'
     has_many :x100_orders, class_name: 'X100::Order', foreign_key: 'x100_raffle_id'
 
@@ -104,15 +104,15 @@ module X100
               presence: true,
               inclusion: { in: %w[Infinito Terminal Triple] }
 
-    # validate :validates_prizes_structure
+    validate :validates_prizes_structure
 
-    # validate :validates_winners_structure
+    validate :validates_winners_structure
 
-    # validate :validates_combos_structure
+    validate :validates_combos_structure
 
     validate :validates_draw_types
 
-    # validate :validates_shared_user
+    validate :validates_shared_user
 
     validate :validates_automatic_taquillas
 
@@ -175,6 +175,59 @@ module X100
       @raffles = X100::Raffle.all
 
       ActionCable.server.broadcast('x100_raffles', @raffles)
+    end
+
+    def generate_tickets
+      tickets = []
+
+      self.tickets_count.times do |position|
+        tickets << {
+          position: position + 1,
+          price: nil,
+          money: nil,
+          x100_raffle_id: self.id,
+          x100_client_id: nil,
+          serial: SecureRandom.uuid
+        }
+      end
+
+      return X100::Ticket.insert_all(tickets)
+    end
+
+    def self.all_sold_tickets
+      raffles = X100::Raffle.all
+
+      result = []
+
+      raffles.each do |raffle|
+        result << {
+          raffle_id: raffle.id,
+          sold: raffle.x100_tickets.where(status: 'sold').map(&:position).flatten,
+          reserved: raffle.x100_tickets.where(status: 'reserved').map(&:position).flatten
+        }
+      end
+
+      return result
+    end
+
+    def self.current_progress_of_actives
+      raffles = X100::Raffle.where(status: 'En venta').order(id: :desc)
+      progresses = []
+    
+      raffles.each do |raffle|
+        progress = case raffle.tickets_count
+                   when 100
+                     raffle.x100_tickets.where(status: 'sold').count
+                   when 1000
+                     ((raffle.x100_tickets.where(status: 'sold').count.to_f / raffle.tickets_count.to_f) * 100).round(2)
+                   else
+                     100
+                   end
+    
+        progresses << { raffle_id: raffle.id, progress: progress }
+      end
+    
+      progresses
     end
 
     def handle_tickets_search(status)
@@ -267,40 +320,7 @@ module X100
       return unless Shared::User.find(shared_user_id).role != 'Taquilla'
 
       errors.add(:shared_user_id, 'El usuario no es una taquilla')
-    end
-
-    def generate_tickets
-      redis = Redis.new
-
-      @tickets = []
-
-      @raffles = X100::Raffle.all
-
-      ActionCable.server.broadcast('x100_raffles', @raffles)
-
-      tickets_count.times do |index|
-        @tickets << {
-          position: index + 1,
-          is_sold: false,
-          sold_to: {},
-          serial: SecureRandom.hex(32) + index.to_s
-        }
-      end
-
-      case tickets_count
-      when 100
-        self.raffle_type = 'Terminal'
-        save
-        redis.set("x100_raffle_tickets:#{id}", @tickets.to_json)
-      when 1000
-        self.raffle_type = 'Triple'
-        save
-        redis.set("x100_raffle_tickets:#{id}", @tickets.to_json)
-      else
-        self.raffle_type = 'Infinito'
-        save
-      end
-    end
+    end 
 
     def sell_tickets
     end

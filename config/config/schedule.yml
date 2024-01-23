@@ -1,0 +1,4 @@
+turn_available_tickets_when_expires:
+  cron: "*/5 * * * *"
+  class: "X100::TicketsWorker"
+  queue: default

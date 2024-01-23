@@ -1,5 +1,9 @@
 # config/sidekiq.yml
 
-exchange:
-  cron: '0 * * * * *'   # Runs once per minute
-  class: Shared::GenerateExchangesWorker
+:verbose: false
+:pidfile: ./tmp/pids/sidekiq.pid
+:logfile: ./log/sidekiq.log
+:concurrency: 25
+:queues:
+  - default
+  - x100_tickets

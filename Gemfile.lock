@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.5.0)
+      concurrent-ruby (~> 1.0)
     actioncable (7.0.8)
       actionpack (= 7.0.8)
       activesupport (= 7.0.8)
@@ -90,6 +92,7 @@ GEM
       ssrf_filter (~> 1.0)
     case_transform (0.2)
       activesupport
+    chronic (0.10.2)
     climate_control (0.2.0)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
@@ -285,6 +288,10 @@ GEM
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
       redis-client (>= 0.14.0)
+    sidekiq-cron (1.12.0)
+      fugit (~> 1.8)
+      globalid (>= 1.0.1)
+      sidekiq (>= 6)
     sidekiq-scheduler (5.0.3)
       rufus-scheduler (~> 3.2)
       sidekiq (>= 6, < 8)
@@ -308,12 +315,15 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    whenever (1.0.0)
+      chronic (>= 0.6.3)
     zeitwerk (2.6.12)
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  aasm (~> 5.5)
   active_model_serializers (~> 0.10.14)
   annotate (~> 3.2)
   bcrypt (~> 3.1.7)
@@ -338,8 +348,10 @@ DEPENDENCIES
   rubocop (~> 1.58.0)
   rubocop-rails (~> 2.22)
   sidekiq (~> 7.2)
+  sidekiq-cron (~> 1.12)
   sidekiq-scheduler (~> 5.0)
   tzinfo-data
+  whenever (~> 1.0)
 
 RUBY VERSION
    ruby 3.1.2p20

@@ -24,6 +24,8 @@ module RifamaxCentralBackend
 
     config.middleware.use ActionDispatch::Session::CookieStore, key: '_namespace_key'
 
+    config.active_job.queue_adapter = :sidekiq
+
     # One threaded dedicated for tasks without concurrency
     config.global_thread = Mutex.new
     config.global_queue = []

@@ -6,12 +6,13 @@
 #
 #  id             :bigint           not null, primary key
 #  money          :string
-#  positions      :integer          not null, is an Array
+#  position       :integer
 #  price          :float
-#  serial         :string
+#  serial         :string           default("8211942d-2e22-48b5-ad9d-bbb38523f0c4")
+#  status         :string           default("available")
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  x100_client_id :bigint           not null
+#  x100_client_id :bigint
 #  x100_raffle_id :bigint           not null
 #
 # Indexes

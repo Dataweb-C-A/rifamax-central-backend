@@ -83,3 +83,9 @@ gem 'pagy', '~> 6.2'
 gem 'paperclip', '~> 6.1'
 
 gem "carrierwave", "~> 3.0"
+
+gem "aasm", "~> 5.5"
+
+gem "sidekiq-cron", "~> 1.12"
+
+gem "whenever", "~> 1.0"
