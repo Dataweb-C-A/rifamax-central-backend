@@ -118,7 +118,7 @@ module X100
           name prize_position
         ],
         combos: %i[
-          prize quantity
+          price quantity
         ]
       )
     end
