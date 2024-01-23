@@ -292,9 +292,8 @@ module X100
       return unless combos.length.positive?
 
       combos.each do |combo|
-        errors.add(:combos, 'Debe agregar la cantidad de ticket del combo') if combo[:quantity].nil?
-
-        errors.add(:combos, 'Debe agregar el precio del combo') if combo[:price].nil?
+        errors.add(:combos, 'Debe agregar la cantidad de ticket del combo') if combo['quantity'].nil?
+        errors.add(:combos, 'Debe agregar el precio del combo') if combo['price'].nil?
       end
     end
 
