@@ -50,7 +50,9 @@ module X100
           end
 
           @tickets = X100::Ticket.all_sold_tickets
+          @raffles = X100::Raffle.current_progress_of_actives
 
+          ActionCable.server.broadcast('x100_raffles', @raffles)
           ActionCable.server.broadcast('x100_tickets', @tickets)
 
           if success_sold.length == positions.length
@@ -79,7 +81,9 @@ module X100
         render_not_found("Ticket with position: #{create_x100_raffle_params[:position]} can't be apart")
       elsif @x100_ticket.update!(status: 'apart')
         @tickets = X100::Ticket.all_sold_tickets
+        @raffles = X100::Raffle.current_progress_of_actives
 
+        ActionCable.server.broadcast('x100_raffles', @raffles)
         ActionCable.server.broadcast('x100_tickets', @tickets)
         render json: { message: 'Ticket aparted', ticket: @x100_ticket }, status: :ok
       else
