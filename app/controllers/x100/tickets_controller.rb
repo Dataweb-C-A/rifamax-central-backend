@@ -80,7 +80,7 @@ module X100
       if @x100_ticket.nil?
         render_not_found("Ticket with position: #{find_raffles_by_params[:position]} can't be apart")
       elsif @x100_ticket.available?
-        @x100_ticket.apart!
+          X100::Ticket.apart_ticket(@x100_ticket.id)
         @tickets = X100::Ticket.all_sold_tickets
         @raffles = X100::Raffle.current_progress_of_actives
 
