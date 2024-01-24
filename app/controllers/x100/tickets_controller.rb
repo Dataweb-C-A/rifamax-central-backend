@@ -78,8 +78,9 @@ module X100
       @x100_ticket = X100::Ticket.find_by(find_raffles_by_params)
 
       if @x100_ticket.nil?
-        render_not_found("Ticket with position: #{create_x100_raffle_params[:position]} can't be apart")
-      elsif @x100_ticket.update!(status: 'apart')
+        render_not_found("Ticket with position: #{find_raffles_by_params[:position]} can't be apart")
+      elsif @x100_ticket.available?
+        @x100_ticket.apart!
         @tickets = X100::Ticket.all_sold_tickets
         @raffles = X100::Raffle.current_progress_of_actives
 
@@ -87,7 +88,7 @@ module X100
         ActionCable.server.broadcast('x100_tickets', @tickets)
         render json: { message: 'Ticket aparted', ticket: @x100_ticket }, status: :ok
       else
-        render json: { message: "Ticket with position: #{create_x100_raffle_params[:position]} can't be apart" },
+        render json: { message: "Ticket with position: #{find_raffles_by_params[:position]} can't be apart" },
                status: :unprocessable_entity
       end
     end
@@ -99,7 +100,7 @@ module X100
     end
 
     def find_reserved_ticket(position)
-      X100::Ticket.find_by(x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id], position:,
+      X100::Ticket.find_by(x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id], position: position,
                            status: 'reserved')
     end
 
@@ -112,7 +113,7 @@ module X100
     end
 
     def find_raffles_by_params
-      params.require(:x100_ticket).require(:x100_raffle_id, :position)
+      params.require(:x100_ticket).permit(:x100_raffle_id, :position)
     end
 
     def render_not_found(message)
