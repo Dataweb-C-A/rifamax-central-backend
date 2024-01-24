@@ -26,7 +26,7 @@ module X100
       @x100_raffle = X100::Raffle.new(create_x100_raffle_params)
       @x100_raffle.shared_user_id = @current_user.id if @current_user.role == 'Taquilla'
 
-      @x100_raffle.prize = [{ name: create_x100_raffle_params[:prizes], prize_position: 1 }]
+      @x100_raffle.prizes = [{ name: create_x100_raffle_params[:prizes], prize_position: 1 }]
       if @x100_raffle.save
         @raffles = X100::Raffle.current_progress_of_actives
 
