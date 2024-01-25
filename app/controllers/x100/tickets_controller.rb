@@ -92,6 +92,25 @@ module X100
                status: :unprocessable_entity
       end
     end
+    
+    def available
+      @x100_ticket = X100::Ticket.find_by(find_raffles_by_params)
+
+      if @x100_ticket.nil?
+        render_not_found("Ticket with position: #{find_raffles_by_params[:position]} can't be apart")
+      elsif @x100_ticket.available?
+        X100::Ticket.make_available(@x100_ticket.id)
+        @tickets = X100::Ticket.all_sold_tickets
+        @raffles = X100::Raffle.current_progress_of_actives
+
+        ActionCable.server.broadcast('x100_raffles', @raffles)
+        ActionCable.server.broadcast('x100_tickets', @tickets)
+        render json: { message: 'Ticket turn available', ticket: @x100_ticket }, status: :ok
+      else
+        render json: { message: "Ticket with position: #{find_raffles_by_params[:position]} can't be apart" },
+               status: :unprocessable_entity
+      end
+    end
 
     private
 

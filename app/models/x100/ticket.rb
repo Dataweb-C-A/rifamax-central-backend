@@ -93,6 +93,14 @@ module X100
       end
     end
 
+    def self.make_available(id)
+      ActiveRecord::Base.transaction do
+        ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').find(id)
+        ticket.turn_available!
+        ticket.save!
+      end
+    end
+    
     def self.sell_ticket(id)
       ActiveRecord::Base.transaction do
         ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').find(id)

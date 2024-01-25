@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :tickets do
       post 'sell', on: :collection
       post 'apart', on: :collection
+      post 'available', on: :collection
     end
     resources :raffles
     resources :clients
