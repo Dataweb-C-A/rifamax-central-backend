@@ -6,7 +6,7 @@ module X100
     sidekiq_options queue: :default
 
     def perform(*_args)
-      X100::TestAvailable(2, X100::Ticket.reserved.map(&:position))
+      X100::TestAvailable(2, [18, 17, 19])
     end
   end
 end
