@@ -1,0 +1,21 @@
+module X100
+  class TestAvailable < ApplicationController
+    def self.available(raffle_id, position)
+      @x100_ticket = X100::Ticket.find_by(raffle_id: raffle_id, position: position)
+
+      if @x100_ticket.nil?
+        render_not_found("Ticket with position: #{position} can't be apart")
+      elsif !@x100_ticket.available?
+        X100::Ticket.make_available(@x100_ticket.id)
+        @tickets = X100::Ticket.all_sold_tickets
+        @raffles = X100::Raffle.current_progress_of_actives
+
+        ActionCable.server.broadcast('x100_raffles', @raffles)
+        ActionCable.server.broadcast('x100_tickets', @tickets)
+        return true
+      else
+        return false
+      end
+    end
+  end
+end
