@@ -7,7 +7,7 @@ module Shared
 
     # GET /shared/users
     def index
-      next if @current_user.verify_role('Admin') == true
+      next if @current_user.role == 'Admin'
 
       @shared_users = Shared::User.all
 
