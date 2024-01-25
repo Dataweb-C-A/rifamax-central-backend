@@ -68,7 +68,7 @@ gem 'httparty'
 
 gem 'mechanize', '~> 2.9'
 
-gem 'sidekiq', '~> 7.2'
+gem 'sidekiq', '~> 6.0'
 
 gem 'cors', '~> 1.0'
 
