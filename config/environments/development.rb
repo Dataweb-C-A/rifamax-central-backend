@@ -11,7 +11,7 @@ Rails.application.configure do
   config.cache_classes = false
 
   # Do not eager load code on boot.
-  config.eager_load = false
+  config.eager_load = true
 
   # Show full error reports.
   config.consider_all_requests_local = true
@@ -62,7 +62,7 @@ Rails.application.configure do
   config.hosts << 'mock.rifa-max.com'
 
   # Cable
-  config.action_cable.url = 'wss://mock.rifa-max.com/cable'
+  config.action_cable.url = 'ws://localhost:3000/cable'
   config.action_cable.disable_request_forgery_protection = true
 
   # Raises error for missing translations.
