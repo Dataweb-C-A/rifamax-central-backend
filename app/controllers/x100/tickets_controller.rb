@@ -89,7 +89,7 @@ module X100
         render json: { message: 'Ticket aparted', ticket: @x100_ticket }, status: :ok
         sleep(5)
         X100::Ticket.reserved.each do |ticket|
-          ticket.turn_available
+          ticket.turn_available!
         end
 
         @tickets = X100::Ticket.all_sold_tickets
