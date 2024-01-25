@@ -2,8 +2,6 @@
 
 module X100
   module RaffleManager
-    @redis = Redis.new
-
     def self.get_position(raffle_id, position)
       @raffle = fetch_raffle(raffle_id)
       return "Raffle X100 with id: #{raffle_id} doesn't exist" if @raffle.nil?
@@ -19,7 +17,7 @@ module X100
     end
 
     def self.fetch_raffle(raffle_id)
-      JSON.parse(@redis.get("raffle_tickets:#{raffle_id}")) if @redis.exists("raffle_tickets:#{raffle_id}")
+      JSON.parse($redis.get("raffle_tickets:#{raffle_id}")) if $redis.exists("raffle_tickets:#{raffle_id}")
     end
 
     def self.handle_sell(raffle_id, positions = [], client = {})

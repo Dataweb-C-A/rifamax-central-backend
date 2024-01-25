@@ -139,9 +139,7 @@ module X100
     end
 
     def tickets
-      redis = Redis.new
-
-      @tickets ||= JSON.parse(redis.get("x100_raffle_tickets:#{id}"))
+      @tickets ||= JSON.parse($redis.get("x100_raffle_tickets:#{id}"))
     end
 
     def tickets_sold
@@ -161,10 +159,9 @@ module X100
     end
 
     def when_raffle_expires
-      redis = Redis.new
       return unless status == 'Cerrada'
 
-      redis.expire("x100_raffle_tickets:#{id}", 259_200)
+      $redis.expire("x100_raffle_tickets:#{id}", 259_200)
 
       X100::Stat.create(
         x100_raffle_id: id,
@@ -240,8 +237,7 @@ module X100
     end
 
     def parse_raffle_tickets
-      redis = Redis.new
-      JSON.parse(redis.get("x100_raffle_tickets:#{id}"))
+      JSON.parse($redis.get("x100_raffle_tickets:#{id}"))
     end
 
     def sold_tickets

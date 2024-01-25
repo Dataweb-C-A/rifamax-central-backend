@@ -1,10 +1,8 @@
 require_relative "config/environment"
-
-redis = Redis.new
     
-redis.config('SET', 'notify-keyspace-events', 'KEA')
+$redis.config('SET', 'notify-keyspace-events', 'KEA')
 
-redis.psubscribe('__keyevent@0__:expired') do |on|
+$redis.psubscribe('__keyevent@0__:expired') do |on|
   on.pmessage do |pattern, event, key|
     puts ("pattern: #{pattern}")
     puts ("event: #{event}")

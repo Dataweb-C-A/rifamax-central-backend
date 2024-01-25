@@ -7,10 +7,8 @@ module X100
     include Pagy::Backend
 
     def return_tickets(payload)
-      redis = Redis.new
-
       @initials = JSON.parse(payload)
-      @petition = redis.get("x100_raffle_tickets:#{@initials['raffle_id']}")
+      @petition = $redis.get("x100_raffle_tickets:#{@initials['raffle_id']}")
       @x100_ticket = JSON.parse(@petition) unless @petition.nil?
 
       if @x100_ticket.nil?
