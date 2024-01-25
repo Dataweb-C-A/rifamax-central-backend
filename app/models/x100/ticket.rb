@@ -104,7 +104,7 @@ module X100
     end
 
     def broadcast_tickets
-      @tickets = X100::Ticket.all_Sold_tickets
+      @tickets = X100::Ticket.all_sold_tickets
       ActionCable.server.broadcast('x100_tickets', @tickets)
     end
 
