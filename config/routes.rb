@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       post 'sell', on: :collection
       post 'apart', on: :collection
       post 'available', on: :collection
+      post 'refresh', on: :collection
     end
     resources :raffles
     resources :clients

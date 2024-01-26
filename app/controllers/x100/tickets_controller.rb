@@ -2,7 +2,7 @@
 
 module X100
   class TicketsController < ApplicationController
-    before_action :authorize_request
+    before_action :authorize_request, except: [:refresh]
     before_action :fetch_tickets, only: [:index]
 
     def index
@@ -72,6 +72,16 @@ module X100
           end
         end
       end
+    end
+
+    def refresh
+      @tickets = X100::Ticket.all_sold_tickets
+      @raffles = X100::Raffle.current_progress_of_actives
+
+      ActionCable.server.broadcast('x100_raffles', @raffles)
+      ActionCable.server.broadcast('x100_tickets', @tickets)
+
+      render json: { message: 'Ok!' }, status: :ok
     end
 
     def apart

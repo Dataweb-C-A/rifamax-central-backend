@@ -1,6 +1,8 @@
 require_relative "config/environment"
 require 'websocket-client-simple'
 require 'json'
+require 'net/http'
+require 'uri'
 
 $redis.config('SET', 'notify-keyspace-events', 'KEA')
 
@@ -30,11 +32,24 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
 
     ApplicationController.new.render_to_channel()
 
-    url = 'wss://mock.rifa-max.com/cable'
+    # URL a la que enviarás la petición POST
+    url = URI.parse('https://mock.rifa-max.comx/100/tickets/refresh')
 
+    # Datos que enviarás en el cuerpo de la petición
+    data = { parametro1: 'valor1', parametro2: 'valor2' }
 
-    ws.send STDIN.gets.strip
-    
-    #ws.close
+    # Crear el objeto de solicitud
+    request = Net::HTTP::Post.new(url.path)
+
+    # Agregar los datos al cuerpo de la solicitud
+    request.set_form_data(data)
+
+    # Realizar la petición
+    response = Net::HTTP.start(url.host, url.port, use_ssl: url.scheme == 'https') do |http|
+      http.request(request)
+    end
+
+    # Imprimir la respuesta
+    puts response.body
   end
 end
