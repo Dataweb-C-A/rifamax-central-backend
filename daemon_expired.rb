@@ -32,10 +32,7 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
       puts "Error"
     end
 
-    loop do
-      ws.send STDIN.gets.strip
-      break
-    end
+    ws.send STDIN.gets.strip
     
     ws.close
   end
