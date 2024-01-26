@@ -14,6 +14,10 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
     url = 'wss://mock.rifa-max.com/cable'
 
     ws = WebSocket::Client::Simple.connect(url)
+    
+    ws.on :close do
+      puts "WebSocket connection closed"
+    end
 
     ws.on :open do
       puts 'WebSocket connection opened'
@@ -22,10 +26,8 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
         identifier: JSON.generate(channel: 'X100::TicketsChannel'),
       }
       ws.send(JSON.generate(auth_message))
-    end
-
-    ws.on :close do
-      puts "WebSocket connection closed"
+      sleep(1)
+      ws.close
     end
     
     ws.on :error do
@@ -34,6 +36,6 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
 
     ws.send STDIN.gets.strip
     
-    ws.close
+    #ws.close
   end
 end
