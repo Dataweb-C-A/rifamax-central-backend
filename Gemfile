@@ -89,3 +89,5 @@ gem 'aasm', '~> 5.5'
 gem 'sidekiq-cron', '~> 1.12'
 
 gem 'whenever', '~> 1.0'
+
+gem "websocket-client-simple", "~> 0.8.0"
