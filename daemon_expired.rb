@@ -4,25 +4,24 @@ require 'json'
 
 $redis.config('SET', 'notify-keyspace-events', 'KEA')
 
-ws = WebSocket::Client::Simple.connect(url)
+# ws = WebSocket::Client::Simple.connect(url)
     
-ws.on :close do
-  puts "WebSocket connection closed"
-end
+# ws.on :close do
+#   puts "WebSocket connection closed"
+# end
 
-ws.on :open do
-  puts 'WebSocket connection opened'
-  auth_message = {
-    command: 'subscribe',
-    identifier: JSON.generate(channel: 'X100::TicketsChannel'),
-  }
-  ws.send(JSON.generate(auth_message))
-end
+# ws.on :open do
+#   puts 'WebSocket connection opened'
+#   auth_message = {
+#     command: 'subscribe',
+#     identifier: JSON.generate(channel: 'X100::TicketsChannel'),
+#   }
+#   ws.send(JSON.generate(auth_message))
+# end
 
-ws.on :error do
-  puts "Error"
-end
-
+# ws.on :error do
+#   puts "Error"
+# end
 
 $redis.psubscribe('__keyevent@0__:expired') do |on|
   on.pmessage do |pattern, event, key|
