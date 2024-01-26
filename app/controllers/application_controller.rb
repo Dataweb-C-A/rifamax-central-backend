@@ -3,10 +3,15 @@
 class ApplicationController < ActionController::API
   def not_found
     render json: { error: 'Not found' }
-  end
+  end``
 
   def unauthorized_message
     render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized
+  end
+
+  def render_to_channel
+    @tickets = X100::Ticket.all_sold_tickets
+    ActionCable.server.broadcast("x100_tickets", @tickets)
   end
 
   def authorize_request

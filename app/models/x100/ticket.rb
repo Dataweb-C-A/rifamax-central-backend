@@ -87,7 +87,7 @@ module X100
     def self.apart_ticket(id)
       ActiveRecord::Base.transaction do
         ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').find(id)
-        X100::TicketsWorker.perform_at(1.minutes.from_now)
+        $redis.setex("ticket_#{ticket.id}", 10, ticket.id)
         ticket.apart!
         ticket.save!
       end
