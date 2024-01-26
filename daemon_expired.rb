@@ -15,37 +15,28 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
 
     ws = WebSocket::Client::Simple.connect(url)
 
-    ws.on :message do |msg|
-      data = JSON.parse(msg.data)
-      if data['type'] == 'ping'
-        ws.send(JSON.generate(type: 'pong'))
-      elsif data['identifier']
-        channel_data = JSON.parse(data['message'])
-        puts "Received message on channel #{channel_data['identifier']}: #{channel_data['message']}"
-      end
-    end
-
     ws.on :open do
       puts 'WebSocket connection opened'
-      # Authenticate if required by your Action Cable server
-      # Example: Send an authentication message
       auth_message = {
         command: 'subscribe',
-        identifier: JSON.generate(channel: 'x100_tickets'),
+        identifier: JSON.generate(channel: 'X100::TicketsChannel'),
       }
       ws.send(JSON.generate(auth_message))
     end
 
-    ws.on :close do |e|
-      puts "WebSocket connection closed: #{e}"
+    ws.on :close do
+      puts "WebSocket connection closed"
     end
     
-    ws.on :error do |e|
-      puts "Error: #{e}"
+    ws.on :error do
+      puts "Error"
     end
 
-    ws.run!
-
+    loop do
+      ws.send STDIN.gets.strip
+      break
+    end
+    
     ws.close
   end
 end
