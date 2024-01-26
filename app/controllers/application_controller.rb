@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::API
   def not_found
     render json: { error: 'Not found' }
-  end``
+  end
 
   def unauthorized_message
     render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized
