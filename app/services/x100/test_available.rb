@@ -7,7 +7,6 @@ module X100
         if @x100_ticket.nil?
           render_not_found("Ticket with position: #{position} can't be apart")
         elsif !@x100_ticket.available?
-          X100::Ticket.make_available(@x100_ticket.id)
           @x100_ticket.update(x100_client_id: nil)
           return true
         else
