@@ -28,6 +28,7 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
       ws.send(JSON.generate(auth_message))
       sleep(1)
       ws.close
+      break
     end
     
     ws.on :error do
