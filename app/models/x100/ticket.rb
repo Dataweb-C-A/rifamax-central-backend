@@ -33,7 +33,6 @@ module X100
     belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id', optional: true
 
     after_create :generate_order
-    after_update :broadcast_tickets
 
     aasm column: 'status' do
       state :available, initial: true
@@ -108,11 +107,6 @@ module X100
           ticket.save!
         end
       end
-    end
-
-    def broadcast_tickets
-      @tickets = X100::Ticket.all_sold_tickets
-      ActionCable.server.broadcast('x100_tickets', @tickets)
     end
 
     def self.generate_order(positions)

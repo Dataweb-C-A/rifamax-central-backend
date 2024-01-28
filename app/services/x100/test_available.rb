@@ -1,7 +1,6 @@
 module X100
   class TestAvailable < ApplicationController
     def self.available(raffle_id, positions)
-      
       positions.each do |position|
         @x100_ticket = X100::Ticket.find_by(x100_raffle_id: raffle_id, position: position)
         if @x100_ticket.nil?
