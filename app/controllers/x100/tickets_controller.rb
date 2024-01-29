@@ -61,6 +61,7 @@ module X100
               amount: sell_x100_ticket_params[:price],
               serial: "ORD-#{SecureRandom.hex(8).upcase}",
               ordered_at: DateTime.now,
+              money: sell_x100_ticket_params[:money],
               shared_user_id: @current_user.id,
               x100_client_id: sell_x100_ticket_params[:x100_client_id],
               x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id],

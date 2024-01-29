@@ -6,6 +6,7 @@ class CreateX100Orders < ActiveRecord::Migration[7.0]
       t.integer :products, array: true, default: []
       t.float :amount
       t.string :serial
+      t.string :money
       t.datetime :ordered_at
       t.references :shared_user, null: false, foreign_key: true
       t.references :x100_client, null: false, foreign_key: true

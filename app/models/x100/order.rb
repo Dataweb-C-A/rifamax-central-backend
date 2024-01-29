@@ -36,5 +36,9 @@ module X100
     belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id'
     belongs_to :x100_raffle, class_name: 'X100::Raffle', foreign_key: 'x100_raffle_id'
     belongs_to :shared_exchange, class_name: 'Shared::Exchange', foreign_key: 'shared_exchange_id'
+  
+    validates :money,
+              presence: true,
+              inclusion: { in: %w[Bs.D $ COP] }
   end
 end
