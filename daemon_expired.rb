@@ -9,7 +9,7 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
     ticket_id = key.split('_').last
     ticket = X100::Ticket.find(ticket_id)
 
-    if ticket.available?
+    if ticket.reserved?
       ticket.turn_available!
     end
     
