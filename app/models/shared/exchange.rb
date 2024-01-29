@@ -14,6 +14,8 @@
 # 
 module Shared
   class Exchange < ApplicationRecord
+    has_many :x100_orders, class_name: 'X100::Order', foreign_key: 'shared_exchange_id'
+
     include HTTParty
     require 'nokogiri'
     require 'open-uri'

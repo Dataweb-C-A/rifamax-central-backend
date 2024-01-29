@@ -10,6 +10,7 @@ class CreateX100Orders < ActiveRecord::Migration[7.0]
       t.references :shared_user, null: false, foreign_key: true
       t.references :x100_client, null: false, foreign_key: true
       t.references :x100_raffle, null: false, foreign_key: true
+      t.references :shared_exchange, null: false, foreign_key: true
 
       t.timestamps
     end

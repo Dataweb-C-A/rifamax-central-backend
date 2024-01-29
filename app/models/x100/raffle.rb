@@ -83,7 +83,7 @@ module X100
 
     validates :money,
               presence: true,
-              inclusion: { in: %w[BsF $ COP] }
+              inclusion: { in: %w[Bs.D $ COP] }
 
     validates :tickets_count,
               presence: true,

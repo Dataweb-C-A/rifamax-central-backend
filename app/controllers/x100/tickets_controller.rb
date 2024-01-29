@@ -63,7 +63,8 @@ module X100
               ordered_at: DateTime.now,
               shared_user_id: @current_user.id,
               x100_client_id: sell_x100_ticket_params[:x100_client_id],
-              x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]
+              x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id],
+              shared_exchange_id: Shared::Exchange.last.id
             )
             render json: { message: 'Tickets sold', tickets: success_sold }, status: :ok
           else
