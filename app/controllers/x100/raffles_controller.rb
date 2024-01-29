@@ -25,6 +25,7 @@ module X100
     def create
       @x100_raffle = X100::Raffle.new(create_x100_raffle_params)
       @x100_raffle.shared_user_id = @current_user.id if @current_user.role == 'Taquilla'
+      @x100_raffle.combos = convert_form_data_to_json(create_x100_raffle_params[:combos])
 
       @x100_raffle.prizes = [{ name: create_x100_raffle_params[:prizes], prize_position: 1 }]
       if @x100_raffle.save
@@ -73,6 +74,12 @@ module X100
                               else
                                 X100::Raffle.where(id: params[:id], shared_user_id: @current_user.id).last
                               end
+    end
+
+    def convert_form_data_to_json(data)
+      data.values.map do |data_hash|
+        data_hash.transform_values!(&:to_i)
+      end
     end
 
     # Only allow a list of trusted parameters through.
