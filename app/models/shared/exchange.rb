@@ -11,7 +11,7 @@
 #  value_cop        :float
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#
+# 
 module Shared
   class Exchange < ApplicationRecord
     include HTTParty
@@ -55,6 +55,7 @@ module Shared
 
       self.value_bs = Shared::Exchange.get_bsd
       self.value_cop = Shared::Exchange.get_cop
+      self.mainstream_money = 'USD'
       save
     end
   end
