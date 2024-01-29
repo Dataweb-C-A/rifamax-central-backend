@@ -112,12 +112,13 @@ module X100
         X100::Ticket.find(@x100_ticket.id).turn_available!
         @tickets = X100::Ticket.all_sold_tickets
         @raffles = X100::Raffle.current_progress_of_actives
+        @x100_ticket.status = 'available'
 
         ActionCable.server.broadcast('x100_raffles', @raffles)
         ActionCable.server.broadcast('x100_tickets', @tickets)
-        render json: { message: 'Ticket aparted', ticket: @x100_ticket }, status: :ok
+        render json: { message: 'Ticket returns to available', ticket: @x100_ticket }, status: :ok
       else
-        render json: { message: "Ticket with position: #{find_raffles_by_params[:position]} can't be apart" },
+        render json: { message: "Ticket with position: #{find_raffles_by_params[:position]} can't be available" },
                status: :unprocessable_entity
       end
     end
