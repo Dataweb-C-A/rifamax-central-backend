@@ -6,15 +6,28 @@ $redis.config('SET', 'notify-keyspace-events', 'KEA')
 
 $redis.psubscribe('__keyevent@0__:expired') do |on|
   on.pmessage do |pattern, event, key|
-    ticket_id = key.split('_').last
-    ticket = X100::Ticket.find(ticket_id)
+  $event = key.split('_').first.to_s
+  case $event
+    when "exchange"
+      Shared::Exchange.create(
+        automatic: true,
+        value_bs: Shared::Exchange.get_bsd(),
+        value_cop: Shared::Exchange.get_cop(),
+        mainstream_money: 'USD'
+      )
+    when "ticket"
+      ticket_id = key.split('_').last
+      ticket = X100::Ticket.find(ticket_id)
 
-    if ticket.reserved?
-      ticket.turn_available!
+      if ticket.reserved?
+        ticket.turn_available!
+      end
+      
+      url = 'https://mock.rifa-max.com/x100/tickets/refresh'
+
+      HTTParty.post(url)
+    else
+      puts "Event has not been defined: #{$event}. Events defined are: exchange, ticket"
     end
-    
-    url = 'https://mock.rifa-max.com/x100/tickets/refresh'
-
-    HTTParty.post(url)
   end
 end
