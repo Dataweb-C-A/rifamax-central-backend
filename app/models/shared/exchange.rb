@@ -53,6 +53,8 @@ module Shared
     def change_exchange
       return unless automatic
 
+      $redis.setex("exchange_change", 86400, 'change_exchange')
+
       self.value_bs = Shared::Exchange.get_bsd
       self.value_cop = Shared::Exchange.get_cop
       self.mainstream_money = 'USD'

@@ -10,10 +10,7 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
   case $event
     when "exchange"
       Shared::Exchange.create(
-        automatic: true,
-        value_bs: Shared::Exchange.get_bsd(),
-        value_cop: Shared::Exchange.get_cop(),
-        mainstream_money: 'USD'
+        automatic: true
       )
     when "ticket"
       ticket_id = key.split('_').last
