@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   end
 
   namespace :shared do
+    resources :exchanges
     resources :users
   end
 
