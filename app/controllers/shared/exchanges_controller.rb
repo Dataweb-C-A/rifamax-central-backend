@@ -4,7 +4,7 @@ class Shared::ExchangesController < ApplicationController
 
   # GET /shared/exchanges
   def index
-    @shared_exchanges = Shared::Exchange.all
+    @shared_exchanges = Shared::Exchange.last
 
     render json: @shared_exchanges
   end
