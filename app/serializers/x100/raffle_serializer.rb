@@ -49,10 +49,10 @@ module X100
                :automatic_taquillas_ids,
                :shared_user_id,
                :agency,
-               :created_at,
-               :updated_at,
                :combos,
-               :current_progress
+               :current_progress,
+               :created_at,
+               :updated_at
 
     def created_at
       object.created_at.strftime('%d/%m/%Y %H:%M:%S')
@@ -63,7 +63,7 @@ module X100
     end
 
     def current_progress
-      tickets = X100::Ticket.where(x100_raffle_id: object.id)
+      tickets = X100::Ticket.where(x100_raffle_id: object.id, status: 'sold')
 
       tickets_count = object.tickets_count
 
@@ -71,7 +71,7 @@ module X100
       when 100
         tickets.count
       when 1000
-        ((tickets.count.to_f / tickets_count) * 100).round(2)
+        ((tickets.count.to_f / self.tickets_count) * 100).round(2)
       else
         0
       end
