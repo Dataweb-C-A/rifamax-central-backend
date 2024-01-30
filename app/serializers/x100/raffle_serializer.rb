@@ -71,7 +71,7 @@ module X100
       when 100
         tickets.count
       when 1000
-        ((tickets.count.to_f / self.tickets_count) * 100).round(2)
+        ((tickets.count.to_f / 1000) * 100).round(2)
       else
         0
       end
