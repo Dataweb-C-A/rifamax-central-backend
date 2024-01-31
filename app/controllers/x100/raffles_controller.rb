@@ -125,7 +125,12 @@ module X100
         automatic_taquillas_ids: [],
         prizes: [:name, :prize_position],
         combos: [:quantity, :price]
-      )
+      ).tap do |whitelisted|
+        whitelisted[:prizes] = whitelisted[:prizes].map do |prize|
+          prize[:prize_position] = prize[:prize_position].to_i
+          prize
+        end
+      end
     end
   end
 end
