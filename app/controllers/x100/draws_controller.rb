@@ -13,14 +13,14 @@ module X100
       @raffles = X100::Raffle.raffles_by_user(@current_user)
       @pagy, @paginated_raffles = pagy_array(@raffles, items: items_per_page, page: current_page)
       render json: {
-        raffles: @paginated_raffles,
+        raffles: X100::DrawSerializer.new(@paginated_raffles),
         metadata: {
           page: @pagy.page,
           count: @pagy.count,
           items: @pagy.items,
           pages: @pagy.pages
         }
-      }, each_serializer: X100::DrawSerializer, status: :ok
+      }, status: :ok
     end
   end
 end
