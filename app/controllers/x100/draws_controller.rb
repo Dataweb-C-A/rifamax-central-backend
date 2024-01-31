@@ -3,7 +3,7 @@ module X100
     before_action :authorize_request
 
     def raffle_stats
-      @raffles = X100::Raffle.active_raffles_for_user(@current_user)
+      @raffles = X100::Raffle.raffles_by_user(@current_user)
       render json: @raffles, status: :ok
     end
   end

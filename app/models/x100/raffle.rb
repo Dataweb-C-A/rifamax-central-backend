@@ -128,7 +128,7 @@ module X100
     end
 
     def self.active_raffles_for_user(user)
-      if user.role == 'admin'
+      if user.role == 'Admin'
         where(status: 'En venta')
       elsif user.role == 'Taquilla'
         where(id: [user.id, user.rifero_ids], status: 'En venta')
