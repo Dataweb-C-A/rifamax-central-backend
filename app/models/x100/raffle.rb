@@ -123,7 +123,7 @@ module X100
       when 'Taquilla'
         X100::Raffle.where(shared_user_id: user.rifero_ids << user.id).reject { |item| item.status == 'Cerrada' }
       when 'Admin'
-        X100::Raffle.reject { |item| item.status == 'Cerrada' }
+        X100::Raffle.select { |item| item.status == 'En venta' }
       end
     end
 
