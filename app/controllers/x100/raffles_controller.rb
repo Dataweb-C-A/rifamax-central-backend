@@ -28,9 +28,6 @@ module X100
       @x100_raffle = X100::Raffle.new(create_x100_raffle_params)
       @x100_raffle.shared_user_id = @current_user.id if allowed_roles.include?(@current_user.role)
       @x100_raffle.combos = convert_form_data_to_json(create_x100_raffle_params[:combos])
-      Rails.logger('x100_raffle_params', create_x100_raffle_params)
-      require "byebug"
-      byebug
       @x100_raffle.prizes = convert_form_data_to_json(create_x100_raffle_params[:prizes])
 
 
@@ -125,9 +122,9 @@ module X100
         :title,
         :shared_user_id,
         :numbers,
-        :prizes,
-        :combos,
         automatic_taquillas_ids: [],
+        prizes: [:name, :prize_position],
+        combos: [:quantity, :price]
       )
     end
   end
