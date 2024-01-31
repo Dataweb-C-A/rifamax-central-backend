@@ -131,8 +131,7 @@ module X100
       if user.role == 'admin'
         where(status: 'En venta')
       elsif user.role == 'Taquilla'
-        rifero_ids = X100::Rifero.where(taquilla_id: user.id).pluck(:id)
-        where(id: [user.id, rifero_ids], status: 'En venta')
+        where(id: [user.id, user.rifero_ids], status: 'En venta')
       else
         where(id: user.id, status: 'En venta')
       end.order(id: :desc)
