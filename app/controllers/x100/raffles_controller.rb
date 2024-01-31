@@ -28,7 +28,7 @@ module X100
       @x100_raffle = X100::Raffle.new(create_x100_raffle_params)
       @x100_raffle.shared_user_id = @current_user.id if allowed_roles.include?(@current_user.role)
       @x100_raffle.combos = convert_form_data_to_json(create_x100_raffle_params[:combos])
-      @x100_raffle.prizes = convert_form_data_to_json(create_x100_raffle_params[:prizes])
+      @x100_raffle.prizes = convert_form_data_prizes_to_json(create_x100_raffle_params[:prizes])
 
 
       if @x100_raffle.save
@@ -44,7 +44,7 @@ module X100
     # PATCH/PUT /x100/raffles/1
     def update
       @x100_raffle_taquilla.combos = convert_form_data_to_json(create_x100_raffle_params[:combos])
-      @x100_raffle_taquilla.prizes = convert_form_data_to_json(create_x100_raffle_params[:prizes])
+      @x100_raffle_taquilla.prizes = convert_form_data_prizes_to_json(create_x100_raffle_params[:prizes])
       if @x100_raffle_taquilla.update(edit_x100_raffle_params)
         @raffles = X100::Raffle.current_progress_of_actives
 
@@ -86,6 +86,15 @@ module X100
         data_hash.transform_values!(&:to_i)
       end
     end
+    
+    def convert_form_data_prizes_to_json(data)
+      data.values.map do |data_hash|
+        {
+          name: data_hash[:name].to_s,
+          prize_position: data_hash[:prize_position].to_i
+        }
+      end
+    end
 
     # Only allow a list of trusted parameters through.
     def edit_x100_raffle_params
@@ -125,12 +134,7 @@ module X100
         automatic_taquillas_ids: [],
         prizes: [:name, :prize_position],
         combos: [:quantity, :price]
-      ).tap do |whitelisted|
-        whitelisted[:prizes] = whitelisted[:prizes].map do |prize|
-          prize[:prize_position] = prize[:prize_position].to_i
-          prize
-        end
-      end
+      )
     end
   end
 end
