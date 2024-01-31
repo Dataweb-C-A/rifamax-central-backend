@@ -118,13 +118,24 @@ module X100
 
     def self.raffles_by_user(user)
       case user.role
-      when 'Taquilla'
+      when 'Rifero'
         X100::Raffle.where(shared_user_id: user.id).reject { |item| item.status == 'Cerrada' }
-      when 'Autotaquilla'
-        X100::Raffle.select { |item| item.automatic_taquillas_ids.include?(user.id) && item.status != 'Cerrada' }
+      when 'Taquilla'
+        X100::Raffle.where(shared_user_id: user.rifero_ids << user.id).reject { |item| item.status == 'Cerrada' }
       when 'Admin'
         X100::Raffle.reject { |item| item.status == 'Cerrada' }
       end
+    end
+
+    def self.active_raffles_for_user(user)
+      if user.role == 'admin'
+        where(status: 'En venta')
+      elsif user.role == 'Taquilla'
+        rifero_ids = X100::Rifero.where(taquilla_id: user.id).pluck(:id)
+        where(id: [user.id, rifero_ids], status: 'En venta')
+      else
+        where(id: user.id, status: 'En venta')
+      end.order(id: :desc)
     end
 
     def which(search = [], status = 'available')

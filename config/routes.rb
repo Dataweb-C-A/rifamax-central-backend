@@ -8,14 +8,17 @@ Rails.application.routes.draw do
 
   namespace :x100 do
     resources :orders, only: [:index]
+    resources :raffles
+    resources :clients
     resources :tickets do
       post 'sell', on: :collection
       post 'apart', on: :collection
       post 'refresh', on: :collection
       post 'available', on: :collection
     end
-    resources :raffles
-    resources :clients
+    resources :draws do 
+      get 'raffle_stats', on: :collection
+    end
   end
 
   namespace :rifamax do
