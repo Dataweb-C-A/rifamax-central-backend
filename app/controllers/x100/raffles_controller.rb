@@ -26,7 +26,7 @@ module X100
       allowed_roles = ['Taquilla', 'Rifero']
 
       @x100_raffle = X100::Raffle.new(create_x100_raffle_params)
-      @x100_raffle.shared_user_id = @current_user.id if allowed_roles.includes(@current_user.role)
+      @x100_raffle.shared_user_id = @current_user.id if allowed_roles.include?(@current_user.role)
       @x100_raffle.combos = convert_form_data_to_json(create_x100_raffle_params[:combos])
       @x100_raffle.prizes = convert_form_data_to_json(create_x100_raffle_params[:prizes])
 
