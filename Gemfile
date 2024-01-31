@@ -89,3 +89,4 @@ gem 'aasm', '~> 5.5'
 gem 'sidekiq-cron', '~> 1.12'
 
 gem 'whenever', '~> 1.0'
+gem "byebug", "~> 11.1"
