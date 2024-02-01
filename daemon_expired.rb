@@ -20,7 +20,7 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
         ticket.turn_available!
       end
       
-      url = 'https://mock.rifa-max.com/x100/tickets/refresh'
+      url = 'https://api.rifa-max.com/x100/tickets/refresh'
 
       HTTParty.post(url)
     else

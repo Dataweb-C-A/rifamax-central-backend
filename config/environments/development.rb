@@ -59,7 +59,7 @@ Rails.application.configure do
 
   config.action_cable.allowed_request_origins = [%r{http://*}, %r{https://*}, %r{file://*}]
 
-  config.hosts << 'mock.rifa-max.com'
+  config.hosts << 'api.rifa-max.com'
 
   # Cable
   config.action_cable.url = 'ws://localhost:3000/cable'
