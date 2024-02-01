@@ -62,7 +62,7 @@ Rails.application.configure do
   config.hosts << 'api.rifa-max.com'
 
   # Cable
-  config.action_cable.url = 'ws://localhost:4000/cable'
+  config.action_cable.url = ['ws://localhost:4000/cable', 'ws://localhost:3000/cable', 'wss://api.rifa-max.com/cable']
   config.action_cable.disable_request_forgery_protection = true
 
   # Raises error for missing translations.
