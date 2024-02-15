@@ -90,3 +90,5 @@ gem 'sidekiq-cron', '~> 1.12'
 
 gem 'whenever', '~> 1.0'
 gem "byebug", "~> 11.1"
+
+gem "figaro", "~> 1.2"

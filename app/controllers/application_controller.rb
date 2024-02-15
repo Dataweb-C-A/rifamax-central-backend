@@ -18,19 +18,11 @@ class ApplicationController < ActionController::API
     header = request.headers['Authorization']
     header = header.split(' ').last if header
     begin
-      @decoded = JsonWebToken.decode(header)
-      @current_user = Shared::User.find(@decoded[:user_id])
-
-      def verify_role(role)
-        return true if @current_user.role == role
-
-        unauthorized_message
-      end
-
-      def verify_roles(roles)
-        return true if roles.include?(@current_user.role)
-
-        unauthorized_message
+      if header.to_s == ENV["integrator_secret"]
+        @current_user = Shared::User.find_by(name: 'Centro de Apuestas')
+      else
+        @decoded = JsonWebToken.decode(header)
+        @current_user = Shared::User.find(@decoded[:user_id])
       end
     rescue ActiveRecord::RecordNotFound => e
       render json: { errors: e.message }, status: :unauthorized

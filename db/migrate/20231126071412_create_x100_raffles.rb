@@ -12,12 +12,12 @@ class CreateX100Raffles < ActiveRecord::Migration[7.0]
       t.string :raffle_type
       t.float :price_unit
       t.integer :tickets_count
-      t.integer :numbers
       t.string :lotery
       t.datetime :expired_date
       t.datetime :init_date
       t.jsonb :prizes
       t.jsonb :winners
+      t.jsonb :combos
       t.boolean :has_winners
       t.integer :automatic_taquillas_ids, array: true, default: []
       t.integer :shared_user_id, null: false

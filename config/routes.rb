@@ -33,7 +33,9 @@ Rails.application.routes.draw do
 
   namespace :shared do
     resources :exchanges
-    resources :users
+    resources :users do
+      get 'profile', on: :collection
+    end
   end
 
   mount ActionCable.server => '/cable'

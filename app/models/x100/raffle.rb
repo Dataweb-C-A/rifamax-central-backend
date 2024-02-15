@@ -37,7 +37,7 @@ module X100
     after_create :generate_tickets
     after_create :initialize_status
     after_create :initialize_winners
-    after_commit :when_raffle_expires
+    before_save :change_first_prize
 
     validates :title,
               presence: true,
@@ -45,19 +45,15 @@ module X100
                 minimum: 5
               }
 
-    validates :numbers,
-              presence: true,
-              numericality: {
-                only_integer: true,
-                greater_than_or_equal_to: 1,
-                less_than_or_equal_to: 999
-              }
-
     validates :price_unit,
               presence: true,
               numericality: {
                 greater_than_or_equal_to: 0.1
               }
+
+    validates :status,
+              presence: true,
+              inclusion: { in: ["En venta", "Finalizando", "Cerrado"] }
 
     validates :limit,
               presence: true,
@@ -83,7 +79,7 @@ module X100
 
     validates :money,
               presence: true,
-              inclusion: { in: %w[Bs.D $ COP] }
+              inclusion: { in: %w[VES $ COP] }
 
     validates :tickets_count,
               presence: true,
@@ -117,15 +113,19 @@ module X100
     validate :validates_automatic_taquillas
 
     def self.raffles_by_user(user)
-      case user.role
-      when 'Rifero'
-        X100::Raffle.where(shared_user_id: user.id).reject { |item| item.status == 'Cerrada' }
-      when 'Taquilla'
-        X100::Raffle.where(shared_user_id: user.rifero_ids << user.id).reject { |item| item.status == 'Cerrada' }
-      when 'Admin'
-        X100::Raffle.select { |item| item.status == 'En venta' }
-      end
+      X100::Raffle.where(status: 'En venta').order(id: :desc)
     end
+
+    # def self.raffles_by_user(user)
+    #   case user.role
+    #   when 'Rifero'
+    #     X100::Raffle.where(shared_user_id: user.id).reject { |item| item.status == 'Cerrada' }
+    #   when 'Taquilla'
+    #     X100::Raffle.where(shared_user_id: user.rifero_ids << user.id).reject { |item| item.status == 'Cerrada' }
+    #   when 'Admin'
+    #     X100::Raffle.select { |item| item.status == 'En venta' }
+    #   end
+    # end
 
     def self.active_raffles_for_user(user)
       if user.role == 'Admin'
@@ -160,6 +160,13 @@ module X100
 
     def initialize_status
       self.status = 'En venta'
+      if self.draw_type == "Fecha limite"
+        $redis.setex(
+          "path:awards_#{self.id}", 
+          Date.today.strftime("%s").to_i - self.expired_date.strftime("%s").to_i,
+          self.prizes.to_json
+        )
+      end
       save
     end
 
@@ -168,21 +175,25 @@ module X100
       save
     end
 
-    def when_raffle_expires
-      return unless status == 'Cerrada'
-
-      $redis.expire("x100_raffle_tickets:#{id}", 259_200)
-
-      X100::Stat.create(
-        x100_raffle_id: id,
-        tickets_sold: tickets_sould.count,
-        profit: tickets_sold.count * price_unit
-      )
-
-      @raffles = X100::Raffle.all
-
-      ActionCable.server.broadcast('x100_raffles', @raffles)
+    def change_first_prize
+      self.prizes[0]['days_to_award'] = 0
     end
+
+    # def when_raffle_expires
+    #   return unless status == 'Cerrada'
+
+    #   $redis.expire("x100_raffle_tickets:#{id}", 259_200)
+
+    #   # X100::Stat.create(
+    #   #   x100_raffle_id: id,
+    #   #   tickets_sold: tickets_sould.count,
+    #   #   profit: tickets_sold.count * price_unit
+    #   # )
+
+    #   # @raffles = X100::Raffle.all
+
+    #   ActionCable.server.broadcast('x100_raffles', @raffles)
+    # end
 
     def generate_tickets
       tickets = []
@@ -231,7 +242,7 @@ module X100
                      100
                    end
 
-        progresses << { raffle_id: raffle.id, progress: }
+        progresses << { raffle_id: raffle.id, progress: progress }
       end
 
       progresses
@@ -289,6 +300,8 @@ module X100
           errors.add(:prizes, 'Debe agregar un nombre al premio') if prize['name'].nil?
 
           errors.add(:prizes, 'Debe agregar una posicion al premio') if prize['prize_position'].nil?
+
+          errors.add(:prizes, 'Debe agregar días para la premiación') if prize['days_to_award'].nil?
         end
       end
     end

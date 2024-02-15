@@ -39,6 +39,6 @@ module X100
   
     validates :money,
               presence: true,
-              inclusion: { in: %w[Bs.D $ COP] }
+              inclusion: { in: %w[VES $ COP] }
   end
 end

@@ -62,7 +62,7 @@ module Shared
                 message: 'Debe ser mayor a 8 digitos'
               },
               format: {
-                with: /\A[VEJG]-\d{1,8}\z/,
+                with: /\A[VEJG]-\d{1,10}\z/,
                 message: 'Debe incluir (V J E G)'
               },
               if: -> { phone[0..3] == '+58 ' }

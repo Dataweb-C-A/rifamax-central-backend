@@ -31,3 +31,5 @@
 /public/uploads/*
 
 /public/uploads/raffle/ad/*
+# Ignore application configuration
+/config/application.yml

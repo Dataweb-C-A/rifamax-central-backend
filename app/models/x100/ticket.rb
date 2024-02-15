@@ -32,6 +32,7 @@ module X100
     belongs_to :x100_raffle, class_name: 'X100::Raffle', foreign_key: 'x100_raffle_id'
     belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id', optional: true
 
+    after_update :schedule_ending
     after_create :generate_order
 
     aasm column: 'status' do
@@ -106,6 +107,26 @@ module X100
           ticket.sell!
           ticket.save!
         end
+      end
+    end
+
+    def self.schedule_ending
+      tickets = X100::Ticket.find_by(x100_raffle_id: self.x100_raffle.id, status: 'sold', draw_type: 'Progresiva').count
+      return unless tickets
+
+      case self.tickets_count
+      when 100
+        if (tickets <= self.limit)
+          self.update(status: 'Finalizando')
+          $redis.setex("path:awards_#{self.id}", 604800, self.id)
+        end
+      when 1000
+        if (((tickets.count.to_f / 1000) * 100).round(2) >= 100)
+          self.update(status: 'Finalizando')
+          $redis.setex("path:awards_#{self.id}", 604800, self.id)
+        end
+      else
+        0
       end
     end
 

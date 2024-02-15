@@ -39,7 +39,6 @@ module X100
                :raffle_type,
                :price_unit,
                :tickets_count,
-               :numbers,
                :lotery,
                :expired_date,
                :init_date,

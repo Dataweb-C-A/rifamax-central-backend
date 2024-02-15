@@ -23,21 +23,25 @@ module X100
 
     # POST /x100/raffles
     def create
-      allowed_roles = ['Taquilla', 'Rifero']
+      begin
+        allowed_roles = ['Taquilla', 'Rifero', 'Admin']
 
-      @x100_raffle = X100::Raffle.new(create_x100_raffle_params)
-      @x100_raffle.shared_user_id = @current_user.id if allowed_roles.include?(@current_user.role)
-      @x100_raffle.combos = convert_form_data_to_json(create_x100_raffle_params[:combos])
-      @x100_raffle.prizes = convert_form_data_prizes_to_json(create_x100_raffle_params[:prizes])
+        @x100_raffle = X100::Raffle.new(create_x100_raffle_params)
+        @x100_raffle.shared_user_id = @current_user.id if allowed_roles.include?(@current_user.role)
+        @x100_raffle.combos = convert_form_data_to_json(create_x100_raffle_params[:combos])
+        @x100_raffle.prizes = convert_form_data_prizes_to_json(create_x100_raffle_params[:prizes])
 
 
-      if @x100_raffle.save
-        @raffles = X100::Raffle.current_progress_of_actives
+        if @x100_raffle.save
+          @raffles = X100::Raffle.current_progress_of_actives
 
-        ActionCable.server.broadcast('x100_raffles', @raffles)
-        render json: @x100_raffle, status: :created, location: @x100_raffle
-      else
-        render json: @x100_raffle.errors, status: :unprocessable_entity
+          ActionCable.server.broadcast('x100_raffles', @raffles)
+          render json: @x100_raffle, status: :created, location: @x100_raffle
+        else
+          render json: @x100_raffle.errors, status: :unprocessable_entity
+        end
+      rescue
+        render json: { message: 'Invalid data structure' }, status: :unprocessable_entity
       end
     end
 
@@ -91,7 +95,8 @@ module X100
       data.values.map do |data_hash|
         {
           name: data_hash[:name].to_s,
-          prize_position: data_hash[:prize_position].to_i
+          prize_position: data_hash[:prize_position].to_i,
+          days_to_award: data_hash[:days_to_award].to_i
         }
       end
     end
@@ -106,12 +111,10 @@ module X100
         :price_unit,
         :limit,
         :lotery,
-        :numbers,
         :raffle_type,
         :title,
         :ad,
-        :prizes,
-        :combos,
+        combos: [:quantity, :price],
         automatic_taquillas_ids: []
       )
     end
@@ -130,9 +133,8 @@ module X100
         :tickets_count,
         :title,
         :shared_user_id,
-        :numbers,
         automatic_taquillas_ids: [],
-        prizes: [:name, :prize_position],
+        prizes: [:name, :prize_position, :days_to_award],
         combos: [:quantity, :price]
       )
     end

@@ -16,7 +16,7 @@ module RifamaxCentralBackend
 
     config.action_cable.mount_path = '/cable'
 
-    origins = ['http://localhost:3000', 'http://localhost:9000']
+    origins = ['http://localhost:4000', 'http://localhost:9000']
 
     config.action_cable.allowed_request_origins = origins
 

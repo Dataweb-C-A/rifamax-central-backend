@@ -92,6 +92,7 @@ module X100
       if @x100_ticket.nil?
         render_not_found("Ticket with position: #{find_raffles_by_params[:position]} can't be apart")
       elsif @x100_ticket.available?
+        return raffle_is_closed_error if @x100_ticket.status == 'Cerrada'
         X100::Ticket.apart_ticket(@x100_ticket.id)
         @tickets = X100::Ticket.all_sold_tickets
         @raffles = X100::Raffle.current_progress_of_actives
@@ -111,6 +112,7 @@ module X100
       if @x100_ticket.nil?
         render_not_found("Ticket with position: #{find_raffles_by_params[:position]} can't be apart")
       elsif @x100_ticket.reserved?
+        return raffle_is_closed_error if @x100_ticket.status == 'Cerrada'
         X100::Ticket.find(@x100_ticket.id).turn_available!
         @tickets = X100::Ticket.all_sold_tickets
         @raffles = X100::Raffle.current_progress_of_actives
@@ -126,10 +128,6 @@ module X100
     end
 
     private
-
-    def before_action_callbacks
-      %i[authorize_request fetch_tickets]
-    end
 
     def find_reserved_ticket(position)
       X100::Ticket.find_by(x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id], position: position,
@@ -161,8 +159,8 @@ module X100
              status: :unprocessable_entity
     end
 
-    def x100_order_params
-      params.require(:x100_order).permit(:products, :amount, :serial, :ordered_at, :shared_user_id, :x100_client_id)
+    def raffle_is_closed_error
+      render json: { message: 'Raffle is closed, try with other raffle' }, status: :forbidden
     end
 
     def fetch_tickets

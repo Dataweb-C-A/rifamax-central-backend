@@ -112,6 +112,8 @@ GEM
     et-orbi (1.2.7)
       tzinfo
     ffi (1.16.3)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     fugit (1.9.0)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
@@ -334,6 +336,7 @@ DEPENDENCIES
   cors (~> 1.0)
   currencyapi (~> 1.0)
   debug
+  figaro (~> 1.2)
   haml (~> 6.2)
   httparty
   jwt
