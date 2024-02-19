@@ -88,8 +88,6 @@ module X100
 
     def apart
       @x100_ticket = X100::Ticket.find_by(find_raffles_by_params)
-      require "byebug"
-      byebug()
 
       if @x100_ticket.nil?
         render_not_found("Ticket with position: #{find_raffles_by_params[:position]} can't be apart")
