@@ -110,7 +110,7 @@ module X100
       end
     end
 
-    def self.schedule_ending
+    def schedule_ending
       tickets = X100::Ticket.find_by(x100_raffle_id: self.x100_raffle.id, status: 'sold', draw_type: 'Progresiva').count
       return unless tickets
 
