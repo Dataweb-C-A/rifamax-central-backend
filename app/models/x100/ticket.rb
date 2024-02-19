@@ -118,7 +118,7 @@ module X100
       when 100
         if (tickets <= self.limit)
           self.update(status: 'Finalizando')
-          $redis.setex("path:awards_#{self.id}", 604800, self.id)
+          $redis.setex("path:wards_#{self.id}", 604800, self.id)
         end
       when 1000
         if (((tickets.count.to_f / 1000) * 100).round(2) >= 100)
@@ -129,7 +129,6 @@ module X100
         0
       end
     end
-
     def self.generate_order(positions)
       order = X100::Order.new(
         products: positions,
