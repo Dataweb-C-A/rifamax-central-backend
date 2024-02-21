@@ -67,7 +67,8 @@ module X100
         result << {
           raffle_id: raffle.id,
           sold: raffle.x100_tickets.where(status: 'sold').map(&:position).flatten,
-          reserved: raffle.x100_tickets.where(status: 'reserved').map(&:position).flatten
+          reserved: raffle.x100_tickets.where(status: 'reserved').map(&:position).flatten,
+          winners: raffle.x100_tickets.where(status: 'winner').map(&:position).flatten
         }
       end
 
