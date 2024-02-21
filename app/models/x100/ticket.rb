@@ -39,6 +39,7 @@ module X100
       state :available, initial: true
       state :reserved
       state :sold
+      state :winner
 
       event :apart do
         transitions from: :available, to: :reserved
@@ -50,6 +51,10 @@ module X100
 
       event :turn_available do
         transitions from: :reserved, to: :available
+      end
+
+      event :turn_winner do 
+        transitions from: :sold, to: :winner
       end
     end
 

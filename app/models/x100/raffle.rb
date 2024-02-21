@@ -29,6 +29,8 @@
 #
 module X100
   class Raffle < ApplicationRecord
+    self.table_name = 'x100_raffles'
+
     mount_uploader :ad, X100::AdUploader
     has_many :x100_tickets, class_name: 'X100::Ticket', foreign_key: 'x100_raffle_id', dependent: :destroy
     has_one :x100_stat, class_name: 'X100::Stat', foreign_key: 'x100_raffle_id', dependent: :destroy
@@ -153,20 +155,46 @@ module X100
     end
 
     def tickets_sold
-      x100_tickets
+      x100_tickets.where(status: 'sold').order(id: :asc)
+    end
+
+    def select_winner
+      ActiveRecord::Base.transaction do
+        if !winners.nil?
+          return 'No pueden haber más ganadores' if winners.length == prizes.length
+        end
+        ticket_winner = tickets_sold.sample
+        ticket_winner.turn_winner!
+        client = ticket_winner.x100_client
+
+        if winners.nil? 
+          self.has_winners = true
+          self.winners = [{
+            id: client.id,
+            name: client.name,
+            phone: client.phone,
+            prize_position: 1,
+            ticket_winner: ticket_winner
+          }]
+
+          save
+        else
+          self.winners << {
+            id: client.id,
+            name: client.name,
+            phone: client.phone,
+            prize_position: winners.length + 1,
+            ticket_winner: ticket_winner
+          }
+          save
+        end
+      end
     end
 
     private
 
     def initialize_status
       self.status = 'En venta'
-      if self.draw_type == "Fecha limite"
-        $redis.setex(
-          "path:awards_#{self.id}", 
-          Date.today.strftime("%s").to_i - self.expired_date.strftime("%s").to_i,
-          self.prizes.to_json
-        )
-      end
       save
     end
 
@@ -277,17 +305,17 @@ module X100
       return if winners.nil?
       return unless winners.length.positive?
 
-      winners.each do |winner|
-        errors.add(:winners, 'Debe agregar un nombre al ganador') if winner[:name].nil?
+      # winners.each do |winner|
+      #   errors.add(:winners, 'Debe agregar un Id del cliente') if winner[:id].nil? || winner[:id] != Integer
 
-        errors.add(:winners, 'Debe agregar un telefono al ganador') if winner[:phone].nil?
+      #   errors.add(:winners, 'Debe agregar un nombre al ganador') if winner[:name].nil?
 
-        errors.add(:winners, 'Debe agregar un dni al ganador') if winner[:dni].nil?
+      #   errors.add(:winners, 'Debe agregar un telefono al ganador') if winner[:phone].nil?
 
-        errors.add(:winners, 'Debe agregar una posicion al ganador') if winner[:prize_position].nil?
+      #   errors.add(:winners, 'Debe agregar una posicion al ganador') if winner[:prize_position].nil?
 
-        errors.add(:winners, 'Debe agregar un ticket al ganador') if winner[:ticket_winner].nil?
-      end
+      #   errors.add(:winners, 'Debe agregar un ticket al ganador') if winner[:ticket_winner].nil?
+      # end
     end
 
     def validates_prizes_structure
