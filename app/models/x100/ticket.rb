@@ -32,7 +32,7 @@ module X100
     belongs_to :x100_raffle, class_name: 'X100::Raffle', foreign_key: 'x100_raffle_id'
     belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id', optional: true
 
-    # after_update :schedule_ending
+    after_update :schedule_progressive_ending
     after_create :generate_order
 
     aasm column: 'status' do
@@ -138,6 +138,43 @@ module X100
     #     0
     #   end
     # end
+
+    def schedule_progressive_ending
+      raffle = self.x100_raffle
+
+      case raffle.draw_type 
+      when 'Progresiva'
+        if raffle.tickets_count == 100
+          if (raffle.x100_tickets.where(status: 'sold').count <= raffle.limit)
+            if raffle.winners.has_winners == false
+              $redis.setex("select:winner_#{raffle.id}", 43400, raffle.id)
+            end
+          end
+        elsif raffle.tickets_count == 1000
+          if (((raffle.x100_tickets.where(status: 'sold').count.to_f / 1000) * 100).round(2) >= 100)
+            if raffle.winners.has_winners == false
+              $redis.setex("select:winner_#{raffle.id}", 43400, raffle.id)
+            end
+          end
+        end
+
+        if !expired_date.nil?
+          prizes.each do |prize|
+            prize_day = prize["days_to_award"]
+
+            if (prize_day != 0 && raffle.status != "Cerrado" && raffle.draw_type == "Progresiva")
+              $redis.setex("path:awards_#{raffle.id}", prize_day * 86400, raffle.id)
+            end
+
+            if (prize_day == 0 && raffle.status != "Cerrado" && raffle.draw_type == "Fecha limite")
+              $redis.setex("path:awards_#{raffle.id}", 60, raffle.id)
+            end
+          end
+        end
+      else
+        "No se ha definido el tipo de sorteo"
+      end
+    end
 
     def self.generate_order(positions)
       order = X100::Order.new(

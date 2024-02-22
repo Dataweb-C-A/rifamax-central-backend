@@ -160,33 +160,15 @@ module X100
 
     def select_winner
       ActiveRecord::Base.transaction do
-        if !winners.nil?
-          return 'No pueden haber más ganadores' if winners.length == prizes.length
-        end
-        ticket_winner = tickets_sold.sample
-        ticket_winner.turn_winner!
-        client = ticket_winner.x100_client
+        return 'No pueden haber más ganadores' if winners&.size == prizes.size
 
-        if winners.nil? 
-          self.has_winners = true
-          self.winners = [{
-            id: client.id,
-            name: client.name,
-            phone: client.phone,
-            prize_position: 1,
-            ticket_winner: ticket_winner
-          }]
-
-          save
+        case draw_type
+        when 'Progresiva'
+          select_progresive_winner
+        when 'Fecha limite'
+          select_date_limit_winner if expired_date.to_date <= Date.today
         else
-          self.winners << {
-            id: client.id,
-            name: client.name,
-            phone: client.phone,
-            prize_position: winners.length + 1,
-            ticket_winner: ticket_winner
-          }
-          save
+          'Invalid draw type'
         end
       end
     end
@@ -222,6 +204,49 @@ module X100
 
     #   ActionCable.server.broadcast('x100_raffles', @raffles)
     # end
+
+    def select_progresive_winner
+      ticket_winner = tickets_sold.sample
+      ticket_winner.turn_winner!
+      client = ticket_winner.x100_client
+    
+      winner = {
+        id: client.id,
+        name: client.name,
+        phone: client.phone,
+        prize_position: (winners&.size || 0) + 1,
+        ticket_winner: ticket_winner
+      }
+    
+      self.has_winners = true
+      self.winners = winners&.push(winner) || [winner]
+      winners.size == prizes.size ? self.status = 'Cerrado' : self.status = 'Finalizando'
+      save
+    end
+    
+    def select_date_limit_winner
+      results = []
+      tickets_winners = tickets_sold.sample(prizes.size)
+    
+      while tickets_winners.uniq.size != prizes.size
+        tickets_winners = tickets_sold.sample(prizes.size)
+      end
+    
+      tickets_winners.each do |ticket_winner|
+        results.push(
+          id: ticket_winner.x100_client.id,
+          name: ticket_winner.x100_client.name,
+          phone: ticket_winner.x100_client.phone,
+          prize_position: results.size + 1,
+          ticket_winner: ticket_winner
+        )
+      end
+    
+      self.has_winners = true
+      self.status = 'Cerrado'
+      self.winners = results
+      save
+    end
 
     def generate_tickets
       tickets = []

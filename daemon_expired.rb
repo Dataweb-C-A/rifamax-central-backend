@@ -27,7 +27,7 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
       raffle_id = key.split('_').last
       raffle = X100::Raffle.find(raffle_id)
 
-      
+      raffle.select_winner
 
       url = 'https://api.rifa-max.com/x100/tickets/refresh'
 
