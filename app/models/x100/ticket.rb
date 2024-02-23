@@ -116,6 +116,12 @@ module X100
       end
     end
 
+    def self.refresh()
+      url = 'https://api.rifa-max.com/x100/tickets/refresh'
+
+      HTTParty.post(url)
+    end
+
     # def schedule_ending
     #   raffle = self.x100_raffle
     #   tickets = X100::Ticket.find_by(x100_raffle_id: self.x100_raffle.id, status: 'sold').count
