@@ -158,7 +158,7 @@ module X100
           end
         end
 
-        if !expired_date.nil?
+        if !raffle.expired_date.nil?
           prizes.each do |prize|
             prize_day = prize["days_to_award"]
 
