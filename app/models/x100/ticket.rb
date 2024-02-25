@@ -59,7 +59,7 @@ module X100
     end
 
     def self.all_sold_tickets
-      raffles = X100::Raffle.all
+      raffles = X100::Raffle.select { |item| item.status == "En venta" || item.status == "Finalizando" }
 
       result = []
 
@@ -76,7 +76,7 @@ module X100
     end
 
     def self.all_reserved_tickets
-      raffles = X100::Raffle.all
+      raffles = X100::Raffle.select { |item| item.status == "En venta" || item.status == "Finalizando" }
 
       result = []
 
