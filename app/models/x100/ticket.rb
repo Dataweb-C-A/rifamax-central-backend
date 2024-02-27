@@ -147,20 +147,19 @@ module X100
 
     def schedule_progressive_ending
       raffle = self.x100_raffle
+      prizes_days_sum = raffle.prizes.map { |prize| prize["days_to_award"] }.sum
 
       case raffle.draw_type 
       when 'Progresiva'
         if raffle.tickets_count == 100
-          if (raffle.x100_tickets.where(status: 'sold').count <= raffle.limit)
-            if raffle.winners.has_winners == false
-              $redis.setex("select:winner_#{raffle.id}", 43400, raffle.id)
-            end
+          if (raffle.x100_tickets.where(status: 'sold').count >= raffle.limit)
+            raffle.update(status: "Finalizando", expired_date: DateTime.now + prizes_days_sum.days)
+            $redis.setex("select:winner_#{raffle.id}", 43400, raffle.id)
           end
         elsif raffle.tickets_count == 1000
           if (((raffle.x100_tickets.where(status: 'sold').count.to_f / 1000) * 100).round(2) >= 100)
-            if raffle.winners.has_winners == false
-              $redis.setex("select:winner_#{raffle.id}", 43400, raffle.id)
-            end
+            raffle.update(status: "Finalizando", expired_date: DateTime.now + prizes_days_sum.days)
+            $redis.setex("select:winner_#{raffle.id}", 43400, raffle.id)
           end
         end
 
