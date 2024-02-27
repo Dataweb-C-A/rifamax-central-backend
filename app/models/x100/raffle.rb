@@ -81,7 +81,7 @@ module X100
 
     validates :money,
               presence: true,
-              inclusion: { in: %w[VES $ COP] }
+              inclusion: { in: %w[VES USD COP] }
 
     validates :tickets_count,
               presence: true,
@@ -187,6 +187,7 @@ module X100
 
     def change_first_prize
       self.prizes[0]['days_to_award'] = 0
+      save
     end
 
     # def when_raffle_expires

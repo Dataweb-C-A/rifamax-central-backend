@@ -12,6 +12,9 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+
+require 'httparty'
+
 module X100
   class Client < ApplicationRecord
     has_many :x100_tickets, class_name: 'X100::Ticket', foreign_key: 'x100_client_id', dependent: :destroy
@@ -63,6 +66,12 @@ module X100
 
     def tickets
       x100_tickets
+    end
+
+    def integration_job_layer(client_id)
+      url = "https://xxx.xxx.xxx/x100/clients"
+
+      HTTParty.post(url, body: { client_id: client_id })
     end
 
     def exists?

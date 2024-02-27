@@ -33,7 +33,7 @@ module X100
     belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id', optional: true
 
     after_update :schedule_progressive_ending
-    after_create :generate_order
+    # after_create :generate_order
 
     aasm column: 'status' do
       state :available, initial: true
@@ -182,22 +182,22 @@ module X100
       end
     end
 
-    def self.generate_order(positions)
-      order = X100::Order.new(
-        products: positions,
-        amount: price,
-        serial: "ORD-#{SecureRandom.hex(8).upcase}",
-        ordered_at: DateTime.now,
-        shared_user_id: x100_raffle.shared_user_id,
-        x100_client_id:,
-        x100_raffle_id:
-      )
+    # def self.generate_order(positions)
+    #   order = X100::Order.new(
+    #     products: positions,
+    #     amount: price,
+    #     serial: "ORD-#{SecureRandom.hex(8).upcase}",
+    #     ordered_at: DateTime.now,
+    #     shared_user_id: x100_raffle.shared_user_id,
+    #     x100_client_id: x100_client_id,
+    #     x100_raffle_id: x100_raffle.id
+    #   )
 
-      if order.save
-        puts 'saved'
-      else
-        puts order.errors.full_messages
-      end
-    end
+    #   if order.save
+    #     puts 'saved'
+    #   else
+    #     puts order.errors.full_messages
+    #   end
+    # end
   end
 end
