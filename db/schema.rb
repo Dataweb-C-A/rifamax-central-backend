@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_28_010402) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_28_140522) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -102,6 +102,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_28_010402) do
     t.string "mainstream_money"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shared_structures", force: :cascade do |t|
+    t.string "name"
+    t.string "token", default: "rm_live_3d8bfbce-05b6-48df-9428-f7b50a0766d6"
+    t.string "access_to", default: [], array: true
+    t.bigint "shared_user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shared_user_id"], name: "index_shared_structures_on_shared_user_id"
   end
 
   create_table "shared_transactions", force: :cascade do |t|
@@ -219,6 +229,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_28_010402) do
   add_foreign_key "fifty_cities", "fifty_locations"
   add_foreign_key "fifty_towns", "fifty_locations"
   add_foreign_key "rifamax_tickets", "rifamax_raffles"
+  add_foreign_key "shared_structures", "shared_users"
   add_foreign_key "shared_transactions", "shared_wallets"
   add_foreign_key "shared_wallets", "shared_users"
   add_foreign_key "x100_orders", "shared_exchanges"

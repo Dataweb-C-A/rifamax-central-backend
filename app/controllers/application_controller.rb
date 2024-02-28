@@ -18,8 +18,10 @@ class ApplicationController < ActionController::API
     header = request.headers['Authorization']
     header = header.split(' ').last if header
     begin
-      if header.to_s == ENV["integrator_secret"]
-        @current_user = Shared::User.find_by(name: 'Centro de Apuestas')
+      structure = Shared::Structure.find_by(token: header.to_s)
+
+      if structure
+        @current_user = structure.shared_user
       else
         @decoded = JsonWebToken.decode(header)
         @current_user = Shared::User.find(@decoded[:user_id])
