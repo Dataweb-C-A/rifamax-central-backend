@@ -38,9 +38,10 @@ module X100
     
     def integrator
       @x100_client = X100::Client.new(x100_integrator_params)
+      @existant_user = X100::Client.where(email: x100_integrator_params[:email])
 
-      if X100::Client.where(email: x100_integrator_params[:email]).length > 0
-        render json: { message: 'Client already exists' }, status: :ok
+      if @existant_user.length > 0
+        render json: { message: 'Client already exists', user: @existant_user }, status: :ok
       else
         if @x100_client.save
           render json: @x100_client, status: :created, location: @x100_client
@@ -97,7 +98,7 @@ module X100
     end
 
     def x100_integrator_params
-      params.require(:x100_client).permit(:name, :email, :integrador_type, :integrador_id)
+      params.require(:x100_client).permit(:name, :email, :integrator_type, :integrator_id)
     end
   end
 end
