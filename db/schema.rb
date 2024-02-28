@@ -130,7 +130,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_28_010402) do
   end
 
   create_table "shared_wallets", force: :cascade do |t|
-    t.string "token", default: "8c456bb7-1ac8-4a91-b2e1-2a7072917b24"
+    t.string "token", default: "9ce135a5-93e6-483a-8aa9-54f9536bc5f8"
     t.float "found", default: 0.0
     t.float "debt", default: 0.0
     t.float "debt_limit", default: 20.0
@@ -155,6 +155,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_28_010402) do
     t.integer "products", default: [], array: true
     t.float "amount"
     t.string "serial"
+    t.string "money"
     t.datetime "ordered_at"
     t.bigint "shared_user_id", null: false
     t.bigint "x100_client_id", null: false
@@ -178,18 +179,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_28_010402) do
     t.string "raffle_type"
     t.float "price_unit"
     t.integer "tickets_count"
-    t.integer "numbers"
     t.string "lotery"
     t.datetime "expired_date"
     t.datetime "init_date"
     t.jsonb "prizes"
     t.jsonb "winners"
+    t.jsonb "combos"
     t.boolean "has_winners"
     t.integer "automatic_taquillas_ids", default: [], array: true
     t.integer "shared_user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.jsonb "combos"
   end
 
   create_table "x100_stats", force: :cascade do |t|
@@ -203,7 +203,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_28_010402) do
 
   create_table "x100_tickets", force: :cascade do |t|
     t.integer "position"
-    t.string "serial", default: "8211942d-2e22-48b5-ad9d-bbb38523f0c4"
+    t.string "serial"
     t.float "price"
     t.string "money"
     t.string "status", default: "available"
