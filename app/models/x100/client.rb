@@ -72,7 +72,7 @@ module X100
     end
 
     def validates_phone_when_integrator
-      if !integrator_id.nil?
+      if integrator_id.nil?
         if phone[0..3] == '+58 '
           return true
         end
