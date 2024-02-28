@@ -53,7 +53,7 @@ module X100
                 with: /\A\+\d{1,4} \(\d{1,4}\) \d{1,10}-\d{1,10}\z/,
                 message: 'Introduzca un número de teléfono válido en el formato: +prefijo telefónico (codigo de area) tres primeros dígitos - dígitos restantes, por ejemplo: +58 (416) 000-0000'
               },
-              if: -> { !integrator_id.nil? }
+              if: -> { integrator_id.nil? }
 
     validates :email,
               presence: {
