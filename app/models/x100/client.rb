@@ -40,7 +40,7 @@ module X100
                 with: /\A[VEJG]-\d{1,8}\z/,
                 message: 'Debe incluir (V J E G)'
               },
-              if: -> { phone[0..3] == '+58 ' || !integrator_id.nil? }
+              if: -> { !integrator_id.nil? || phone[0..3] == '+58 ' }
 
     validates :phone,
               presence: {
