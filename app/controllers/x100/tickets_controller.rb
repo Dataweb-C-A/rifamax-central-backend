@@ -39,7 +39,12 @@ module X100
               price: X100::Raffle.find(@x100_ticket.x100_raffle_id).price_unit,
               money: ticket_params[:money],
               x100_raffle_id: ticket_params[:x100_raffle_id],
-              x100_client_id: ticket_params[:x100_client_id]
+              x100_client_id: sell_x100_ticket_params[:integrator].nil? 
+                ? ticket_params[:x100_client_id] : 
+                X100::Client.find_by(
+                  integrator_id: sell_x100_ticket_params[:x100_client_id], 
+                  integrator_type: sell_x100_ticket_params[:integrator]
+                ).id
             )
               raise ActiveRecord::Rollback, 'Failed to sell ticket' unless X100::Ticket.sell_ticket(@x100_ticket.id)
 
