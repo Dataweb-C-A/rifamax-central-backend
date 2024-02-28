@@ -39,7 +39,7 @@ module X100
     def integrator
       @x100_client = X100::Client.new(x100_integrator_params)
 
-      if @x100_client.exists?
+      if X100::Client.where(email: x100_integrator_params[:email]) > 0
         render json: { message: 'Client already exists' }, status: :ok
       else
         if @x100_client.save
