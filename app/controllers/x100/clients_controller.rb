@@ -35,6 +35,16 @@ module X100
         render json: @x100_client.errors, status: :unprocessable_entity
       end
     end
+    
+    def integrator
+      @x100_client = X100::Client.new(x100_integrator_params)
+
+      if @x100_client.save
+        render json: @x100_client, status: :created, location: @x100_client
+      else
+        render json: @x100_client.errors, status: :unprocessable_entity
+      end
+    end
 
     # PATCH/PUT /x100/clients/1
     def update
@@ -79,7 +89,11 @@ module X100
 
     # Only allow a list of trusted parameters through.
     def x100_client_params
-      params.require(:x100_client).permit(:name, :dni, :phone, :email, :integrador_type, :integrador_id)
+      params.require(:x100_client).permit(:name, :dni, :phone, :email)
+    end
+
+    def x100_integrator_params
+      params.require(:x100_client).permit(:name, :email, :integrador_type, :integrador_id)
     end
   end
 end

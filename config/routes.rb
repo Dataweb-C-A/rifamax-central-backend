@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   namespace :x100 do
     resources :orders, only: [:index]
     resources :raffles
-    resources :clients
+    resources :clients do 
+      post 'integrator', on: :collection
+    end
     resources :tickets do
       post 'sell', on: :collection
       post 'apart', on: :collection
