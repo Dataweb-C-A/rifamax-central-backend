@@ -39,10 +39,14 @@ module X100
     def integrator
       @x100_client = X100::Client.new(x100_integrator_params)
 
-      if @x100_client.save
-        render json: @x100_client, status: :created, location: @x100_client
+      if @x100_client.exists?
+        render json: { message: 'Client already exists' }, status: :ok
       else
-        render json: @x100_client.errors, status: :unprocessable_entity
+        if @x100_client.save
+          render json: @x100_client, status: :created, location: @x100_client
+        else
+          render json: @x100_client.errors, status: :unprocessable_entity
+        end
       end
     end
 
