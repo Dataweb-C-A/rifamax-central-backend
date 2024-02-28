@@ -40,7 +40,7 @@ module X100
                 with: /\A[VEJG]-\d{1,8}\z/,
                 message: 'Debe incluir (V J E G)'
               },
-              if: -> { phone[0..3] == '+58 ' || integrator_id == nil }
+              if: -> { phone[0..3] == '+58 ' || !integrator_id.nil? }
 
     validates :phone,
               presence: {
@@ -53,7 +53,7 @@ module X100
                 with: /\A\+\d{1,4} \(\d{1,4}\) \d{1,10}-\d{1,10}\z/,
                 message: 'Introduzca un número de teléfono válido en el formato: +prefijo telefónico (codigo de area) tres primeros dígitos - dígitos restantes, por ejemplo: +58 (416) 000-0000'
               },
-              if: -> { integrator_id == nil }
+              if: -> { !integrator_id.nil? }
 
     validates :email,
               presence: {
