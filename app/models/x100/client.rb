@@ -40,7 +40,7 @@ module X100
                 with: /\A[VEJG]-\d{1,8}\z/,
                 message: 'Debe incluir (V J E G)'
               },
-              if: -> { !integrator_id.nil? || phone[0..3] == '+58 ' }
+              if: -> { validates_phone_when_integrator }
 
     validates :phone,
               presence: {
@@ -69,6 +69,15 @@ module X100
 
     def tickets
       x100_tickets
+    end
+
+    def validates_phone_when_integrator
+      if integrator_id.nil?
+        if phone[0..3] == '+58 '
+          return true
+        end
+      end
+      return false
     end
 
     def integration_job_layer(client_id)
