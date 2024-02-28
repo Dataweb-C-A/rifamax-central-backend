@@ -56,7 +56,7 @@ module X100
           ActionCable.server.broadcast('x100_tickets', @tickets)
           
           if success_sold.length == positions.length
-            if sell_x100_ticket_params[:integrator] == "CDA"
+            if !sell_x100_ticket_params[:integrator].nil?
               X100::Order.create!(
                 products: success_sold.map(&:position),
                 amount: sell_x100_ticket_params[:price],
