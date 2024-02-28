@@ -79,7 +79,7 @@ module X100
 
     # Only allow a list of trusted parameters through.
     def x100_client_params
-      params.require(:x100_client).permit(:name, :dni, :phone, :email)
+      params.require(:x100_client).permit(:name, :dni, :phone, :email, :integrador_type, :integrador_id)
     end
   end
 end

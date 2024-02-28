@@ -54,19 +54,33 @@ module X100
 
           ActionCable.server.broadcast('x100_raffles', @raffles)
           ActionCable.server.broadcast('x100_tickets', @tickets)
-
+          
           if success_sold.length == positions.length
-            X100::Order.create!(
-              products: success_sold.map(&:position),
-              amount: sell_x100_ticket_params[:price],
-              serial: "ORD-#{SecureRandom.hex(8).upcase}",
-              ordered_at: DateTime.now,
-              money: sell_x100_ticket_params[:money],
-              shared_user_id: @current_user.id,
-              x100_client_id: sell_x100_ticket_params[:x100_client_id],
-              x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id],
-              shared_exchange_id: Shared::Exchange.last.id
-            )
+            if sell_x100_ticket_params[:integrator] == "CDA"
+              X100::Order.create!(
+                products: success_sold.map(&:position),
+                amount: sell_x100_ticket_params[:price],
+                serial: "ORD-#{SecureRandom.hex(8).upcase}",
+                ordered_at: DateTime.now,
+                money: sell_x100_ticket_params[:money],
+                shared_user_id: @current_user.id,
+                x100_client_id: sell_x100_ticket_params[:x100_client_id],
+                x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id],
+                shared_exchange_id: Shared::Exchange.last.id
+              )
+            else
+              X100::Order.create!(
+                products: success_sold.map(&:position),
+                amount: sell_x100_ticket_params[:price],
+                serial: "ORD-#{SecureRandom.hex(8).upcase}",
+                ordered_at: DateTime.now,
+                money: sell_x100_ticket_params[:money],
+                shared_user_id: @current_user.id,
+                x100_client_id: sell_x100_ticket_params[:x100_client_id],
+                x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id],
+                shared_exchange_id: Shared::Exchange.last.id
+              )
+            end
             render json: { message: 'Tickets sold', tickets: success_sold }, status: :ok
           else
             render json: { message: "Oops! An error has occurred: #{success_sold.length} of #{positions.length} tickets sold" },
@@ -151,7 +165,7 @@ module X100
     end
 
     def sell_x100_ticket_params
-      params.require(:x100_ticket).permit(:x100_raffle_id, :x100_client_id, :price, :money, positions: [])
+      params.require(:x100_ticket).permit(:x100_raffle_id, :x100_client_id, :price, :money, :integrator, positions: [])
     end
 
     def parameter_require_error
