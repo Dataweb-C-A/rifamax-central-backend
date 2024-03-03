@@ -271,7 +271,7 @@ module X100
     end
 
     def self.all_sold_tickets
-      raffles = X100::Raffle.select { |item| item.status == "En venta" || item.status == "Finalizando" }
+      raffles = X100::Raffle.where(status: ['En venta', 'Finalizando'])
 
       result = []
 
@@ -288,7 +288,7 @@ module X100
     end
 
     def self.current_progress_of_actives
-      raffles = X100::Raffle.where(status: 'En venta').order(id: :desc)
+      raffles = X100::Raffle.where(status: ['En venta', 'Finalizando']).order(id: :desc)
       progresses = []
 
       raffles.each do |raffle|
