@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   namespace :x100 do
     resources :orders, only: [:index]
-    resources :raffles
+    resources :raffles do
+      get 'progressives', on: :collection
+    end
     resources :clients do 
       post 'integrator', on: :collection
     end

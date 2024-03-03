@@ -21,6 +21,13 @@ module X100
       end
     end
 
+    # GET /x100/raffles/progressives
+    def progressives
+      @x100_raffles = X100::Raffle.active_raffles_progressive
+
+      render json: @x100_raffles, status: :ok
+    end
+
     # POST /x100/raffles
     def create
       begin
