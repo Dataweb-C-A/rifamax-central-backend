@@ -114,7 +114,7 @@ module X100
     validate :validates_automatic_taquillas
 
     def self.raffles_by_user(user)
-      X100::Raffle.where(status: 'En venta').order(id: :desc)
+      X100::Raffle.where(status: ['En venta', 'Finalizando']).order(id: :desc)
     end
 
     # def self.raffles_by_user(user)
@@ -136,6 +136,10 @@ module X100
       else
         where(id: user.id, status: 'En venta')
       end.order(id: :desc)
+    end
+
+    def self.active_raffles_progressive()
+      X100::Raffle.where(draw_type: 'Progresiva', status: ['En venta', 'Finalizando']).order(id: :desc)
     end
 
     def which(search = [], status = 'available')
