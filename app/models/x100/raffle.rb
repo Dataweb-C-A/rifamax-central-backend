@@ -39,6 +39,7 @@ module X100
     after_create :generate_tickets
     after_create :initialize_status
     after_create :initialize_winners
+    after_create :initialize_raffle_type
 
     validates :title,
               presence: true,
@@ -187,6 +188,17 @@ module X100
       self.has_winners = false
       save
     end
+
+    def initialize_raffle_type
+      case tickets_count
+      when 100
+        self.raffle_type = 'Terminal'
+      when 1000
+        self.raffle_type = 'Triple'
+      else
+        self.raffle_type = 'Infinito'
+      end
+    end 
 
     def change_first_prize
       self.prizes[0]['days_to_award'] = 0
