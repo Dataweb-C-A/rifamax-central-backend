@@ -38,7 +38,9 @@ module X100
         @x100_raffle.shared_user_id = @current_user.id if allowed_roles.include?(@current_user.role)
         @x100_raffle.combos = convert_form_data_to_json(create_x100_raffle_params[:combos])
         @x100_raffle.prizes = convert_form_data_prizes_to_json(JSON.parse(create_x100_raffle_params[:prizes].to_json))
-
+        if @x100_raffle.money == "$"
+          @x100_raffle.money = "USD"
+        end
 
         if @x100_raffle.save
           @raffles = X100::Raffle.current_progress_of_actives
