@@ -101,7 +101,7 @@ module X100
       end
     end
     
-    def convert_form_data_to_json(data)
+    def convert_form_data_prizes_to_json(data)
       data.map do |data_hash|
         {
           name: data_hash['name'].to_s,
