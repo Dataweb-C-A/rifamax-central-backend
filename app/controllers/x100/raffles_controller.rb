@@ -30,7 +30,7 @@ module X100
 
     # POST /x100/raffles
     def create
-      begin
+      # begin
         allowed_roles = ['Taquilla', 'Rifero', 'Admin']
 
         @x100_raffle = X100::Raffle.new(create_x100_raffle_params)
@@ -50,9 +50,9 @@ module X100
         else
           render json: @x100_raffle.errors, status: :unprocessable_entity
         end
-      rescue
-        render json: { message: 'Invalid data structure' }, status: :unprocessable_entity
-      end
+      # rescue
+      #   render json: { message: 'Invalid data structure' }, status: :unprocessable_entity
+      # end
     end
 
     # PATCH/PUT /x100/raffles/1
@@ -96,13 +96,13 @@ module X100
     end
 
     def convert_form_data_to_json(data)
-      data.map do |data_hash|
+      data.values.map do |data_hash|
         data_hash.transform_values!(&:to_i)
       end
     end
     
     def convert_form_data_prizes_to_json(data)
-      data.map do |data_hash|
+      data.values.map do |data_hash|
         {
           name: data_hash['name'].to_s,
           prize_position: data_hash['prize_position'].to_i,
