@@ -38,7 +38,6 @@ module X100
     after_create :generate_tickets
     after_create :initialize_status
     after_create :initialize_winners
-    before_save :change_first_prize
 
     validates :title,
               presence: true,
