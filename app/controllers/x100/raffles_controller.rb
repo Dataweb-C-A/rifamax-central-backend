@@ -30,24 +30,28 @@ module X100
 
     # POST /x100/raffles
     def create
-      allowed_roles = ['Taquilla', 'Rifero', 'Admin']
+      begin
+        allowed_roles = ['Taquilla', 'Rifero', 'Admin']
 
-      @x100_raffle = X100::Raffle.new(create_x100_raffle_params)
-      @x100_raffle.status = "En venta"
-      @x100_raffle.shared_user_id = @current_user.id if allowed_roles.include?(@current_user.role)
-      @x100_raffle.combos = convert_form_data_to_json(create_x100_raffle_params[:combos])
-      @x100_raffle.prizes = convert_form_data_prizes_to_json(JSON.parse(create_x100_raffle_params[:prizes].to_json))
-      if @x100_raffle.money == "$"
-        @x100_raffle.money = "USD"
-      end
+        @x100_raffle = X100::Raffle.new(create_x100_raffle_params)
+        @x100_raffle.status = "En venta"
+        @x100_raffle.shared_user_id = @current_user.id if allowed_roles.include?(@current_user.role)
+        @x100_raffle.combos = convert_form_data_to_json(create_x100_raffle_params[:combos])
+        @x100_raffle.prizes = convert_form_data_prizes_to_json(JSON.parse(create_x100_raffle_params[:prizes].to_json))
+        if @x100_raffle.money == "$"
+          @x100_raffle.money = "USD"
+        end
 
-      if @x100_raffle.save
-        @raffles = X100::Raffle.current_progress_of_actives
+        if @x100_raffle.save
+          @raffles = X100::Raffle.current_progress_of_actives
 
-        ActionCable.server.broadcast('x100_raffles', @raffles)
-        render json: @x100_raffle, status: :created, location: @x100_raffle
-      else
-        render json: @x100_raffle.errors, status: :unprocessable_entity
+          ActionCable.server.broadcast('x100_raffles', @raffles)
+          render json: @x100_raffle, status: :created, location: @x100_raffle
+        else
+          render json: @x100_raffle.errors, status: :unprocessable_entity
+        end
+      rescue
+        render json: { message: 'Invalid data structure' }, status: :unprocessable_entity
       end
     end
 
@@ -92,17 +96,17 @@ module X100
     end
 
     def convert_form_data_to_json(data)
-      data.values.map do |data_hash|
+      data.map do |data_hash|
         data_hash.transform_values!(&:to_i)
       end
     end
     
-    def convert_form_data_prizes_to_json(data)
-      data.values.map do |data_hash|
+    def convert_form_data_to_json(data)
+      data.map do |data_hash|
         {
-          name: data_hash[:name].to_s,
-          prize_position: data_hash[:prize_position].to_i,
-          days_to_award: data_hash[:days_to_award].to_i
+          name: data_hash['name'].to_s,
+          prize_position: data_hash['prize_position'].to_i,
+          days_to_award: data_hash['days_to_award'].to_i
         }
       end
     end
