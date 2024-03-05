@@ -5,7 +5,7 @@
 #  id             :bigint           not null, primary key
 #  access_to      :string           default([]), is an Array
 #  name           :string
-#  token          :string           default("rm_live_3d8bfbce-05b6-48df-9428-f7b50a0766d6")
+#  token          :string           default("rm_live_10195371-2f1a-430a-bf34-c98b2fe0da1c")
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  shared_user_id :bigint           not null

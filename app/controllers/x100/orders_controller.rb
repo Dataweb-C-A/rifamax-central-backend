@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module X100
-  class OrdersController < ApplicationController
-    before_action :authorize_request, except: %i[index]
+  class OrdersController < ActionController::Base
+    before_action :authorize_request, except: %i[index bill]
     before_action :set_x100_order, only: %i[show update destroy]
 
     # GET /x100/orders
@@ -13,6 +13,17 @@ module X100
         render json: { message: "Order with serial: #{fetch_order[:serial]} doesn't exist" }, status: :not_found
       else
         render json: @x100_orders, status: :ok
+      end
+    end
+
+    # GET /x100/orders/bill?serial=ORD-12345678910
+    def bill
+      @order = X100::Order.find_by(serial: fetch_order[:serial])
+
+      if @order.nil?
+        render json: { message: 'Not found', status: 404 }, stauts: :not_found
+      else
+        render 'layouts/x100/orders/index', locals: { order: @order }
       end
     end
 

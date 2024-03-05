@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 module Rifamax
-  class TicketsController < ApplicationController
+  class TicketsController < ActionController::Base
     before_action :set_rifamax_ticket, only: %i[show update destroy]
 
     # GET /rifamax/tickets
     def index
       @tickets = Rifamax::Ticket.where(serial: params[:serial]).last
-      @rifa = @tickets.rifamax_raffle
+      # @rifa = @tickets.rifamax_raffle
 
-      if @rifa.nil? || @tickets.nil?
+      if  @tickets.nil?
         render json: { message: 'Not found', status: 404 }, stauts: :not_found
       else
-        render 'tickets/index', locals: { rifa: @rifa, tickets: @tickets }
+        render 'layouts/x100/orders/index', locals: { rifa: @rifa, tickets: @tickets }
       end
     end
 

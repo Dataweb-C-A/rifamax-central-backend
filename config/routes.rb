@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   post '/login', to: 'authentication#login'
 
   namespace :x100 do
-    resources :orders, only: [:index]
+    resources :orders, only: [:index] do 
+      get 'bill', on: :collection
+    end
     resources :raffles do
       get 'progressives', on: :collection
     end

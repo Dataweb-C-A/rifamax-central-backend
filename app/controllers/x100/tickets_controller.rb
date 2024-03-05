@@ -57,7 +57,7 @@ module X100
           
           if success_sold.length == positions.length
             if !sell_x100_ticket_params[:integrator].nil?
-              X100::Order.create!(
+              @orders = X100::Order.create!(
                 products: success_sold.map(&:position),
                 amount: sell_x100_ticket_params[:price],
                 serial: "ORD-#{SecureRandom.hex(8).upcase}",
@@ -69,7 +69,7 @@ module X100
                 shared_exchange_id: Shared::Exchange.last.id
               )
             else
-              X100::Order.create!(
+              @orders = X100::Order.create!(
                 products: success_sold.map(&:position),
                 amount: sell_x100_ticket_params[:price],
                 serial: "ORD-#{SecureRandom.hex(8).upcase}",
@@ -81,7 +81,7 @@ module X100
                 shared_exchange_id: Shared::Exchange.last.id
               )
             end
-            render json: { message: 'Tickets sold', tickets: success_sold }, status: :ok
+            render json: { message: 'Tickets sold', tickets: success_sold, order: @orders.serial }, status: :ok
           else
             render json: { message: "Oops! An error has occurred: #{success_sold.length} of #{positions.length} tickets sold" },
                    status: :unprocessable_entity
