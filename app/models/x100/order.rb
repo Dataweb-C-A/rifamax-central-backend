@@ -41,5 +41,28 @@ module X100
     validates :money,
               presence: true,
               inclusion: { in: %w[VES USD COP] }
+
+    def x100_tickets
+      X100::Ticket.where(position: products, x100_raffle_id: x100_raffle_id)
+    end
+
+    def price_without_discount
+      X100::Ticket.where(position: products, x100_raffle_id: x100_raffle_id).sum(:price)
+    end
+
+    def transform_amount_to_dolar
+      case money
+      when 'VES'
+        amount / shared_exchange.value_bs
+      when 'COP'
+        amount / shared_exchange.value_cop
+      else
+        amount
+      end
+    end
+
+    def discount_rate
+      (self.price_without_discount - self.transform_amount_to_dolar) / self.price_without_discount
+    end
   end
 end

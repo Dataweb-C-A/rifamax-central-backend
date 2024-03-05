@@ -106,7 +106,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_28_140522) do
 
   create_table "shared_structures", force: :cascade do |t|
     t.string "name"
-    t.string "token", default: "rm_live_3d8bfbce-05b6-48df-9428-f7b50a0766d6"
+    t.string "token", default: "rm_live_10195371-2f1a-430a-bf34-c98b2fe0da1c"
     t.string "access_to", default: [], array: true
     t.bigint "shared_user_id", null: false
     t.datetime "created_at", null: false
