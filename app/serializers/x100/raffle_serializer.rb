@@ -56,6 +56,13 @@ module X100
       object.created_at.strftime('%d/%m/%Y %H:%M:%S')
     end
 
+    def ad
+      {
+        url: object.ad.url,
+        url_parser: "https://api.rifa-max.com/#{object.ad.url}"
+      }
+    end
+
     def agency
       Shared::User.find(object.shared_user_id)
     end
