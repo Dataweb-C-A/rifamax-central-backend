@@ -81,10 +81,11 @@
         font-size: 14px;
         line-height: 1.5;
         margin-left: 20px;
+        margin-right: -40px;
         margin-bottom: -20px;
         color: black;
         font-weight: 300;
-        width: 15%;
+        width: 25%;
       }
       .table__quantity {
         -webkit-tap-highlight-color: transparent;
@@ -105,11 +106,10 @@
         font-size: 14px;
         line-height: 1.5;
         margin: 0px;
-        text-align: 'end';
         margin-bottom: -20px;
         color: black;
         font-weight: 300;
-        width: 25%;
+        width: 10%;
       }
       .table__discount {
         -webkit-tap-highlight-color: transparent;
@@ -162,30 +162,30 @@
           .col-12
             %div{:class => "card", :style => "max-width: 362px; margin: auto;"}
               .card-body
-                %h4{:class => "card-title text-center", :style => "font-size: 25px;"} #{@order.x100_client.name}
+                %h1{:class => "card-title text-center", :style => "font-size: 25px;"} Datos del comprador
+                %p{:class => "card-title text-center", :style => "font-size: 22px; font-weight: 350; margin: 0"} #{@order.x100_client.name}
                 %p{:class => "card-title text-center", :style => "font-size: 20px; font-weight: 350; margin: 0"} #{@order.x100_client&.phone}
                 %p{:class => "card-title text-center", :style => "font-size: 20px; font-weight: 350; margin: 0"} #{@order.x100_client&.dni}
                 %p{:class => "card-title text-center", :style => "font-size: 20px; font-weight: 350; margin: 0"} #{@order.x100_client&.email}
                 .divider
                 .group
-                  %p{:class => "group-text"} Productos
-                  %p{:class => "group-text"} Cantidad
+                  %p{:class => "group-text"} Número
                   %p{:class => "group-text"} Precio
-                  %p{:class => "group-text"} Descuento
+                  %p{:class => "group-text"} PC. Combo
                 .scrollBar
                   =image_tag '/logo-rifamax.png', :style => "position: absolute; top: 24%; left: -10%; z-index: -1; opacity: 0.1"
                   .table
                     %div{:class => "table__section"}
                       - @order.products.each do |product|
                         %h6{:class => "table__products"}= product
-                        %h6{:class => "table__quantity text-end"} 1.00
-                        %h6{:class => "table__price text-center"} #{@order.x100_raffle.price_unit.to_i} #{@order.x100_raffle.money == "USD" ? "$" : @order.x100_raffle.money}
+                        %h6{:class => "table__price text-start"} #{@order.x100_raffle.price_unit.to_i}#{@order.x100_raffle.money == "USD" ? "$" : " #{@order.x100_raffle.money}"}
                         %h6{:class => "table__discount text-end"}= "#{(@order.discount_rate * 100).to_i}%"
                 .divider
                 %p{:class => "card-title text-start", :style => "font-size: 15px; font-weight: 750; margin: 0"} Datos de la rifa:
                 %p{:class => "card-title text-start", :style => "font-size: 15px; font-weight: 350; margin: 0"} #{@order.x100_raffle.title}
                 %p{:class => "card-title text-start", :style => "font-size: 15px; font-weight: 350; margin: 0"} #{@order.x100_raffle.tickets_count} Números
                 %p{:class => "card-title text-start", :style => "font-size: 15px; font-weight: 350; margin: 0"} #{@order.ordered_at.strftime('%d/%m/%Y - %l:%M%p')}
+                %p{:class => "card-title text-start", :style => "font-size: 15px; font-weight: 350; margin: 0"} Rifa #{@order.x100_raffle.draw_type}
                 .divider
                 .group__total
                   %h5{:class => "group-text_total"} Total:
