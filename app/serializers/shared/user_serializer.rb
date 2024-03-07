@@ -21,30 +21,7 @@
 #
 module Shared
   class UserSerializer < ActiveModel::Serializer
-    attributes :id, :name, :dni, :is_active, :access, :phone, :role, :riferos
-
-    def access
-      modules = [
-        {
-          id: 1,
-          name: 'Rifamax'
-        },
-        {
-          id: 2,
-          name: 'X100'
-        },
-        {
-          id: 3,
-          name: '50/50'
-        }
-      ]
-      object.module_assigned.map do |module_assigned|
-        {
-          id: module_assigned,
-          name: modules.select { |item| item[:id] == module_assigned }
-        }
-      end
-    end
+    attributes :id, :name, :dni, :is_active, :phone, :role, :riferos
 
     def riferos
       Shared::User.where(id: object.rifero_ids)
