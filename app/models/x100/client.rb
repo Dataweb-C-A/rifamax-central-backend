@@ -63,7 +63,7 @@ module X100
               uniqueness: {
                 message: 'Ya existe un cliente con este correo electrónico'
               },
-	      if: -> { !email.nil? }
+	            if: -> { email.nil? }
 
     def tickets
       x100_tickets
