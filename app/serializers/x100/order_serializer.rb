@@ -33,10 +33,17 @@
 #
 module X100
   class OrderSerializer < ActiveModel::Serializer
-    attributes :id, :products, :amount, :serial, :ordered_at, :tickets, :TX_transaction
-    has_one :shared_user
+    attributes :id, :products, :amount, :serial, :ordered_at, :tickets, :TX_transaction, :currency, :player_id
     has_one :x100_client
     has_one :x100_raffle
+
+    def player_id
+      638
+    end
+
+    def currency
+      X100::Ticket.where(position: object.products, x100_raffle_id: object.x100_raffle_id).first.money
+    end
 
     def tickets
       X100::Ticket.where(position: object.products, x100_raffle_id: object.x100_raffle_id)
