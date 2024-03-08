@@ -21,7 +21,7 @@
 #
 module Shared
   class UserSerializer < ActiveModel::Serializer
-    attributes :id, :name, :dni, :is_active, :phone, :role, :riferos
+    attributes :id, :name, :dni, :is_active, :phone, :role
 
     def riferos
       Shared::User.where(id: object.rifero_ids)
