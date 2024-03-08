@@ -56,16 +56,14 @@ module X100
               if: -> { integrator_id.nil? }
 
     validates :email,
-              presence: {
-                message: 'Debe introducir un correo electrónico'
-              },
               format: {
                 with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
                 message: 'Introduzca un correo electrónico válido'
               },
               uniqueness: {
                 message: 'Ya existe un cliente con este correo electrónico'
-              }
+              },
+	      if: -> { !email.nil? }
 
     def tickets
       x100_tickets
