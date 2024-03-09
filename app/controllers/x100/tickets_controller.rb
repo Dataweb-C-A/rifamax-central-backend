@@ -90,16 +90,8 @@ module X100
                   x100_raffle_id: ticket_params[:x100_raffle_id],
                   x100_client_id: sell_x100_ticket_params[:integrator].nil? ? ticket_params[:x100_client_id] : X100::Client.find_by(integrator_id: sell_x100_ticket_params[:x100_client_id], integrator_type: sell_x100_ticket_params[:integrator]).id
                 )
-                @orders.save!
 
-                # -- live_transactions -- #
-                @tickets = X100::Ticket.all_sold_tickets
-                @raffles = X100::Raffle.current_progress_of_actives
-
-                ActionCable.server.broadcast('x100_raffles', @raffles)
-                ActionCable.server.broadcast('x100_tickets', @tickets)
-                # -- live_transactions -- #
-                @orders = X100::Order.create!(
+                @orders = X100::Order.new(
                   products: success_sold.map(&:position),
                   amount: sell_x100_ticket_params[:price],
                   serial: "ORD-#{SecureRandom.hex(8).upcase}",
@@ -110,6 +102,16 @@ module X100
                   x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id],
                   shared_exchange_id: Shared::Exchange.last.id
                 )
+                
+                @orders.save!
+
+                # -- live_transactions -- #
+                @tickets = X100::Ticket.all_sold_tickets
+                @raffles = X100::Raffle.current_progress_of_actives
+
+                ActionCable.server.broadcast('x100_raffles', @raffles)
+                ActionCable.server.broadcast('x100_tickets', @tickets)
+                # -- live_transactions -- #
               end
               render json: { message: 'Tickets sold', tickets: success_sold, order: @orders.serial }, status: :ok
             else
