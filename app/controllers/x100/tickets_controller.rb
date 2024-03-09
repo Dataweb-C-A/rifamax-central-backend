@@ -30,31 +30,18 @@ module X100
       else
         begin
           ActiveRecord::Base.transaction do
+            # -- validates_integration_of_tickets(positions) -- #
             positions.each do |position|
               @x100_ticket = find_reserved_ticket(position)
 
               if @x100_ticket.nil?
                 render_ticket_not_sold(position)
                 return
-              elsif @x100_ticket.update!(
-                price: X100::Raffle.find(@x100_ticket.x100_raffle_id).price_unit,
-                money: ticket_params[:money],
-                x100_raffle_id: ticket_params[:x100_raffle_id],
-                x100_client_id: sell_x100_ticket_params[:integrator].nil? ? ticket_params[:x100_client_id] : X100::Client.find_by(integrator_id: sell_x100_ticket_params[:x100_client_id], integrator_type: sell_x100_ticket_params[:integrator]).id
-              )
-                raise ActiveRecord::Rollback, 'Failed to sell ticket' unless X100::Ticket.sell_ticket(@x100_ticket.id)
-
-                @x100_ticket.status = 'sold'
+              else
                 success_sold << @x100_ticket
-
               end
             end
-
-            @tickets = X100::Ticket.all_sold_tickets
-            @raffles = X100::Raffle.current_progress_of_actives
-
-            ActionCable.server.broadcast('x100_raffles', @raffles)
-            ActionCable.server.broadcast('x100_tickets', @tickets)
+            # -- validates_integration_of_tickets(positions) -- #
             
             if success_sold.length == positions.length
               if !sell_x100_ticket_params[:integrator].nil?
@@ -78,9 +65,40 @@ module X100
                 if @orders.integrator_job == false
                   raise ActiveRecord::Rollback, 'Failed to sell ticket'
                 else
+                  success_sold.update_all(
+                    price: X100::Raffle.find(@x100_ticket.x100_raffle_id).price_unit,
+                    money: ticket_params[:money],
+                    status: 'sold',
+                    x100_raffle_id: ticket_params[:x100_raffle_id],
+                    x100_client_id: sell_x100_ticket_params[:integrator].nil? ? ticket_params[:x100_client_id] : X100::Client.find_by(integrator_id: sell_x100_ticket_params[:x100_client_id], integrator_type: sell_x100_ticket_params[:integrator]).id
+                  )
                   @orders.save!
+
+                  # -- live_transactions -- #
+                  @tickets = X100::Ticket.all_sold_tickets
+                  @raffles = X100::Raffle.current_progress_of_actives
+
+                  ActionCable.server.broadcast('x100_raffles', @raffles)
+                  ActionCable.server.broadcast('x100_tickets', @tickets)
+                  # -- live_transactions -- #
                 end
               else
+                success_sold.update_all(
+                  price: X100::Raffle.find(@x100_ticket.x100_raffle_id).price_unit,
+                  money: ticket_params[:money],
+                  status: 'sold',
+                  x100_raffle_id: ticket_params[:x100_raffle_id],
+                  x100_client_id: sell_x100_ticket_params[:integrator].nil? ? ticket_params[:x100_client_id] : X100::Client.find_by(integrator_id: sell_x100_ticket_params[:x100_client_id], integrator_type: sell_x100_ticket_params[:integrator]).id
+                )
+                @orders.save!
+
+                # -- live_transactions -- #
+                @tickets = X100::Ticket.all_sold_tickets
+                @raffles = X100::Raffle.current_progress_of_actives
+
+                ActionCable.server.broadcast('x100_raffles', @raffles)
+                ActionCable.server.broadcast('x100_tickets', @tickets)
+                # -- live_transactions -- #
                 @orders = X100::Order.create!(
                   products: success_sold.map(&:position),
                   amount: sell_x100_ticket_params[:price],
@@ -105,11 +123,13 @@ module X100
               @x100_ticket.update!(status: 'available') if !@x100_ticket.nil?
             end
 
+            # -- live_transactions -- #
             @tickets = X100::Ticket.all_sold_tickets
             @raffles = X100::Raffle.current_progress_of_actives
 
             ActionCable.server.broadcast('x100_raffles', @raffles)
             ActionCable.server.broadcast('x100_tickets', @tickets)
+            # -- live_transactions -- #
 
             render json: { message: "Oops! An error has occurred", error: e.message }, status: :unprocessable_entity
           end
