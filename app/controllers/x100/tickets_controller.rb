@@ -77,9 +77,9 @@ module X100
 
                 if @orders.integrator_job == false
                   raise ActiveRecord::Rollback, 'Failed to sell ticket'
+                else
+                  @orders.save!
                 end
-
-                @orders.save!
               else
                 @orders = X100::Order.create!(
                   products: success_sold.map(&:position),
