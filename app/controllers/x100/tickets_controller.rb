@@ -61,7 +61,7 @@ module X100
                 if sell_x100_ticket_params[:player_id].nil?
                   raise ActiveRecord::Rollback, 'Failed to sell ticket'
                 end
-                @orders = X100::Order.create!(
+                @orders = X100::Order.new(
                   products: success_sold.map(&:position),
                   amount: sell_x100_ticket_params[:price],
                   serial: "ORD-#{SecureRandom.hex(8).upcase}",
@@ -74,9 +74,12 @@ module X100
                   integrator: sell_x100_ticket_params[:integrator],
                   shared_exchange_id: Shared::Exchange.last.id
                 )
+
                 if @orders.integrator_job == false
                   raise ActiveRecord::Rollback, 'Failed to sell ticket'
                 end
+
+                @orders.save!
               else
                 @orders = X100::Order.create!(
                   products: success_sold.map(&:position),
@@ -108,7 +111,7 @@ module X100
             ActionCable.server.broadcast('x100_raffles', @raffles)
             ActionCable.server.broadcast('x100_tickets', @tickets)
 
-            render json: { message: "Oops! An error has occurred: #{e.message}" }, status: :unprocessable_entity
+            render json: { message: "Oops! An error has occurred", error: e.message }, status: :unprocessable_entity
           end
         end
       end
