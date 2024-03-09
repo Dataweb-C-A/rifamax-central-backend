@@ -117,12 +117,6 @@ module X100
                     status: :unprocessable_entity
             end
           rescue => e 
-            positions.each do |position|
-              @x100_ticket = find_reserved_ticket(position)
-              
-              @x100_ticket.update!(status: 'available') if !@x100_ticket.nil?
-            end
-
             # -- live_transactions -- #
             @tickets = X100::Ticket.all_sold_tickets
             @raffles = X100::Raffle.current_progress_of_actives
