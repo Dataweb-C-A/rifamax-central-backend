@@ -8,7 +8,7 @@
 #  debt           :float            default(0.0)
 #  debt_limit     :float            default(20.0)
 #  found          :float            default(0.0)
-#  token          :string           default("9ce135a5-93e6-483a-8aa9-54f9536bc5f8")
+#  token          :string           default("8c456bb7-1ac8-4a91-b2e1-2a7072917b24")
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  shared_user_id :bigint           not null

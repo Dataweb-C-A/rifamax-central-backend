@@ -4,18 +4,20 @@
 #
 # Table name: x100_orders
 #
-#  id                 :bigint           not null, primary key
-#  amount             :float
-#  money              :string
-#  ordered_at         :datetime
-#  products           :integer          default([]), is an Array
-#  serial             :string
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  shared_exchange_id :bigint           not null
-#  shared_user_id     :bigint           not null
-#  x100_client_id     :bigint           not null
-#  x100_raffle_id     :bigint           not null
+#  id                   :bigint           not null, primary key
+#  amount               :float
+#  integrator           :string
+#  money                :string
+#  ordered_at           :datetime
+#  products             :integer          default([]), is an Array
+#  serial               :string
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  integrator_player_id :integer
+#  shared_exchange_id   :bigint           not null
+#  shared_user_id       :bigint           not null
+#  x100_client_id       :bigint           not null
+#  x100_raffle_id       :bigint           not null
 #
 # Indexes
 #
@@ -33,24 +35,12 @@
 #
 module X100
   class OrderSerializer < ActiveModel::Serializer
-    attributes :id, :products, :amount, :serial, :ordered_at, :tickets, :TX_transaction, :currency, :player_id
+    attributes :id, :products, :amount, :serial, :ordered_at, :currency
     has_one :x100_client
     has_one :x100_raffle
 
-    def player_id
-      638
-    end
-
     def currency
       X100::Ticket.where(position: object.products, x100_raffle_id: object.x100_raffle_id).first.money
-    end
-
-    def tickets
-      X100::Ticket.where(position: object.products, x100_raffle_id: object.x100_raffle_id)
-    end
-
-    def TX_transaction
-      "DEBIT"
     end
   end
 end

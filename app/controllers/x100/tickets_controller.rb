@@ -57,6 +57,9 @@ module X100
           
           if success_sold.length == positions.length
             if !sell_x100_ticket_params[:integrator].nil?
+              if sell_x100_ticket_params[:player_id].nil?
+                raise ActiveRecord::Rollback, 'Failed to sell ticket'
+              end
               @orders = X100::Order.create!(
                 products: success_sold.map(&:position),
                 amount: sell_x100_ticket_params[:price],
@@ -66,8 +69,13 @@ module X100
                 shared_user_id: @current_user.id,
                 x100_client_id: X100::Client.find_by(integrator_id: sell_x100_ticket_params[:x100_client_id], integrator_type: sell_x100_ticket_params[:integrator]).id,
                 x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id],
+                integrator_player_id: sell_x100_ticket_params[:player_id],
+                integrator: sell_x100_ticket_params[:integrator],
                 shared_exchange_id: Shared::Exchange.last.id
               )
+              if @orders.integrator_job == false
+                raise ActiveRecord::Rollback, 'Failed to sell ticket'
+              end
             else
               @orders = X100::Order.create!(
                 products: success_sold.map(&:position),
@@ -165,7 +173,7 @@ module X100
     end
 
     def sell_x100_ticket_params
-      params.require(:x100_ticket).permit(:x100_raffle_id, :x100_client_id, :price, :money, :integrator, positions: [])
+      params.require(:x100_ticket).permit(:x100_raffle_id, :x100_client_id, :price, :money, :integrator, :player_id, positions: [])
     end
 
     def parameter_require_error

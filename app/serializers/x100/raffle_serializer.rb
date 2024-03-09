@@ -15,6 +15,7 @@
 #  limit                   :integer
 #  lotery                  :string
 #  money                   :string
+#  numbers                 :integer
 #  price_unit              :float
 #  prizes                  :jsonb
 #  raffle_type             :string

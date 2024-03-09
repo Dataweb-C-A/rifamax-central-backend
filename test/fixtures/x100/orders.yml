@@ -2,18 +2,20 @@
 #
 # Table name: x100_orders
 #
-#  id                 :bigint           not null, primary key
-#  amount             :float
-#  money              :string
-#  ordered_at         :datetime
-#  products           :integer          default([]), is an Array
-#  serial             :string
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  shared_exchange_id :bigint           not null
-#  shared_user_id     :bigint           not null
-#  x100_client_id     :bigint           not null
-#  x100_raffle_id     :bigint           not null
+#  id                   :bigint           not null, primary key
+#  amount               :float
+#  integrator           :string
+#  money                :string
+#  ordered_at           :datetime
+#  products             :integer          default([]), is an Array
+#  serial               :string
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  integrator_player_id :integer
+#  shared_exchange_id   :bigint           not null
+#  shared_user_id       :bigint           not null
+#  x100_client_id       :bigint           not null
+#  x100_raffle_id       :bigint           not null
 #
 # Indexes
 #
