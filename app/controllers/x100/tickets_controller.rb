@@ -28,71 +28,75 @@ module X100
       if positions.blank?
         parameter_require_error
       else
-        ActiveRecord::Base.transaction do
-          positions.each do |position|
-            @x100_ticket = find_reserved_ticket(position)
+        begin
+          ActiveRecord::Base.transaction do
+            positions.each do |position|
+              @x100_ticket = find_reserved_ticket(position)
 
-            if @x100_ticket.nil?
-              render_ticket_not_sold(position)
-              return
-            elsif @x100_ticket.update!(
-              price: X100::Raffle.find(@x100_ticket.x100_raffle_id).price_unit,
-              money: ticket_params[:money],
-              x100_raffle_id: ticket_params[:x100_raffle_id],
-              x100_client_id: sell_x100_ticket_params[:integrator].nil? ? ticket_params[:x100_client_id] : X100::Client.find_by(integrator_id: sell_x100_ticket_params[:x100_client_id], integrator_type: sell_x100_ticket_params[:integrator]).id
-            )
-              raise ActiveRecord::Rollback, 'Failed to sell ticket' unless X100::Ticket.sell_ticket(@x100_ticket.id)
-
-              @x100_ticket.status = 'sold'
-              success_sold << @x100_ticket
-
-            end
-          end
-
-          @tickets = X100::Ticket.all_sold_tickets
-          @raffles = X100::Raffle.current_progress_of_actives
-
-          ActionCable.server.broadcast('x100_raffles', @raffles)
-          ActionCable.server.broadcast('x100_tickets', @tickets)
-          
-          if success_sold.length == positions.length
-            if !sell_x100_ticket_params[:integrator].nil?
-              if sell_x100_ticket_params[:player_id].nil?
-                raise ActiveRecord::Rollback, 'Failed to sell ticket'
-              end
-              @orders = X100::Order.create!(
-                products: success_sold.map(&:position),
-                amount: sell_x100_ticket_params[:price],
-                serial: "ORD-#{SecureRandom.hex(8).upcase}",
-                ordered_at: DateTime.now,
-                money: sell_x100_ticket_params[:money],
-                shared_user_id: @current_user.id,
-                x100_client_id: X100::Client.find_by(integrator_id: sell_x100_ticket_params[:x100_client_id], integrator_type: sell_x100_ticket_params[:integrator]).id,
-                x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id],
-                integrator_player_id: sell_x100_ticket_params[:player_id],
-                integrator: sell_x100_ticket_params[:integrator],
-                shared_exchange_id: Shared::Exchange.last.id
+              if @x100_ticket.nil?
+                render_ticket_not_sold(position)
+                return
+              elsif @x100_ticket.update!(
+                price: X100::Raffle.find(@x100_ticket.x100_raffle_id).price_unit,
+                money: ticket_params[:money],
+                x100_raffle_id: ticket_params[:x100_raffle_id],
+                x100_client_id: sell_x100_ticket_params[:integrator].nil? ? ticket_params[:x100_client_id] : X100::Client.find_by(integrator_id: sell_x100_ticket_params[:x100_client_id], integrator_type: sell_x100_ticket_params[:integrator]).id
               )
-              if @orders.integrator_job == false
-                raise ActiveRecord::Rollback, 'Failed to sell ticket'
+                raise ActiveRecord::Rollback, 'Failed to sell ticket' unless X100::Ticket.sell_ticket(@x100_ticket.id)
+
+                @x100_ticket.status = 'sold'
+                success_sold << @x100_ticket
+
               end
+            end
+
+            @tickets = X100::Ticket.all_sold_tickets
+            @raffles = X100::Raffle.current_progress_of_actives
+
+            ActionCable.server.broadcast('x100_raffles', @raffles)
+            ActionCable.server.broadcast('x100_tickets', @tickets)
+            
+            if success_sold.length == positions.length
+              if !sell_x100_ticket_params[:integrator].nil?
+                if sell_x100_ticket_params[:player_id].nil?
+                  raise ActiveRecord::Rollback, 'Failed to sell ticket'
+                end
+                @orders = X100::Order.create!(
+                  products: success_sold.map(&:position),
+                  amount: sell_x100_ticket_params[:price],
+                  serial: "ORD-#{SecureRandom.hex(8).upcase}",
+                  ordered_at: DateTime.now,
+                  money: sell_x100_ticket_params[:money],
+                  shared_user_id: @current_user.id,
+                  x100_client_id: X100::Client.find_by(integrator_id: sell_x100_ticket_params[:x100_client_id], integrator_type: sell_x100_ticket_params[:integrator]).id,
+                  x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id],
+                  integrator_player_id: sell_x100_ticket_params[:player_id],
+                  integrator: sell_x100_ticket_params[:integrator],
+                  shared_exchange_id: Shared::Exchange.last.id
+                )
+                if @orders.integrator_job == false
+                  raise ActiveRecord::Rollback, 'Failed to sell ticket'
+                end
+              else
+                @orders = X100::Order.create!(
+                  products: success_sold.map(&:position),
+                  amount: sell_x100_ticket_params[:price],
+                  serial: "ORD-#{SecureRandom.hex(8).upcase}",
+                  ordered_at: DateTime.now,
+                  money: sell_x100_ticket_params[:money],
+                  shared_user_id: @current_user.id,
+                  x100_client_id: sell_x100_ticket_params[:x100_client_id],
+                  x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id],
+                  shared_exchange_id: Shared::Exchange.last.id
+                )
+              end
+              render json: { message: 'Tickets sold', tickets: success_sold, order: @orders.serial }, status: :ok
             else
-              @orders = X100::Order.create!(
-                products: success_sold.map(&:position),
-                amount: sell_x100_ticket_params[:price],
-                serial: "ORD-#{SecureRandom.hex(8).upcase}",
-                ordered_at: DateTime.now,
-                money: sell_x100_ticket_params[:money],
-                shared_user_id: @current_user.id,
-                x100_client_id: sell_x100_ticket_params[:x100_client_id],
-                x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id],
-                shared_exchange_id: Shared::Exchange.last.id
-              )
+              render json: { message: "Oops! An error has occurred: #{success_sold.length} of #{positions.length} tickets sold" },
+                    status: :unprocessable_entity
             end
-            render json: { message: 'Tickets sold', tickets: success_sold, order: @orders.serial }, status: :ok
-          else
-            render json: { message: "Oops! An error has occurred: #{success_sold.length} of #{positions.length} tickets sold" },
-                   status: :unprocessable_entity
+          rescue => e 
+            render json: { message: "Oops! An error has occurred: #{e.message}" }, status: :unprocessable_entity
           end
         end
       end
