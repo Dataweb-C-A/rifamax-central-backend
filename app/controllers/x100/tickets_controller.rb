@@ -38,7 +38,7 @@ module X100
                 render_ticket_not_sold(position)
                 return
               else
-                success_sold << @x100_ticket
+                success_sold << @x100_ticket.position
               end
             end
             # -- validates_integration_of_tickets(positions) -- #
@@ -65,7 +65,7 @@ module X100
                 if @orders.integrator_job == false
                   raise ActiveRecord::Rollback, 'Failed to sell ticket'
                 else
-                  success_sold.update_all(
+                  X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]).update_all(
                     price: X100::Raffle.find(@x100_ticket.x100_raffle_id).price_unit,
                     money: ticket_params[:money],
                     status: 'sold',
@@ -83,7 +83,7 @@ module X100
                   # -- live_transactions -- #
                 end
               else
-                success_sold.update_all(
+                X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]).update_all(
                   price: X100::Raffle.find(@x100_ticket.x100_raffle_id).price_unit,
                   money: ticket_params[:money],
                   status: 'sold',
