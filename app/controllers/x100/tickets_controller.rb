@@ -49,7 +49,7 @@ module X100
                   raise ActiveRecord::Rollback, 'Failed to sell ticket'
                 end
                 @orders = X100::Order.new(
-                  products: success_sold.map(&:position),
+                  products: success_sold,
                   amount: sell_x100_ticket_params[:price],
                   serial: "ORD-#{SecureRandom.hex(8).upcase}",
                   ordered_at: DateTime.now,
@@ -92,7 +92,7 @@ module X100
                 )
 
                 @orders = X100::Order.new(
-                  products: success_sold.map(&:position),
+                  products: success_sold,
                   amount: sell_x100_ticket_params[:price],
                   serial: "ORD-#{SecureRandom.hex(8).upcase}",
                   ordered_at: DateTime.now,
