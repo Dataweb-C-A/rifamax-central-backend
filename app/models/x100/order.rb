@@ -115,7 +115,7 @@ module X100
 
         url = "https://dataweb.testcda.com/wallets_rifas/debit"
 
-        response = HTTParty.post(url, body: @payload.to_json, headers: { 'Content-Type' => 'application/json' })
+        response = HTTParty.post(url, :body => @payload.to_json, :headers => { 'Content-Type' => 'application/json' })
 
         if (response.code == 200) 
           return true
