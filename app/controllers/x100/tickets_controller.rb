@@ -38,7 +38,7 @@ module X100
                 render_ticket_not_sold(position)
                 return
               else
-                success_sold << @x100_ticket.position
+                success_sold << position
               end
             end
             # -- validates_integration_of_tickets(positions) -- #
@@ -63,7 +63,7 @@ module X100
                 )
 
                 if @orders.integrator_job == false
-                  raise ActiveRecord::Rollback, 'Failed to sell ticket'
+                  raise ActiveRecord::Rollback, 'Failed to sell ticket in Integration Job'
                 else
                   X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]).update_all(
                     price: X100::Raffle.find(@x100_ticket.x100_raffle_id).price_unit,
@@ -113,7 +113,7 @@ module X100
                 ActionCable.server.broadcast('x100_tickets', @tickets)
                 # -- live_transactions -- #
               end
-              render json: { message: 'Tickets sold', tickets: success_sold, order: @orders.serial }, status: :ok
+              render json: { message: 'Tickets sold', tickets: X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]), order: @orders.serial }, status: :ok
             else
               render json: { message: "Oops! An error has occurred: #{success_sold.length} of #{positions.length} tickets sold" },
                     status: :unprocessable_entity
