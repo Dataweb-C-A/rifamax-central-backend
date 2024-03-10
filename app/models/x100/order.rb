@@ -80,7 +80,7 @@ module X100
     end
 
     def integrator_job
-      return false if (integrator.present? || integrator_player_id.present?)
+      return false if (!integrator.present? || !integrator_player_id.present?)
 
       case integrator
       when 'CDA'
