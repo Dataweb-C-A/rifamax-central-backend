@@ -30,18 +30,11 @@ module X100
       else
         begin
           ActiveRecord::Base.transaction do
-            # -- validates_integration_of_tickets(positions) -- #
-            positions.each do |position|
-              @x100_ticket = find_reserved_ticket(position)
+            success_sold = validates_positions(positions)
 
-              if @x100_ticket.nil?
-                render_ticket_not_sold(position)
-                return
-              else
-                success_sold << position
-              end
+            if success_sold == "Error"
+              render_ticket_not_sold(positions)
             end
-            # -- validates_integration_of_tickets(positions) -- #
             
             if success_sold.length == positions.length
               if !sell_x100_ticket_params[:integrator].nil?
@@ -185,6 +178,22 @@ module X100
     end
 
     private
+
+    def validates_positions(positions = [])
+      result = []
+
+      positions.each do |position|
+        @x100_ticket = find_reserved_ticket(position)
+
+        if @x100_ticket.nil?
+          return "Error"
+        else
+          result << position
+        end
+      end
+
+      return result
+    end
 
     def find_reserved_ticket(position)
       X100::Ticket.find_by(x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id], position: position,
