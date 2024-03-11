@@ -66,14 +66,7 @@ module X100
                     x100_client_id: sell_x100_ticket_params[:integrator].nil? ? ticket_params[:x100_client_id] : X100::Client.find_by(integrator_id: sell_x100_ticket_params[:x100_client_id], integrator_type: sell_x100_ticket_params[:integrator]).id
                   )
                   @orders.save!
-
-                  # -- live_transactions -- #
-                  @tickets = X100::Ticket.all_sold_tickets
-                  @raffles = X100::Raffle.current_progress_of_actives
-
-                  ActionCable.server.broadcast('x100_raffles', @raffles)
-                  ActionCable.server.broadcast('x100_tickets', @tickets)
-                  # -- live_transactions -- #
+                  broadcast_transaction
                 end
               else
                 X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]).update_all(
@@ -83,7 +76,6 @@ module X100
                   x100_raffle_id: ticket_params[:x100_raffle_id],
                   x100_client_id: sell_x100_ticket_params[:integrator].nil? ? ticket_params[:x100_client_id] : X100::Client.find_by(integrator_id: sell_x100_ticket_params[:x100_client_id], integrator_type: sell_x100_ticket_params[:integrator]).id
                 )
-
                 @orders = X100::Order.new(
                   products: success_sold,
                   amount: sell_x100_ticket_params[:price],
@@ -95,16 +87,8 @@ module X100
                   x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id],
                   shared_exchange_id: Shared::Exchange.last.id
                 )
-                
                 @orders.save!
-
-                # -- live_transactions -- #
-                @tickets = X100::Ticket.all_sold_tickets
-                @raffles = X100::Raffle.current_progress_of_actives
-
-                ActionCable.server.broadcast('x100_raffles', @raffles)
-                ActionCable.server.broadcast('x100_tickets', @tickets)
-                # -- live_transactions -- #
+                broadcast_transaction
               end
               render json: { message: 'Tickets sold', tickets: X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]), order: @orders.serial }, status: :ok
             else
@@ -112,13 +96,7 @@ module X100
                     status: :unprocessable_entity
             end
           rescue => e 
-            # -- live_transactions -- #
-            @tickets = X100::Ticket.all_sold_tickets
-            @raffles = X100::Raffle.current_progress_of_actives
-
-            ActionCable.server.broadcast('x100_raffles', @raffles)
-            ActionCable.server.broadcast('x100_tickets', @tickets)
-            # -- live_transactions -- #
+            broadcast_transaction
 
             render json: { message: "Oops! An error has occurred", error: e.message }, status: :unprocessable_entity
           end
@@ -127,11 +105,7 @@ module X100
     end
 
     def refresh
-      @tickets = X100::Ticket.all_sold_tickets
-      @raffles = X100::Raffle.current_progress_of_actives
-
-      ActionCable.server.broadcast('x100_raffles', @raffles)
-      ActionCable.server.broadcast('x100_tickets', @tickets)
+      broadcast_transaction
 
       render json: { message: 'Ok!' }, status: :ok
     end
@@ -144,11 +118,7 @@ module X100
       elsif @x100_ticket.available?
         return raffle_is_closed_error if @x100_ticket.status == 'Cerrada'
         X100::Ticket.apart_ticket(@x100_ticket.id)
-        @tickets = X100::Ticket.all_sold_tickets
-        @raffles = X100::Raffle.current_progress_of_actives
-
-        ActionCable.server.broadcast('x100_raffles', @raffles)
-        ActionCable.server.broadcast('x100_tickets', @tickets)
+        broadcast_transaction
         render json: { message: 'Ticket aparted', ticket: @x100_ticket }, status: :ok
       else
         render json: { message: "Ticket with position: #{find_raffles_by_params[:position]} can't be apart" },
@@ -178,6 +148,14 @@ module X100
     end
 
     private
+
+    def broadcast_transaction
+      @tickets = X100::Ticket.all_sold_tickets
+      @raffles = X100::Raffle.current_progress_of_actives
+
+      ActionCable.server.broadcast('x100_raffles', @raffles)
+      ActionCable.server.broadcast('x100_tickets', @tickets)
+    end
 
     def validates_positions(positions = [])
       result = []
