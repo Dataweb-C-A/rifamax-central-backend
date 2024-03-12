@@ -177,6 +177,26 @@ module X100
       end
     end
 
+    def select_combos(quantity)
+      ActiveRecord::Base.transaction do
+        raise 'Combos are unavailable' if combos.nil?
+        raise 'Combos are unavailable' if combos.empty?
+        raise 'Insufficient tickets to select combo' if x100_tickets.count < quantity
+
+        combos.each do |combo|
+          raise 'Combos are unavailable' unless combo['quantity'] == quantity
+        end
+
+        @tickets = X100::Raffle.last.x100_tickets.where(status: 'available').order('RANDOM()').limit(quantity).lock
+
+        @tickets.each do |ticket|
+          X100::Ticket.apart(ticket.id)
+        end
+
+        return @tickets
+      end
+    end
+
     private
 
     def initialize_status
