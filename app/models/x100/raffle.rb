@@ -28,7 +28,7 @@
 #  shared_user_id          :integer          not null
 #
 module X100
-  class Raffle < ApplicationRecord
+  class Raffle < ApplicationRecord # rubocop:disable Metrics/ClassLength
     self.table_name = 'x100_raffles'
 
     mount_uploader :ad, X100::AdUploader
@@ -55,7 +55,7 @@ module X100
 
     validates :status,
               presence: true,
-              inclusion: { in: ["En venta", "Finalizando", "Cerrado"] }
+              inclusion: { in: ['En venta', 'Finalizando', 'Cerrado'] }
 
     validates :limit,
               presence: true,
@@ -115,19 +115,9 @@ module X100
     validate :validates_automatic_taquillas
 
     def self.raffles_by_user(user)
+      puts(user)
       X100::Raffle.where(status: ['En venta', 'Finalizando']).order(id: :desc)
     end
-
-    # def self.raffles_by_user(user)
-    #   case user.role
-    #   when 'Rifero'
-    #     X100::Raffle.where(shared_user_id: user.id).reject { |item| item.status == 'Cerrada' }
-    #   when 'Taquilla'
-    #     X100::Raffle.where(shared_user_id: user.rifero_ids << user.id).reject { |item| item.status == 'Cerrada' }
-    #   when 'Admin'
-    #     X100::Raffle.select { |item| item.status == 'En venta' }
-    #   end
-    # end
 
     def self.active_raffles_for_user(user)
       if user.role == 'Admin'
@@ -139,7 +129,7 @@ module X100
       end.order(id: :desc)
     end
 
-    def self.active_raffles_progressive()
+    def self.active_raffles_progressive
       X100::Raffle.where(draw_type: 'Progresiva', status: ['En venta', 'Finalizando']).order(id: :desc)
     end
 
@@ -151,7 +141,7 @@ module X100
       results[:winners] = handle_winners_search if search.include?('winners')
       results[:stats] = handle_stats_search if search.include?('stats')
 
-      results.empty? ? { message: "Provide valid search params: ['tickets', 'raffle', 'winners', 'stats']" } : results
+      results.empty? ? { message: 'Provide valid search params: [tickets, raffle, winners, stats]' } : results
     end
 
     def tickets
@@ -164,7 +154,7 @@ module X100
 
     def select_winner
       ActiveRecord::Base.transaction do
-        return 'No pueden haber más ganadores' if winners&.size == prizes.size
+        raise 'No pueden haber más ganadores' if winners&.size == prizes.size
 
         case draw_type
         when 'Progresiva'
@@ -179,26 +169,31 @@ module X100
 
     def select_combos(quantity)
       ActiveRecord::Base.transaction do
-        raise 'Combos are unavailable' if combos.nil?
-        raise 'Combos are unavailable' if combos.empty?
-        raise 'Insufficient tickets to select combo' if x100_tickets.count < quantity
-        raise 'Raffle is closed, can buy' if status == 'Cerrado'
+        validate_combos(quantity)
 
-        combos.each do |combo|
-          raise 'Combos are unavailable' unless combo['quantity'] == quantity
-        end
-
-        @tickets = X100::Raffle.last.x100_tickets.where(status: 'available').order('RANDOM()').limit(quantity).lock
+        @tickets = X100::Raffle.last.x100_tickets.available.order('RANDOM()').limit(quantity).lock
 
         @tickets.each do |ticket|
-          X100::Ticket.apart(ticket.id)
+          X100::Ticket.apart_ticket(ticket.id)
         end
 
-        return @tickets
+        @tickets
       end
     end
 
     private
+
+    def validate_combos(quantity)
+      raise 'Provides combos quantity value' if combos.blank?
+      raise 'Insufficient tickets to select combo' if x100_tickets.count < quantity
+      raise 'Raffle is closed, can buy' if status == 'Cerrado'
+
+      combos.each do |combo|
+        unless combo['quantity'].to_i == quantity
+          raise "Combo of #{combo['quantity']}/#{quantity} tickets is unavailable"
+        end
+      end
+    end
 
     def initialize_status
       self.status = 'En venta'
@@ -211,74 +206,56 @@ module X100
     end
 
     def initialize_raffle_type
-      case tickets_count
-      when 100
-        self.raffle_type = 'Terminal'
-      when 1000
-        self.raffle_type = 'Triple'
-      else
-        self.raffle_type = 'Infinito'
-      end
-    end 
-
-    def change_first_prize
-      self.prizes[0]['days_to_award'] = 0
-      save
+      self.raffle_type = case tickets_count
+                         when 100
+                           'Terminal'
+                         when 1000
+                           'Triple'
+                         else
+                           'Infinito'
+                         end
     end
 
-    # def when_raffle_expires
-    #   return unless status == 'Cerrada'
-
-    #   $redis.expire("x100_raffle_tickets:#{id}", 259_200)
-
-    #   # X100::Stat.create(
-    #   #   x100_raffle_id: id,
-    #   #   tickets_sold: tickets_sould.count,
-    #   #   profit: tickets_sold.count * price_unit
-    #   # )
-
-    #   # @raffles = X100::Raffle.all
-
-    #   ActionCable.server.broadcast('x100_raffles', @raffles)
-    # end
+    def change_first_prize
+      prizes[0]['days_to_award'] = 0
+      save
+    end
 
     def select_progresive_winner
       ticket_winner = tickets_sold.sample
       ticket_winner.turn_winner!
       client = ticket_winner.x100_client
-    
+
       winner = {
         id: client.id,
         name: client.name,
         phone: client.phone,
         prize_position: (winners&.size || 0) + 1,
-        ticket_winner: ticket_winner
+        ticket_winner:
       }
-    
+
       self.has_winners = true
       self.winners = winners&.push(winner) || [winner]
-      winners.size == prizes.size ? self.status = 'Cerrado' : self.status = 'Finalizando'
+      self.status = (winners.size == prizes.size ? 'Cerrado' : 'Finalizando')
       save
     end
-    
+
     def select_date_limit_winner
       results = []
       tickets_winners = tickets_sold.sample(prizes.size)
-    
-      while tickets_winners.uniq.size != prizes.size
-        tickets_winners = tickets_sold.sample(prizes.size)
-      end
-    
+
+      tickets_winners = tickets_sold.sample(prizes.size) while tickets_winners.uniq.size != prizes.size
+
       tickets_winners.each do |ticket_winner|
         results.push(
           id: ticket_winner.x100_client.id,
           name: ticket_winner.x100_client.name,
           phone: ticket_winner.x100_client.phone,
           prize_position: results.size + 1,
-          ticket_winner: ticket_winner
+          ticket_winner:
         )
       end
-    
+
       self.has_winners = true
       self.status = 'Cerrado'
       self.winners = results
@@ -333,7 +310,7 @@ module X100
                      100
                    end
 
-        progresses << { raffle_id: raffle.id, progress: progress }
+        progresses << { raffle_id: raffle.id, progress: }
       end
 
       progresses
@@ -366,19 +343,8 @@ module X100
 
     def validates_winners_structure
       return if winners.nil?
-      return unless winners.length.positive?
 
-      # winners.each do |winner|
-      #   errors.add(:winners, 'Debe agregar un Id del cliente') if winner[:id].nil? || winner[:id] != Integer
-
-      #   errors.add(:winners, 'Debe agregar un nombre al ganador') if winner[:name].nil?
-
-      #   errors.add(:winners, 'Debe agregar un telefono al ganador') if winner[:phone].nil?
-
-      #   errors.add(:winners, 'Debe agregar una posicion al ganador') if winner[:prize_position].nil?
-
-      #   errors.add(:winners, 'Debe agregar un ticket al ganador') if winner[:ticket_winner].nil?
-      # end
+      nil unless winners.length.positive?
     end
 
     def validates_prizes_structure

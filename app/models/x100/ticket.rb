@@ -8,8 +8,8 @@
 #  money          :string
 #  position       :integer
 #  price          :float
-#  serial         :string           default("8211942d-2e22-48b5-ad9d-bbb38523f0c4")
-#  status         :string           default("available")
+#  serial         :string           default('8211942d-2e22-48b5-ad9d-bbb38523f0c4')
+#  status         :string           default('available')
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  x100_client_id :bigint
@@ -53,7 +53,7 @@ module X100
         transitions from: :reserved, to: :available
       end
 
-      event :turn_winner do 
+      event :turn_winner do
         transitions from: :sold, to: :winner
       end
     end
@@ -105,7 +105,7 @@ module X100
         ticket.save!
       end
     end
-    
+
     def self.sell_ticket(id)
       ActiveRecord::Base.transaction do
         ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').find(id)
@@ -116,7 +116,7 @@ module X100
       end
     end
 
-    def self.refresh()
+    def self.refresh
       url = 'https://api.rifa-max.com/x100/tickets/refresh'
 
       HTTParty.post(url)
@@ -130,12 +130,12 @@ module X100
     #   if raffle.draw_type == 'Progresiva'
     #     case raffle.tickets_count
     #     when 100
-    #       if (tickets <= raffle.limit && raffle.status == "Finalizando")
-    #         $redis.setex("path:awards_#{raffle.id}", 604800, raffle.id)
+    #       if (tickets <= raffle.limit && raffle.status == 'Finalizando')
+    #         $redis.setex('path:awards_#{raffle.id}', 604800, raffle.id)
     #       end
     #     when 1000
-    #       if (((tickets.count.to_f / 1000) * 100).round(2) >= 100 && raffle.status == "Finalizando")
-    #         $redis.setex("path:awards_#{raffle.id}", 604800, raffle.id)
+    #       if (((tickets.count.to_f / 1000) * 100).round(2) >= 100 && raffle.status == 'Finalizando')
+    #         $redis.setex('path:awards_#{raffle.id}', 604800, raffle.id)
     #       end
     #     else
     #       0
@@ -146,38 +146,33 @@ module X100
     # end
 
     def schedule_progressive_ending
-      raffle = self.x100_raffle
-      prizes_days_sum = raffle.prizes.map { |prize| prize["days_to_award"] }.sum
+      raffle = x100_raffle
+      return 'No se ha definido el tipo de sorteo' unless raffle.draw_type == 'Progresiva'
 
-      case raffle.draw_type 
-      when 'Progresiva'
-        if raffle.tickets_count == 100
-          if (raffle.x100_tickets.where(status: 'sold').count >= raffle.limit)
-            raffle.update(status: "Finalizando", expired_date: DateTime.now + prizes_days_sum.days)
-            $redis.setex("select:winner_#{raffle.id}", 43400, raffle.id)
-          end
-        elsif raffle.tickets_count == 1000
-          if (((raffle.x100_tickets.where(status: 'sold').count.to_f / 1000) * 100).round(2) >= 100)
-            raffle.update(status: "Finalizando", expired_date: DateTime.now + prizes_days_sum.days)
-            $redis.setex("select:winner_#{raffle.id}", 43400, raffle.id)
-          end
+      prizes_days_sum = raffle.prizes.sum { |prize| prize['days_to_award'] }
+      sold_tickets_percentage = (raffle.x100_tickets.where(status: 'sold').count.to_f / raffle.tickets_count) * 100
+
+      if sold_tickets_percentage.round(2) >= raffle.limit
+        raffle.update(status: 'Finalizando', expired_date: DateTime.now + prizes_days_sum.days)
+        $redis.setex("select:winner_#{raffle.id}", 43_400, raffle.id)
+      end
+
+      schedule_prizes_awards(raffle) unless raffle.expired_date.nil?
+    end
+
+    private
+
+    def schedule_prizes_awards(raffle)
+      raffle.prizes.each do |prize|
+        prize_day = prize['days_to_award']
+
+        if prize_day != 0 && raffle.status != 'Cerrado'
+          $redis.setex("path:awards_#{raffle.id}", prize_day * 86_400, raffle.id)
         end
 
-        if !raffle.expired_date.nil?
-          prizes.each do |prize|
-            prize_day = prize["days_to_award"]
-
-            if (prize_day != 0 && raffle.status != "Cerrado" && raffle.draw_type == "Progresiva")
-              $redis.setex("path:awards_#{raffle.id}", prize_day * 86400, raffle.id)
-            end
-
-            if (prize_day == 0 && raffle.status != "Cerrado" && raffle.draw_type == "Fecha limite")
-              $redis.setex("path:awards_#{raffle.id}", 60, raffle.id)
-            end
-          end
+        if prize_day == 0 && raffle.status != 'Cerrado' && raffle.draw_type == 'Fecha limite'
+          $redis.setex("path:awards_#{raffle.id}", 60, raffle.id)
         end
-      else
-        "No se ha definido el tipo de sorteo"
       end
     end
 
@@ -185,7 +180,7 @@ module X100
     #   order = X100::Order.new(
     #     products: positions,
     #     amount: price,
-    #     serial: "ORD-#{SecureRandom.hex(8).upcase}",
+    #     serial: 'ORD-#{SecureRandom.hex(8).upcase}',
     #     ordered_at: DateTime.now,
     #     shared_user_id: x100_raffle.shared_user_id,
     #     x100_client_id: x100_client_id,

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       post 'apart', on: :collection
       post 'refresh', on: :collection
       post 'available', on: :collection
+      post 'combo', on: :collection
     end
     resources :draws do 
       get 'raffle_stats', on: :collection
