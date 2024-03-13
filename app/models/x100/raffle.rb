@@ -175,6 +175,7 @@ module X100
 
         @tickets.each do |ticket|
           X100::Ticket.apart_ticket(ticket.id)
+          ticket.status = 'reserved'
         end
 
         @tickets
