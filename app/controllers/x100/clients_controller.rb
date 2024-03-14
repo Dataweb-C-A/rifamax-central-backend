@@ -40,7 +40,7 @@ module X100
       @x100_client = X100::Client.new(x100_integrator_params)
       @existant_user = X100::Client.find_by(x100_integrator_params)
 
-      if @existant_user.length > 0
+      if @existant_user
         render json: { message: 'Client already exists', user: @existant_user }, status: :ok
       else
         if @x100_client.save
