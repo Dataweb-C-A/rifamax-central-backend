@@ -96,5 +96,6 @@ module X100
         status: 'available',
         x100_client_id: nil,
       )
+    end
   end
 end
