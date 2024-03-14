@@ -19,8 +19,10 @@ require 'httparty'
 
 module X100
   class Client < ApplicationRecord
-    has_many :x100_tickets, class_name: 'X100::Ticket', foreign_key: 'x100_client_id', dependent: :destroy
+    has_many :x100_tickets, class_name: 'X100::Ticket', foreign_key: 'x100_client_id'
     has_many :x100_orders, class_name: 'X100::Order', foreign_key: 'x100_client_id', dependent: :destroy
+
+    before_destroy :return_values_tickets
 
     validates :name,
               presence: true
@@ -60,9 +62,6 @@ module X100
                 with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
                 message: 'Introduzca un correo electrónico válido'
               },
-              uniqueness: {
-                message: 'Ya existe un cliente con este correo electrónico'
-              },
 	            if: -> { email.nil? }
 
     def tickets
@@ -87,5 +86,15 @@ module X100
     def exists?
       X100::Client.where(X100::Client.where(phone:)).exists?
     end
+
+    private
+
+    def return_values_tickets
+      x100_tickets.update_all(
+        price: nil,
+        money: nil,
+        status: 'available',
+        x100_client_id: nil,
+      )
   end
 end

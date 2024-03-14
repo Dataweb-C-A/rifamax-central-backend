@@ -38,7 +38,7 @@ module X100
     
     def integrator
       @x100_client = X100::Client.new(x100_integrator_params)
-      @existant_user = X100::Client.where(email: x100_integrator_params[:email])
+      @existant_user = X100::Client.find_by(x100_integrator_params)
 
       if @existant_user.length > 0
         render json: { message: 'Client already exists', user: @existant_user }, status: :ok
