@@ -46,7 +46,7 @@ module X100
                 money: sell_x100_ticket_params[:money],
                 shared_user_id: @current_user.id,
                 x100_client_id: X100::Client.find_by(integrator_id: sell_x100_ticket_params[:x100_client_id],
-                                                     integrator_type: sell_x100_ticket_params[:integrator]).id,
+                                                     integrator_type: sell_x100_ticket_params[:integrator]),
                 x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id],
                 integrator_player_id: sell_x100_ticket_params[:player_id],
                 integrator: sell_x100_ticket_params[:integrator],
