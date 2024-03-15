@@ -143,7 +143,6 @@ module X100
         rescue StandardError => e
           ActiveRecord::Rollback unless e.nil?
           render json: { message: 'Oops! An error has been occurred', error: e }, status: :unprocessable_entity
-        end
       end
       broadcast_transaction
       render json: { message: 'Tickets refunded!', tickets: @result }, status: :ok
