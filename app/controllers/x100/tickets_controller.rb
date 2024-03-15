@@ -126,7 +126,7 @@ module X100
       @result = []
 
       ActiveRecord::Base.transaction do
-        if !@x100_ticket.nil? || @x100_ticket.select { |ticket| ticket.status == 'sold' }.empty?
+        if @x100_ticket.nil? || @x100_ticket.select { |ticket| ticket.status == 'sold' }.empty?
           render json: { message: "Tickets with position: #{refund_params[:position]} can't be refunded" }, status: :unprocessable_entity
         elsif @x100_ticket
           @x100_tickets.each do |ticket|
@@ -142,9 +142,9 @@ module X100
             ticket.x100_client_id = nil
             @result << ticket
           end
+          broadcast_transaction
+          render json: { message: 'Tickets refunded!', tickets: @result }, status: :ok
         end
-        broadcast_transaction
-        render json: { message: 'Tickets refunded!', tickets: @result }, status: :ok
       end
     end
 
