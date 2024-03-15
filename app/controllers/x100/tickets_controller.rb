@@ -120,10 +120,39 @@ module X100
       render json: { message: 'Ok!' }, status: :ok
     end
 
+    def refund
+      @x100_client = X100::Client.find_by(integrator_id: refund_params[:integrator_id], integrator_type: refund_params[:integrator_type])
+      @x100_tickets = X100::Ticket.where(x100_raffle_id: refund_params[:x100_raffle_id], position: refund_params[:position])
+      @result = []
+
+      ActiveRecord::Base.transaction do
+        if @x100_ticket.nil?
+          render_not_found("Ticket with position: #{refund_params[:position]} can't be refunded")
+        elsif @x100_ticket.sold?
+          @x100_tickets.each do |ticket|
+            ticket.update(
+              price: nil,
+              money: nil,
+              status: 'available',
+              x100_client_id: nil
+            )
+            ticket.reload
+            @result << ticket
+          end
+        end
+        rescue StandardError => e
+          ActiveRecord::Rollback unless e.nil?
+          render json: { message: 'Oops! An error has been occurred', error: e }, status: :unprocessable_entity
+        end
+      end
+      broadcast_transaction
+      render json: { message: 'Tickets refunded!', tickets: @result }, status: :ok
+    end
+
     def combo
       @quantity = combos_params[:quantity].to_i
       @tickets = X100::Raffle.find(combos_params[:x100_raffle_id]).select_combos(@quantity)
-
+      broadcast_transaction
       render json: { message: 'Tickets already selected!', tickets: @tickets }, status: :ok
     rescue StandardError => e
       render json: { message: 'Oops! An error has been occurred', error: e }, status: :unprocessable_entity
@@ -192,13 +221,18 @@ module X100
       result
     end
 
+    
     def find_reserved_ticket(position)
       X100::Ticket.find_by(x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id], position:,
-                           status: 'reserved')
+      status: 'reserved')
     end
-
+    
     def render_ticket_not_sold(position)
       render json: { message: "Ticket with position: #{position} can't be sold" }, status: :unprocessable_entity
+    end
+    
+    def refund_params
+      params.require(:x100_ticket).permit(:position , :x100_raffle_id, :integrator_id, :integrator_type)
     end
 
     def ticket_params
