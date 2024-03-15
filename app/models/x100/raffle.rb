@@ -171,14 +171,17 @@ module X100
       ActiveRecord::Base.transaction do
         validate_combos(quantity)
 
-        @tickets = X100::Raffle.last.x100_tickets.available.order('RANDOM()').limit(quantity).lock
+        @tickets = X100::Raffle.last.x100_tickets.available.order('RANDOM()').limit(quantity)
+
+        @result = []
 
         @tickets.each do |ticket|
           X100::Ticket.apart_ticket(ticket.id)
           ticket.status = 'reserved'
+          @result << ticket
         end
 
-        @tickets
+        @result
       end
     end
 

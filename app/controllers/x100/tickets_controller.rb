@@ -125,8 +125,8 @@ module X100
       @tickets = X100::Raffle.find(combos_params[:x100_raffle_id]).select_combos(@quantity)
 
       render json: { message: 'Tickets already selected!', tickets: @tickets }, status: :ok
-    rescue StandardError
-      render json: { message: 'Oops! An error has been occurred' }, status: :unprocessable_entity
+    rescue StandardError => e
+      render json: { message: 'Oops! An error has been occurred', error: e }, status: :unprocessable_entity
     end
 
     def apart
