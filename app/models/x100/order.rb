@@ -42,6 +42,8 @@ module X100
     belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id'
     belongs_to :x100_raffle, class_name: 'X100::Raffle', foreign_key: 'x100_raffle_id'
     belongs_to :shared_exchange, class_name: 'Shared::Exchange', foreign_key: 'shared_exchange_id'
+
+    before_destroy :update_tickets_before_destroy
   
     validates :money,
               presence: true,
@@ -109,7 +111,9 @@ module X100
             raffle_type: x100_raffle.raffle_type,
             price_unit: x100_raffle.price_unit,
             tickets_count: x100_raffle.tickets_count,
-            lotery: x100_raffle.lotery
+            lotery: x100_raffle.lotery,
+            draw_type: x100_raffle.draw_type,
+            expired_date: x100_raffle.expired_date == nil ? nil : x100_raffle.expired_date.strftime("%d/%m/%Y - %H:%M"),
           }
         }
 
@@ -125,6 +129,35 @@ module X100
       else
         return true
       end
+    end
+
+    private
+
+    def update_tickets_before_destroy
+      @x100_tickets = x100_tickets.update_all(position: product, x100_raffle_id: self.x100_raffle_id).update(position: product, price: nil, x100_client_id: nil, status: 'available')
+      @payload = {
+          id: id,
+          amount: amount,
+          serial: serial,
+          tickets: @x100_tickets,
+          tx_transaction: 'DEBIT',
+          currency: money,
+          player_id: integrator_player_id,
+          x100_raffle: {
+            raffle_image: "https://api.rifa-max.com/#{x100_raffle.ad.url}",
+            title: x100_raffle.title,
+            status: x100_raffle.status,
+            money: x100_raffle.money,
+            raffle_type: x100_raffle.raffle_type,
+            price_unit: x100_raffle.price_unit,
+            tickets_count: x100_raffle.tickets_count,
+            lotery: x100_raffle.lotery,
+            draw_type: x100_raffle.draw_type,
+            expired_date: x100_raffle.expired_date,
+          }
+        }
+
+      return @payload
     end
   end
 end

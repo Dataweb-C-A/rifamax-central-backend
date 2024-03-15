@@ -122,29 +122,13 @@ module X100
 
     def refund
       @x100_client = X100::Client.find_by(integrator_id: refund_params[:integrator_id], integrator_type: refund_params[:integrator_type])
-      @x100_tickets = X100::Ticket.where(x100_raffle_id: refund_params[:x100_raffle_id], position: refund_params[:position])
-      @result = []
+      @x100_order = X100::Order.find_by(x100_raffle_id: refund_params[:serial])
 
-      ActiveRecord::Base.transaction do
-        if @x100_ticket.nil? || @x100_ticket.select { |ticket| ticket.status == 'sold' }.empty? || @x100_client.nil?
-          render json: { message: "Tickets with position: #{refund_params[:position]} can't be refunded" }, status: :unprocessable_entity
-        elsif @x100_ticket
-          @x100_tickets.each do |ticket|
-            ticket.update(
-              price: nil,
-              money: nil,
-              status: 'available',
-              x100_client_id: nil
-            )
-            ticket.price = nil
-            ticket.money = nil
-            ticket.status = 'available'
-            ticket.x100_client_id = nil
-            @result << ticket
-          end
-          broadcast_transaction
-          render json: { message: 'Tickets refunded!', tickets: @result }, status: :ok
-        end
+      if @x100_order.nil?
+        render json: { message: 'Order not found' }, status: :not_found
+      else
+        broadcast_transaction
+        render json: { message: 'Tickets refunded!', tickets: @x100_order.destroy }, status: :ok
       end
     end
 
@@ -231,8 +215,8 @@ module X100
     end
     
     def refund_params
-      params.require(:x100_ticket).permit(:position , :x100_raffle_id, :integrator_id, :integrator_type)
-    end
+      params.require(:x100_ticket).permit(:serial, :integrator_id, :integrator_type)
+    end 
 
     def ticket_params
       sell_x100_ticket_params.slice(:x100_client_id, :x100_raffle_id, :price, :money)
