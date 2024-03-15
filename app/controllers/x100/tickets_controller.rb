@@ -125,10 +125,8 @@ module X100
       @x100_tickets = X100::Ticket.where(x100_raffle_id: refund_params[:x100_raffle_id], position: refund_params[:position])
       @result = []
 
-      render json: { message: 'Oops! An error has been occurred' }, status: :unprocessable_entity unless @x100_tickets.nil?
-
       ActiveRecord::Base.transaction do
-        if @x100_ticket.select { |ticket| ticket.status == 'sold' }.empty?
+        if !@x100_ticket.nil? || @x100_ticket.select { |ticket| ticket.status == 'sold' }.empty?
           render json: { message: "Tickets with position: #{refund_params[:position]} can't be refunded" }, status: :unprocessable_entity
         elsif @x100_ticket
           @x100_tickets.each do |ticket|
