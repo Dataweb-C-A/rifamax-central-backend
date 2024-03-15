@@ -140,12 +140,9 @@ module X100
             @result << ticket
           end
         end
-        rescue StandardError => e
-          ActiveRecord::Rollback unless e.nil?
-          render json: { message: 'Oops! An error has been occurred', error: e }, status: :unprocessable_entity
+        broadcast_transaction
+        render json: { message: 'Tickets refunded!', tickets: @result }, status: :ok
       end
-      broadcast_transaction
-      render json: { message: 'Tickets refunded!', tickets: @result }, status: :ok
     end
 
     def combo
