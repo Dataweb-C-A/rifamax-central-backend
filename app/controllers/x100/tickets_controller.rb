@@ -128,8 +128,9 @@ module X100
       if @x100_order.nil?
         render json: { message: 'Order not found' }, status: :not_found
       else
+        @x100_order.refund_order!
         broadcast_transaction
-        render json: { message: 'Tickets refunded!', tickets: @x100_order.refund_order! }, status: :ok
+        render json: { message: 'Tickets refunded!', tickets: @x100_order }, status: :ok
       end
     end
 
