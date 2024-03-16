@@ -134,7 +134,7 @@ module X100
     private
 
     def update_tickets_before_destroy
-      @x100_tickets = x100_tickets.update_all(position: product, x100_raffle_id: self.x100_raffle_id).update(position: product, price: nil, x100_client_id: nil, status: 'available')
+      @x100_tickets = x100_tickets.update_all(price: nil, x100_client_id: nil, status: 'available')
       @payload = {
           id: id,
           amount: amount,
