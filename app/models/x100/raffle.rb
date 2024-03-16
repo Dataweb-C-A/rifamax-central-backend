@@ -192,11 +192,15 @@ module X100
       raise 'Insufficient tickets to select combo' if x100_tickets.count < quantity
       raise 'Raffle is closed, can buy' if status == 'Cerrado'
 
+      combos_selected = nil
+
       combos.each do |combo|
-        unless combo['quantity'].to_i == quantity
-          raise "Combo of #{combo['quantity']}/#{quantity} tickets is unavailable"
+        if combo['quantity'].to_i == quantity
+          combos_selected = combo
         end
       end
+
+      raise 'Invalid combo quantity' if combos_selected.nil?
     end
 
     def initialize_status
