@@ -80,12 +80,10 @@
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
         font-size: 14px;
         line-height: 1.5;
-        margin-left: 20px;
-        margin-right: -40px;
         margin-bottom: -20px;
         color: black;
         font-weight: 300;
-        width: 25%;
+        width: 33.33%;
       }
       .table__quantity {
         -webkit-tap-highlight-color: transparent;
@@ -93,11 +91,10 @@
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
         font-size: 14px;
         line-height: 1.5;
-        margin: 0px 0px 0px 10px;
         color: black;
         margin-bottom: -20px;
         font-weight: 300;
-        width: 10%;
+        width: 33.33%;
       }
       .table__price {
         -webkit-tap-highlight-color: transparent;
@@ -109,7 +106,7 @@
         margin-bottom: -20px;
         color: black;
         font-weight: 300;
-        width: 10%;
+        width: 33.33%;
       }
       .table__discount {
         -webkit-tap-highlight-color: transparent;
@@ -162,6 +159,9 @@
           .col-12
             %div{:class => "card", :style => "max-width: 362px; margin: auto;"}
               .card-body
+                .divider
+                %h1{:class => "card-title text-center", :style => "font-size: 25px;"} DEVUELTO
+                .divider
                 %h1{:class => "card-title text-center", :style => "font-size: 25px;"} Datos del comprador
                 %p{:class => "card-title text-center", :style => "font-size: 22px; font-weight: 350; margin: 0"} #{@order.x100_client.name}
                 %p{:class => "card-title text-center", :style => "font-size: 20px; font-weight: 350; margin: 0"} #{@order.x100_client&.phone}
