@@ -4,6 +4,7 @@ module X100
   class TicketsController < ApplicationController
     before_action :authorize_request, except: [:refresh]
     before_action :fetch_tickets, only: [:index]
+    before_action :unable_access_when_is_not_integration, only: %i[refund]
 
     def index
       @tickets = X100::Ticket.all_sold_tickets
@@ -206,8 +207,14 @@ module X100
 
     
     def find_reserved_ticket(position)
-      X100::Ticket.find_by(x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id], position:,
+      X100::Ticket.find_by(x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id], position: position,
       status: 'reserved')
+    end
+
+    def unable_access_when_is_not_integration
+      unless @current_user.is_integration
+        render json: { message: "This user is not allowed to perform this action" }, status: :forbidden
+      end
     end
     
     def render_ticket_not_sold(position)

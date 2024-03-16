@@ -137,7 +137,7 @@ module X100
 
     def refund_order!
       @x100_tickets = x100_tickets
-      self.update(status: 'refunded', logs: JSON.parse(@x100_tickets.to_json))
+      self.update(status: 'refunded', logs: JSON.parse(@x100_tickets.to_json), products: [])
 
       @x100_tickets.update_all(price: nil, x100_client_id: nil, status: 'available')
       @payload = {

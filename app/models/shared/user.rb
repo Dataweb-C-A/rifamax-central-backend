@@ -9,6 +9,7 @@
 #  dni             :string
 #  email           :string
 #  is_active       :boolean
+#  is_integration  :boolean          default(FALSE)
 #  module_assigned :integer          default([]), is an Array
 #  name            :string
 #  password_digest :string
