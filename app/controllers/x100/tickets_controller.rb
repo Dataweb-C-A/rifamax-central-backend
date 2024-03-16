@@ -140,9 +140,9 @@ module X100
 
     def combo
       @quantity = combos_params[:quantity].to_i
-      @tickets = X100::Raffle.find(combos_params[:x100_raffle_id]).select_combos(@quantity)
+      @tickets_combo = X100::Raffle.find(combos_params[:x100_raffle_id]).select_combos(@quantity)
       broadcast_transaction
-      render json: { message: 'Tickets already selected!', ticket: @tickets }, status: :ok
+      render json: { message: 'Tickets already selected!', ticket: @tickets_combo }, status: :ok
     rescue StandardError => e
       render json: { message: 'Oops! An error has been occurred', error: e }, status: :unprocessable_entity
     end
