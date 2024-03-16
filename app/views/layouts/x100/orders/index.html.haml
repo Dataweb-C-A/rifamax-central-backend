@@ -159,10 +159,10 @@
           .col-12
             %div{:class => "card", :style => "max-width: 362px; margin: auto;"}
               .card-body
-                .divider
                 - if @order.status == 'refunded'
+                  .divider
                   %h1{:class => "card-title text-center", :style => "font-size: 25px;"} DEVUELTO
-                .divider
+                  .divider
                 %h1{:class => "card-title text-center", :style => "font-size: 25px;"} Datos del comprador
                 %p{:class => "card-title text-center", :style => "font-size: 22px; font-weight: 350; margin: 0"} #{@order.x100_client.name}
                 %p{:class => "card-title text-center", :style => "font-size: 20px; font-weight: 350; margin: 0"} #{@order.x100_client&.phone}
