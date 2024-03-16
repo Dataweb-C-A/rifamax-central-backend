@@ -185,7 +185,7 @@
                         - @order.products.each do |product|
                           %h6{:class => "table__products"}= product
                           %h6{:class => "table__price text-start"}= "#{@order.x100_raffle.price_unit.to_i}#{@order.x100_raffle.money == 'USD' ? '$' : ' ' + @order.x100_raffle.money}"
-                          %h6{:class => "table__discount text-end"}= "#{(@order.discount_rate * 100).to_i}%"
+                          %h6{:class => "table__discount text-end"}= "#{(@order.discount_rate_from_logs * 100).to_i}%"
                 .divider
                 %p{:class => "card-title text-start", :style => "font-size: 15px; font-weight: 750; margin: 0"} Datos de la rifa:
                 %p{:class => "card-title text-start", :style => "font-size: 15px; font-weight: 350; margin: 0"} #{@order.x100_raffle.title}

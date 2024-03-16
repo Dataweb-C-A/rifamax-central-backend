@@ -70,6 +70,10 @@ module X100
       X100::Ticket.where(position: products, x100_raffle_id: x100_raffle_id).sum(:price)
     end
 
+    def price_without_discount_from_logs
+      logs.map { |log| log['price'] }.compact.sum
+    end
+
     def transform_amount_to_dolar
       case money
       when 'VES'
@@ -83,6 +87,10 @@ module X100
 
     def discount_rate
       (self.price_without_discount - self.transform_amount_to_dolar) / self.price_without_discount
+    end
+
+    def discount_rate_from_logs
+      (self.price_without_discount_from_logs - self.transform_amount_to_dolar) / self.price_without_discount_from_logs
     end
 
     def integrator_job
