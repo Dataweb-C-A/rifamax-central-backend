@@ -7,10 +7,12 @@
 #  id                   :bigint           not null, primary key
 #  amount               :float
 #  integrator           :string
+#  logs                 :jsonb            is an Array
 #  money                :string
 #  ordered_at           :datetime
 #  products             :integer          default([]), is an Array
 #  serial               :string
+#  status               :string           default("active")
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #  integrator_player_id :integer

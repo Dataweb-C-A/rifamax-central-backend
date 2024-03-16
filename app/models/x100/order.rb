@@ -7,10 +7,12 @@
 #  id                   :bigint           not null, primary key
 #  amount               :float
 #  integrator           :string
+#  logs                 :jsonb            is an Array
 #  money                :string
 #  ordered_at           :datetime
 #  products             :integer          default([]), is an Array
 #  serial               :string
+#  status               :string           default("active")
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #  integrator_player_id :integer
@@ -42,12 +44,14 @@ module X100
     belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id'
     belongs_to :x100_raffle, class_name: 'X100::Raffle', foreign_key: 'x100_raffle_id'
     belongs_to :shared_exchange, class_name: 'Shared::Exchange', foreign_key: 'shared_exchange_id'
-
-    before_destroy :update_tickets_before_destroy
   
     validates :money,
               presence: true,
               inclusion: { in: %w[VES USD COP] }
+
+    validates :status,
+              presence: true,
+              inclusion: { in: %w[active refunded] }
 
     validates :integrator,
               presence: true,
@@ -131,18 +135,29 @@ module X100
       end
     end
 
-    private
+    def refund_order!
+      @x100_tickets = x100_tickets
+      self.update(status: 'refunded', logs: JSON.parse(@x100_tickets.to_json))
 
-    def update_tickets_before_destroy
-      @x100_tickets = x100_tickets.update_all(price: nil, x100_client_id: nil, status: 'available')
+      @x100_tickets.update_all(price: nil, x100_client_id: nil, status: 'available')
       @payload = {
           id: id,
           amount: amount,
           serial: serial,
-          tickets: @x100_tickets,
+          tickets: x100_tickets.map do |ticket|
+            {
+              id: ticket[:id],
+              position: ticket[:position],
+              serial: ticket[:serial],
+              price: nil,
+              money: nil,
+              status: 'available'
+            }
+          end,
           tx_transaction: 'DEBIT',
           currency: money,
           player_id: integrator_player_id,
+          status: 'refunded',
           x100_raffle: {
             raffle_image: "https://api.rifa-max.com/#{x100_raffle.ad.url}",
             title: x100_raffle.title,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_09_171946) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_16_183341) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -175,6 +175,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_09_171946) do
     t.datetime "updated_at", null: false
     t.integer "integrator_player_id"
     t.string "integrator"
+    t.string "status", default: "active"
+    t.jsonb "logs", default: [], array: true
     t.index ["shared_exchange_id"], name: "index_x100_orders_on_shared_exchange_id"
     t.index ["shared_user_id"], name: "index_x100_orders_on_shared_user_id"
     t.index ["x100_client_id"], name: "index_x100_orders_on_x100_client_id"

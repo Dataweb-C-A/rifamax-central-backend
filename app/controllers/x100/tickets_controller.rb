@@ -128,7 +128,7 @@ module X100
         render json: { message: 'Order not found' }, status: :not_found
       else
         broadcast_transaction
-        render json: { message: 'Tickets refunded!', tickets: @x100_order.destroy }, status: :ok
+        render json: { message: 'Tickets refunded!', tickets: @x100_order.refund_order! }, status: :ok
       end
     end
 
