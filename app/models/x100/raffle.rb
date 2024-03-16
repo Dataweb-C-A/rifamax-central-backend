@@ -181,7 +181,7 @@ module X100
           @result << ticket
         end
 
-        @result
+        return @result
       end
     end
 
