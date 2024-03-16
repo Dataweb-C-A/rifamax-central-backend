@@ -122,7 +122,7 @@ module X100
 
     def refund
       @x100_client = X100::Client.find_by(integrator_id: refund_params[:integrator_id], integrator_type: refund_params[:integrator_type])
-      @x100_order = X100::Order.find_by(x100_raffle_id: refund_params[:serial])
+      @x100_order = X100::Order.find_by(serial: refund_params[:serial])
 
       if @x100_order.nil?
         render json: { message: 'Order not found' }, status: :not_found
