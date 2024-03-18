@@ -175,7 +175,7 @@ module X100
       ActiveRecord::Base.transaction do
         validate_combos(quantity)
 
-        @tickets = X100::Raffle.last.x100_tickets.available.order('RANDOM()').limit(quantity)
+        @tickets = X100::Raffle.last.x100_tickets.available.sample(quantity.to_i)
 
         @result = []
 
