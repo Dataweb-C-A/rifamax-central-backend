@@ -14,4 +14,12 @@ class ApplicationRecord < ActiveRecord::Base
       scope.where(scope.arel_table[column].send(:between, value..))
     end
   end
+
+  def self.recently
+    where(created_at: 12.hours.ago..Time.current)
+  end
+
+  def self.recently_commit
+    where(updated_at: 12.hours.ago..Time.current)
+  end
 end

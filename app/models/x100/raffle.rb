@@ -31,6 +31,10 @@ module X100
   class Raffle < ApplicationRecord # rubocop:disable Metrics/ClassLength
     self.table_name = 'x100_raffles'
 
+    scope :active, -> { where(status: 'En venta') }
+    scope :closing, -> { where(status: 'Finalizando') }
+    scope :closed, -> { where(status: 'Cerrado') }
+
     mount_uploader :ad, X100::AdUploader
     has_many :x100_tickets, class_name: 'X100::Ticket', foreign_key: 'x100_raffle_id', dependent: :destroy
     has_one :x100_stat, class_name: 'X100::Stat', foreign_key: 'x100_raffle_id', dependent: :destroy
