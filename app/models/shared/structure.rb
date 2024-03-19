@@ -20,4 +20,16 @@
 #
 class Shared::Structure < ApplicationRecord
   belongs_to :shared_user, class_name: 'Shared::User', foreign_key: 'shared_user_id'
+
+  after_create :generate_token
+
+  def self.token_preview
+    'rm_live_' + SecureRandom.uuid
+  end
+
+  private
+
+  def generate_token
+    update(token: "rm_live_#{SecureRandom.uuid}")
+  end
 end

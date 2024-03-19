@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     resources :draws do 
       get 'raffle_stats', on: :collection
     end
+    resources :invoices do
+      post 'pay', on: :collection
+    end
   end
 
   namespace :rifamax do

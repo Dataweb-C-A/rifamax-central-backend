@@ -94,7 +94,7 @@ module X100
       ActiveRecord::Base.transaction do
         ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').find(id)
         ticket.apart!
-        $redis.setex("ticket_#{ticket.id}", 900, ticket.id)
+        $redis.setex("ticket_#{ticket.id}", 300, ticket.id)
       end
     end
 

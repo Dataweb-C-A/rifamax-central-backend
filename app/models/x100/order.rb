@@ -89,6 +89,22 @@ module X100
       (self.price_without_discount - self.transform_amount_to_dolar) / self.price_without_discount
     end
 
+    def self.invoices(date_init = Time.now, date_end = Time.now, taquilla = nil, client = nil)
+      payload = {
+        ordered_at: date_init..date_end,
+        x100_client_id: client&.id,
+        shared_user_id: taquilla&.id,
+      }
+      currencies =  [:USD, :VES, :COP]
+
+      orders = X100::Order.where(payload.compact, status: 'active').group_by { |order| order.money }.transform_values { |orders| orders.sum(&:amount) }
+
+      # invoice = {
+      #   count_of_orders: @orders.count,
+      #   profit: currencies.map { |currency| orders}
+      # }
+    end
+
     def discount_rate_from_logs
       (self.price_without_discount_from_logs - self.transform_amount_to_dolar) / self.price_without_discount_from_logs
     end
