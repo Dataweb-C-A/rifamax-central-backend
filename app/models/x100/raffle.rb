@@ -195,7 +195,6 @@ module X100
       raise 'Provides combos quantity value' if combos.blank?
       raise 'Insufficient tickets to select combo' if x100_tickets.count < quantity
       raise 'Raffle is closed, can buy' if status == 'Cerrado'
-
       combos_selected = nil
 
       combos.each do |combo|
