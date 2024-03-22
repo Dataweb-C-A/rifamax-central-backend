@@ -124,7 +124,7 @@ module X100
         @x100_tickets = X100::Ticket.where(x100_client_id: client.id, status: 'reserved')
         @x100_tickets.update_all(status: 'available', x100_client_id: nil)
         broadcast_transaction
-        render json: { message: 'Tickets cleared!', tickets: @x100_tickets }, status: :ok
+        render json: { message: 'Tickets cleared!' }, status: :ok
       end
     end
 
