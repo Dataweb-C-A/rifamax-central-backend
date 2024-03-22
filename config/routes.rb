@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       post 'sell', on: :collection
       post 'apart', on: :collection
       post 'apart_integrator', on: :collection
+      post 'clear', on: :collection
       post 'refresh', on: :collection
       post 'available', on: :collection
       post 'refund', on: :collection
