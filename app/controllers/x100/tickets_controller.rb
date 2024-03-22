@@ -129,7 +129,7 @@ module X100
     end
 
     def apart_integrator
-      @x100_ticket = X100::Ticket.find_by(position: apart_integrator_params[:position]), x100_raffle_id: apart_integrator_params[:x100_raffle_id])
+      @x100_ticket = X100::Ticket.find_by(position: apart_integrator_params[:position], x100_raffle_id: apart_integrator_params[:x100_raffle_id])
 
       if @x100_ticket.nil?
         render_not_found("Ticket with position: #{apart_integrator_params[:position]} can't be apart")
