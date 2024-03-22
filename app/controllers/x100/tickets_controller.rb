@@ -4,7 +4,7 @@ module X100
   class TicketsController < ApplicationController
     before_action :authorize_request, except: [:refresh]
     before_action :fetch_tickets, only: [:index]
-    before_action :unable_access_when_is_not_integration, only: %i[refund]
+    before_action :unable_access_when_is_not_integration, only: %i[refund clear apart_integrator]
 
     def index
       @tickets = X100::Ticket.all_sold_tickets
@@ -112,6 +112,36 @@ module X100
           render json: { message: 'Oops! An error has occurred', error: e.message }, status: :unprocessable_entity
         end
 
+      end
+    end
+
+    def clear
+      client = X100::Client.find_by(clear_params)
+
+      if client.nil?
+        render json: { message: 'Client not found' }, status: :not_found
+      else
+        @x100_tickets = X100::Ticket.where(x100_client_id: client.id, status: 'sold')
+        @x100_tickets.update_all(status: 'available', x100_client_id: nil)
+        broadcast_transaction
+        render json: { message: 'Tickets cleared!', tickets: @x100_tickets }, status: :ok
+      end
+    end
+
+    def apart_integrator
+      @x100_ticket = X100::Ticket.find_by(position: apart_integrator_params[:position]), x100_raffle_id: apart_integrator_params[:x100_raffle_id])
+
+      if @x100_ticket.nil?
+        render_not_found("Ticket with position: #{apart_integrator_params[:position]} can't be apart")
+      elsif @x100_ticket.available?
+        return raffle_is_closed_error if @x100_ticket.status == 'Cerrada'
+
+        X100::Ticket.apart_ticket_integrator(@x100_ticket.id, apart_integrator_params[:integrator_id], apart_integrator_params[:integrator_type])
+        broadcast_transaction
+        render json: { message: 'Ticket aparted', ticket: @x100_ticket }, status: :ok
+      else
+        render json: { message: "Ticket with position: #{apart_integrator_params[:position]} can't be apart" },
+               status: :unprocessable_entity
       end
     end
 
@@ -234,6 +264,10 @@ module X100
       sell_x100_ticket_params.slice(:x100_client_id, :x100_raffle_id, :price, :money)
     end
 
+    def apart_integrator_params
+      params.require(:ticket).permit(:x100_raffle_id, :position, :integrator_id, :integrator_type)
+    end
+
     def find_raffles_by_params
       params.require(:x100_ticket).permit(:x100_raffle_id, :position)
     end
@@ -245,6 +279,10 @@ module X100
     def sell_x100_ticket_params
       params.require(:x100_ticket).permit(:x100_raffle_id, :x100_client_id, :price, :money, :integrator, :player_id,
                                           positions: [])
+    end
+
+    def clear_params
+      params.require(:client).permit(:integrator_id, :integrator_type)
     end
 
     def combos_params

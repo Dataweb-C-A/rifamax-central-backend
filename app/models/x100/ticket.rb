@@ -98,10 +98,22 @@ module X100
       end
     end
 
+    def self.apart_ticket_integrator(id, integrator_id, integrator_type)
+      client = X100::Client.find_by(integrator_id: integrator_id, integrator_type: integrator_type)
+      ActiveRecord::Base.transaction do
+        ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').find(id)
+        ticket.x100_client_id = client.id
+        ticket.apart!
+        ticket.save!
+        $redis.setex("ticket_#{ticket.id}", 300, ticket.id)
+      end
+    end
+
     def self.make_available(id)
       ActiveRecord::Base.transaction do
         ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').find(id)
         ticket.turn_available!
+        ticket.x100_client_id = nil
         ticket.save!
       end
     end

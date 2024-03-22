@@ -25,17 +25,20 @@ module Shared
     has_one :shared_wallet, class_name: 'Shared::Wallet', foreign_key: 'shared_user_id', dependent: :destroy
     has_many :x100_order, class_name: 'X100::Order', foreign_key: 'shared_user_id', dependent: :destroy
     has_one :shared_structure, class_name: 'Shared::Structure', foreign_key: 'shared_user_id', dependent: :destroy
+    has_one :social_influencer, class_name: 'Social::Influencer', foreign_key: 'shared_user_id', dependent: :destroy
 
     has_secure_password
 
     after_create :generate_wallet
     after_create :generate_slug
+    after_create :generate_influencer
 
     enum :role, {
       Admin: 'admin',
       Agente: 'agente',
       Taquilla: 'taquilla',
       Rifero: 'rifero',
+      Influencer: 'influencer',
       Autotaquilla: 'autotaquilla'
     }
 
@@ -120,6 +123,8 @@ module Shared
       shared_wallet
     end
 
+    private
+
     def validate_riferos
       return unless role != 'Taquilla' && rifero_ids.length.positive?
 
@@ -128,6 +133,12 @@ module Shared
 
     def generate_slug
       self.slug = name.parameterize
+    end
+
+    def generate_influencer
+      if role == 'Influencer'
+        Social::Influencer.create(content_code: name.parameterize.split("-").join, shared_user_id: id)
+      end
     end
 
     def generate_wallet
