@@ -123,11 +123,14 @@ module X100
       else
         ActiveRecord::Base.transaction do
           @x100_tickets = X100::Ticket.where(x100_client_id: client.id, status: 'reserved')
+          if @x100_tickets.empty?
+            raise ActiveRecord::Rollback, 'Tickets not found'
+          end
           @x100_tickets.update_all(status: 'available', x100_client_id: nil)
           broadcast_transaction
           render json: { message: 'Tickets cleared!', is_cleared: true }, status: :ok
         rescue StandardError => e
-          render json: { message: "Tickets can't be cleared!", is_cleared: false }, status: :unprocessable_entity
+          render json: { message: "Tickets can't be cleared!", is_cleared: false, error: e }, status: :unprocessable_entity
         end
       end
     end
