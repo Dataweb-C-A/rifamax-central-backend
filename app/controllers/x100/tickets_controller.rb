@@ -126,10 +126,9 @@ module X100
           @x100_tickets.update_all(status: 'available', x100_client_id: nil)
           broadcast_transaction
           render json: { message: 'Tickets cleared!', is_cleared: true }, status: :ok
+        rescue StandardError => e
+          render json: { message: "Tickets can't be cleared!", is_cleared: false }, status: :unprocessable_entity
         end
-
-      rescue StandardError => e
-        render json: { message: "Tickets can't be cleared!", is_cleared: false }, status: :unprocessable_entity
       end
     end
 
