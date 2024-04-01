@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_16_185031) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_22_153923) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -151,6 +151,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_16_185031) do
     t.index ["shared_user_id"], name: "index_shared_wallets_on_shared_user_id"
   end
 
+  create_table "social_influencers", force: :cascade do |t|
+    t.string "content_code"
+    t.bigint "shared_user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shared_user_id"], name: "index_social_influencers_on_shared_user_id"
+  end
+
   create_table "x100_clients", force: :cascade do |t|
     t.string "name"
     t.string "dni"
@@ -238,6 +246,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_16_185031) do
   add_foreign_key "shared_structures", "shared_users"
   add_foreign_key "shared_transactions", "shared_wallets"
   add_foreign_key "shared_wallets", "shared_users"
+  add_foreign_key "social_influencers", "shared_users"
   add_foreign_key "x100_orders", "shared_exchanges"
   add_foreign_key "x100_orders", "shared_users"
   add_foreign_key "x100_orders", "x100_clients"

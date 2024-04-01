@@ -3,17 +3,19 @@
 require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
+# rubocop:disable Metrics/BlockLength
 Rails.application.routes.draw do
   post '/login', to: 'authentication#login'
+  post '/admin/login', to: 'authentication#admin_login'
 
   namespace :x100 do
-    resources :orders, only: [:index] do 
+    resources :orders, only: [:index] do
       get 'bill', on: :collection
     end
     resources :raffles do
       get 'progressives', on: :collection
     end
-    resources :clients do 
+    resources :clients do
       post 'integrator', on: :collection
     end
     resources :tickets do
@@ -26,7 +28,7 @@ Rails.application.routes.draw do
       post 'refund', on: :collection
       post 'combo', on: :collection
     end
-    resources :draws do 
+    resources :draws do
       get 'raffle_stats', on: :collection
     end
     resources :invoices do
@@ -54,3 +56,4 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
   mount Sidekiq::Web => '/sidekiq'
 end
+# rubocop:enable Metrics/BlockLength

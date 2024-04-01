@@ -22,21 +22,25 @@
 #
 module Shared
   class UserSerializer < ActiveModel::Serializer
-    attributes :id, :name, :dni, :is_active, :phone, :role
+    attributes :id, :name, :dni, :is_active, :phone, :role, :content_code
 
-    def riferos
-      Shared::User.where(id: object.rifero_ids)
-                  .select(:id, :dni, :email, :is_active, :phone)
-                  .map do |user|
-        {
-          id: user.id,
-          dni: user.dni,
-          email: user.email,
-          is_active: user.is_active,
-          role: 'Rifero',
-          phone: user.phone
-        }
-      end
+    def content_code
+      object.social_influencer&.content_code
     end
+
+    # def riferos
+    #   Shared::User.where(id: object.rifero_ids)
+    #               .select(:id, :dni, :email, :is_active, :phone)
+    #               .map do |user|
+    #     {
+    #       id: user.id,
+    #       dni: user.dni,
+    #       email: user.email,
+    #       is_active: user.is_active,
+    #       role: 'Rifero',
+    #       phone: user.phone
+    #     }
+    #   end
+    # end
   end
 end
