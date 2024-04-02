@@ -168,9 +168,13 @@ module X100
         if @x100_order.status == 'refunded'
           render json: { message: 'Order already refunded', order: @x100_order }, status: :unprocessable_entity
         else
-          @x100_order.refund_order!
-          broadcast_transaction
-          render json: { message: 'Tickets refunded!', order: @x100_order }, status: :ok
+          if @x100_order.integrator_credit_job
+            @x100_order.refund_order!
+            broadcast_transaction
+            render json: { message: 'Tickets refunded!', order: @x100_order }, status: :ok
+          else
+            render json: { message: 'Order can not be refunded', order: @x100_order }, status: :unprocessable_entity
+          end
         end
       end
     end
