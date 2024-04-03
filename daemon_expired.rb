@@ -32,6 +32,13 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
       url = 'https://api.rifa-max.com/x100/tickets/refresh'
 
       HTTParty.post(url)
+
+    when "auto:temp"
+      data = X100::Stat.temp
+
+      url = 'http://localhost:5000/logs'
+
+      HTTParty.post(url, body, :headers => { 'Content-Type' => 'application/json' })
     else
       puts "Event has not been defined: #{$event}. Events defined are: exchange, ticket"
     end
