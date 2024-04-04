@@ -57,7 +57,7 @@ module X100
               )
 
               if @orders.integrator_job == false
-                raise ActiveRecord::Rollback, 'Failed to sell ticket in Integration Job'
+                render json: { message: 'Oops! An error has occurred: Integrator job failed', payload: @orders.integrator_payload }, status: :unprocessable_entity
               end
 
               X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]).update_all(

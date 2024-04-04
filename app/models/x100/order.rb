@@ -109,6 +109,46 @@ module X100
       (self.price_without_discount_from_logs - self.transform_amount_to_dolar) / self.price_without_discount_from_logs
     end
 
+    def integrator_payload
+      case integrator
+      when 'CDA'
+        return({
+          id: id,
+          amount: amount,
+          serial: serial,
+          tickets: x100_tickets.map do |ticket|
+            {
+              id: ticket[:id],
+              position: ticket[:position],
+              serial: ticket[:serial],
+              price: ticket[:price],
+              money: ticket[:money],
+              status: ticket[:status]
+            }
+          end,
+          tx_transaction: 'DEBIT',
+          currency: money,
+          player_id: integrator_player_id,
+          x100_raffle: {
+            raffle_image: "https://api.rifa-max.com/#{x100_raffle.ad.url}",
+            title: x100_raffle.title,
+            status: x100_raffle.status,
+            money: x100_raffle.money,
+            raffle_type: x100_raffle.raffle_type,
+            price_unit: x100_raffle.price_unit,
+            tickets_count: x100_raffle.tickets_count,
+            lotery: x100_raffle.lotery,
+            draw_type: x100_raffle.draw_type,
+            expired_date: x100_raffle.expired_date == nil ? nil : x100_raffle.expired_date.strftime("%d/%m/%Y - %H:%M"),
+          }
+        })
+      else
+        return({
+          message: 'Integrador no encontrado'
+        })
+      end
+    end
+
     def integrator_job
       return false if (!integrator.present? || !integrator_player_id.present?)
 
