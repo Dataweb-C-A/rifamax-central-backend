@@ -56,9 +56,9 @@ module X100
                 shared_exchange_id: Shared::Exchange.last.id
               )
 
-              # if @orders.integrator_job == false
-              #   raise ActiveRecord::Rollback, 'Integrator API failed at selling ticket, aborting transaction!'
-              # end
+              if @orders.integrator_job == false
+                raise ActiveRecord::Rollback, 'Integrator API failed at selling ticket, aborting transaction!'
+              end
 
               X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]).update_all(
                 price: X100::Raffle.find(@x100_ticket.x100_raffle_id).price_unit,
