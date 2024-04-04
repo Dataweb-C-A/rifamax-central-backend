@@ -109,7 +109,7 @@ module X100
         rescue StandardError => e
           broadcast_transaction
 
-          render json: { message: 'Oops! An error has occurred', error: e.message }, status: :unprocessable_entity
+          render json: { message: 'Oops! An error has occurred', error: e.message, payload: @orders.integrator_payload }, status: :unprocessable_entity
         end
 
       end
