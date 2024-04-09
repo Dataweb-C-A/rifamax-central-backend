@@ -121,11 +121,17 @@ module X100
                 return "Insufficient fund: money = #{money}"
                 # raise ActiveRecord::Rollback, 'Insufficient funds'
               end
-            else
+            elsif currency == 'VES'
               if (res["balance"].to_f < (ticket.x100_raffle.price_unit * Shared::Exchange.last.value_bs))
                 return "Insufficient fund: money = #{money}"
                 # raise ActiveRecord::Rollback, 'Insufficient funds'
               end
+            else
+              ticket.x100_client_id = client.id
+              ticket.apart!
+              ticket.save!
+              $redis.setex("ticket_#{ticket.id}", 300, ticket.id)
+              return true
             end
           else
             return "Integrator Job is down or not responding, integrator: #{integrador}"
@@ -135,11 +141,6 @@ module X100
           # raise ActiveRecord::Rollback, 'Integrator Type is not defined'
           return 'Integrator Type is not defined'
         end
-        ticket.x100_client_id = client.id
-        ticket.apart!
-        ticket.save!
-        $redis.setex("ticket_#{ticket.id}", 300, ticket.id)
-        return true
       end
     end
 
