@@ -112,22 +112,27 @@ module X100
           if res.code == 200
             if currency == 'USD'
               if (res.data.balance.to_f < (ticket.x100_raffle.price_unit))
-                raise ActiveRecord::Rollback, 'Insufficient funds'
+                return "Insufficient fund: #{currency}"
+                # raise ActiveRecord::Rollback, 'Insufficient funds'
               end
             elsif currency == 'COP'
               if (res.data.balance.to_f < (ticket.x100_raffle.price_unit * Shared::Exchange.last.value_cop))
-                raise ActiveRecord::Rollback, 'Insufficient funds'
+                return "Insufficient fund: #{currency}"
+                # raise ActiveRecord::Rollback, 'Insufficient funds'
               end
             else
               if (res.data.balance.to_f < (ticket.x100_raffle.price_unit * Shared::Exchange.last.value_bs))
-                raise ActiveRecord::Rollback, 'Insufficient funds'
+                return "Insufficient fund: #{currency}"
+                # raise ActiveRecord::Rollback, 'Insufficient funds'
               end
             end
           else
-            raise ActiveRecord::Rollback, "Integrator Job is down or not responding, integrator: #{integrator_type}"
+            return "Integrator Job is down or not responding, integrator: #{integrator_type}"
+            # raise ActiveRecord::Rollback, "Integrator Job is down or not responding, integrator: #{integrator_type}"
           end
         else
-          raise ActiveRecord::Rollback, 'Integrator Type is not defined'
+          # raise ActiveRecord::Rollback, 'Integrator Type is not defined'
+          return 'Integrator Type is not defined'
         end
         ticket.x100_client_id = client.id
         ticket.apart!
