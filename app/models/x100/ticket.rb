@@ -98,10 +98,37 @@ module X100
       end
     end
 
-    def self.apart_ticket_integrator(id, integrator_id, integrator_type)
+    def self.apart_ticket_integrator(id, integrator_id, integrator_type, money)
       client = X100::Client.find_by(integrator_id: integrator_id, integrator_type: integrator_type)
+      url = ENV["#{integrator_type.to_s.downcase!}_url_base"]
+      currency = money.to_s.upcase!
+
       ActiveRecord::Base.transaction do
         ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').find(id)
+        case integrator_type
+        when 'CDA'
+          res = HTTParty.get("#{url}/wallets_rifas?player_id=#{integrator_id}&currency=#{currency}")
+          
+          if res.code == 200
+            if currency == 'USD'
+              if (res.data.balance.to_f < (ticket.x100_raffle.price_unit))
+                raise ActiveRecord::Rollback, 'Insufficient funds'
+              end
+            elsif currency == 'COP'
+              if (res.data.balance.to_f < (ticket.x100_raffle.price_unit * Shared::Exchange.last.value_cop))
+                raise ActiveRecord::Rollback, 'Insufficient funds'
+              end
+            else
+              if (res.data.balance.to_f < (ticket.x100_raffle.price_unit * Shared::Exchange.last.value_bs))
+                raise ActiveRecord::Rollback, 'Insufficient funds'
+              end
+            end
+          else
+            raise ActiveRecord::Rollback, "Integrator Job is down or not responding, integrator: #{integrator_type}"
+          end
+        else
+          raise ActiveRecord::Rollback, 'Integrator Type is not defined'
+        end
         ticket.x100_client_id = client.id
         ticket.apart!
         ticket.save!
