@@ -113,17 +113,17 @@ module X100
           if res.code == 200
             if currency == 'USD'
               if (res["balance"].to_f < (ticket.x100_raffle.price_unit))
-                return "Insufficient fund: #{currency}"
+                return "Insufficient fund: money = #{money}"
                 # raise ActiveRecord::Rollback, 'Insufficient funds'
               end
             elsif currency == 'COP'
               if (res["balance"].to_f < (ticket.x100_raffle.price_unit * Shared::Exchange.last.value_cop))
-                return "Insufficient fund: #{currency}"
+                return "Insufficient fund: money = #{money}"
                 # raise ActiveRecord::Rollback, 'Insufficient funds'
               end
             else
               if (res["balance"].to_f < (ticket.x100_raffle.price_unit * Shared::Exchange.last.value_bs))
-                return "Insufficient fund: #{currency}"
+                return "Insufficient fund: money = #{money}"
                 # raise ActiveRecord::Rollback, 'Insufficient funds'
               end
             end
