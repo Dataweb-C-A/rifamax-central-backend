@@ -108,7 +108,7 @@ module X100
         ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').find(id)
         case integrador
         when 'CDA'
-          res = HTTParty.get("#{url}/wallets_rifas?player_id=#{integrator_id}&currency=#{currency}")
+          res = HTTParty.get("#{url}/wallets_rifas?player_id=#{integrator_id}&currency=#{money}")
           
           if res.code == 200
             if currency == 'USD'
