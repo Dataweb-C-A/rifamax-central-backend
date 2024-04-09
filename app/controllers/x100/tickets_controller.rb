@@ -149,6 +149,7 @@ module X100
         else
           broadcast_transaction
           render json: { message: "Ticket with position: #{apart_integrator_params[:position]} can't be apart" },
+                 status: :unprocessable_entity
         end
       else
         render json: { message: "Ticket with position: #{apart_integrator_params[:position]} can't be apart" },
