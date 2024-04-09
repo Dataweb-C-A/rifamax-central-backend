@@ -100,12 +100,13 @@ module X100
 
     def self.apart_ticket_integrator(id, integrator_id, integrator_type = 'CDA', money)
       client = X100::Client.find_by(integrator_id: integrator_id, integrator_type: integrator_type)
-      url = ENV["#{integrator_type.to_s.downcase!}_url_base"]
+      url = ENV["cda_url_base"]
+      integrador = 'CDA'
       currency = money.to_s.upcase!
 
       ActiveRecord::Base.transaction do
         ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').find(id)
-        case integrator_type
+        case integrador
         when 'CDA'
           res = HTTParty.get("#{url}/wallets_rifas?player_id=#{integrator_id}&currency=#{currency}")
           
@@ -127,7 +128,7 @@ module X100
               end
             end
           else
-            return "Integrator Job is down or not responding, integrator: #{integrator_type}"
+            return "Integrator Job is down or not responding, integrator: #{integrador}"
             # raise ActiveRecord::Rollback, "Integrator Job is down or not responding, integrator: #{integrator_type}"
           end
         else
