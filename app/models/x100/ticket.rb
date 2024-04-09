@@ -111,27 +111,21 @@ module X100
           res = HTTParty.get("#{url}/wallets_rifas?player_id=#{integrator_id}&currency=#{money}")
           
           if res.code == 200
-            if currency == 'USD'
+            if money == 'USD'
               if (res["balance"].to_f < (ticket.x100_raffle.price_unit))
                 return "Insufficient fund: money = #{money}"
                 # raise ActiveRecord::Rollback, 'Insufficient funds'
               end
-            elsif currency == 'COP'
+            elsif money == 'COP'
               if (res["balance"].to_f < (ticket.x100_raffle.price_unit * Shared::Exchange.last.value_cop))
                 return "Insufficient fund: money = #{money}"
                 # raise ActiveRecord::Rollback, 'Insufficient funds'
               end
-            elsif currency == 'VES'
+            else
               if (res["balance"].to_f < (ticket.x100_raffle.price_unit * Shared::Exchange.last.value_bs))
                 return "Insufficient fund: money = #{money}"
                 # raise ActiveRecord::Rollback, 'Insufficient funds'
               end
-            else
-              ticket.x100_client_id = client.id
-              ticket.apart!
-              ticket.save!
-              $redis.setex("ticket_#{ticket.id}", 300, ticket.id)
-              return true
             end
           else
             return "Integrator Job is down or not responding, integrator: #{integrador}"
@@ -141,6 +135,11 @@ module X100
           # raise ActiveRecord::Rollback, 'Integrator Type is not defined'
           return 'Integrator Type is not defined'
         end
+        ticket.x100_client_id = client.id
+        ticket.apart!
+        ticket.save!
+        $redis.setex("ticket_#{ticket.id}", 300, ticket.id)
+        return true
       end
     end
 
