@@ -98,7 +98,7 @@ module X100
       end
     end
 
-    def self.apart_ticket_integrator(id, integrator_id, integrator_type, money)
+    def self.apart_ticket_integrator(id, integrator_id, integrator_type = 'CDA', money)
       client = X100::Client.find_by(integrator_id: integrator_id, integrator_type: integrator_type)
       url = ENV["#{integrator_type.to_s.downcase!}_url_base"]
       currency = money.to_s.upcase!
