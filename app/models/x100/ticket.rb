@@ -133,7 +133,7 @@ module X100
         ticket.apart!
         ticket.save!
         $redis.setex("ticket_#{ticket.id}", 300, ticket.id)
-        return { message: 'Ticket aparted successfully', ticket: ticket }
+        return true
       end
     end
 
