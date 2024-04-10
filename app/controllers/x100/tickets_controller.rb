@@ -36,11 +36,11 @@ module X100
             integrator_id: sell_x100_ticket_params[:x100_client_id], integrator_type: sell_x100_ticket_params[:integrator]
           )
 
-          render_ticket_not_sold(positions) if success_sold == 'Error' and return
+          render_ticket_not_sold(positions) if success_sold == 'Error'
 
           if success_sold.length == positions.length
             if !sell_x100_ticket_params[:integrator].nil?
-              raise ActiveRecord::Rollback, 'Failed to sell ticket' if sell_x100_ticket_params[:player_id].nil? and return
+              raise ActiveRecord::Rollback, 'Failed to sell ticket' if sell_x100_ticket_params[:player_id].nil?
 
               @orders = X100::Order.new(
                 products: success_sold,
@@ -57,7 +57,7 @@ module X100
               )
 
               if @orders.integrator_job == false
-                raise ActiveRecord::Rollback, 'Integrator API failed at selling ticket, aborting transaction!' and return
+                raise ActiveRecord::Rollback, 'Integrator API failed at selling ticket, aborting transaction!'
               end
 
               X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]).update_all(
@@ -101,10 +101,10 @@ module X100
               broadcast_transaction
             end
             render json: { message: 'Tickets sold', tickets: X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]), order: @orders.serial },
-                   status: :ok and return
+                   status: :ok
           else
             render json: { message: "Oops! An error has occurred: #{success_sold.length} of #{positions.length} tickets sold" },
-                   status: :unprocessable_entity and return
+                   status: :unprocessable_entity
           end
         end
       end
