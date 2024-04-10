@@ -36,7 +36,7 @@ module X100
             integrator_id: sell_x100_ticket_params[:x100_client_id], integrator_type: sell_x100_ticket_params[:integrator]
           )
 
-          # render_ticket_not_sold(positions) if success_sold == 'Error'
+          render_ticket_not_sold(positions) if success_sold == 'Error'
 
           if success_sold.length == positions.length
             if !sell_x100_ticket_params[:integrator].nil?
@@ -106,12 +106,7 @@ module X100
             render json: { message: "Oops! An error has occurred: #{success_sold.length} of #{positions.length} tickets sold" },
                    status: :unprocessable_entity
           end
-        rescue StandardError => e
-          broadcast_transaction
-
-          render json: { message: 'Oops! An error has occurred', error: e.message }, status: :unprocessable_entity
         end
-
       end
     end
 
