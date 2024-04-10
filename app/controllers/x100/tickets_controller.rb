@@ -36,7 +36,7 @@ module X100
             integrator_id: sell_x100_ticket_params[:x100_client_id], integrator_type: sell_x100_ticket_params[:integrator]
           )
 
-          render_ticket_not_sold(positions) if success_sold == 'Error'
+          # render_ticket_not_sold(positions) if success_sold == 'Error'
 
           if success_sold.length == positions.length
             if !sell_x100_ticket_params[:integrator].nil?
