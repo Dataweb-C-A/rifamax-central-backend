@@ -92,3 +92,7 @@ gem 'whenever', '~> 1.0'
 gem "byebug", "~> 11.1"
 
 gem "figaro", "~> 1.2"
+
+gem "stripe", "~> 11.0"
+
+gem "droplet_kit", "~> 3.20"

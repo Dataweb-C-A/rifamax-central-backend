@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_22_153923) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_15_231511) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -151,12 +151,83 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_153923) do
     t.index ["shared_user_id"], name: "index_shared_wallets_on_shared_user_id"
   end
 
+  create_table "social_clients", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "dni"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "social_influencers", force: :cascade do |t|
     t.string "content_code"
     t.bigint "shared_user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shared_user_id"], name: "index_social_influencers_on_shared_user_id"
+  end
+
+  create_table "social_orders", force: :cascade do |t|
+    t.float "amount"
+    t.string "money"
+    t.datetime "ordered_at"
+    t.integer "products"
+    t.string "serial"
+    t.string "status"
+    t.bigint "social_client_id", null: false
+    t.bigint "social_raffle_id", null: false
+    t.bigint "shared_exchange_id", null: false
+    t.bigint "social_payment_method_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shared_exchange_id"], name: "index_social_orders_on_shared_exchange_id"
+    t.index ["social_client_id"], name: "index_social_orders_on_social_client_id"
+    t.index ["social_payment_method_id"], name: "index_social_orders_on_social_payment_method_id"
+    t.index ["social_raffle_id"], name: "index_social_orders_on_social_raffle_id"
+  end
+
+  create_table "social_payment_methods", force: :cascade do |t|
+    t.string "payment"
+    t.jsonb "details"
+    t.bigint "social_client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["social_client_id"], name: "index_social_payment_methods_on_social_client_id"
+  end
+
+  create_table "social_raffles", force: :cascade do |t|
+    t.string "ad"
+    t.jsonb "combos"
+    t.string "raffle_type"
+    t.boolean "has_winners"
+    t.datetime "init_date"
+    t.datetime "expired_date"
+    t.float "price_unit"
+    t.string "draw_type"
+    t.integer "tickets_count"
+    t.string "status"
+    t.string "title"
+    t.jsonb "winners"
+    t.jsonb "prizes"
+    t.string "money"
+    t.integer "limit"
+    t.bigint "social_influencer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["social_influencer_id"], name: "index_social_raffles_on_social_influencer_id"
+  end
+
+  create_table "social_tickets", force: :cascade do |t|
+    t.string "money"
+    t.integer "position"
+    t.float "price"
+    t.string "serial"
+    t.string "status"
+    t.bigint "social_raffle_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["social_raffle_id"], name: "index_social_tickets_on_social_raffle_id"
   end
 
   create_table "x100_clients", force: :cascade do |t|
@@ -247,6 +318,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_153923) do
   add_foreign_key "shared_transactions", "shared_wallets"
   add_foreign_key "shared_wallets", "shared_users"
   add_foreign_key "social_influencers", "shared_users"
+  add_foreign_key "social_orders", "shared_exchanges"
+  add_foreign_key "social_orders", "social_clients"
+  add_foreign_key "social_orders", "social_payment_methods"
+  add_foreign_key "social_orders", "social_raffles"
+  add_foreign_key "social_payment_methods", "social_clients"
+  add_foreign_key "social_raffles", "social_influencers"
+  add_foreign_key "social_tickets", "social_raffles"
   add_foreign_key "x100_orders", "shared_exchanges"
   add_foreign_key "x100_orders", "shared_users"
   add_foreign_key "x100_orders", "x100_clients"

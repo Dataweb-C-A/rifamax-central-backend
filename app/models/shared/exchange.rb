@@ -15,6 +15,7 @@
 module Shared
   class Exchange < ApplicationRecord
     has_many :x100_orders, class_name: 'X100::Order', foreign_key: 'shared_exchange_id'
+    has_many :social_orders, class_name: 'Social::Order', foreign_key: 'shared_exchange_id'
 
     include HTTParty
     require 'nokogiri'
@@ -23,7 +24,7 @@ module Shared
     after_create :change_exchange
 
     def self.get_cop
-      fx = Currencyapi::Endpoints.new(apikey: 'cur_live_yPWZk5kwhQRmQPenFQXWUnmuZKeNEHgGCwYnR5za')
+      fx = Currencyapi::Endpoints.new(apikey: ENV["currency_api_key"])
 
       string = fx.latest('USD', 'COP')
 

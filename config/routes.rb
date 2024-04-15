@@ -53,6 +53,13 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :dev do
+    resources :tools do
+      get 'server', on: :collection
+      post 'restart_server', on: :collection
+    end
+  end
+
   mount ActionCable.server => '/cable'
   mount Sidekiq::Web => '/sidekiq'
 end

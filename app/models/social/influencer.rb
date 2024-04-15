@@ -18,4 +18,6 @@
 #
 class Social::Influencer < ApplicationRecord
   belongs_to :shared_user, class_name: 'Shared::User', foreign_key: 'shared_user_id'
+
+  has_many :social_raffles, class_name: 'Social::Raffle', foreign_key: 'social_influencer_id', dependent: :destroy
 end
