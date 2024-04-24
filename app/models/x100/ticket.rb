@@ -225,6 +225,8 @@ module X100
     end
 
     def validates_tickets_sequence_when_infinite
+      return unless x100_raffle.draw_type == 'Infinito'
+
       if X100::Ticket.where(x100_raffle_id: x100_raffle_id, position: position).exists?
         errors.add(:position, 'Ya existe un ticket con esta posición')
       end
