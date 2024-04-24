@@ -8,6 +8,7 @@
 #  integrator_type :string
 #  name            :string
 #  phone           :string
+#  pv              :boolean          default(FALSE)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  integrator_id   :integer

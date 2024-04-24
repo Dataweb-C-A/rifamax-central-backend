@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'progressives', on: :collection
     end
     resources :clients do
+      get 'dni', on: :collection
       post 'integrator', on: :collection
     end
     resources :tickets do

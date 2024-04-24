@@ -171,6 +171,19 @@ module X100
       end
     end
 
+    def select_infinite_two(quantity)
+      raise 'Raffle is closed, can buy' if status == 'Cerrado'
+      raise 'Raffle is not infinite type' if raffle_type != 'Infinito'
+      raise 'Quantity must be positive and maximum must be 10' if quantity <= 0 || quantity > 10
+      raise 'Quantity must be a number' if quantity.class != 'Integer'
+      
+      ActiveRecord::Base.transaction do
+        tickets_selected = []
+        
+        
+      end
+    end
+
     def select_infinite(quantity)
       return { message: 'Raffle is closed, can buy', tickets_selected: [] } if status == 'Cerrado'
       return { message: 'Raffle is not infinite type', tickets_selected: [] } if raffle_type != 'Infinito'
@@ -178,47 +191,51 @@ module X100
       
       tickets_selected = []
 
-      while tickets_selected.length < quantity
-        busy_tickets = self.x100_tickets
-        busy_count = busy_tickets.count
-        parse_busy_tickets = busy_tickets.map(&:position)
-        swaps = busy_count.to_s.length < 5 ? 1 : (busy_count.to_i / 10000) + 1
+      ActiveRecord::Base.transaction do
+        while tickets_selected.length < quantity
+          busy_tickets = self.x100_tickets
+          busy_count = busy_tickets.count
+          parse_busy_tickets = busy_tickets.map(&:position)
+          swaps = busy_count.to_s.length < 5 ? 1 : (busy_count.to_i / 10000) + 1
 
-        max_swaps = ("#{swaps}0000").to_i
-        min_swaps = swaps == 1 ? 1 : ("#{swaps - 1}0000").to_i
-        
-        all_tickets = (min_swaps..max_swaps).to_a - parse_busy_tickets
+          max_swaps = ("#{swaps}0000").to_i
+          min_swaps = swaps == 1 ? 1 : ("#{swaps - 1}0000").to_i
+          
+          all_tickets = (min_swaps..max_swaps).to_a - parse_busy_tickets
 
-        position_selected = all_tickets.sample()
+          position_selected = all_tickets.first
 
-        ticket = X100::Ticket.new(
-          position: position_selected,
-          money: nil,
-          price: nil,
-          x100_client_id: nil,
-          x100_raffle_id: id,
-          status: 'reserved'
-        )
-
-        if ticket.valid?
-          X100::Ticket.create(
+          ticket = X100::Ticket.new(
             position: position_selected,
             money: nil,
             price: nil,
-            serial: SecureRandom.uuid(),
             x100_client_id: nil,
             x100_raffle_id: id,
             status: 'reserved'
           )
 
-          tickets_selected << ticket.attributes.except('created_at', 'updated_at', 'id', 'x100_client_id','price', 'money')
+          if ticket.valid?
+            X100::Ticket.create(
+              position: position_selected,
+              money: nil,
+              price: nil,
+              serial: SecureRandom.uuid(),
+              x100_client_id: nil,
+              x100_raffle_id: id,
+              status: 'reserved'
+            )
+
+            tickets_selected << ticket.attributes.except('created_at', 'updated_at', 'id', 'x100_client_id','price', 'money')
+          end
         end
+        return {
+          message: 'Tickets seleccionados',
+          tickets_selected: tickets_selected
+        }
+      rescue StandardError => e
+        return { message: e.message, tickets_selected: [] }
       end
 
-      return {
-        message: 'Tickets seleccionados',
-        tickets_selected: tickets_selected
-      }
     end
 
     def select_combos(quantity)

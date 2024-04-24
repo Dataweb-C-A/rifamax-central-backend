@@ -16,6 +16,17 @@ module X100
       end
     end
 
+    # GET /x100/clients/dni
+    def dni
+      @x100_clients = X100::Client.find_by(dni: fetch_user[:dni])
+
+      if @x100_clients.nil?
+        render json: { message: "Client with phone: #{fetch_user[:dni]} doesn't exist" }, status: :not_found
+      else
+        render json: @x100_clients, status: :ok
+      end
+    end
+
     # GET /x100/clients/1
     def show
       if admin?
@@ -89,12 +100,12 @@ module X100
     end
 
     def fetch_user
-      params.permit(:phone)
+      params.permit(:phone, :dni)
     end
 
     # Only allow a list of trusted parameters through.
     def x100_client_params
-      params.require(:x100_client).permit(:name, :dni, :phone, :email)
+      params.require(:x100_client).permit(:name, :dni, :phone, :email, :pv)
     end
 
     def x100_integrator_params
