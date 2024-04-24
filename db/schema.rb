@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_15_231511) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_16_174420) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dev_processes", force: :cascade do |t|
+    t.string "process_type"
+    t.string "content"
+    t.datetime "process_actives_at"
+    t.string "priority"
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "fifty_churches", force: :cascade do |t|
     t.string "parroquia"

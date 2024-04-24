@@ -179,6 +179,20 @@ module X100
       end
     end
 
+    def apart_infinite
+      if apart_infinite_params[:quantity].nil? || apart_infinite_params[:x100_raffle_id].nil?
+        parameter_require_error
+      else
+        raffle = X100::Raffle.find(apart_infinite_params[:x100_raffle_id])
+
+        if raffle.nil?
+          resource_not_found_error('Raffle')
+        else
+          render json: raffle.select_infinite(apart_infinite_params[:quantity]), status: :ok
+        end
+      end
+    end
+
     def combo
       @quantity = combos_params[:quantity].to_i
       @tickets_combo = X100::Raffle.find(combos_params[:x100_raffle_id]).select_combos(@quantity)
@@ -284,7 +298,7 @@ module X100
     end
 
     def render_not_found(message)
-      render json: { message: }, status: :not_found
+      render json: { message: "Resource can't be found" }, status: :not_found
     end
 
     def sell_x100_ticket_params
@@ -298,6 +312,10 @@ module X100
 
     def combos_params
       params.require(:combo).permit(:x100_raffle_id, :quantity)
+    end
+
+    def apart_infinite_params
+      params.require(:raffle).permit(:x100_raffle_id, :quantity)
     end
 
     def parameter_require_error

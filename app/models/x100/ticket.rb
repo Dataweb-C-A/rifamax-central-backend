@@ -32,6 +32,8 @@ module X100
     belongs_to :x100_raffle, class_name: 'X100::Raffle', foreign_key: 'x100_raffle_id'
     belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id', optional: true
 
+    validate :validates_tickets_sequence_when_infinite
+
     after_update :schedule_progressive_ending
     # after_create :generate_order
 
@@ -200,7 +202,7 @@ module X100
 
       if sold_tickets_percentage.round(2) >= raffle.limit
         raffle.update(status: 'Finalizando', expired_date: DateTime.now + prizes_days_sum.days)
-        $redis.setex("select:winner_#{raffle.id}", 43_400, raffle.id)
+        $redis.setex("select:winner_#{raffle.id}", 43400, raffle.id)
       end
 
       schedule_prizes_awards(raffle) unless raffle.expired_date.nil?
@@ -213,7 +215,7 @@ module X100
         prize_day = prize['days_to_award']
 
         if prize_day != 0 && raffle.status != 'Cerrado'
-          $redis.setex("path:awards_#{raffle.id}", prize_day * 86_400, raffle.id)
+          $redis.setex("path:awards_#{raffle.id}", prize_day * 86400, raffle.id)
         end
 
         if prize_day == 0 && raffle.status != 'Cerrado' && raffle.draw_type == 'Fecha limite'
@@ -222,6 +224,11 @@ module X100
       end
     end
 
+    def validates_tickets_sequence_when_infinite
+      if X100::Ticket.where(x100_raffle_id: x100_raffle_id, position: position).exists?
+        errors.add(:position, 'Ya existe un ticket con esta posición')
+      end
+    end
     # def self.generate_order(positions)
     #   order = X100::Order.new(
     #     products: positions,

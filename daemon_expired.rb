@@ -39,6 +39,10 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
       url = 'http://localhost:5000/logs'
 
       HTTParty.post(url, body, :headers => { 'Content-Type' => 'application/json' })
+      
+    when "dev:stats"
+      $redis.setex("dev:stats_rifamax", 604800, 'clear')
+      Dev::Process.where('process_actives_at < ?', Date.today - 5.days).destroy_all
     else
       puts "Event has not been defined: #{$event}. Events defined are: exchange, ticket"
     end

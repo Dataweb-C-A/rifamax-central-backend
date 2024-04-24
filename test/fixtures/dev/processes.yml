@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: dev_processes
+#
+#  id                 :bigint           not null, primary key
+#  color              :string
+#  content            :string
+#  priority           :string
+#  process_actives_at :datetime
+#  process_type       :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  process_type: MyString
+  content: MyString
+  process_actives_at: 2024-04-16 13:44:20
+  color: MyString
+
+two:
+  process_type: MyString
+  content: MyString
+  process_actives_at: 2024-04-16 13:44:20
+  color: MyString
