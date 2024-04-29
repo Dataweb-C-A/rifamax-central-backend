@@ -171,16 +171,54 @@ module X100
       end
     end
 
-    def select_infinite_two(quantity)
+    def sell_infinity(quantity, money, client)
       raise 'Raffle is closed, can buy' if status == 'Cerrado'
       raise 'Raffle is not infinite type' if raffle_type != 'Infinito'
       raise 'Quantity must be positive and maximum must be 10' if quantity <= 0 || quantity > 10
-      raise 'Quantity must be a number' if quantity.class != 'Integer'
       
+      tickets_selected = []
+      exchange =  Shared::Exchange.last
+
+      rates = {
+        "VES": exchange.value_bs,
+        "COP": exchange.value_cop,
+        "USD": 1
+      }
+
       ActiveRecord::Base.transaction do
-        tickets_selected = []
-        
-        
+        while tickets_selected.length < quantity 
+          last_ticket = x100_tickets.last
+
+          ticket = nil
+
+          if last_ticket.nil?
+            ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').new(
+              position: 1,
+              money: money,
+              price: (JSON.parse(rates.to_json)[money] * price_unit).round(2),
+              serial: SecureRandom.uuid,
+              status: 'sold',
+              x100_raffle_id: id,
+              x100_client_id: client
+            )
+          else
+            ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').new(
+              position: last_ticket.position + 1,
+              money: money,
+              price: (JSON.parse(rates.to_json)[money] * price_unit).round(2),
+              serial: SecureRandom.uuid,
+              status: 'sold',
+              x100_raffle_id: id,
+              x100_client_id: client
+            )
+          end
+
+          if ticket.save
+            tickets_selected << ticket
+          else
+            raise ticket.errors.full_messages.join(','), caller
+          end
+        end
       end
     end
 

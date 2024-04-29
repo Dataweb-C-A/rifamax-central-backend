@@ -40,10 +40,15 @@ module X100
     def create
       @x100_client = X100::Client.new(x100_client_params)
 
-      if @x100_client.save
-        render json: @x100_client, status: :created, location: @x100_client
+      
+      if @x100_client.phone_belongs_to_user.nil?
+        if @x100_client.save
+          render json: @x100_client, status: :created, location: @x100_client
+        else
+          render json: @x100_client.errors, status: :unprocessable_entity
+        end
       else
-        render json: @x100_client.errors, status: :unprocessable_entity
+        render json: { message: 'Client already exists', user: @x100_client.phone_belongs_to_user }, status: :ok
       end
     end
     

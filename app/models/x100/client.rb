@@ -78,6 +78,10 @@ module X100
       return false
     end
 
+    def phone_belongs_to_user
+      X100::Client.where(phone: phone).last
+    end
+
     def integration_job_layer(client_id)
       url = "https://xxx.xxx.xxx/x100/clients"
 

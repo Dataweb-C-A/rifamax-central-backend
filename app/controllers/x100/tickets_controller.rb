@@ -179,17 +179,20 @@ module X100
       end
     end
 
-    def apart_infinite
-      if apart_infinite_params[:quantity].nil? || apart_infinite_params[:x100_raffle_id].nil?
-        parameter_require_error
-      else
-        raffle = X100::Raffle.find(apart_infinite_params[:x100_raffle_id])
+    def buy_infinite
+      raffle = X100::Raffle.find(buy_infinite_params[:x100_raffle_id])
+      quantity = buy_infinite_params[:quantity].to_i
+      money = buy_infinite_params[:money]
+      client_id = buy_infinite_params[:x100_client_id]
 
-        if raffle.nil?
-          resource_not_found_error('Raffle')
-        else
-          render json: raffle.select_infinite(apart_infinite_params[:quantity]), status: :ok
-        end
+      if raffle.nil?
+        render json: { errors: ["Raffle not found or doesn't exist"] }, status: :not_found
+      else
+        render json: { message: 'Tickets sold', tickets: raffle.buy_infinite_tickets(quantity, money, client_id) }, status: :ok
+      end
+
+      rescue e => StandardError
+        render json: { message: 'Oops! An error has been occurred', error: e }, status: :unprocessable_entity
       end
     end
 
@@ -314,8 +317,8 @@ module X100
       params.require(:combo).permit(:x100_raffle_id, :quantity)
     end
 
-    def apart_infinite_params
-      params.require(:raffle).permit(:x100_raffle_id, :quantity)
+    def buy_infinite_params
+      params.require(:raffle).permit(:x100_raffle_id, :quantity, :money, :x100_client_id)
     end
 
     def parameter_require_error
