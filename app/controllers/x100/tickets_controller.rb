@@ -190,10 +190,6 @@ module X100
       else
         render json: { message: 'Tickets sold', tickets: raffle.buy_infinite_tickets(quantity, money, client_id) }, status: :ok
       end
-
-      rescue e => StandardError
-        render json: { message: 'Oops! An error has been occurred', error: e }, status: :unprocessable_entity
-      end
     end
 
     def combo
