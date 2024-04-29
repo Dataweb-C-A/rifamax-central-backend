@@ -188,7 +188,7 @@ module X100
       if raffle.nil?
         render json: { errors: ["Raffle not found or doesn't exist"] }, status: :not_found
       else
-        render json: { message: 'Tickets sold', tickets: raffle.buy_infinite_tickets(quantity, money, client_id) }, status: :ok
+        render json: { message: 'Tickets sold', tickets: raffle.sell_infinity(quantity, money, client_id) }, status: :ok
       end
     end
 
