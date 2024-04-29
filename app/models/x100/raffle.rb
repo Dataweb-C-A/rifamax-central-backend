@@ -219,6 +219,8 @@ module X100
             raise ticket.errors.full_messages.join(','), caller
           end
         end
+
+        return tickets_selected
       end
     end
 
