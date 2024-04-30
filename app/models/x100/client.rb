@@ -63,7 +63,7 @@ module X100
                 with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
                 message: 'Introduzca un correo electrónico válido'
               },
-	            if: -> { email.nil? }
+	            if: -> { !email.nil? }
 
     def tickets
       x100_tickets
