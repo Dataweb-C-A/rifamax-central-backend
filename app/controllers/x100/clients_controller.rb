@@ -20,10 +20,14 @@ module X100
     def dni
       @x100_clients = X100::Client.find_by(dni: fetch_user[:dni])
 
-      if @x100_clients.nil?
-        render json: { message: "Client with phone: #{fetch_user[:dni]} doesn't exist" }, status: :not_found
+      if fetch_user[:dni].nil?
+        render json: { message: 'You must provide a dni' }, status: :bad_request
       else
-        render json: @x100_clients, status: :ok
+        if @x100_clients.nil?
+          render json: { message: "Client with phone: #{fetch_user[:dni]} doesn't exist" }, status: :not_found
+        else
+          render json: @x100_clients, status: :ok
+        end
       end
     end
 
