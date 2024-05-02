@@ -216,7 +216,7 @@ module X100
           if ticket.save
             tickets_selected << ticket
           else
-            raise ticket.errors.full_messages.join(','), caller
+            raise ticket.errors.full_messages.join(',')
           end
         end
 
