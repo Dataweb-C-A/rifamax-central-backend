@@ -174,7 +174,7 @@ module X100
     def sell_infinity(quantity, money, client)
       raise 'Raffle is closed, can buy' if status == 'Cerrado'
       raise 'Raffle is not infinite type' if raffle_type != 'Infinito'
-      raise 'Quantity must be positive and maximum must be 10' if quantity <= 0 || quantity > 10
+      raise 'Quantity must be positive' unless quantity.positive?
       
       tickets_selected = []
       exchange =  Shared::Exchange.last
