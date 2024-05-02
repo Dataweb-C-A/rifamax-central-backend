@@ -227,7 +227,7 @@ module X100
     def select_infinite(quantity)
       return { message: 'Raffle is closed, can buy', tickets_selected: [] } if status == 'Cerrado'
       return { message: 'Raffle is not infinite type', tickets_selected: [] } if raffle_type != 'Infinito'
-      return { message: 'Quantity must be positive and maximum must be 10', tickets_selected: [] } if quantity <= 0 || quantity > 10
+      return { message: 'Quantity must be positive', tickets_selected: [] } unless quantity.positive?
       
       tickets_selected = []
 
