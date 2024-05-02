@@ -216,7 +216,7 @@ module X100
           if ticket.save
             tickets_selected << ticket
           else
-            raise ticket.errors.full_messages.join(',')
+            raise 'No se pudo comprar el ticket'
           end
         end
 
