@@ -35,7 +35,8 @@ module X100
     validate :validates_tickets_sequence_when_infinite
 
     after_update :schedule_progressive_ending
-    # after_create :generate_order
+
+    before_create :create_position_when_infinite
 
     aasm column: 'status' do
       state :available, initial: true
@@ -58,6 +59,12 @@ module X100
       event :turn_winner do
         transitions from: :sold, to: :winner
       end
+    end
+
+    def create_position_when_infinite
+      return unless x100_raffle.draw_type == 'Infinito' && !new_record?
+
+      self.position = X100::Ticket.where(x100_raffle_id: x100_raffle_id).maximum(:position).to_i + 1 if position.blank?
     end
 
     def self.all_sold_tickets

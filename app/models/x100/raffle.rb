@@ -191,31 +191,17 @@ module X100
 
           ticket = nil
 
-          if last_ticket.nil?
-            ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').new(
-              position: 1,
-              money: money,
-              price: (JSON.parse(rates.to_json)[money] * price_unit).round(2),
-              serial: SecureRandom.uuid,
-              status: 'sold',
-              x100_raffle_id: id,
-              x100_client_id: client
-            )
-          else
-            ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').new(
-              position: last_ticket.position + 1,
-              money: money,
-              price: (JSON.parse(rates.to_json)[money] * price_unit).round(2),
-              serial: SecureRandom.uuid,
-              status: 'sold',
-              x100_raffle_id: id,
-              x100_client_id: client
-            )
-          end
+          ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').new(
+            money: money,
+            price: (JSON.parse(rates.to_json)[money] * price_unit).round(2),
+            serial: SecureRandom.uuid,
+            status: 'sold',
+            x100_raffle_id: id,
+            x100_client_id: client
+          )
 
           if ticket.valid?
             ticket.create(
-              position: last_ticket.position + 1,
               money: money,
               price: (JSON.parse(rates.to_json)[money] * price_unit).round(2),
               serial: SecureRandom.uuid,
