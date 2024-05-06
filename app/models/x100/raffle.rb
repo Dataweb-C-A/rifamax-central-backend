@@ -213,7 +213,16 @@ module X100
             )
           end
 
-          if ticket.save
+          if ticket.valid?
+            ticket.create(
+              position: last_ticket.position + 1,
+              money: money,
+              price: (JSON.parse(rates.to_json)[money] * price_unit).round(2),
+              serial: SecureRandom.uuid,
+              status: 'sold',
+              x100_raffle_id: id,
+              x100_client_id: client
+            )
             tickets_selected << ticket
           else
             raise 'No se pudo comprar el ticket'
