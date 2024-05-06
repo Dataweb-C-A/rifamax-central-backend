@@ -189,8 +189,6 @@ module X100
         while tickets_selected.length < quantity 
           last_ticket = x100_tickets.last
 
-          ticket = nil
-
           ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').new(
             money: money,
             price: (JSON.parse(rates.to_json)[money] * price_unit).round(2),
@@ -201,7 +199,7 @@ module X100
           )
 
           if ticket.valid?
-            ticket.create(
+            X100::Ticket.create(
               money: money,
               price: (JSON.parse(rates.to_json)[money] * price_unit).round(2),
               serial: SecureRandom.uuid,
