@@ -32,7 +32,7 @@ module X100
     belongs_to :x100_raffle, class_name: 'X100::Raffle', foreign_key: 'x100_raffle_id'
     belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id', optional: true
 
-    validate :validates_tickets_sequence_when_infinite
+    # validate :validates_tickets_sequence_when_infinite
 
     after_update :schedule_progressive_ending
 
@@ -231,13 +231,13 @@ module X100
       end
     end
 
-    def validates_tickets_sequence_when_infinite
-      return unless x100_raffle.draw_type == 'Infinito'
+    # def validates_tickets_sequence_when_infinite
+    #   return unless x100_raffle.draw_type == 'Infinito'
 
-      if X100::Ticket.where(x100_raffle_id: x100_raffle_id, position: position).exists?
-        errors.add(:position, 'Ya existe un ticket con esta posición')
-      end
-    end
+    #   if X100::Ticket.where(x100_raffle_id: x100_raffle_id, position: position).exists?
+    #     errors.add(:position, 'Ya existe un ticket con esta posición')
+    #   end
+    # end
     # def self.generate_order(positions)
     #   order = X100::Order.new(
     #     products: positions,
