@@ -221,7 +221,7 @@ module X100
         return { message: 'Tickets comprados', order: @order }
       else
         X100::Ticket.where(id: tickets_selected.map(&:id)).destroy_all
-        raise "No se pudo comprar el ticket: #{order.errors.full_messages}"
+        raise "Can't buy infinite raffle, possible troubles: [integration may be error, order is invalid] order's data: #{@order.errors.full_messages}"
       end
     end
 
