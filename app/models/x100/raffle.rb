@@ -220,7 +220,7 @@ module X100
         @order.save
         return { message: 'Tickets comprados', order: @order }
       else
-        tickets_selected.destroy_all
+        X100::Ticket.where(id: tickets_selected.map(&:id)).destroy_all
         raise "No se pudo comprar el ticket: #{order.errors.full_messages}"
       end
     end
