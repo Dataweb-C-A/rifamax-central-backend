@@ -62,9 +62,9 @@ module X100
     end
 
     def create_position_when_infinite
-      return unless x100_raffle.draw_type == 'Infinito' && !new_record?
+      return unless x100_raffle.draw_type == 'Infinito'
 
-      self.position = X100::Ticket.where(x100_raffle_id: x100_raffle_id).maximum(:position).to_i + 1 if position.blank?
+      self.position = X100::Ticket.where(x100_raffle_id: x100_raffle_id).maximum(:position).to_i + 1
     end
 
     def self.all_sold_tickets
