@@ -184,7 +184,7 @@ module X100
       quantity = buy_infinite_params[:quantity].to_i
       money = buy_infinite_params[:money]
       client_id = buy_infinite_params[:x100_client_id]
-      tickets = raffle.esell_infinity(quantity, money, client_id)
+      tickets = raffle.sell_infinity(quantity, money, client_id)
 
       if raffle.nil?
         render json: { errors: ["Raffle not found or doesn't exist"] }, status: :not_found
