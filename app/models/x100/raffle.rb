@@ -211,6 +211,7 @@ module X100
         money: money,
         shared_user_id: shared_user_id,
         x100_client_id: client,
+        x100_raffle_id: id,
         integrator_player_id: integrator_id,
         integrator: integrator_type,
         shared_exchange_id: exchange.id
