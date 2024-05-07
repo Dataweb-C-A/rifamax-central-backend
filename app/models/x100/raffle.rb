@@ -217,10 +217,16 @@ module X100
         shared_exchange_id: exchange.id
       )
 
-      if @order.valid? && @order.generate_order_infinity 
-        @order.save
-        return { message: 'Tickets comprados', order: @order }
-      else
+      begin
+        if @order.valid?
+          if integrator_type.nil? && integrator_id.nil?
+            @order.save
+          else
+            @order.generate_order_infinity && @order.save
+          end
+          return { message: 'Tickets comprados', order: @order }
+        end
+      rescue
         X100::Ticket.where(id: tickets_selected.map(&:id)).destroy_all
         raise "Can't buy infinite raffle, possible troubles: [integration may be error, order is invalid] order's data: #{@order.errors.full_messages}"
       end
