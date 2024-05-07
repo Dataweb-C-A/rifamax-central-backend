@@ -171,7 +171,7 @@ module X100
       end
     end
 
-    def sell_infinity(quantity, money, client)
+    def sell_infinity(quantity, money, client, integrator_id = nil, integrator_type = nil)
       raise 'Raffle is closed, can buy' if status == 'Cerrado'
       raise 'Raffle is not infinite type' if raffle_type != 'Infinito'
       raise 'Quantity must be positive' unless quantity.positive?
@@ -203,7 +203,26 @@ module X100
         end
       end
 
-      return tickets_selected
+      @order = X100::Order.new(
+        products: tickets_selected.map(&:position),
+        amount: tickets_selected.map(&:price).sum,
+        serial: "ORD-#{SecureRandom.hex(8).upcase}",
+        ordered_at: DateTime.now,
+        money: money,
+        shared_user_id: shared_user_id,
+        x100_client_id: client,
+        integrator_player_id: integrator_id,
+        integrator: integrator_type,
+        shared_exchange_id: exchange.id
+      )
+
+      if @order.valid? && @order.generate_order_infinity 
+        @order.save
+        return { message: 'Tickets comprados', order: @order }
+      else
+        tickets_selected.destroy_all
+        raise "No se pudo comprar el ticket: #{order.errors.full_messages}"
+      end
     end
 
     def select_infinite(quantity)

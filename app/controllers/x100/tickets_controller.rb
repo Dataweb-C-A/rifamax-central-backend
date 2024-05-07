@@ -184,12 +184,15 @@ module X100
       quantity = buy_infinite_params[:quantity].to_i
       money = buy_infinite_params[:money]
       client_id = buy_infinite_params[:x100_client_id]
-      tickets = raffle.sell_infinity(quantity, money, client_id)
+      integrator_id = buy_infinite_params[:integrator_id]
+      integrator_type = buy_infinite_params[:integrator_type]
+
+      order = raffle.sell_infinity(quantity, money, client_id, integrator_id, integrator_type)
 
       if raffle.nil?
         render json: { errors: ["Raffle not found or doesn't exist"] }, status: :not_found
       else
-        render json: { message: 'Tickets sold', tickets: tickets }, status: :ok
+        render json: order, status: :ok
       end
     rescue => e
       Rails.logger.debug "Exception in buy_infinite action: #{e.message}"
@@ -318,7 +321,7 @@ module X100
     end
 
     def buy_infinite_params
-      params.require(:raffle).permit(:x100_raffle_id, :quantity, :money, :x100_client_id)
+      params.require(:raffle).permit(:x100_raffle_id, :quantity, :money, :x100_client_id, :integrator_id, :integrator_type)
     end
 
     def parameter_require_error

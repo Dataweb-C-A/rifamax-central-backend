@@ -44,6 +44,8 @@ module X100
     belongs_to :x100_client, class_name: 'X100::Client', foreign_key: 'x100_client_id'
     belongs_to :x100_raffle, class_name: 'X100::Raffle', foreign_key: 'x100_raffle_id'
     belongs_to :shared_exchange, class_name: 'Shared::Exchange', foreign_key: 'shared_exchange_id'
+
+    after_save :generate_order_infinity
   
     validates :money,
               presence: true,
@@ -64,6 +66,53 @@ module X100
 
     def x100_tickets
       X100::Ticket.where(position: products, x100_raffle_id: x100_raffle_id)
+    end
+
+    def generate_order_infinity
+      return unless integrator.present? || integrator_player_id.present?
+
+      case integrator
+      when 'CDA'
+        @payload = {
+          id: id,
+          amount: amount,
+          serial: serial,
+          tickets: x100_tickets.map do |ticket|
+            {
+              id: ticket[:id],
+              position: ticket[:position],
+              serial: ticket[:serial],
+              price: ticket[:price],
+              money: ticket[:money],
+              status: ticket[:status]
+            }
+          end,
+          tx_transaction: 'DEBIT',
+          currency: money,
+          player_id: integrator_player_id,
+          x100_raffle: {
+            raffle_image: "https://api.rifa-max.com/#{x100_raffle.ad.url}",
+            title: x100_raffle.title,
+            status: x100_raffle.status,
+            money: x100_raffle.money,
+            raffle_type: x100_raffle.raffle_type,
+            price_unit: x100_raffle.price_unit,
+            tickets_count: x100_raffle.tickets_count,
+            lotery: x100_raffle.lotery,
+            draw_type: x100_raffle.draw_type,
+            expired_date: x100_raffle.expired_date == nil ? nil : x100_raffle.expired_date.strftime("%d/%m/%Y - %H:%M"),
+          }
+        }
+
+        url = "https://dataweb.testcda.com/wallets_rifas/debit"
+
+        response = HTTParty.post(url, :body => @payload.to_json, :headers => { 'Content-Type' => 'application/json' })
+
+        return true if response.code == 200
+        return false
+      else
+        return true
+      end
     end
 
     def price_without_discount
@@ -109,141 +158,70 @@ module X100
       (self.price_without_discount_from_logs - self.transform_amount_to_dolar) / self.price_without_discount_from_logs
     end
 
-    def integrator_payload
-      case integrator
-      when 'CDA'
-        return({
-          id: id,
-          amount: amount,
-          serial: serial,
-          tickets: x100_tickets.map do |ticket|
-            {
-              id: ticket[:id],
-              position: ticket[:position],
-              serial: ticket[:serial],
-              price: ticket[:price],
-              money: ticket[:money],
-              status: ticket[:status]
-            }
-          end,
-          tx_transaction: 'DEBIT',
-          currency: money,
-          player_id: integrator_player_id,
-          x100_raffle: {
-            raffle_image: "https://api.rifa-max.com/#{x100_raffle.ad.url}",
-            title: x100_raffle.title,
-            status: x100_raffle.status,
-            money: x100_raffle.money,
-            raffle_type: x100_raffle.raffle_type,
-            price_unit: x100_raffle.price_unit,
-            tickets_count: x100_raffle.tickets_count,
-            lotery: x100_raffle.lotery,
-            draw_type: x100_raffle.draw_type,
-            expired_date: x100_raffle.expired_date == nil ? nil : x100_raffle.expired_date.strftime("%d/%m/%Y - %H:%M"),
+    def cda_payload(tx_transaction)
+      return {
+        id: id,
+        amount: amount,
+        serial: serial,
+        tickets: x100_tickets.map do |ticket|
+          {
+            id: ticket[:id],
+            position: ticket[:position],
+            serial: ticket[:serial],
+            price: ticket[:price],
+            money: ticket[:money],
+            status: ticket[:status]
           }
-        })
-      else
-        return({
-          message: 'Integrador no encontrado'
-        })
-      end
+        end,
+        tx_transaction: tx_transaction,
+        currency: money,
+        player_id: integrator_player_id,
+        x100_raffle: {
+          raffle_image: "https://api.rifa-max.com/#{x100_raffle.ad.url}",
+          title: x100_raffle.title,
+          status: x100_raffle.status,
+          money: x100_raffle.money,
+          raffle_type: x100_raffle.raffle_type,
+          price_unit: x100_raffle.price_unit,
+          tickets_count: x100_raffle.tickets_count,
+          lotery: x100_raffle.lotery,
+          draw_type: x100_raffle.draw_type,
+          expired_date: x100_raffle.expired_date == nil ? nil : x100_raffle.expired_date.strftime("%d/%m/%Y - %H:%M"),
+        }
+      }
     end
 
     def integrator_job
-      return false if (!integrator.present? || !integrator_player_id.present?)
+      return false unless (integrator.present? || integrator_player_id.present?)
 
       case integrator
       when 'CDA'
-        @payload = {
-          id: id,
-          amount: amount,
-          serial: serial,
-          tickets: x100_tickets.map do |ticket|
-            {
-              id: ticket[:id],
-              position: ticket[:position],
-              serial: ticket[:serial],
-              price: ticket[:price],
-              money: ticket[:money],
-              status: ticket[:status]
-            }
-          end,
-          tx_transaction: 'DEBIT',
-          currency: money,
-          player_id: integrator_player_id,
-          x100_raffle: {
-            raffle_image: "https://api.rifa-max.com/#{x100_raffle.ad.url}",
-            title: x100_raffle.title,
-            status: x100_raffle.status,
-            money: x100_raffle.money,
-            raffle_type: x100_raffle.raffle_type,
-            price_unit: x100_raffle.price_unit,
-            tickets_count: x100_raffle.tickets_count,
-            lotery: x100_raffle.lotery,
-            draw_type: x100_raffle.draw_type,
-            expired_date: x100_raffle.expired_date == nil ? nil : x100_raffle.expired_date.strftime("%d/%m/%Y - %H:%M"),
-          }
-        }
+        @payload = cda_payload('DEBIT')
 
         url = "https://dataweb.testcda.com/wallets_rifas/debit"
 
         response = HTTParty.post(url, :body => @payload.to_json, :headers => { 'Content-Type' => 'application/json' })
 
-        if (response.code == 200) 
-          return true
-        else
-          return false
-        end
+        return true if response.code == 200
+        return false
       else
         return true
       end
     end
 
     def integrator_credit_job
-      return false if (!integrator.present? || !integrator_player_id.present?)
+      return false unless (integrator.present? || integrator_player_id.present?)
 
       case integrator
       when 'CDA'
-        @payload = {
-          id: id,
-          amount: amount,
-          serial: serial,
-          tickets: x100_tickets.map do |ticket|
-            {
-              id: ticket[:id],
-              position: ticket[:position],
-              serial: ticket[:serial],
-              price: ticket[:price],
-              money: ticket[:money],
-              status: ticket[:status]
-            }
-          end,
-          tx_transaction: 'CREDIT',
-          currency: money,
-          player_id: integrator_player_id,
-          x100_raffle: {
-            raffle_image: "https://api.rifa-max.com/#{x100_raffle.ad.url}",
-            title: x100_raffle.title,
-            status: x100_raffle.status,
-            money: x100_raffle.money,
-            raffle_type: x100_raffle.raffle_type,
-            price_unit: x100_raffle.price_unit,
-            tickets_count: x100_raffle.tickets_count,
-            lotery: x100_raffle.lotery,
-            draw_type: x100_raffle.draw_type,
-            expired_date: x100_raffle.expired_date == nil ? nil : x100_raffle.expired_date.strftime("%d/%m/%Y - %H:%M"),
-          }
-        }
+        @payload = cda_payload('CREDIT')
 
         url = "https://dataweb.testcda.com/wallets_rifas/credit"
 
         response = HTTParty.post(url, :body => @payload.to_json, :headers => { 'Content-Type' => 'application/json' })
 
-        if (response.code == 200) 
-          return true
-        else
-          return false
-        end
+        return true if response.code == 200
+        return false
       else
         return true
       end
