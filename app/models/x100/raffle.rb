@@ -185,30 +185,25 @@ module X100
         "USD": 1
       }
 
-      ActiveRecord::Base.transaction do
-        while tickets_selected.length < quantity 
-          last_ticket = x100_tickets.last
-          
-          ticket = X100::Ticket.lock('FOR UPDATE NOWAIT').new(
-            money: money,
-            price: (JSON.parse(rates.to_json)[money] * price_unit).round(2),
-            serial: SecureRandom.uuid,
-            status: 'sold',
-            x100_raffle_id: id,
-            x100_client_id: client
-          )
-      
-          if ticket.save
-            tickets_selected << ticket
-          else
-            Rails.logger.debug "Ticket errors: #{ticket.errors.full_messages}"
-            raise 'No se pudo comprar el ticket'
-          end
+      while tickets_selected.length < quantity
+        ticket = X100::Ticket.new(
+          money: money,
+          price: (JSON.parse(rates.to_json)[money] * price_unit).round(2),
+          serial: SecureRandom.uuid,
+          status: 'sold',
+          x100_raffle_id: id,
+          x100_client_id: client
+        )
+        
+        if ticket.valid? && ticket.save
+          tickets_selected << ticket
+        else
+          Rails.logger.debug "Ticket errors: #{ticket.errors.full_messages}"
+          raise "No se pudo comprar el ticket: #{ticket.errors.full_messages}"
         end
-      
-        Rails.logger.debug "End of transaction block"
-        return tickets_selected      
       end
+
+      return tickets_selected
     end
 
     def select_infinite(quantity)
