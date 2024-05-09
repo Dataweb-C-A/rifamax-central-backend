@@ -49,6 +49,7 @@ module X100
                :shared_user_id,
                :agency,
                :combos,
+               :current_solds,
                :current_progress,
                :created_at,
                :updated_at
@@ -81,6 +82,10 @@ module X100
       else
         0
       end
+    end
+
+    def current_solds
+      object.draw_type == 'Infinito' ? object.tickets_count : X100::Ticket.where(x100_raffle_id: object.id, status: 'sold').count
     end
 
     def updated_at
