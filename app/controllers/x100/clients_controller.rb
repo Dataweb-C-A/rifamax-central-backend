@@ -118,7 +118,7 @@ module X100
     end
 
     def x100_integrator_params
-      params.require(:x100_client).permit(:name, :email, :integrator_type, :integrator_id)
+      params.require(:x100_client).permit(:name, :email, :username, :integrator_type, :integrator_id)
     end
   end
 end

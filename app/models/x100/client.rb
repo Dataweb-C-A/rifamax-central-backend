@@ -11,6 +11,7 @@
 #  name            :string
 #  phone           :string
 #  pv              :boolean          default(FALSE)
+#  username        :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  integrator_id   :integer
@@ -64,6 +65,15 @@ module X100
                 message: 'Introduzca un correo electrónico válido'
               },
 	            if: -> { !email.nil? }
+
+    validates :username,
+              presence: {
+                message: 'Debe introducir un nombre de usuario'
+              },
+              uniqueness: {
+                message: 'Ya existe un cliente con este nombre de usuario'
+              },
+              if: -> { !integrator_id.nil? }
 
     def tickets
       x100_tickets

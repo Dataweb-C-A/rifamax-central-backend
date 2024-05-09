@@ -11,6 +11,7 @@
 #  name            :string
 #  phone           :string
 #  pv              :boolean          default(FALSE)
+#  username        :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  integrator_id   :integer

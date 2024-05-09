@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_24_171436) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_09_151607) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -250,6 +250,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_24_171436) do
     t.integer "integrator_id"
     t.string "integrator_type"
     t.boolean "pv", default: false
+    t.string "username"
   end
 
   create_table "x100_orders", force: :cascade do |t|
