@@ -24,7 +24,7 @@ module X100
     has_many :x100_tickets, class_name: 'X100::Ticket', foreign_key: 'x100_client_id'
     has_many :x100_orders, class_name: 'X100::Order', foreign_key: 'x100_client_id', dependent: :destroy
 
-    before_destroy :return_values_tickets
+    before_destroy :tickets_acts_as_paranoid
 
     validates :name,
               presence: true
@@ -44,7 +44,7 @@ module X100
                 with: /\A[VEJG]-\d{1,8}\z/,
                 message: 'Debe incluir (V J E G)'
               },
-              if: -> { validates_phone_when_integrator }
+              if: -> { validates_dni_by_country }
 
     validates :phone,
               presence: {
@@ -57,7 +57,7 @@ module X100
                 with: /\A\+\d{1,4} \(\d{1,4}\) \d{1,10}-\d{1,10}\z/,
                 message: 'Introduzca un número de teléfono válido en el formato: +prefijo telefónico (codigo de area) tres primeros dígitos - dígitos restantes, por ejemplo: +58 (416) 000-0000'
               },
-              if: -> { integrator_id.nil? || !pv }
+              if: -> { pv || integrator_id.nil? }
 
     validates :email,
               format: {
@@ -79,7 +79,7 @@ module X100
       x100_tickets
     end
 
-    def validates_phone_when_integrator
+    def validates_dni_by_country
       if integrator_id.nil?
         if phone[0..3] == '+58 '
           return true
@@ -104,11 +104,9 @@ module X100
 
     private
 
-    def return_values_tickets
+    def tickets_acts_as_paranoid
       x100_tickets.update_all(
-        price: nil,
-        money: nil,
-        status: 'available',
+        status: 'sold',
         x100_client_id: nil,
       )
     end
