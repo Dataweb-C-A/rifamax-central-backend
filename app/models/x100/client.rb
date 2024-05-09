@@ -106,7 +106,9 @@ module X100
 
     def tickets_acts_as_paranoid
       x100_tickets.update_all(
-        status: 'sold',
+        price: nil,
+        money: nil,
+        status: 'available',
         x100_client_id: nil,
       )
     end
