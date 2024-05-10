@@ -231,8 +231,12 @@ module X100
       @x100_tickets = x100_tickets
       self.update(status: 'refunded', logs: JSON.parse(@x100_tickets.to_json), products: [])
 
+      if self.x100_raffle.draw_type == 'Infinito'
+        @x100_tickets.destroy_all
+      else
+        @x100_tickets.update_all(price: nil, x100_client_id: nil, status: 'available')
+      end
 
-      @x100_tickets.update_all(price: nil, x100_client_id: nil, status: 'available')
       @payload = {
           id: id,
           amount: amount,
