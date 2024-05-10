@@ -438,7 +438,7 @@ module X100
                      100
                    end
 
-        progresses << { raffle_id: raffle.id, progress: progress, current_solds: raffle.current_solds}
+        progresses << { raffle_id: raffle.id, progress: progress, current_solds: raffle.x100_tickets.where(status: 'sold').count }
       end
 
       progresses
