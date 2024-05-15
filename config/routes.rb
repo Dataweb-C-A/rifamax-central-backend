@@ -7,6 +7,7 @@ require 'sidekiq/cron/web'
 Rails.application.routes.draw do
   post '/login', to: 'authentication#login'
   post '/admin/login', to: 'authentication#admin_login'
+  post '/refresh', to: 'authentication#refresh'
 
   namespace :x100 do
     resources :orders, only: [:index] do
