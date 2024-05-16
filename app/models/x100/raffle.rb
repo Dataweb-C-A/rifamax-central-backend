@@ -40,6 +40,8 @@ module X100
     has_one :x100_stat, class_name: 'X100::Stat', foreign_key: 'x100_raffle_id', dependent: :destroy
     has_many :x100_orders, class_name: 'X100::Order', foreign_key: 'x100_raffle_id', dependent: :destroy
 
+    before_validation :validates_raffle_type
+
     after_create :generate_tickets
     after_create :initialize_status
     after_create :initialize_winners
@@ -305,6 +307,16 @@ module X100
     end
 
     private
+
+    def validates_raffle_type
+      if tickets_count === 1000
+        self.raffle_type = 'Triple'
+      elsif tickets_count === 100
+        self.raffle_type = 'Terminal'
+      else
+        self.raffle_type = 'Infinito'
+      end
+    end
 
     def validate_combos(quantity)
       raise 'Provides combos quantity value' if combos.blank?
