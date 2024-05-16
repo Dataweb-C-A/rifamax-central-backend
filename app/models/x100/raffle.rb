@@ -86,7 +86,17 @@ module X100
     validates :money,
               presence: true,
               inclusion: { in: %w[VES USD COP] }
-
+                    
+    validates :shared_user_id,
+              presence: true,
+              numericality: {
+                only_integer: true
+              }
+    
+    validates :raffle_type,
+              presence: true,
+              inclusion: { in: %w[Infinito Terminal Triple] }
+              
     validates :tickets_count,
               presence: true,
               numericality: {
@@ -95,17 +105,7 @@ module X100
                 less_than_or_equal_to: 1000
               },
               if: -> { raffle_type != 'Infinito' }
-
-    validates :shared_user_id,
-              presence: true,
-              numericality: {
-                only_integer: true
-              }
-
-    validates :raffle_type,
-              presence: true,
-              inclusion: { in: %w[Infinito Terminal Triple] }
-
+    
     validate :validates_prizes_structure
 
     validate :validates_winners_structure
