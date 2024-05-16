@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AuthenticationController < ApplicationController
-  before_action :authorize_request, except: %i[login social_login, refresh]
+  before_action :authorize_request, except: %i[login social_login refresh]
   before_action :soft_authorize_request, only: %i[refresh]
   # POST /auth/login
   def login
