@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_09_151607) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_30_004221) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -148,6 +148,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_09_151607) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_integration", default: false
+    t.boolean "is_first_entry", default: false
   end
 
   create_table "shared_wallets", force: :cascade do |t|
@@ -161,13 +162,26 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_09_151607) do
     t.index ["shared_user_id"], name: "index_shared_wallets_on_shared_user_id"
   end
 
+  create_table "social_badges", force: :cascade do |t|
+    t.string "title"
+    t.string "color"
+    t.string "icon"
+    t.bigint "social_influencer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["social_influencer_id"], name: "index_social_badges_on_social_influencer_id"
+  end
+
   create_table "social_clients", force: :cascade do |t|
     t.string "name"
     t.string "phone"
-    t.string "dni"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "country"
+    t.string "province"
+    t.string "zip_code"
+    t.string "address"
   end
 
   create_table "social_influencers", force: :cascade do |t|
@@ -176,6 +190,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_09_151607) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shared_user_id"], name: "index_social_influencers_on_shared_user_id"
+  end
+
+  create_table "social_networks", force: :cascade do |t|
+    t.string "name"
+    t.string "username"
+    t.string "url"
+    t.bigint "social_influencer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["social_influencer_id"], name: "index_social_networks_on_social_influencer_id"
   end
 
   create_table "social_orders", force: :cascade do |t|
@@ -203,7 +227,26 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_09_151607) do
     t.bigint "social_client_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "amount"
+    t.string "currency"
+    t.bigint "social_influencer_id"
+    t.bigint "social_raffle_id"
+    t.string "status"
+    t.bigint "shared_exchange_id"
+    t.index ["shared_exchange_id"], name: "index_social_payment_methods_on_shared_exchange_id"
     t.index ["social_client_id"], name: "index_social_payment_methods_on_social_client_id"
+    t.index ["social_influencer_id"], name: "index_social_payment_methods_on_social_influencer_id"
+    t.index ["social_raffle_id"], name: "index_social_payment_methods_on_social_raffle_id"
+  end
+
+  create_table "social_payment_options", force: :cascade do |t|
+    t.string "name"
+    t.jsonb "details"
+    t.string "country"
+    t.bigint "social_influencer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["social_influencer_id"], name: "index_social_payment_options_on_social_influencer_id"
   end
 
   create_table "social_raffles", force: :cascade do |t|
@@ -329,12 +372,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_09_151607) do
   add_foreign_key "shared_structures", "shared_users"
   add_foreign_key "shared_transactions", "shared_wallets"
   add_foreign_key "shared_wallets", "shared_users"
+  add_foreign_key "social_badges", "social_influencers"
   add_foreign_key "social_influencers", "shared_users"
+  add_foreign_key "social_networks", "social_influencers"
   add_foreign_key "social_orders", "shared_exchanges"
   add_foreign_key "social_orders", "social_clients"
   add_foreign_key "social_orders", "social_payment_methods"
   add_foreign_key "social_orders", "social_raffles"
+  add_foreign_key "social_payment_methods", "shared_exchanges"
   add_foreign_key "social_payment_methods", "social_clients"
+  add_foreign_key "social_payment_methods", "social_influencers"
+  add_foreign_key "social_payment_methods", "social_raffles"
+  add_foreign_key "social_payment_options", "social_influencers"
   add_foreign_key "social_raffles", "social_influencers"
   add_foreign_key "social_tickets", "social_raffles"
   add_foreign_key "x100_orders", "shared_exchanges"

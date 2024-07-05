@@ -1,11 +1,19 @@
 class Social::StatsChannel < ApplicationCable::Channel
   def subscribed
-    stream_from 'social_stats'
+    reject unless params[:content_code].present?
 
-    # ActionCable.server.broadcast('social_stats', { message: 'Refresh stats' })
+    influencer = Social::Influencer.find_by(content_code: params[:content_code])
+    if influencer
+      stream_from "social_stats_#{influencer.content_code}"
+      @raffles = X100::Raffle.current_progress_of_actives
+
+      ActionCable.server.broadcast("social_stats_#{influencer.content_code}", @raffles)
+    else
+      reject
+    end
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
+    stop_all_streams
   end
 end

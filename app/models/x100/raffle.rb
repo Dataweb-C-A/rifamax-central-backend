@@ -97,7 +97,7 @@ module X100
     
     validates :raffle_type,
               presence: true,
-              inclusion: { in: %w[Infinito Terminal Triple] }
+              inclusion: { in: %w[Infinito Terminal Triple Signo] }
               
     validates :tickets_count,
               presence: true,
@@ -106,7 +106,7 @@ module X100
                 greater_than_or_equal_to: 100,
                 less_than_or_equal_to: 1000
               },
-              if: -> { raffle_type != 'Infinito' }
+              if: -> { raffle_type != 'Infinito' || raffle_type != 'Signo' }
     
     validate :validates_prizes_structure
 
@@ -133,6 +133,14 @@ module X100
       else
         where(id: user.id, status: 'En venta')
       end.order(id: :desc)
+    end
+
+    def self.verify_winners
+      raffles = X100::Raffle.active
+
+      raffles.each do |raffle|
+        raffle.select_winner if raffle.has_winners == false
+      end
     end
 
     def self.active_raffles_progressive

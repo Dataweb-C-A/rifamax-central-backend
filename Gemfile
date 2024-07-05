@@ -88,7 +88,7 @@ gem 'aasm', '~> 5.5'
 
 gem 'sidekiq-cron', '~> 1.12'
 
-gem 'whenever', '~> 1.0'
+gem 'whenever', require: false
 gem "byebug", "~> 11.1"
 
 gem "figaro", "~> 1.2"
@@ -96,3 +96,7 @@ gem "figaro", "~> 1.2"
 gem "stripe", "~> 11.0"
 
 gem "droplet_kit", "~> 3.20"
+
+gem "rufus-scheduler", "~> 3.9"
+
+gem "resend", "~> 0.11.0"

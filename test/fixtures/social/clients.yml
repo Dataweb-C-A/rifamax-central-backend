@@ -3,10 +3,13 @@
 # Table name: social_clients
 #
 #  id         :bigint           not null, primary key
-#  dni        :string
+#  address    :string
+#  country    :string
 #  email      :string
 #  name       :string
 #  phone      :string
+#  province   :string
+#  zip_code   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

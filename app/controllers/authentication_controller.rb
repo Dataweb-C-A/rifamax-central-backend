@@ -2,7 +2,8 @@
 
 class AuthenticationController < ApplicationController
   before_action :authorize_request, except: %i[login social_login refresh]
-  before_action :soft_authorize_request, only: %i[refresh]
+  before_action :soft_authorize_request, only: %i[refresh social_refresh]
+  
   # POST /auth/login
   def login
     @user = Shared::User.find_by_email(params[:email])
@@ -26,6 +27,21 @@ class AuthenticationController < ApplicationController
       time = Time.now + 15.days.to_i
       render json: { token:, exp: time.strftime('%m-%d-%Y %H:%M'),
                      user: Shared::UserSerializer.new(@user) }, status: :ok
+    else
+      render json: { error: 'Unauthorized' }, status: :unauthorized
+    end
+  end
+
+  # POST /social/auth/refresh
+  def social_refresh
+    roles_authorized = %w[Admin Influencer]
+
+    token = JsonWebToken.encode(user_id: @soft_user.id, exp: 15.days.from_now)
+    time = Time.now + 15.days.to_i
+
+    if roles_authorized.include?(@soft_user.role)
+      render json: { token:, exp: time.strftime('%m-%d-%Y %H:%M'),
+                      user: Shared::UserSerializer.new(@soft_user) }, status: :ok
     else
       render json: { error: 'Unauthorized' }, status: :unauthorized
     end

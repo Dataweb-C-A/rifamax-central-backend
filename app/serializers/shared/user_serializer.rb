@@ -9,6 +9,7 @@
 #  dni             :string
 #  email           :string
 #  is_active       :boolean
+#  is_first_entry  :boolean          default(FALSE)
 #  is_integration  :boolean          default(FALSE)
 #  module_assigned :integer          default([]), is an Array
 #  name            :string
@@ -22,7 +23,17 @@
 #
 module Shared
   class UserSerializer < ActiveModel::Serializer
-    attributes :id, :name, :dni, :is_active, :phone, :role, :content_code
+    attributes :id, :avatar, :name, :email, :dni, :is_active, :phone, :influencer_id, :content_code, :role, :is_first_entry
+
+    def influencer_id
+      object.social_influencer&.id
+    end
+
+    def avatar
+      return nil if object.avatar.url.nil?
+
+      ENV['url_base'] + object.avatar&.url
+    end
 
     def content_code
       object.social_influencer&.content_code

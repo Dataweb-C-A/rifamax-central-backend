@@ -4,10 +4,40 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 # rubocop:disable Metrics/BlockLength
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
   post '/login', to: 'authentication#login'
   post '/social/login', to: 'authentication#social_login'
+  post '/social/auth/refresh', to: 'authentication#social_refresh'
   post '/refresh', to: 'authentication#refresh'
+ 
+  namespace :social do
+    get 'stats/index'
+    get 'details/index'
+    get 'influencers/index'
+    resources :networks
+    resources :raffles do
+      get 'actives', on: :collection
+    end
+    resources :stats do
+      get 'specific', on: :collection
+    end
+    resources :clients do 
+      get 'phone', on: :collection
+      put 'change_address', on: :collection
+    end
+    resources :payment_methods do
+      post 'accept', on: :member
+      post 'reject', on: :member
+      get 'history', on: :collection
+    end
+    resources :influencers do
+      get 'all', on: :collection
+    end
+    resources :details do
+      post 'admin', on: :collection
+    end
+    resources :payment_options
+  end
 
   namespace :x100 do
     resources :orders, only: [:index] do
@@ -52,7 +82,13 @@ Rails.application.routes.draw do
   namespace :shared do
     resources :exchanges
     resources :users do
+      post 'avatar', on: :collection
+      post 'toggle_active', on: :collection
+      put 'welcome', on: :collection
+      put 'update_influencer', on: :collection
+      put 'change_password', on: :collection
       get 'profile', on: :collection
+      get 'rafflers', on: :collection
     end
   end
 

@@ -9,6 +9,7 @@
 #  dni             :string
 #  email           :string
 #  is_active       :boolean
+#  is_first_entry  :boolean          default(FALSE)
 #  is_integration  :boolean          default(FALSE)
 #  module_assigned :integer          default([]), is an Array
 #  name            :string
@@ -26,6 +27,8 @@ module Shared
     has_many :x100_order, class_name: 'X100::Order', foreign_key: 'shared_user_id', dependent: :destroy
     has_one :shared_structure, class_name: 'Shared::Structure', foreign_key: 'shared_user_id', dependent: :destroy
     has_one :social_influencer, class_name: 'Social::Influencer', foreign_key: 'shared_user_id', dependent: :destroy
+
+    mount_uploader :avatar, Shared::AvatarUploader
 
     has_secure_password
 
@@ -89,9 +92,9 @@ module Shared
               uniqueness: { case_sensitive: false },
               format: { with: EMAIL_REGEX }
 
-    #    validates :password,
-    #              length: { minimum: 6 },
-    #              if: -> { new_record? || !password.nil? }
+    validates :password,
+              length: { minimum: 6 },
+              if: -> { new_record? || !password.nil? }
 
     validates :dni,
               presence: true,
@@ -109,6 +112,30 @@ module Shared
       when 'Admin'
         Shared::User.where(role: 'Taquilla')
       end
+    end
+
+    def rafflers
+      return "Can't show riferos, user are not taquilla or admin." unless %w[Taquilla Admin].include?(role)
+
+      case role
+      when 'Taquilla'
+        Shared::User.where(id: rifero_ids)
+      when 'Admin'
+        Shared::User.where(role: 'Rifero')
+      end
+    end    
+    
+    def influencer_details
+      roles_allowed = %w[Admin Influencer]
+
+      return "Can't show influencer details, user are not influencer." unless role.in?(roles_allowed)
+
+      return {
+        user: Shared::UserSerializer.new(self),
+        badges: self.role === 'Influencer' ? social_influencer.social_badges : [],
+        social_networks: self.role === 'Influencer' ? social_influencer.social_networks : [],
+        social_payment_options: self.role === 'Influencer' ? social_influencer.social_payment_options : []
+      }
     end
 
     def self.has_role?(role)

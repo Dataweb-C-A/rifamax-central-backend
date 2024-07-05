@@ -6,4 +6,13 @@
 :concurrency: 25
 :queues:
   - default
-  - x100_tickets
+  - verify
+
+development:
+  redis: { url: "redis://localhost:6379" }
+
+test:
+  redis: { url: "redis://localhost:6379" }
+
+production:
+  redis: { url: "redis://localhost:6379" }

@@ -8,10 +8,6 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
   on.pmessage do |pattern, event, key|
   $event = key.split('_').first.to_s
   case $event
-    when "exchange"
-      Shared::Exchange.create(
-        automatic: true
-      )
     when "ticket"
       ticket_id = key.split('_').last
       ticket = X100::Ticket.find(ticket_id)
@@ -32,14 +28,6 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
       url = 'https://api.rifa-max.com/x100/tickets/refresh'
 
       HTTParty.post(url)
-
-    when "auto:temp"
-      data = X100::Stat.temp
-
-      url = 'http://localhost:5000/logs'
-
-      HTTParty.post(url, body, :headers => { 'Content-Type' => 'application/json' })
-      
     when "dev:stats"
       $redis.setex("dev:stats_rifamax", 604800, 'clear')
       Dev::Process.where('process_actives_at < ?', Date.today - 5.days).destroy_all

@@ -33,14 +33,179 @@
 class Social::Raffle < ApplicationRecord
   self.table_name = 'social_raffles'
 
+  # ------ Scope by status
   scope :active, -> { where(status: 'En venta' )}
   scope :closing, -> { where(status: 'Finalizando' )}
   scope :closed, -> { where(status: 'Cerrado' )}
 
+  # ------ Scope by category
+  scope :infinite, -> { where(raffle_type: 'Infinito', status: 'En venta')}
+  scope :triple, -> { where(raffle_type: 'Triple', status: 'En venta')}
+  scope :terminal, -> { where(raffle_type: 'Terminal', status: 'En venta')}
+
+  # ------ Foreign Keys Beloging
   belongs_to :social_influencer, class_name: 'Social::Influencer', foreign_key: 'social_influencer_id'
   
-  mount_uploader :ad, Social::AdUploader
+  # ------ Associations/relationships between tables
   has_many :social_tickets, class_name: 'Social::Ticket', foreign_key: 'social_raffle_id', dependent: :destroy
   has_many :social_orders, class_name: 'Social::Order', foreign_key: 'social_raffle_id'
   has_many :social_orders, class_name: 'Social::Order', foreign_key: 'social_raffle_id'
+  has_many :social_payment_methods, class_name: 'Social::PaymentMethod', foreign_key: 'social_raffle_id'
+
+  # ------ Utils and tools
+  mount_uploader :ad, Social::AdUploader
+  
+  # ------ Triggers or before/after actions
+  before_validation :initialize_attributes
+  after_create :generate_tickets
+
+  # ------ Validations
+  # validates :ad,
+  #           presence: true
+
+  validates :status,
+            presence: true,
+            inclusion: { in: ['En venta', 'Finalizando', 'Cerrado'] }
+
+  validates :raffle_type,
+            inclusion: { in: %w[Infinito Terminal Triple] }
+
+  validates :limit,
+            presence: true,
+            numericality: {
+              only_integer: true,
+              greater_than_or_equal_to: 1,
+              less_than_or_equal_to: 100
+            },
+            if: -> { draw_type == 'Progresiva' }
+
+  validates :tickets_count,
+            presence: true,
+            numericality: {
+              only_integer: true,
+              greater_than_or_equal_to: 100,
+              less_than_or_equal_to: 1000
+            },
+            if: -> { raffle_type != 'Infinito' }
+
+  validates :money,
+            inclusion: { in: %w[VES USD COP] }
+
+  validates :init_date,
+            presence: {
+              message: 'Could be provide an init date param'
+            },
+            comparison: {
+              greater_than_or_equal_to: Date.today
+            }
+  
+  validates :expired_date,
+            presence: {
+              message: 'Could be provide an expired date param'
+            },
+            comparison: {
+              greater_than_or_equal_to: :init_date
+            }
+
+  validates :social_influencer_id,
+            presence: true
+
+  validate :validates_winners_structure
+  
+  validate :validates_influencer
+  
+  # ------ Public logic of model
+  def winners
+    return nil if self.has_winners.nil?
+    return self.has_winners if self.has_winners.is_a?(Array)
+    return self.has_winners
+  end
+
+  def stats
+    result = self.class.connection.execute(
+      ActiveRecord::Base.send(
+        :sanitize_sql_array, 
+        [<<-SQL, self.id]
+          SELECT 
+            SUM(
+              CASE 
+                WHEN spm.status = 'accepted' THEN 
+                  CASE 
+                    WHEN spm.currency = 'VES' THEN spm.amount / se.value_bs
+                    WHEN spm.currency = 'COP' THEN spm.amount / se.value_cop
+                    ELSE spm.amount
+                  END
+                ELSE 0
+              END
+            ) AS total_profit, 
+            COUNT(CASE WHEN spm.status = 'accepted' THEN 1 END) AS quantity_sold,
+            COUNT(CASE WHEN spm.status = 'rejected' THEN 1 END) AS rejected_payments,
+            COUNT(CASE WHEN spm.status = 'active' THEN 1 END) AS unverified_payments
+          FROM social_payment_methods spm
+          INNER JOIN shared_exchanges se ON se.id = spm.shared_exchange_id
+          WHERE spm.social_raffle_id = ?
+        SQL
+      )
+    ).first
+  
+    rejected_payments = result['rejected_payments'].to_i
+    unverified_payments = result['unverified_payments'].to_i
+    total_profit = result['total_profit'].to_f.round(2)
+    quantity_sold = result['quantity_sold'].to_i
+  
+    {
+      rejected_payments: rejected_payments,
+      unverified_payments: unverified_payments,
+      total_profit: total_profit,
+      quantity_sold: quantity_sold
+    }
+  end
+  
+  # ------ Private logic of model
+  private
+
+  def initialize_attributes
+    self.status = 'En venta'
+    self.money = 'USD'
+    self.raffle_type = case tickets_count
+                       when 100
+                         'Terminal'
+                       when 1000
+                         'Triple'
+                       else
+                         'Infinito'
+                       end
+  end
+
+  def generate_tickets
+    if self.raffle_type != 'Infinito'
+      tickets = []
+
+      tickets_count.times do |position|
+        tickets << {
+          position: position + 1,
+          price: nil,
+          money: nil,
+          x100_raffle_id: id,
+          x100_client_id: nil,
+          serial: SecureRandom.uuid
+        }
+      end
+
+      X100::Ticket.insert_all(tickets)
+    end
+  end
+
+  def validates_winners_structure
+    return if winners.nil?
+
+    nil unless winners.length.positive?
+  end
+  
+
+  def validates_influencer
+    return unless Social::Influencer(social_influencer_id).user.role != 'Influencer'
+
+    errors.add(:social_influencer_id, 'Influencer must exists')
+  end
 end

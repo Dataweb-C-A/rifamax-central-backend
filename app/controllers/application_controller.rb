@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
+  include Pagy::Backend
+  
   def not_found
     render json: { error: 'Not found' }
   end
@@ -30,6 +32,27 @@ class ApplicationController < ActionController::API
       render json: { errors: e.message }, status: :unauthorized
     rescue JWT::DecodeError => e
       render json: { errors: e.message }, status: :unauthorized
+    end
+  end
+
+  def admin_authorize_request
+    header = request.headers['Authorization']
+    header = header.split(' ').last if header
+    begin
+      structure = Shared::Structure.find_by(token: header.to_s)
+
+      if structure
+        @current_user = structure.shared_user
+      else
+        @decoded = JsonWebToken.decode(header)
+        @current_user = Shared::User.find(@decoded[:user_id])
+      end
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { errors: e.message }, status: :unauthorized
+    rescue JWT::DecodeError => e
+      render json: { errors: e.message }, status: :unauthorized
+    rescue @current_user.role != 'admin'
+      render json: { errors: 'You are not authorized to perform this action' }, status: :unauthorized
     end
   end
 
