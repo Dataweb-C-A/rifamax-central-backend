@@ -57,7 +57,6 @@ module Shared
     # POST /shared/users
     def create
       @shared_user = Shared::User.new(shared_user_params)
-      @shared_user.is_first_entry = true
       @shared_user.id = Shared::User.last.id + 1
       @shared_user.is_active = true
       if @shared_user.save
