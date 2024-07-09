@@ -69,6 +69,8 @@ module X100
     end
 
     def generate_order_infinity
+      cda_url = ENV['cda_url_base']
+
       return unless integrator.present? || integrator_player_id.present?
 
       case integrator
@@ -104,7 +106,7 @@ module X100
           }
         }
 
-        url = "https://dataweb.testcda.com/wallets_rifas/debit"
+        url = "#{cda_url}/wallets_rifas/debit"
 
         response = HTTParty.post(url, :body => @payload.to_json, :headers => { 'Content-Type' => 'application/json' })
 
@@ -193,12 +195,13 @@ module X100
 
     def integrator_job
       return false unless (integrator.present? || integrator_player_id.present?)
+      url = ENV['cda_url_base']
 
       case integrator
       when 'CDA'
         @payload = cda_payload('DEBIT')
 
-        url = "https://dataweb.testcda.com/wallets_rifas/debit"
+        url_parse = "#{url}/wallets_rifas/debit"
 
         response = HTTParty.post(url, :body => @payload.to_json, :headers => { 'Content-Type' => 'application/json' })
 
@@ -211,12 +214,13 @@ module X100
 
     def integrator_credit_job
       return false unless (integrator.present? || integrator_player_id.present?)
+      url = ENV['cda_url_base']
 
       case integrator
       when 'CDA'
         @payload = cda_payload('CREDIT')
 
-        url = "https://dataweb.testcda.com/wallets_rifas/credit"
+        url_parse = "#{url}/wallets_rifas/credit"
 
         response = HTTParty.post(url, :body => @payload.to_json, :headers => { 'Content-Type' => 'application/json' })
 

@@ -1,1 +1,62 @@
-function stopOverscroll(e){((e=gsap.utils.toArray(e))===document.body||e===document.documentElement)&&(e=window);let o=0,l,t,r=!0,s=e===window,c=s?document.scrollingElement:e,n=window.navigator.userAgent+"",i=s?()=>c.scrollHeight-window.innerHeight:()=>c.scrollHeight-c.clientHeight,a=(o,l)=>e.addEventListener(o,l,{passive:!1}),h=()=>{c.style.overflowY="auto",t=!1},p=()=>{t=!0,c.style.overflowY="hidden",!r&&c.scrollTop<1?c.scrollTop=1:c.scrollTop=i()-1,setTimeout(h,1)},u=e=>{let o=e.changedTouches?e.changedTouches[0]:e;(!(r=o.pageY<=l)&&c.scrollTop<=1||r&&c.scrollTop>=i()-1)&&"touchmove"===e.type?e.preventDefault():l=o.pageY},v=e=>{if(!t){let l=c.scrollTop;(!(r=l>o)&&l<1||r&&l>=i()-1)&&(e.preventDefault(),p()),o=l}};"ontouchend"in document&&n.match(/Version\/[\d\.]+.*Safari/)&&(a("scroll",v),a("touchstart",u),a("touchmove",u)),c.style.overscrollBehavior="none"}
+function stopOverscroll(element) {
+  element = gsap.utils.toArray(element);
+  (element === document.body || element === document.documentElement) &&
+    (element = window);
+  let lastScroll = 0,
+    lastTouch,
+    forcing,
+    forward = true,
+    isRoot = element === window,
+    scroller = isRoot ? document.scrollingElement : element,
+    ua = window.navigator.userAgent + "",
+    getMax = isRoot
+      ? () => scroller.scrollHeight - window.innerHeight
+      : () => scroller.scrollHeight - scroller.clientHeight,
+    addListener = (type, func) =>
+      element.addEventListener(type, func, { passive: false }),
+    revert = () => {
+      scroller.style.overflowY = "auto";
+      forcing = false;
+    },
+    kill = () => {
+      forcing = true;
+      scroller.style.overflowY = "hidden";
+      !forward && scroller.scrollTop < 1
+        ? (scroller.scrollTop = 1)
+        : (scroller.scrollTop = getMax() - 1);
+      setTimeout(revert, 1);
+    },
+    handleTouch = (e) => {
+      let evt = e.changedTouches ? e.changedTouches[0] : e;
+      forward = evt.pageY <= lastTouch;
+      if (
+        ((!forward && scroller.scrollTop <= 1) ||
+          (forward && scroller.scrollTop >= getMax() - 1)) &&
+        e.type === "touchmove"
+      ) {
+        e.preventDefault();
+      } else {
+        lastTouch = evt.pageY;
+      }
+    },
+    handleScroll = (e) => {
+      if (!forcing) {
+        let scrollTop = scroller.scrollTop;
+        forward = scrollTop > lastScroll;
+        if (
+          (!forward && scrollTop < 1) ||
+          (forward && scrollTop >= getMax() - 1)
+        ) {
+          e.preventDefault();
+          kill();
+        }
+        lastScroll = scrollTop;
+      }
+    };
+  if ("ontouchend" in document && !!ua.match(/Version\/[\d\.]+.*Safari/)) {
+    addListener("scroll", handleScroll);
+    addListener("touchstart", handleTouch);
+    addListener("touchmove", handleTouch);
+  }
+  scroller.style.overscrollBehavior = "none";
+}
