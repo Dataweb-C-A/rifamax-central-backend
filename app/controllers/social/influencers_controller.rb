@@ -4,6 +4,7 @@ class Social::InfluencersController < ApplicationController
   before_action :authorize_request, only: %i[all]
   before_action :validates_admin, only: %i[all]
 
+  # GET /influencers/:content_code
   def index
     @influencer = Social::Influencer.find_by(content_code: params[:content_code])
     if @influencer
@@ -13,6 +14,26 @@ class Social::InfluencersController < ApplicationController
     end
   end
 
+  # GET /influencers/search
+  def search
+    @influencers = Shared::User.where('phone ilike ? OR email ilike ? OR name ilike ? OR dni ilike ?', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%").where(role: 'Influencer')
+  
+    count = params[:count] || 4
+    page = params[:page] || 1
+
+    @pagy, @records = pagy(@influencers, items: count, page: page)
+    render json: {
+      influencers: ActiveModel::Serializer::CollectionSerializer.new(@records, each_serializer: Shared::UserSerializer),
+      metadata: {
+        page: @pagy.page,
+        count: @pagy.count,
+        items: @pagy.items,
+        pages: @pagy.pages
+      }
+    }, status: :ok
+  end
+
+  # GET /influencers/all
   def all
     @influencers = Social::Influencer.all
     count = params[:count] || 6

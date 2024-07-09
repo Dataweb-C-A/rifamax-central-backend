@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       get 'history', on: :collection
     end
     resources :influencers do
+      get 'search', on: :collection
       get 'all', on: :collection
     end
     resources :details do

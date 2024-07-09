@@ -8,6 +8,10 @@ $redis.psubscribe('__keyevent@0__:expired') do |on|
   on.pmessage do |pattern, event, key|
   $event = key.split('_').first.to_s
   case $event
+    when "exchange"
+      Shared::Exchange.create(
+        automatic: true
+      )
     when "ticket"
       ticket_id = key.split('_').last
       ticket = X100::Ticket.find(ticket_id)
