@@ -170,23 +170,23 @@
                 %p{:class => "card-title text-center", :style => "font-size: 20px; font-weight: 350; margin: 0"} #{@order.x100_client&.email}
                 .divider
                 .group
-                  %p{:class => "group-text"} Número
-                  %p{:class => "group-text"} Precio
-                  %p{:class => "group-text"} PC. Combo
+                  %p{:class => "group-text", :style => "padding: 0 0 0 5px"} Número
+                  %p{:class => "group-text", :style => "padding: 0 25px 0 0"} Precio
+                  -# %p{:class => "group-text"} PC. Combo
                 .scrollBar
-                  =image_tag '/logo-rifamax-new.png', :style => "width: 350px; position: absolute; top: 37%; left: 2%; z-index: -1; opacity: 0.1"
+                  =image_tag '/logo-rifamax-new.png', :style => "width: 350px; position: absolute; top: 37%; left: 2%; z-index: -1; opacity: 0.1;"
                   .table
-                    %div{:class => "table__section"}
+                    %div{:class => "table__section", :style => "padding: 0 25px"}
                       - if @order.status == 'refunded'
                         - @order.logs.each do |log|
                           %h6{:class => "table__products"}= log['id']
-                          %h6{:class => "table__price text-start"}= "#{log['price'].to_i}#{@order.x100_raffle.money == 'USD' ? '$' : ' ' + @order.x100_raffle.money}"
-                          %h6{:class => "table__discount text-end"}= "#{(@order.discount_rate_from_logs * 100).to_i}%"
+                          %h6{:class => "table__price text-end"}= "#{log['price'].to_i}#{@order.x100_raffle.money == 'USD' ? '$' : ' ' + @order.x100_raffle.money}"
+                          -# %h6{:class => "table__discount text-end"}= "#{(@order.discount_rate_from_logs * 100).to_i}%"
                       - else
                         - @order.products.each do |product|
                           %h6{:class => "table__products"}= product
-                          %h6{:class => "table__price text-start"}= "#{@order.x100_raffle.price_unit.to_i}#{@order.x100_raffle.money == 'USD' ? '$' : ' ' + @order.x100_raffle.money}"
-                          %h6{:class => "table__discount text-end"}= "#{(@order.discount_rate * 100).to_i}%"
+                          %h6{:class => "table__price text-end"}= "#{@order.x100_raffle.price_unit.to_i}#{@order.x100_raffle.money == 'USD' ? '$' : ' ' + @order.x100_raffle.money}"
+                          -# %h6{:class => "table__discount text-end"}= "#{(@order.discount_rate * 100).to_i}%"
                 .divider
                 %p{:class => "card-title text-start", :style => "font-size: 15px; font-weight: 750; margin: 0"} Datos de la rifa:
                 %p{:class => "card-title text-start", :style => "font-size: 15px; font-weight: 350; margin: 0"} #{@order.x100_raffle.title}
