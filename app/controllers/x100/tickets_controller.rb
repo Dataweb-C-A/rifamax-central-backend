@@ -57,7 +57,9 @@ module X100
               )
 
               if @orders.integrator_job == false
+                render json: { message: 'Integrator API failed at selling ticket, aborting transaction!' }, status: :unprocessable_entity
                 raise ActiveRecord::Rollback, 'Integrator API failed at selling ticket, aborting transaction!'
+                return
               end
 
               X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]).update_all(
