@@ -204,7 +204,7 @@ class Social::Raffle < ApplicationRecord
   
 
   def validates_influencer
-    return unless Social::Influencer(social_influencer_id).user.role != 'Influencer'
+    return unless Social::Influencer.find(social_influencer_id).shared_user.role != 'Influencer'
 
     errors.add(:social_influencer_id, 'Influencer must exists')
   end
