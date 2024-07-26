@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :networks
     resources :raffles do
       get 'actives', on: :collection
+      get 'live', on: :collection
     end
     resources :stats do
       get 'specific', on: :collection

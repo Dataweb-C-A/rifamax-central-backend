@@ -38,6 +38,30 @@ class Social::RafflesController < ApplicationController
     end
   end
 
+  # GET /social/raffles/live
+  def live
+    unless $redis.ping == 'PONG'
+      render json: { message: 'Redis is not connected' }, status: :service_unavailable
+      return
+    end
+
+    if params[:actions].nil? || params[:actions].is_a?(String) == false
+      render json: { error: 'Actions parameter is required' }, status: :bad_request
+      return
+    end
+
+    actions = {
+      "PICTURE": "social_raffles_pending_pictures",
+      "WINNERS": "social_raffles_pending_for_winners"
+    }
+
+    smembers = $redis.smembers(actions[params[:actions].to_sym])
+
+    message = smembers.empty? ? 'No actions needed!' : 'Action needed!'
+
+    render json: { data: smembers.map(&:to_i), action: params[:actions], message: message }, status: :ok
+  end
+
   # GET /social/raffles/1
   def show
     render json: @social_raffle
@@ -48,7 +72,21 @@ class Social::RafflesController < ApplicationController
     @social_raffle = Social::Raffle.new(social_raffle_params)
 
     if @social_raffle.save
+      $redis.publish('social_raffles_live', @social_raffle.to_json)
       render json: @social_raffle, status: :created, location: @social_raffle
+    else
+      render json: @social_raffle.errors, status: :unprocessable_entity
+    end
+  end
+
+  # PATCH/PUT /social/raffles/1/add_ad
+  def add_ad
+    @social_raffle = Social::Raffle.find(params[:id])
+    ad = social_raffle_ad_params[:ad]
+
+    if @social_raffle.update(ad: ad)
+
+      render json: @social_raffle
     else
       render json: @social_raffle.errors, status: :unprocessable_entity
     end
@@ -74,8 +112,12 @@ class Social::RafflesController < ApplicationController
       @social_raffle = Social::Raffle.find(params[:id])
     end
 
+    def social_raffle_ad_params
+      params.permit(:ad)
+    end
+
     # Only allow a list of trusted parameters through.
     def social_raffle_params
-      params.fetch(:social_raffle, {})
+      params.require(:social_raffle).permit(:influencer_id, :title, :description, :start_date, :end_date, :status)
     end
 end

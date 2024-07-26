@@ -5,7 +5,6 @@ class Social::RafflesChannel < ApplicationCable::Channel
     influencer = Social::Influencer.find_by(content_code: params[:content_code])
     if influencer
       stream_from "social_raffles_#{influencer.content_code}"
-      @raffles = X100::Raffle.current_progress_of_actives
 
       ActionCable.server.broadcast("social_raffles_#{influencer.content_code}", @raffles)
     else

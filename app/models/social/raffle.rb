@@ -121,6 +121,23 @@ class Social::Raffle < ApplicationRecord
     return self.has_winners
   end
 
+  def self.details(action_perfomed = 'picture')
+    actions = {
+      "picture": "social_raffles_details_pictures",
+      "winners": "social_raffles_details_winners"
+    }
+
+    smembers = $redis.smembers(actions[action_perfomed.to_sym])
+
+    message = smembers.empty? ? 'No actions needed!' : 'Action needed!'
+
+    return { data: smembers.map { |json_str| JSON.parse(json_str) }, action: action_perfomed, message: message }
+  end
+
+  def add_to_pending(action)
+    return $redis.sadd("social_raffles_details_#{action}", self.slice(:id, :title, :price_unit, :status, :init_date, :social_influencer_id).to_json) == 1
+  end
+
   def stats
     result = self.class.connection.execute(
       ActiveRecord::Base.send(
