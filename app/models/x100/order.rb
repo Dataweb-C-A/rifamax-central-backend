@@ -75,6 +75,14 @@ module X100
 
       case integrator
       when 'CDA'
+        @selected_currency = if money == 'VES'
+          Shared::Exchange.last.value_bs
+        elsif money == 'COP'
+          Shared::Exchange.last.value_cop
+        else
+          1
+        end
+
         @payload = {
           id: id,
           amount: amount,
@@ -84,9 +92,9 @@ module X100
               id: ticket[:id],
               position: ticket[:position],
               serial: ticket[:serial],
-              price: ticket[:price],
-              money: ticket[:money],
-              status: ticket[:status]
+              price: x100_raffle.price_unit * @selected_currency,
+              money: money,
+              status: 'sold'
             }
           end,
           tx_transaction: 'DEBIT',
