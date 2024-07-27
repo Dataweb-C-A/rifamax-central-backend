@@ -205,6 +205,8 @@ module X100
 
         response = HTTParty.post(url, :body => @payload.to_json, :headers => { 'Content-Type' => 'application/json' })
 
+        Rails.logger.info(response.body.as_json)
+
         return true if response.code == 200
         return false
       else
