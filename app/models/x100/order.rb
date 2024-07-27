@@ -203,7 +203,7 @@ module X100
 
         url_parse = "#{url}/wallets_rifas/debit"
 
-        response = HTTParty.post(url, :body => @payload.to_json, :headers => { 'Content-Type' => 'application/json' })
+        response = HTTParty.post(url_parse, :body => @payload.to_json, :headers => { 'Content-Type' => 'application/json' })
 
         Rails.logger.info(response.body.as_json)
 
