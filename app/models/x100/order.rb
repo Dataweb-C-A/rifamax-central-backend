@@ -232,7 +232,7 @@ module X100
 
         url_parse = "#{url}/wallets_rifas/credit"
 
-        response = HTTParty.post(url, :body => @payload.to_json, :headers => { 'Content-Type' => 'application/json' })
+        response = HTTParty.post(url_parse, :body => @payload.to_json, :headers => { 'Content-Type' => 'application/json' })
 
         return true if response.code == 200
         return false
