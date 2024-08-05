@@ -43,7 +43,7 @@ class Rifamax::Raffle < ApplicationRecord
     state :sold
     state :expired
 
-    event :send do
+    event :send_to_app do
       transitions from: :active, to: :sent
     end
 
