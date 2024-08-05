@@ -72,8 +72,11 @@ Rails.application.routes.draw do
   end
 
   namespace :rifamax do
+    resources :raffles do 
+      get 'newest', on: :collection
+      get 'initialized', on: :collection
+    end
     resources :tickets
-    resources :raffles
   end
 
   namespace :fifty do
@@ -95,6 +98,9 @@ Rails.application.routes.draw do
   end
 
   namespace :dev do
+    resources :feature_flags do 
+      post 'search', on: :collection
+    end
     resources :tools do
       get 'server', on: :collection
       post 'restart_server', on: :collection

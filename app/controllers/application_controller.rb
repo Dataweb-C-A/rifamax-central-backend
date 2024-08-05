@@ -38,6 +38,7 @@ class ApplicationController < ActionController::API
   def admin_authorize_request
     header = request.headers['Authorization']
     header = header.split(' ').last if header
+    roles = %w[Admin Desarrollador]
     begin
       structure = Shared::Structure.find_by(token: header.to_s)
 
@@ -51,7 +52,7 @@ class ApplicationController < ActionController::API
       render json: { errors: e.message }, status: :unauthorized
     rescue JWT::DecodeError => e
       render json: { errors: e.message }, status: :unauthorized
-    rescue @current_user.role != 'admin'
+    rescue !roles.include?(@current_user.role)
       render json: { errors: 'You are not authorized to perform this action' }, status: :unauthorized
     end
   end

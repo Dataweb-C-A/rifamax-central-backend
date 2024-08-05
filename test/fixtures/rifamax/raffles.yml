@@ -2,58 +2,60 @@
 #
 # Table name: rifamax_raffles
 #
-#  id            :bigint           not null, primary key
-#  award_no_sign :string
-#  award_sign    :string
-#  expired_date  :date
-#  game          :string           default("Zodiac")
-#  init_date     :date
-#  is_closed     :boolean
-#  is_send       :boolean
-#  loteria       :string
-#  numbers       :integer
-#  plate         :string
-#  price         :float
-#  refund        :boolean
-#  serial        :string
-#  year          :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  payment_id    :integer
-#  rifero_id     :integer
-#  taquilla_id   :integer
+#  id                     :bigint           not null, primary key
+#  admin_status           :string
+#  currency               :string
+#  expired_date           :date
+#  init_date              :date
+#  lotery                 :string
+#  numbers                :integer
+#  price                  :float
+#  prizes                 :jsonb            is an Array
+#  sell_status            :string
+#  title                  :string
+#  uniq_identifier_serial :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  seller_id              :bigint           not null
+#  user_id                :bigint           not null
+#
+# Indexes
+#
+#  index_rifamax_raffles_on_seller_id  (seller_id)
+#  index_rifamax_raffles_on_user_id    (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (seller_id => shared_users.id)
+#  fk_rails_...  (user_id => shared_users.id)
 #
 
 one:
-  init_date: 2023-11-21
-  award_sign: MyString
-  award_no_sign: MyString
-  plate: MyString
-  year: 1
+  title: MyString
+  init_date: 2024-08-03
+  expired_date: 2024-08-03
+  prizes: 
   price: 1.5
-  loteria: MyString
   numbers: 1
-  serial: MyString
-  expired_date: 2023-11-21
-  is_send: false
-  rifero_id: 1
-  is_closed: false
-  refund: false
-  payment_id: 1
+  currency: MyString
+  lotery: MyString
+  sell_status: MyString
+  admin_status: MyString
+  uniq_identifier_serial: MyString
+  user: one
+  seller: one
 
 two:
-  init_date: 2023-11-21
-  award_sign: MyString
-  award_no_sign: MyString
-  plate: MyString
-  year: 1
+  title: MyString
+  init_date: 2024-08-03
+  expired_date: 2024-08-03
+  prizes: 
   price: 1.5
-  loteria: MyString
   numbers: 1
-  serial: MyString
-  expired_date: 2023-11-21
-  is_send: false
-  rifero_id: 1
-  is_closed: false
-  refund: false
-  payment_id: 1
+  currency: MyString
+  lotery: MyString
+  sell_status: MyString
+  admin_status: MyString
+  uniq_identifier_serial: MyString
+  user: two
+  seller: two

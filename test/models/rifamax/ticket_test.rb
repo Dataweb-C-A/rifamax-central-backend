@@ -1,33 +1,30 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: rifamax_tickets
 #
-#  id                :bigint           not null, primary key
-#  is_sold           :boolean          default(FALSE)
-#  number            :integer
-#  serial            :string
-#  sign              :string
-#  ticket_nro        :integer
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
-#  rifamax_raffle_id :bigint           not null
+#  id                     :bigint           not null, primary key
+#  is_sold                :boolean
+#  is_winner              :boolean
+#  number                 :integer
+#  number_position        :integer
+#  sign                   :string
+#  uniq_identifier_serial :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  raffle_id              :bigint           not null
 #
 # Indexes
 #
-#  index_rifamax_tickets_on_rifamax_raffle_id  (rifamax_raffle_id)
+#  index_rifamax_tickets_on_raffle_id  (raffle_id)
 #
 # Foreign Keys
 #
-#  fk_rails_...  (rifamax_raffle_id => rifamax_raffles.id)
+#  fk_rails_...  (raffle_id => rifamax_raffles.id)
 #
-require 'test_helper'
+require "test_helper"
 
-module Rifamax
-  class TicketTest < ActiveSupport::TestCase
-    # test "the truth" do
-    #   assert true
-    # end
-  end
+class Rifamax::TicketTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end

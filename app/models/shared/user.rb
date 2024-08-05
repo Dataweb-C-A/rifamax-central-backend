@@ -24,6 +24,8 @@
 module Shared
   class User < ApplicationRecord
     has_one :shared_wallet, class_name: 'Shared::Wallet', foreign_key: 'shared_user_id', dependent: :destroy
+    has_many :rifamax_raffles, class_name: 'Rifamax::Raffle', foreign_key: 'user_id', dependent: :destroy
+    has_many :rifamax_sellers, class_name: 'Rifamax::Raffle', foreign_key: 'seller_id', dependent: :destroy
     has_many :x100_order, class_name: 'X100::Order', foreign_key: 'shared_user_id', dependent: :destroy
     has_one :shared_structure, class_name: 'Shared::Structure', foreign_key: 'shared_user_id', dependent: :destroy
     has_one :social_influencer, class_name: 'Social::Influencer', foreign_key: 'shared_user_id', dependent: :destroy

@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_30_004221) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_03_055218) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dev_feature_flags", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.boolean "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_dev_feature_flags_on_name", unique: true
+  end
 
   create_table "dev_processes", force: :cascade do |t|
     t.string "process_type"
@@ -66,37 +75,36 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_30_004221) do
   end
 
   create_table "rifamax_raffles", force: :cascade do |t|
+    t.string "title"
     t.date "init_date"
-    t.string "award_sign"
-    t.string "award_no_sign"
-    t.string "plate"
-    t.integer "year"
-    t.string "game", default: "Zodiac"
-    t.float "price"
-    t.string "loteria"
-    t.integer "numbers"
-    t.string "serial"
     t.date "expired_date"
-    t.boolean "is_send"
-    t.boolean "is_closed"
-    t.boolean "refund"
-    t.integer "rifero_id"
-    t.integer "taquilla_id"
-    t.integer "payment_id"
+    t.jsonb "prizes", default: [], array: true
+    t.float "price"
+    t.integer "numbers"
+    t.string "currency"
+    t.string "lotery"
+    t.string "sell_status"
+    t.string "admin_status"
+    t.string "uniq_identifier_serial"
+    t.bigint "user_id", null: false
+    t.bigint "seller_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["seller_id"], name: "index_rifamax_raffles_on_seller_id"
+    t.index ["user_id"], name: "index_rifamax_raffles_on_user_id"
   end
 
   create_table "rifamax_tickets", force: :cascade do |t|
     t.string "sign"
     t.integer "number"
-    t.integer "ticket_nro"
-    t.string "serial"
-    t.boolean "is_sold", default: false
-    t.bigint "rifamax_raffle_id", null: false
+    t.integer "number_position"
+    t.string "uniq_identifier_serial"
+    t.boolean "is_sold"
+    t.boolean "is_winner"
+    t.bigint "raffle_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["rifamax_raffle_id"], name: "index_rifamax_tickets_on_rifamax_raffle_id"
+    t.index ["raffle_id"], name: "index_rifamax_tickets_on_raffle_id"
   end
 
   create_table "shared_application_modules", force: :cascade do |t|
@@ -368,7 +376,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_30_004221) do
   add_foreign_key "fifty_churches", "fifty_towns"
   add_foreign_key "fifty_cities", "fifty_locations"
   add_foreign_key "fifty_towns", "fifty_locations"
-  add_foreign_key "rifamax_tickets", "rifamax_raffles"
+  add_foreign_key "rifamax_raffles", "shared_users", column: "seller_id"
+  add_foreign_key "rifamax_raffles", "shared_users", column: "user_id"
+  add_foreign_key "rifamax_tickets", "rifamax_raffles", column: "raffle_id"
   add_foreign_key "shared_structures", "shared_users"
   add_foreign_key "shared_transactions", "shared_wallets"
   add_foreign_key "shared_wallets", "shared_users"

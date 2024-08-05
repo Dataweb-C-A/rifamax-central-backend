@@ -2,13 +2,75 @@
 
 module Rifamax
   class RafflesController < ApplicationController
+    include Pagy::Backend
+
     before_action :set_rifamax_raffle, only: %i[show update destroy]
+    before_action :authorize_request
 
     # GET /rifamax/raffles
     def index
-      @rifamax_raffles = Rifamax::Raffle.all
+      page = params[:page] || 1
+      items = params[:items] || 7
 
-      render json: @rifamax_raffles
+      @pagy, @records = pagy(
+        Rifamax::Raffle.active_today(1), 
+        page: page, 
+        items: items
+      )
+
+      render json: { 
+        raffles: serialize(@records), 
+        metadata: {
+          count: @pagy.count,
+          page: @pagy.page,
+          items: @pagy.items,
+          pages: @pagy.pages
+        }
+      }
+    end
+
+    # GET /rifamax/raffles/newest
+    def newest
+      page = params[:page] || 1
+      items = params[:items] || 7
+
+      @pagy, @records = pagy(
+        Rifamax::Raffle.active_today(1).where(admin_status: 'pending'), 
+        page: page, 
+        items: items
+      )
+
+      render json: { 
+        raffles: serialize(@records), 
+        metadata: {
+          count: @pagy.count,
+          page: @pagy.page,
+          items: @pagy.items,
+          pages: @pagy.pages
+        }
+      }
+    end
+
+    # GET /rifamax/raffles/initialized
+    def initiliazed
+      page = params[:page] || 1
+      items = params[:items] || 7
+
+      @pagy, @records = pagy(
+        Rifamax::Raffle.active_today(1).where(admin_status: 'pending', sell_status: ['sent_to_app', 'sold']), 
+        page: page, 
+        items: items
+      )
+
+      render json: { 
+        raffles: serialize(@records), 
+        metadata: {
+          count: @pagy.count,
+          page: @pagy.page,
+          items: @pagy.items,
+          pages: @pagy.pages
+        }
+      }
     end
 
     # GET /rifamax/raffles/1
@@ -42,6 +104,10 @@ module Rifamax
     end
 
     private
+
+    def serialize(raffles)
+      ActiveModelSerializers::SerializableResource.new(raffles, each_serializer: Rifamax::RaffleSerializer)
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_rifamax_raffle
