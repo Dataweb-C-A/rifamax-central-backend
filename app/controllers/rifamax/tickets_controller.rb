@@ -7,7 +7,7 @@ module Rifamax
     # GET /rifamax/tickets
     def index
       @tickets = Rifamax::Ticket.where(serial: params[:serial]).last
-      # @rifa = @tickets.rifamax_raffle
+      @rifa = @tickets.rifamax_raffle
 
       if  @tickets.nil?
         render json: { message: 'Not found', status: 404 }, stauts: :not_found
@@ -55,7 +55,9 @@ module Rifamax
 
     # Only allow a list of trusted parameters through.
     def rifamax_ticket_params
-      params.require(:rifamax_ticket).permit(:sign, :number, :ticket_nro, :serial, :is_sold, :raffle_id)
+      params.require(:rifamax_ticket).permit(
+        
+      )
     end
   end
 end

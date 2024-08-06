@@ -81,6 +81,9 @@ module Rifamax
     # POST /rifamax/raffles
     def create
       @rifamax_raffle = Rifamax::Raffle.new(rifamax_raffle_params)
+      @rifamax_raffle.user_id = @current_user.id
+      @rifamax_raffle.sell_status = 'active'
+      @rifamax_raffle.admin_status = 'pending'
 
       if @rifamax_raffle.save
         render json: @rifamax_raffle, status: :created, location: @rifamax_raffle
@@ -100,7 +103,11 @@ module Rifamax
 
     # DELETE /rifamax/raffles/1
     def destroy
-      @rifamax_raffle.destroy
+      if @rifamax_raffle.destroy
+        render json: { message: 'Raffle has been deleted' }
+      else
+        render json: { message: 'Raffle has not been deleted' }
+      end
     end
 
     private
@@ -114,10 +121,23 @@ module Rifamax
       @rifamax_raffle = Rifamax::Raffle.find(params[:id])
     end
 
+    def allow_only_taquilla
+      render json: { message: 'You are not allowed to perform this action' }, status: :unauthorized unless @current_user.taquilla?
+    end
+
     # Only allow a list of trusted parameters through.
     def rifamax_raffle_params
-      params.require(:rifamax_raffle).permit(:init_date, :award_sign, :award_no_sign, :plate, :year, :price, :loteria,
-                                             :numbers, :serial, :expired_date, :is_send, :is_closed, :refund, :rifero_id)
+      params.require(:rifamax_raffle).permit(
+        :title,
+        :init_date,
+        :expired_date,
+        :price,
+        :numbers,
+        :currency,
+        :lotery,
+        :seller_id,
+        prizes: [:award, :plate, :is_money]
+      )
     end
   end
 end
