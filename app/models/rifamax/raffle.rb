@@ -32,33 +32,66 @@
 class Rifamax::Raffle < ApplicationRecord
   include AASM
 
+  # Enums
+  ACTIVE = :active
+  SENT = :sent
+  SOLD = :sold
+
+  enum :sell_status,
+        { active: ACTIVE, 
+          sent: SENT, 
+          sold: SOLD 
+        }.transform_values(&:to_s),
+        default: ACTIVE.to_s,
+        validate: true
+
+  # Triggers and Callbacks
+  after_initialize :initiliaze_statues
+  before_create :generate_uniq_identifier_serial
+  after_create :generate_tickets
+
+  # Associations
   belongs_to :user, class_name: 'Shared::User', foreign_key: 'user_id'
   belongs_to :seller, class_name: 'Shared::User', foreign_key: 'seller_id'
 
-  has_many :tickets, class_name: 'Rifamax::Ticket', foreign_key: 'rifamax_raffle_id', dependent: :destroy
+  has_many :tickets, class_name: 'Rifamax::Ticket', foreign_key: 'raffle_id', dependent: :destroy
 
-  aasm column: 'sell_status' do 
-    state :active, initial: true
-    state :sent
-    state :sold
-    state :expired
+  # Scopes
+  scope :expired, -> { where('expired_date < ?', Date.today) }
+  scope :active, -> { where('init_date <= ? AND expired_date >= ?', Date.today, Date.today) }
 
-    event :send_to_app do
-      transitions from: :active, to: :sent
-    end
+  # Validations
+  validates :title,
+            presence: true,
+            length: { minimum: 3, maximum: 35 }
+    
+  validates :currency,
+            presence: true,
+            inclusion: { in: %w[USD VES COP] }
 
-    event :sell do
-      transitions from: :active, to: :sold
-    end
+  validates :lotery,
+            presence: true,
+            inclusion: { in: ['Zulia 7A', 'Zulia 7B', 'Triple Pelotica'] }
 
-    event :expire_all_sold do
-      transitions from: :sold, to: :expired
-    end
+  validates :numbers,
+            presence: true,
+            numericality: { 
+              only_integer: true, 
+              greater_than: 0, 
+              less_than: 1000 
+            }
+          
+  validates :price,
+            presence: true,
+            numericality: {
+              greater_than: 0
+            }
 
-    event :expire do
-      transitions from: :active, to: :expired
-    end
-  end
+  validate :validates_init_date
+  validate :validates_expired_date
+  validate :validates_user
+  validate :validates_seller
+  validate :validates_prizes
 
   aasm column: 'admin_status' do
     state :pending, initial: true
@@ -110,13 +143,18 @@ class Rifamax::Raffle < ApplicationRecord
   ].freeze
 
   def generate_tickets
-    case game
-    when 'Zodiac'
+    case lotery
+    when 'Zulia 7A'
       generate_tickets_for_category(ZODIAC)
-    when 'Wildcards'
+    when 'Zulia 7B'
+      generate_tickets_for_category(ZODIAC)
+    when 'Triple Pelotica'
       generate_tickets_for_category(WILDCARDS)
+    else
+      errors.add(:lotery, 'Lotery is not valid')
     end
   end
+
 
   def self.active_today(user_id)
     begin
@@ -138,6 +176,11 @@ class Rifamax::Raffle < ApplicationRecord
 
   private
 
+  def initiliaze_statues
+    self.sell_status = 'active'
+    self.admin_status = 'pending'
+  end
+
   def generate_tickets_for_category(category)
     ActiveRecord::Base.transaction do
       category.each_with_index do |item, index|
@@ -149,6 +192,40 @@ class Rifamax::Raffle < ApplicationRecord
           raffle_id: id
         )
       end
+    end
+  end
+
+  def generate_uniq_identifier_serial
+    self.uniq_identifier_serial = SecureRandom.uuid
+  end
+
+  # Validations
+
+  def validates_user
+    errors.add(:user_id, 'You are not allowed to perform this action') unless user.role == 'Taquilla'
+  end
+
+  def validates_seller
+    errors.add(:seller_id, 'You are not allowed to perform this action') unless seller.role == 'Rifero'
+  end
+
+  def validates_init_date
+    errors.add(:init_date, 'Init date must be greater or equal than today') if init_date < Date.today
+  end
+
+  def validates_expired_date
+    errors.add(:expired_date, 'Expired date must be greater than init date') if expired_date <= init_date
+  end
+
+  def validates_prizes
+    errors.add(:prizes, 'Prizes must be an array') unless prizes.is_a?(Array)
+
+    prizes.each do |prize|
+      errors.add(:prizes, 'Prize must be a hash') unless prize.is_a?(Hash)
+      errors.add(:prizes, 'Prize must have award key') unless prize.key?('award')
+      errors.add(:prizes, 'Prize must have plate key') unless prize.key?('plate')
+      errors.add(:prizes, 'Prize must have is_money key') unless prize.key?('is_money')
+      errors.add(:prizes, 'Prize must have wildcard key') unless prize.key?('wildcard')
     end
   end
 end

@@ -136,7 +136,7 @@ module Rifamax
         :currency,
         :lotery,
         :seller_id,
-        prizes: [:award, :plate, :is_money]
+        prizes: [:award, :plate, :is_money, :wildcard]
       )
     end
   end

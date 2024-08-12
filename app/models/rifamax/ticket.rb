@@ -24,7 +24,12 @@
 class Rifamax::Ticket < ApplicationRecord
   before_create :initialize_ticket
 
-  belongs_to :raffle, class_name: 'Rifamax::Raffle', foreign_key: 'rifamax_raffle_id'
+  belongs_to :raffle, class_name: 'Rifamax::Raffle', foreign_key: 'raffle_id'
+
+  def self.clean
+    expired_raffle_ids = Rifamax::Raffle.expired.pluck(:id)
+    Rifamax::Ticket.where(raffle_id: expired_raffle_ids, is_winner: false).delete_all
+  end
 
   private
 
