@@ -75,6 +75,7 @@ Rails.application.routes.draw do
     resources :raffles do 
       get 'newest', on: :collection
       get 'initialized', on: :collection
+      get 'to_close', on: :collection
     end
     resources :tickets
   end

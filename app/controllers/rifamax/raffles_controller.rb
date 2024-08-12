@@ -52,7 +52,29 @@ module Rifamax
     end
 
     # GET /rifamax/raffles/initialized
-    def initiliazed
+    def initialized
+      page = params[:page] || 1
+      items = params[:items] || 7
+
+      @pagy, @records = pagy(
+        Rifamax::Raffle.active_today(1).where(admin_status: 'pending', sell_status: ['sent_to_app', 'sold']), 
+        page: page, 
+        items: items
+      )
+
+      render json: { 
+        raffles: serialize(@records), 
+        metadata: {
+          count: @pagy.count,
+          page: @pagy.page,
+          items: @pagy.items,
+          pages: @pagy.pages
+        }
+      }
+    end
+
+    # GET /rifamax/raffles/to_close
+    def to_close
       page = params[:page] || 1
       items = params[:items] || 7
 
