@@ -5,6 +5,7 @@ module Rifamax
     include Pagy::Backend
 
     before_action :set_rifamax_raffle, only: %i[show update destroy]
+    before_action :
     before_action :authorize_request
 
     # GET /rifamax/raffles
@@ -13,7 +14,7 @@ module Rifamax
       items = params[:items] || 7
 
       @pagy, @records = pagy(
-        Rifamax::Raffle.active_today(1), 
+        Rifamax::Raffle.active_today(@current_user.id), 
         page: page, 
         items: items
       )
@@ -35,7 +36,7 @@ module Rifamax
       items = params[:items] || 7
 
       @pagy, @records = pagy(
-        Rifamax::Raffle.active_today(1).where(admin_status: 'pending'), 
+        Rifamax::Raffle.active_today(@current_user.id).where(admin_status: 'pending'), 
         page: page, 
         items: items
       )
@@ -57,7 +58,7 @@ module Rifamax
       items = params[:items] || 7
 
       @pagy, @records = pagy(
-        Rifamax::Raffle.active_today(1).where(admin_status: 'pending', sell_status: ['sent_to_app', 'sold']), 
+        Rifamax::Raffle.active_today(@current_user.id).where(admin_status: 'pending', sell_status: ['sent', 'sold']), 
         page: page, 
         items: items
       )
@@ -79,7 +80,7 @@ module Rifamax
       items = params[:items] || 7
 
       @pagy, @records = pagy(
-        Rifamax::Raffle.active_today(1).where(admin_status: 'pending', sell_status: ['sent_to_app', 'sold']), 
+        Rifamax::Raffle.need_to_close(@current_user.id), 
         page: page, 
         items: items
       )
@@ -93,6 +94,66 @@ module Rifamax
           pages: @pagy.pages
         }
       }
+    end
+
+    # POST /rifamax/raffles/send
+    def send
+      @rifamax_raffle = Rifamax::Raffle.find(params[:raffle_id])
+      if @rifamax_raffle.update(admin_status: 'pending', sell_status: 'sent_to_app')
+        render json: @rifamax_raffle
+      else
+        render json: @rifamax_raffle.errors, status: :unprocessable_entity
+      end
+    end
+
+    # POST /rifamax/raffles/print
+    def print
+      @rifamax_raffle = Rifamax::Raffle.find(params[:raffle_id])
+      if @rifamax_raffle.update(admin_status: 'pending', sell_status: 'sold')
+        render json: @rifamax_raffle
+      else
+        render json: @rifamax_raffle.errors, status: :unprocessable_entity
+      end
+    end
+
+    # POST /rifamax/raffles/print
+    def sell
+      @rifamax_raffle = Rifamax::Raffle.find(params[:raffle_id])
+      if @rifamax_raffle.update(admin_status: 'pending', sell_status: 'sold')
+        render json: @rifamax_raffle
+      else
+        render json: @rifamax_raffle.errors, status: :unprocessable_entity
+      end
+    end
+
+    # POST /rifamax/raffles/pay
+    def pay
+      @rifamax_raffle = Rifamax::Raffle.find(params[:raffle_id])
+      if @rifamax_raffle.payed!
+        render json: @rifamax_raffle
+      else
+        render json: @rifamax_raffle.errors, status: :unprocessable_entity
+      end
+    end
+
+    # POST /rifamax/raffles/unpay
+    def unpay
+      @rifamax_raffle = Rifamax::Raffle.find(params[:raffle_id])
+      if @rifamax_raffle.unpayed!
+        render json: @rifamax_raffle
+      else
+        render json: @rifamax_raffle.errors, status: :unprocessable_entity
+      end
+    end
+
+    # POST /rifamax/raffles/refund
+    def refund
+      @rifamax_raffle = Rifamax::Raffle.find(params[:raffle_id])
+      if @rifamax_raffle.refunded!
+        render json: @rifamax_raffle
+      else
+        render json: @rifamax_raffle.errors, status: :unprocessable_entity
+      end
     end
 
     # GET /rifamax/raffles/1
@@ -152,7 +213,6 @@ module Rifamax
       params.require(:rifamax_raffle).permit(
         :title,
         :init_date,
-        :expired_date,
         :price,
         :numbers,
         :currency,

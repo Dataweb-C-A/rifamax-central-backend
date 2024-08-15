@@ -30,12 +30,15 @@
 #  fk_rails_...  (user_id => shared_users.id)
 #
 class Rifamax::Raffle < ApplicationRecord
-  include AASM
-
   # Enums
   ACTIVE = :active
   SENT = :sent
   SOLD = :sold
+
+  PENDING = :pending
+  PAYED = :payed
+  UNPAYED = :unpayed
+  REFUNDED = :refunded
 
   enum :sell_status,
         { active: ACTIVE, 
@@ -45,7 +48,17 @@ class Rifamax::Raffle < ApplicationRecord
         default: ACTIVE.to_s,
         validate: true
 
+  enum :admin_status,
+        { pending: PENDING, 
+          payed: PAYED, 
+          unpayed: UNPAYED, 
+          refunded: REFUNDED 
+        }.transform_values(&:to_s),
+        default: PENDING.to_s,
+        validate: true
+
   # Triggers and Callbacks
+  after_initialize :set_expired_date
   after_initialize :initiliaze_statues
   before_create :generate_uniq_identifier_serial
   after_create :generate_tickets
@@ -87,30 +100,10 @@ class Rifamax::Raffle < ApplicationRecord
               greater_than: 0
             }
 
-  validate :validates_init_date
   validate :validates_expired_date
   validate :validates_user
   validate :validates_seller
   validate :validates_prizes
-
-  aasm column: 'admin_status' do
-    state :pending, initial: true
-    state :payed
-    state :unpayed
-    state :refunded
-
-    event :pay do
-      transitions from: :pending, to: :payed
-    end
-
-    event :unpay do
-      transitions from: :pending, to: :unpayed
-    end
-
-    event :refund do
-      transitions from: :pending, to: :refunded
-    end
-  end
 
   ZODIAC = %w[
     Aries
@@ -169,12 +162,37 @@ class Rifamax::Raffle < ApplicationRecord
       when 'Admin'
         Rifamax::Raffle.where(sell_status: 'active')
       end
+    else
+      { error: "You are not allowed to perform this action" }
+    end
+    rescue StandardError => e
+      { error: e.message }
+    end
+  end
+
+  def self.need_to_close(user_id)
+    begin
+      user = Shared::User.find_by(id: user_id, role: %w[Taquilla Admin])
+      raise StandardError, "Can't perform this action" unless user
+
+      case user.role
+      when 'Taquilla'
+        Rifamax::Raffle.where('expired_date < ?', Date.today, user_id: user.id, admin_status: 'pending')
+      when 'Admin'
+        Rifamax::Raffle.where('expired_date < ?', Date.today, admin_status: 'pending')
+      else
+        { error: "You are not allowed to perform this action" }
+      end 
     rescue StandardError => e
       { error: e.message }
     end
   end
 
   private
+
+  def set_expired_date
+    self.expired_date = init_date + 3.day
+  end
 
   def initiliaze_statues
     self.sell_status = 'active'
@@ -207,10 +225,6 @@ class Rifamax::Raffle < ApplicationRecord
 
   def validates_seller
     errors.add(:seller_id, 'You are not allowed to perform this action') unless seller.role == 'Rifero'
-  end
-
-  def validates_init_date
-    errors.add(:init_date, 'Init date must be greater or equal than today') if init_date < Date.today
   end
 
   def validates_expired_date
