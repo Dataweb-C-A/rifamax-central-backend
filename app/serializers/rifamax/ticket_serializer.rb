@@ -9,8 +9,8 @@
 #  is_winner              :boolean
 #  number                 :integer
 #  number_position        :integer
-#  sign                   :string
 #  uniq_identifier_serial :string
+#  wildcard               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  raffle_id              :bigint           not null
@@ -25,6 +25,6 @@
 #
 module Rifamax
   class TicketSerializer < ActiveModel::Serializer
-    attributes :id
+    attributes :id, :is_sold, :is_winner, :wildcard, :number_position
   end
 end

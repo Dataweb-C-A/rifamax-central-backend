@@ -16,6 +16,17 @@ module Rifamax
       end
     end
 
+    # GET /rifamax/tickets/get_tickets?raffle_id={id}
+    def get_tickets
+      @raffle = Rifamax::Raffle.find(params[:raffle_id])
+
+      if @raffle
+        render json: @raffle.tickets, status: :ok
+      else
+        render json: "Raffle doesn't exist", status: :not_found
+      end
+    end
+
     # GET /rifamax/tickets/1
     def show
       render json: @rifamax_ticket

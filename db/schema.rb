@@ -83,8 +83,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_03_055218) do
     t.integer "numbers"
     t.string "currency"
     t.string "lotery"
-    t.string "sell_status"
-    t.string "admin_status"
+    t.integer "sell_status"
+    t.integer "admin_status"
+    t.jsonb "payment_info"
+    t.jsonb "security"
     t.string "uniq_identifier_serial"
     t.bigint "user_id", null: false
     t.bigint "seller_id", null: false
@@ -95,7 +97,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_03_055218) do
   end
 
   create_table "rifamax_tickets", force: :cascade do |t|
-    t.string "sign"
+    t.string "wildcard"
     t.integer "number"
     t.integer "number_position"
     t.string "uniq_identifier_serial"

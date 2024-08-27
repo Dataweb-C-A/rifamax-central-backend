@@ -1,7 +1,7 @@
 class CreateRifamaxTickets < ActiveRecord::Migration[7.0]
   def change
     create_table :rifamax_tickets do |t|
-      t.string :sign
+      t.string :wildcard
       t.integer :number
       t.integer :number_position
       t.string :uniq_identifier_serial

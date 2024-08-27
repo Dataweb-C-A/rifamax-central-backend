@@ -72,12 +72,17 @@ Rails.application.routes.draw do
   end
 
   namespace :rifamax do
+    resources :agencies
     resources :raffles do 
       get 'newest', on: :collection
       get 'initialized', on: :collection
       get 'to_close', on: :collection
+      post 'send_app', on: :collection
+      post 'seller_create', on: :collection
     end
-    resources :tickets
+    resources :tickets do 
+      get 'get_tickets', on: :collection
+    end
   end
 
   namespace :fifty do

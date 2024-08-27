@@ -3,15 +3,17 @@
 # Table name: rifamax_raffles
 #
 #  id                     :bigint           not null, primary key
-#  admin_status           :string
+#  admin_status           :integer
 #  currency               :string
 #  expired_date           :date
 #  init_date              :date
 #  lotery                 :string
 #  numbers                :integer
+#  payment_info           :jsonb
 #  price                  :float
 #  prizes                 :jsonb            is an Array
-#  sell_status            :string
+#  security               :jsonb
+#  sell_status            :integer
 #  title                  :string
 #  uniq_identifier_serial :string
 #  created_at             :datetime         not null
@@ -31,35 +33,12 @@
 #
 class Rifamax::Raffle < ApplicationRecord
   # Enums
-  ACTIVE = :active
-  SENT = :sent
-  SOLD = :sold
-
-  PENDING = :pending
-  PAYED = :payed
-  UNPAYED = :unpayed
-  REFUNDED = :refunded
-
-  enum :sell_status,
-        { active: ACTIVE, 
-          sent: SENT, 
-          sold: SOLD 
-        }.transform_values(&:to_s),
-        default: ACTIVE.to_s,
-        validate: true
-
-  enum :admin_status,
-        { pending: PENDING, 
-          payed: PAYED, 
-          unpayed: UNPAYED, 
-          refunded: REFUNDED 
-        }.transform_values(&:to_s),
-        default: PENDING.to_s,
-        validate: true
+  enum sell_status: { available: 0, sent: 1, sold: 2 }
+  enum admin_status: { pending: 0, payed: 1, unpayed: 2, refunded: 3 }
 
   # Triggers and Callbacks
-  after_initialize :set_expired_date
-  after_initialize :initiliaze_statues
+  before_create :set_expired_date
+  before_create :initiliaze_statues
   before_create :generate_uniq_identifier_serial
   after_create :generate_tickets
 
@@ -86,6 +65,10 @@ class Rifamax::Raffle < ApplicationRecord
             presence: true,
             inclusion: { in: ['Zulia 7A', 'Zulia 7B', 'Triple Pelotica'] }
 
+  validates :init_date,
+            presence: true,
+            comparison: { greater_than: Date.yesterday }
+            
   validates :numbers,
             presence: true,
             numericality: { 
@@ -100,7 +83,6 @@ class Rifamax::Raffle < ApplicationRecord
               greater_than: 0
             }
 
-  validate :validates_expired_date
   validate :validates_user
   validate :validates_seller
   validate :validates_prizes
@@ -135,49 +117,34 @@ class Rifamax::Raffle < ApplicationRecord
     'Hockey'
   ].freeze
 
-  def generate_tickets
-    case lotery
-    when 'Zulia 7A'
-      generate_tickets_for_category(ZODIAC)
-    when 'Zulia 7B'
-      generate_tickets_for_category(ZODIAC)
-    when 'Triple Pelotica'
-      generate_tickets_for_category(WILDCARDS)
-    else
-      errors.add(:lotery, 'Lotery is not valid')
-    end
-  end
-
-
-  def self.active_today(user_id)
+  def self.filter_by_status(user_id, endpoint = 'newest')
     begin
       user = Shared::User.find_by(id: user_id, role: %w[Taquilla Rifero Admin])
       raise StandardError, "Can't perform this action" unless user
       
       case user.role
       when 'Taquilla'
-        Rifamax::Raffle.where(user_id: user.id, sell_status: 'active')
+        Rifamax::Raffle.where(user_id: user.id)
       when 'Rifero'
-        Rifamax::Raffle.where(seller_id: user.id, sell_status: 'active')
+        Rifamax::Raffle.where(seller_id: user.id).where(statues_by_endpoint(endpoint))
       when 'Admin'
-        Rifamax::Raffle.where(sell_status: 'active')
+        Rifamax::Raffle.where(statues_by_endpoint(endpoint))
+      else
+        { error: "You are not allowed to perform this action" }
       end
-    else
-      { error: "You are not allowed to perform this action" }
-    end
     rescue StandardError => e
       { error: e.message }
     end
   end
 
-  def self.need_to_close(user_id)
+  def self.need_to_close(user_id, endpoint = 'newest')
     begin
       user = Shared::User.find_by(id: user_id, role: %w[Taquilla Admin])
       raise StandardError, "Can't perform this action" unless user
 
       case user.role
       when 'Taquilla'
-        Rifamax::Raffle.where('expired_date < ?', Date.today, user_id: user.id, admin_status: 'pending')
+        Rifamax::Raffle.where('expired_date < ?', Date.today, user_id: user.id)
       when 'Admin'
         Rifamax::Raffle.where('expired_date < ?', Date.today, admin_status: 'pending')
       else
@@ -190,20 +157,63 @@ class Rifamax::Raffle < ApplicationRecord
 
   private
 
+  def self.statues_by_endpoint(endpoint)
+    case endpoint
+    when 'newest'
+      { sell_status: :available, admin_status: :pending }
+    when 'initialized'
+      { sell_status: [SENT, SOLD], admin_status: PENDING, expired_date: Date.today..Date.new }
+    when 'to_close'
+      { sell_status: [SENT, SOLD], admin_status: PENDING, expired_date: Date.new..Date.today }
+    else
+      { sell_status: :available, admin_status: :pending }
+    end
+  end
+  
+  def set_security(wildcards)
+    position = rand(1..12)
+
+    self.security = {
+      position: position,
+      wildcard: wildcards[position - 1]
+    }
+    self.save
+  end
+
+  def generate_tickets
+    case lotery
+    when 'Zulia 7A'
+      generate_tickets_for_category(ZODIAC)
+      set_security(ZODIAC)
+    when 'Zulia 7B'
+      generate_tickets_for_category(ZODIAC)
+      set_security(ZODIAC)
+    when 'Triple Pelotica'
+      generate_tickets_for_category(WILDCARDS)
+      set_security(WILDCARDS)
+    else
+      errors.add(:lotery, 'Lotery is not valid')
+    end
+  end
+
   def set_expired_date
     self.expired_date = init_date + 3.day
   end
 
   def initiliaze_statues
-    self.sell_status = 'active'
-    self.admin_status = 'pending'
+    self.sell_status = 0
+    self.admin_status = 0
   end
 
   def generate_tickets_for_category(category)
+    if tickets.any?
+      errors.add(:tickets, 'Tickets already exists')
+      return
+    end
     ActiveRecord::Base.transaction do
       category.each_with_index do |item, index|
         Rifamax::Ticket.create(
-          sign: item,
+          wildcard: item,
           number: numbers,
           number_position: index + 1,
           is_sold: false,
@@ -225,10 +235,7 @@ class Rifamax::Raffle < ApplicationRecord
 
   def validates_seller
     errors.add(:seller_id, 'You are not allowed to perform this action') unless seller.role == 'Rifero'
-  end
-
-  def validates_expired_date
-    errors.add(:expired_date, 'Expired date must be greater than init date') if expired_date <= init_date
+    errors.add(:seller_id, 'Must be belongs to user') unless user.rifero_ids.include?(seller.id)
   end
 
   def validates_prizes

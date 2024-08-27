@@ -3,15 +3,17 @@
 # Table name: rifamax_raffles
 #
 #  id                     :bigint           not null, primary key
-#  admin_status           :string
+#  admin_status           :integer
 #  currency               :string
 #  expired_date           :date
 #  init_date              :date
 #  lotery                 :string
 #  numbers                :integer
+#  payment_info           :jsonb
 #  price                  :float
 #  prizes                 :jsonb            is an Array
-#  sell_status            :string
+#  security               :jsonb
+#  sell_status            :integer
 #  title                  :string
 #  uniq_identifier_serial :string
 #  created_at             :datetime         not null

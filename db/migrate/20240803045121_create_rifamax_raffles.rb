@@ -9,8 +9,10 @@ class CreateRifamaxRaffles < ActiveRecord::Migration[7.0]
       t.integer :numbers
       t.string :currency
       t.string :lotery
-      t.string :sell_status
-      t.string :admin_status
+      t.integer :sell_status
+      t.integer :admin_status
+      t.jsonb :payment_info
+      t.jsonb :security
       t.string :uniq_identifier_serial
       t.references :user, null: false, foreign_key: { to_table: :shared_users }
       t.references :seller, null: false, foreign_key: { to_table: :shared_users }

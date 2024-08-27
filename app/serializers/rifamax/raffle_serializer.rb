@@ -5,15 +5,17 @@
 # Table name: rifamax_raffles
 #
 #  id                     :bigint           not null, primary key
-#  admin_status           :string
+#  admin_status           :integer
 #  currency               :string
 #  expired_date           :date
 #  init_date              :date
 #  lotery                 :string
 #  numbers                :integer
+#  payment_info           :jsonb
 #  price                  :float
 #  prizes                 :jsonb            is an Array
-#  sell_status            :string
+#  security               :jsonb
+#  sell_status            :integer
 #  title                  :string
 #  uniq_identifier_serial :string
 #  created_at             :datetime         not null
@@ -33,9 +35,13 @@
 #
 module Rifamax
   class RaffleSerializer < ActiveModel::Serializer
-    attributes :id, :admin_status, :currency, :expired_date, :init_date, :lotery, :numbers, :price, :prizes, :sell_status, :title, :uniq_identifier_serial
+    attributes :id, :admin_status, :currency, :expired_date, :init_date, :lotery, :numbers, :price, :prizes, :security, :sell_status, :title, :uniq_identifier_serial
 
     belongs_to :user, serializer: Shared::UserSerializer
     belongs_to :seller, serializer: Shared::UserSerializer
+
+    def security
+      object.security['wildcard']
+    end
   end
 end
