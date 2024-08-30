@@ -140,6 +140,18 @@ module Shared
       }
     end
 
+    def add_seller(id)
+      @seller = Shared::User.find(id)
+
+      raise NotAllowedException.new unless self.role == 'Taquilla'
+      raise NotAllowedException.new "Seller already registered", "unprocessable_entity", 22 if self.rifero_ids.include?(id)
+      raise NotAllowedException.new "Seller don't exist", "not_found", 33 if @seller.nil?
+      raise NotAllowedException.new "This user is not a seller", "forbidden", 44 unless @seller.role == 'Rifero'
+      
+      self.rifero_ids = self.rifero_ids << id
+      self.save
+    end
+
     def self.has_role?(role)
       Shared::User.where(role:).count.positive?
     end

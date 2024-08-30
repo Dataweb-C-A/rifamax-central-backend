@@ -93,6 +93,7 @@ Rails.application.routes.draw do
   namespace :shared do
     resources :exchanges
     resources :users do
+      post 'sign_up', on: :collection
       post 'avatar', on: :collection
       post 'toggle_active', on: :collection
       put 'welcome', on: :collection

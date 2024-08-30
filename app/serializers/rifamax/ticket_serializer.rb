@@ -9,7 +9,7 @@
 #  is_winner              :boolean
 #  number                 :integer
 #  number_position        :integer
-#  uniq_identifier_serial :string
+#  uniq_identifier_serial :string    
 #  wildcard               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null

@@ -3,7 +3,7 @@
 module Shared
   class UsersController < ApplicationController
     before_action :set_shared_user, only: %i[show update destroy]
-    before_action :authorize_request
+    before_action :authorize_request, except: %i[sign_up]
     before_action :allow_if_user_is_admin, only: %i[index show create update destroy toggle_active]
 
     # GET /shared/users
@@ -63,6 +63,35 @@ module Shared
         render json: @shared_user, status: :created, location: @shared_user
       else
         render json: @shared_user.errors, status: :unprocessable_entity
+      end
+    end
+
+    # POST /shared/users/sign_up
+    def sign_up
+      ActiveRecord::Base.transaction do
+        @shared_user = Shared::User.new(shared_user_params)
+        @shared_user.id = Shared::User.last.id + 1
+        @shared_user.is_active = true
+        @shared_user.role = 'Rifero'
+
+        unless Shared::Structure.find_by(token: params[:integrator_token])
+          render json: { message: 'Integrator not found' }, status: :not_found
+          return
+        end
+
+        @integrator = Shared::Structure.find_by(token: params[:integrator_token]).shared_user
+
+        if @shared_user.save
+          if @integrator.add_seller(@shared_user.id)
+            render json: @shared_user, status: :created, location: @shared_user
+          else
+            ActiveRecord::Rollback
+            render json: { message: 'Oops! somenthing has been happened' }, status: :forbidden
+          end
+        else
+          ActiveRecord::Rollback
+          render json: { message: 'Oops! somenthing has been happened' }, status: :unprocessable_entity
+        end
       end
     end
 
@@ -168,6 +197,7 @@ module Shared
         :dni, 
         :email, 
         :phone, 
+        :integrator_token,
         :password, 
         :password_confirmation, 
         :slug,
