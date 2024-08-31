@@ -32,12 +32,10 @@ module X100
     def progress
       @raffle = X100::Raffle.find(params[:raffle_id])
 
-      if @raffle.nil?
-        render json: { message: 'Raffle not found' }, status: :not_found
-        return
-      end
+      render json: @raffle.progress, status: :ok
 
-      render json: @x100_raffles.progress, status: :ok
+      rescue ActiveRecord::RecordNotFound
+        render json: { message: "Raffle not found" }, status: :not_found
     end
 
     # POST /x100/raffles

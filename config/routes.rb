@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     end
     resources :raffles do
       get 'progressives', on: :collection
+      get 'progress', on: :collection
     end
     resources :clients do
       get 'dni', on: :collection
