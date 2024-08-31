@@ -35,7 +35,7 @@ module X100
       render json: @raffle.progress, status: :ok
 
       rescue ActiveRecord::RecordNotFound
-        render json: { message: "Raffle not found" }, status: :not_found
+        render json: { message: "Raffle with ID=#{params[:raffle_id]} not found" }, status: :not_found
     end
 
     # POST /x100/raffles
