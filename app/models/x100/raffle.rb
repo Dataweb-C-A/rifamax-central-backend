@@ -314,6 +314,19 @@ module X100
       end
     end
 
+    def progress
+      progress = case self.tickets_count
+                 when 100
+                   self.x100_tickets.where(status: 'sold').count
+                 when 1000
+                   ((self.x100_tickets.where(status: 'sold').count.to_f / self.tickets_count) * 100).round(2)
+                 else
+                   100
+                 end
+      
+      return { raffle_id: self.id, progress: progress, current_solds: self.x100_tickets.where(status: 'sold').count }
+    end
+
     private
 
     def validates_raffle_type
@@ -462,19 +475,6 @@ module X100
       end
 
       progresses
-    end
-
-    def progress
-      progress = case self.tickets_count
-                 when 100
-                   self.x100_tickets.where(status: 'sold').count
-                 when 1000
-                   ((self.x100_tickets.where(status: 'sold').count.to_f / self.tickets_count) * 100).round(2)
-                 else
-                   100
-                 end
-      
-      return { raffle_id: self.id, progress: progress, current_solds: self.x100_tickets.where(status: 'sold').count }
     end
 
     def handle_tickets_search(status)
