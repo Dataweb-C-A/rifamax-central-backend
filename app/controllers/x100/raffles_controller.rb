@@ -28,6 +28,18 @@ module X100
       render json: @x100_raffles, status: :ok
     end
 
+    # GET /x100/raffles/progress?raffle_id={id}
+    def progress
+      @raffle = X100::Raffle.find(params[:raffle_id])
+
+      if @raffle.nil?
+        render json: { message: 'Raffle not found' }, status: :not_found
+        return
+      end
+
+      render json: @x100_raffles.progress, status: :ok
+    end
+
     # POST /x100/raffles
     def create
       # begin
