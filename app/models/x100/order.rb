@@ -94,7 +94,7 @@ module X100
             price: nil,
             money: nil,
             status: 'available',
-            x100_raffle_id: raffle_id,
+            x100_raffle_id: self.x100_raffle_id,
             x100_client_id: nil
           )
           self.destroy
