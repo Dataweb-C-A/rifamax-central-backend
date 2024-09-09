@@ -90,7 +90,7 @@ module X100
     def integrator_layer
       unless integrator.nil?
         if self.integrator_job == false
-          X100::Ticket.where(position: self.products, x100_raffle_id: raffle_id).update_all(
+          X100::Ticket.where(position: self.products, x100_raffle_id: self.x100_raffle_id).update_all(
             price: nil,
             money: nil,
             status: 'available',
