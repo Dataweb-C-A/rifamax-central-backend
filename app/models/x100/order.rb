@@ -83,7 +83,7 @@ module X100
           x100_client_id: client_id
         )
       end
-
+      
       self.save
     end
 
