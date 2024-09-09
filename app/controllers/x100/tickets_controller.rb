@@ -58,7 +58,9 @@ module X100
 
               @orders.sell_integrator
               broadcast_transaction
-
+              render json: { message: 'Tickets sold', tickets: X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]), order: @orders.serial },
+                   status: :ok
+              return
             else
               X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]).update_all(
                 price: X100::Raffle.find(@x100_ticket.x100_raffle_id).price_unit,
@@ -84,9 +86,11 @@ module X100
               )
               @orders.save!
               broadcast_transaction
-            end
-            render json: { message: 'Tickets sold', tickets: X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]), order: @orders.serial },
+
+              render json: { message: 'Tickets sold', tickets: X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]), order: @orders.serial },
                    status: :ok
+              return
+            end
           else
             render json: { message: "Oops! An error has occurred: #{success_sold.length} of #{positions.length} tickets sold" },
                    status: :unprocessable_entity
