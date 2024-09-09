@@ -79,11 +79,7 @@ module X100
           money: self.money,
           status: 'sold',
           x100_raffle_id: raffle_id,
-          x100_client_id: if self.integrator.nil?
-                            client_id
-                          else
-                            @integrator_client.id
-                          end
+          x100_client_id: client_id
         )
 
         X100::Ticket.where(position: self.products, x100_raffle_id: raffle_id).update_all(
