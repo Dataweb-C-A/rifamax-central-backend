@@ -46,6 +46,7 @@ module X100
     belongs_to :shared_exchange, class_name: 'Shared::Exchange', foreign_key: 'shared_exchange_id'
 
     after_save :generate_order_infinity
+    after_save :integrator_layer
   
     validates :money,
               presence: true,
@@ -81,23 +82,25 @@ module X100
           x100_raffle_id: raffle_id,
           x100_client_id: client_id
         )
-
-        X100::Ticket.where(position: self.products, x100_raffle_id: raffle_id).update_all(
-          price: X100::Raffle.find(raffle_id).price_unit,
-          money: self.money,
-          status: 'sold',
-          x100_raffle_id: raffle_id,
-          x100_client_id: client_id
-        )
-      end
-
-      if self.integrator_job == false
-        render json: { message: 'Integrator API failed at selling ticket, aborting transaction!' }, status: :unprocessable_entity
-        raise ActiveRecord::Rollback, 'Integrator API failed at selling ticket, aborting transaction!'
-        return
       end
 
       self.save
+    end
+
+    def integrator_layer
+      unless integrator.nil?
+        if self.integrator_job == false
+          X100::Ticket.where(position: self.products, x100_raffle_id: raffle_id).update_all(
+            price: nil,
+            money: nil,
+            status: 'available',
+            x100_raffle_id: raffle_id,
+            x100_client_id: nil
+          )
+          self.destroy
+          return
+        end
+      end
     end
 
     def generate_order_infinity
