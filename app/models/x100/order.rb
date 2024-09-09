@@ -89,7 +89,7 @@ module X100
 
     def integrator_layer
       unless integrator.nil?
-        if self.except(:id).integrator_job == false
+        if self.integrator_job == false
           X100::Ticket.where(position: self.products, x100_raffle_id: self.x100_raffle_id).update_all(
             price: nil,
             money: nil,
@@ -119,7 +119,7 @@ module X100
         end
 
         @payload = {
-          id: id,
+          # id: id,
           amount: amount,
           serial: serial,
           tickets: x100_tickets.map do |ticket|
@@ -205,7 +205,7 @@ module X100
 
     def cda_payload(tx_transaction)
       return {
-        id: id,
+        # id: id,
         amount: amount,
         serial: serial,
         tickets: x100_tickets.map do |ticket|
@@ -287,7 +287,7 @@ module X100
       end
 
       @payload = {
-          id: id,
+          # id: id,
           amount: amount,
           serial: serial,
           tickets: x100_tickets.map do |ticket|
