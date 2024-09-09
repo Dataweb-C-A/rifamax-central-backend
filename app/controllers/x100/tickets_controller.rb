@@ -56,24 +56,7 @@ module X100
                 shared_exchange_id: Shared::Exchange.last.id
               )
 
-              if @orders.integrator_job == false
-                render json: { message: 'Integrator API failed at selling ticket, aborting transaction!' }, status: :unprocessable_entity
-                raise ActiveRecord::Rollback, 'Integrator API failed at selling ticket, aborting transaction!'
-                return
-              end
-
-              X100::Ticket.where(position: success_sold, x100_raffle_id: sell_x100_ticket_params[:x100_raffle_id]).update_all(
-                price: X100::Raffle.find(@x100_ticket.x100_raffle_id).price_unit,
-                money: ticket_params[:money],
-                status: 'sold',
-                x100_raffle_id: ticket_params[:x100_raffle_id],
-                x100_client_id: if sell_x100_ticket_params[:integrator].nil?
-                                  ticket_params[:x100_client_id]
-                                else
-                                  @integrator_client.id
-                                end
-              )
-              @orders.save!
+              @orders.sell_integrator
               broadcast_transaction
 
             else

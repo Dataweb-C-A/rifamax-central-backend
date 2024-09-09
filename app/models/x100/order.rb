@@ -68,6 +68,42 @@ module X100
       X100::Ticket.where(position: products, x100_raffle_id: x100_raffle_id)
     end
 
+    def sell_integrator
+      raffle_id = self.x100_raffle_id
+      client_id = self.x100_client_id
+      integrator = self.integrator
+
+      ActiveRecord::Base.transaction do
+        X100::Ticket.where(position: self.products, x100_raffle_id: raffle_id).update_all(
+          price: X100::Raffle.find(raffle_id).price_unit,
+          money: self.money,
+          status: 'sold',
+          x100_raffle_id: raffle_id,
+          x100_client_id: if self.integrator.nil?
+                            client_id
+                          else
+                            @integrator_client.id
+                          end
+        )
+
+        X100::Ticket.where(position: self.products, x100_raffle_id: raffle_id).update_all(
+          price: X100::Raffle.find(raffle_id).price_unit,
+          money: self.money,
+          status: 'sold',
+          x100_raffle_id: raffle_id,
+          x100_client_id: client_id
+        )
+      end
+
+      if self.integrator_job == false
+        render json: { message: 'Integrator API failed at selling ticket, aborting transaction!' }, status: :unprocessable_entity
+        raise ActiveRecord::Rollback, 'Integrator API failed at selling ticket, aborting transaction!'
+        return
+      end
+
+      self.save
+    end
+
     def generate_order_infinity
       cda_url = ENV['cda_url_base']
 
