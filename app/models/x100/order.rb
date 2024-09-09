@@ -83,13 +83,13 @@ module X100
           x100_client_id: client_id
         )
       end
-      
+
       self.save
     end
 
     def integrator_layer
       unless integrator.nil?
-        if self.integrator_job == false
+        if self.except(:id).integrator_job == false
           X100::Ticket.where(position: self.products, x100_raffle_id: self.x100_raffle_id).update_all(
             price: nil,
             money: nil,
