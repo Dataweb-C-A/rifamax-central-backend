@@ -46,7 +46,7 @@ module X100
     belongs_to :shared_exchange, class_name: 'Shared::Exchange', foreign_key: 'shared_exchange_id'
 
     after_save :generate_order_infinity
-    after_commit :integrator_layer
+    # after_commit :integrator_layer
   
     validates :money,
               presence: true,
@@ -119,7 +119,7 @@ module X100
         end
 
         @payload = {
-          # id: id,
+          id: id,
           amount: amount,
           serial: serial,
           tickets: x100_tickets.map do |ticket|
