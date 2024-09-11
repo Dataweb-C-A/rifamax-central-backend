@@ -46,7 +46,7 @@ module X100
     belongs_to :shared_exchange, class_name: 'Shared::Exchange', foreign_key: 'shared_exchange_id'
 
     after_save :generate_order_infinity
-    after_save :integrator_layer
+    after_commit :integrator_layer
   
     validates :money,
               presence: true,
