@@ -37,7 +37,6 @@ class Rifamax::Raffle < ApplicationRecord
   enum admin_status: { pending: 0, payed: 1, unpayed: 2, refunded: 3 }
 
   # Triggers and Callbacks
-  before_create :set_expired_date
   before_create :initiliaze_statues
   before_create :generate_uniq_identifier_serial
   after_create :generate_tickets
@@ -67,7 +66,8 @@ class Rifamax::Raffle < ApplicationRecord
 
   validates :init_date,
             presence: true,
-            comparison: { greater_than: Date.yesterday }
+            comparison: { greater_than: Date.yesterday },
+            on: :create
             
   validates :numbers,
             presence: true,
@@ -166,7 +166,7 @@ class Rifamax::Raffle < ApplicationRecord
     when 'to_close'
       { sell_status: [1, 2], admin_status: 0 }
     else
-      { sell_status: :available, admin_status: :pending }
+      { sell_status: 0, admin_status: 0 }
     end
   end
   
@@ -194,10 +194,6 @@ class Rifamax::Raffle < ApplicationRecord
     else
       errors.add(:lotery, 'Lotery is not valid')
     end
-  end
-
-  def set_expired_date
-    self.expired_date = init_date + 3.day
   end
 
   def initiliaze_statues

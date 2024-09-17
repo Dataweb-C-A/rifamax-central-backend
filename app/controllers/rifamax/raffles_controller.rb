@@ -99,6 +99,7 @@ module Rifamax
     def send_app
       @rifamax_raffle = Rifamax::Raffle.find(params[:raffle_id])
       if @rifamax_raffle.sent!
+        @rifamax_raffle.update(expired_date: Date.today + 3.days)
         render json: @rifamax_raffle
       else
         render json: @rifamax_raffle.errors, status: :unprocessable_entity
