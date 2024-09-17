@@ -215,7 +215,7 @@ module Rifamax
     end
 
     def allow_only_taquilla
-      render json: { message: 'You are not allowed to perform this action' }, status: :unauthorized unless @current_user.Taquilla?
+      render json: { message: 'You are not allowed to perform this action' }, status: :unauthorized unless @current_user.role === 'Taquilla'
     end
 
     # Only allow a list of trusted parameters through.
