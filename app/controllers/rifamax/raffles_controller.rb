@@ -5,7 +5,6 @@ module Rifamax
     include Pagy::Backend
 
     before_action :set_rifamax_raffle, only: %i[show update destroy]
-    before_action :allow_only_taquilla, only: %i[refund pay unpay send_app]
     before_action :authorize_request
 
     # GET /rifamax/raffles
