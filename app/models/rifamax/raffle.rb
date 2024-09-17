@@ -160,11 +160,11 @@ class Rifamax::Raffle < ApplicationRecord
   def self.statues_by_endpoint(endpoint)
     case endpoint
     when 'newest'
-      { sell_status: :available, admin_status: :pending }
+      { sell_status: 0, admin_status: 0 }
     when 'initialized'
-      { sell_status: [SENT, SOLD], admin_status: PENDING, expired_date: Date.today..Date.new }
+      { sell_status: [1, 2], admin_status: 0, expired_date: Date.today..Date.new }
     when 'to_close'
-      { sell_status: [SENT, SOLD], admin_status: PENDING, expired_date: Date.new..Date.today }
+      { sell_status: [1, 2], admin_status: 0, expired_date: Date.new..Date.today }
     else
       { sell_status: :available, admin_status: :pending }
     end
