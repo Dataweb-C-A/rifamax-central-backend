@@ -124,7 +124,7 @@ class Rifamax::Raffle < ApplicationRecord
       
       case user.role
       when 'Taquilla'
-        Rifamax::Raffle.where(user_id: user.id)
+        Rifamax::Raffle.where(user_id: user.id).where(statues_by_endpoint(endpoint))
       when 'Rifero'
         Rifamax::Raffle.where(seller_id: user.id).where(statues_by_endpoint(endpoint))
       when 'Admin'
@@ -162,9 +162,9 @@ class Rifamax::Raffle < ApplicationRecord
     when 'newest'
       { sell_status: 0, admin_status: 0 }
     when 'initialized'
-      { sell_status: [1, 2], admin_status: 0, expired_date: Date.today..Date.new }
+      { sell_status: [1, 2], admin_status: 0 }
     when 'to_close'
-      { sell_status: [1, 2], admin_status: 0, expired_date: Date.new..Date.today }
+      { sell_status: [1, 2], admin_status: 0 }
     else
       { sell_status: :available, admin_status: :pending }
     end
