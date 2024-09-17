@@ -214,10 +214,6 @@ module Rifamax
       @rifamax_raffle = Rifamax::Raffle.find(params[:id])
     end
 
-    def allow_only_taquilla
-      render json: { message: 'You are not allowed to perform this action' }, status: :unauthorized unless @current_user.role === 'Taquilla'
-    end
-
     # Only allow a list of trusted parameters through.
     def rifamax_raffle_params
       params.require(:rifamax_raffle).permit(
