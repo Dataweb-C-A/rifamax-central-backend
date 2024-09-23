@@ -129,30 +129,33 @@ module Rifamax
     # POST /rifamax/raffles/pay
     def pay
       @rifamax_raffle = Rifamax::Raffle.find(params[:raffle_id])
-      if @rifamax_raffle.payed!
+      if @rifamax_raffle.admin_status == 0
+        @rifamax_raffle.update(admin_status: 1)
         render json: @rifamax_raffle
       else
-        render json: @rifamax_raffle.errors, status: :unprocessable_entity
+        render json: { message: "Can't move status" }, status: :unprocessable_entity
       end
     end
 
     # POST /rifamax/raffles/unpay
     def unpay
       @rifamax_raffle = Rifamax::Raffle.find(params[:raffle_id])
-      if @rifamax_raffle.unpayed!
+      if @rifamax_raffle.admin_status == 0
+        @rifamax_raffle.update(admin_status: 2)
         render json: @rifamax_raffle
       else
-        render json: @rifamax_raffle.errors, status: :unprocessable_entity
+        render json: { message: "Can't move status" }, status: :unprocessable_entity
       end
     end
 
     # POST /rifamax/raffles/refund
     def refund
       @rifamax_raffle = Rifamax::Raffle.find(params[:raffle_id])
-      if @rifamax_raffle.refunded!
+      if @rifamax_raffle.admin_status == 0
+        @rifamax_raffle.update(admin_status: 3)
         render json: @rifamax_raffle
       else
-        render json: @rifamax_raffle.errors, status: :unprocessable_entity
+        render json: { message: "Can't move status" }, status: :unprocessable_entity
       end
     end
 
