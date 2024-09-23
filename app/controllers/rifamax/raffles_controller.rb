@@ -128,10 +128,13 @@ module Rifamax
 
     # POST /rifamax/raffles/pay
     def pay
-      @rifamax_raffle = Rifamax::Raffle.find(params[:raffle_id])
+      @rifamax_raffle = Rifamax::Raffle.find(rifamax_raffle_pay_params[:id])
       if @rifamax_raffle.admin_status == 0
-        @rifamax_raffle.update(admin_status: 1)
-        render json: @rifamax_raffle
+        if @rifamax_raffle.update(admin_status: 1, payment_info: rifamax_raffle_pay_params[:payment_info])
+          render json: @rifamax_raffle
+        else
+          render json: { message: "Can't pay this raffle" }, status: :unprocessable_entity
+        end
       else
         render json: { message: "Can't move status" }, status: :unprocessable_entity
       end
@@ -156,6 +159,21 @@ module Rifamax
         render json: @rifamax_raffle
       else
         render json: { message: "Can't move status" }, status: :unprocessable_entity
+      end
+    end
+
+    # POST /rifamax/raffles/repeat
+    def repeat
+      @rifamax_raffle = Rifamax::Raffle.find(params[:raffle_id]).dup
+     
+      @rifamax_raffle.init_date = params[:init_date] || Date.tomorrow
+      @rifamax_raffle.lotery = params[:lotery] || 'Zulia 7A'
+      @rifamax_raffle.numbers = params[:numbers] || 777
+
+      if @rifamax_raffle.save
+        render json: @rifamax_raffle
+      else
+        render json: { message: "Can't save, try later" }, status: :unprocessable_entity
       end
     end
 
@@ -236,6 +254,13 @@ module Rifamax
     # Use callbacks to share common setup or constraints between actions.
     def set_rifamax_raffle
       @rifamax_raffle = Rifamax::Raffle.find(params[:id])
+    end
+
+    def rifamax_raffle_pay_params
+      params.require(:rifamax_raffle).permit(
+        :id,
+        payment_info: [:price, :currency]
+      )
     end
 
     # Only allow a list of trusted parameters through.

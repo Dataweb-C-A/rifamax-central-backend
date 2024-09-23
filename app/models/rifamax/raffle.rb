@@ -86,6 +86,7 @@ class Rifamax::Raffle < ApplicationRecord
   validate :validates_user
   validate :validates_seller
   validate :validates_prizes
+  validate :validates_payment_info
 
   ZODIAC = %w[
     Aries
@@ -257,6 +258,26 @@ class Rifamax::Raffle < ApplicationRecord
       errors.add(:prizes, 'Prize must have plate key') unless prize.key?('plate')
       errors.add(:prizes, 'Prize must have is_money key') unless prize.key?('is_money')
       errors.add(:prizes, 'Prize must have wildcard key') unless prize.key?('wildcard')
+    end
+  end
+
+  def validates_payment_info
+    allowed_currencies = ['USD', 'VES', 'COP']
+    
+    errors.add(:payment_info, 'Payment info must be nil or hash') unless payment_info.nil? || payment_info.is_a?(Hash)
+
+    if payment_info.is_a?(Hash) 
+      errors.add(:payment_info, 'Payment info must have price key') unless payment_info.key?('price')
+      
+      if payment_info['price'].is_a(Numeric)
+        errors.add(:payment_info, 'Payment info must have price key') unless payment_info['price'] >= 1
+      end
+
+      errors.add(:payment_info, 'Payment info must have currency key') unless payment_info.key?('currency')
+      
+      if payment_info.key?('currency')
+        errors.add(:payment_info, 'Currency key must be `USD`, `VES`, `COP`') unless allowed_currencies.include?(payment_info['currency'])
+      end
     end
   end
 end
