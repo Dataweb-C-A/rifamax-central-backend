@@ -159,6 +159,20 @@ module Rifamax
       end
     end
 
+    # GET /rifamax/raffles/close_day
+    def close_day
+      @raffles = Rifamax::Raffle.where('expired_date <= ?', Date.today)
+
+      @closed = @raffles.where(user_id: @current_user.id).where('admin_status > ?', 0)
+      @unclosed = @raffles.where(user_id: @current_user.id, admin_status: 0)
+
+      render json: {
+        message: 'Fetched',
+        closed: Rifamax::RaffleSerializer.new(@closed).object,
+        unclosed: Rifamax::RaffleSerializer.new(@unclosed).object
+      }
+    end
+
     # GET /rifamax/raffles/1
     def show
       render json: @rifamax_raffle
