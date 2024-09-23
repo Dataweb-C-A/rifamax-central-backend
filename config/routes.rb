@@ -78,6 +78,7 @@ Rails.application.routes.draw do
       get 'newest', on: :collection
       get 'initialized', on: :collection
       get 'to_close', on: :collection
+      get 'close_day_info', on: :collection
       get 'close_day', on: :collection
       post 'send_app', on: :collection
       post 'seller_create', on: :collection

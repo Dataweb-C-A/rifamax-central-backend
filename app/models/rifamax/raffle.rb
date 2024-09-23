@@ -155,6 +155,20 @@ class Rifamax::Raffle < ApplicationRecord
     end
   end
 
+  def self.stats(raffles)
+    total_amounts = { usd: 0, ves: 0, cop: 0 }
+
+    raffles.each do |item|
+      unless item.payment_info.nil?
+        total_amounts[:usd] += item.payment_info['currency'] == 'USD' ? item.payment_info['price'].to_f : 0
+        total_amounts[:ves] += item.payment_info['currency'] == 'VES' ? item.payment_info['price'].to_f : 0
+        total_amounts[:cop] += item.payment_info['currency'] == 'COP' ? item.payment_info['price'].to_f : 0
+      end
+    end
+    
+    return total_amounts
+  end
+
   private
 
   def self.statues_by_endpoint(endpoint)

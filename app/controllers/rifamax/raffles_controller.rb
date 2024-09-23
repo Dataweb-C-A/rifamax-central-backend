@@ -173,6 +173,13 @@ module Rifamax
       }
     end
 
+    # GET /rifamax/raffles/close_day_info
+    def close_day_info
+      @raffles = Rifamax::Raffle.active.where(user_id: @current_user.id).stats
+
+      render json @raffles, status: :ok
+    end
+
     # GET /rifamax/raffles/1
     def show
       render json: @rifamax_raffle
