@@ -177,7 +177,7 @@ class Rifamax::Raffle < ApplicationRecord
     when 'newest'
       { sell_status: 0, admin_status: 0 }
     when 'initialized'
-      { sell_status: [1, 2], admin_status: [0, 1, 2, 3] }
+      { sell_status: [1, 2], admin_status: 0 }
     when 'to_close'
       { sell_status: [1, 2], admin_status: 0 }
     else

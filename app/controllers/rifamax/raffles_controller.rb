@@ -181,8 +181,8 @@ module Rifamax
     def close_day
       @raffles = Rifamax::Raffle.where('expired_date <= ?', Date.today)
 
-      @closed = @raffles.where(user_id: @current_user.id).where('admin_status > ?', 0)
-      @unclosed = @raffles.where(user_id: @current_user.id, admin_status: 0)
+      @closed = @raffles.where(sell_status: [1, 2], admin_status: [1, 2, 3])
+      @unclosed = Rifamax::Raffle.filter_by_status(@current_user.id, 'initialized').where('expired_date >= ?', Date.today)
 
       render json: {
         message: 'Fetched',
