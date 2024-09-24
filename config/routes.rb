@@ -80,6 +80,7 @@ Rails.application.routes.draw do
       get 'to_close', on: :collection
       get 'close_day_info', on: :collection
       get 'close_day', on: :collection
+      get 'report', on: :collection
       post 'pay', on: :collection
       post 'unpay', on: :collection
       post 'refund', on: :collection

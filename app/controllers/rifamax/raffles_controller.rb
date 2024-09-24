@@ -5,7 +5,7 @@ module Rifamax
     include Pagy::Backend
 
     before_action :set_rifamax_raffle, only: %i[show update destroy]
-    before_action :authorize_request
+    before_action :authorize_request, except: %i[report]
 
     # GET /rifamax/raffles
     def index
@@ -126,6 +126,11 @@ module Rifamax
       end
     end
 
+    # GET /rifamax/raffles/report
+    def report
+      render 'layouts/x100/rifamax/raffles/index'
+    end
+
     # POST /rifamax/raffles/pay
     def pay
       @rifamax_raffle = Rifamax::Raffle.find(rifamax_raffle_pay_params[:id])
@@ -179,15 +184,11 @@ module Rifamax
 
     # GET /rifamax/raffles/close_day
     def close_day
-      @raffles = Rifamax::Raffle.where('expired_date <= ?', Date.today)
-
-      @closed = @raffles.where(sell_status: [1, 2], admin_status: [1, 2, 3])
-      @unclosed = Rifamax::Raffle.filter_by_status(@current_user.id, 'initialized').where('expired_date >= ?', Date.today)
+      @raffles = Rifamax::Raffle.filter_by_status(@current_user.id, 'initialized').where('expired_date >= ?', Date.today)
 
       render json: {
         message: 'Fetched',
-        closed: Rifamax::RaffleSerializer.new(@closed).object,
-        unclosed: Rifamax::RaffleSerializer.new(@unclosed).object
+        raffles: Rifamax::RaffleSerializer.new(@raffles).object
       }
     end
 

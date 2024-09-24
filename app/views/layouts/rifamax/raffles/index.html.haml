@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  :css
+    .header {
+      width: 100vw;
+      height: 100px;
+      display: flex;
+      padding: 20px 30px;
+      border: 1px solid #eee;
+      justify-content: space-between;
+    }
+  %body{onload: "number_pages"}
+    #header
+      =image_tag("/logo-rifamax.png", :class => "max-width: 50px; margin: auto;", alt: "Logo Rifamax")
+    -# #content= yield
