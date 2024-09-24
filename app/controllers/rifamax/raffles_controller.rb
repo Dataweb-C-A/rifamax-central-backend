@@ -79,7 +79,7 @@ module Rifamax
       items = params[:items] || 7
 
       @pagy, @records = pagy(
-        Rifamax::Raffle.need_to_close(@current_user.id), 
+        Rifamax::Raffle.where(user_id: @current_user.id, sell_status: [1, 2], admin_status: 0).where('expired_date <= ?', Date.today), 
         page: page, 
         items: items
       )
