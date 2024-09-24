@@ -57,7 +57,7 @@ module Rifamax
       items = params[:items] || 7
 
       @pagy, @records = pagy(
-        Rifamax::Raffle.filter_by_status(@current_user.id, 'initialized').where('expired_date <= ?', Date.today), 
+        Rifamax::Raffle.filter_by_status(@current_user.id, 'initialized').where('expired_date >= ?', Date.today), 
         page: page, 
         items: items
       )
@@ -79,7 +79,7 @@ module Rifamax
       items = params[:items] || 7
 
       @pagy, @records = pagy(
-        Rifamax::Raffle.filter_by_status(@current_user.id, 'to_close').where('expired_date > ?', Date.today), 
+        Rifamax::Raffle.filter_by_status(@current_user.id, 'to_close').where('expired_date < ?', Date.today), 
         page: page, 
         items: items
       )
