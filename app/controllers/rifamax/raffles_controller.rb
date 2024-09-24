@@ -129,7 +129,7 @@ module Rifamax
     # POST /rifamax/raffles/pay
     def pay
       @rifamax_raffle = Rifamax::Raffle.find(rifamax_raffle_pay_params[:id])
-      if @rifamax_raffle.admin_status == 0
+      if @rifamax_raffle.admin_status == 'pending'
         if @rifamax_raffle.update(admin_status: 1, payment_info: rifamax_raffle_pay_params[:payment_info])
           render json: @rifamax_raffle
         else
@@ -143,7 +143,7 @@ module Rifamax
     # POST /rifamax/raffles/unpay
     def unpay
       @rifamax_raffle = Rifamax::Raffle.find(params[:raffle_id])
-      if @rifamax_raffle.admin_status == 0
+      if @rifamax_raffle.admin_status == 'pending'
         @rifamax_raffle.update(admin_status: 2)
         render json: @rifamax_raffle
       else
@@ -154,7 +154,7 @@ module Rifamax
     # POST /rifamax/raffles/refund
     def refund
       @rifamax_raffle = Rifamax::Raffle.find(params[:raffle_id])
-      if @rifamax_raffle.admin_status == 0
+      if @rifamax_raffle.admin_status == 'pending'
         @rifamax_raffle.update(admin_status: 3)
         render json: @rifamax_raffle
       else
