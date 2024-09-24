@@ -269,7 +269,7 @@ class Rifamax::Raffle < ApplicationRecord
     if payment_info.is_a?(Hash) 
       errors.add(:payment_info, 'Payment info must have price key') unless payment_info.key?('price')
       
-      if payment_info['price'].is_a(Numeric)
+      if payment_info['price'].is_a?(Numeric)
         errors.add(:payment_info, 'Payment info must have price key') unless payment_info['price'] >= 1
       end
 
