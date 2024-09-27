@@ -174,6 +174,9 @@ module Rifamax
       @rifamax_raffle.init_date = params[:init_date] || Date.tomorrow
       @rifamax_raffle.lotery = params[:lotery] || 'Zulia 7A'
       @rifamax_raffle.numbers = params[:numbers] || 777
+      @rifamax_raffle.expired_date = nil
+      @rifamax_raffle.admin_status = 0
+      @rifamax_raffle.sell_status = 0
 
       if @rifamax_raffle.save
         render json: @rifamax_raffle

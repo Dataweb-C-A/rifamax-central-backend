@@ -1,28 +1,14 @@
 class LottoReyService
   attr_reader :date, :parsed_date, :available_hours, :url, :requested_hour
 
-  def initialize(date = Date.today, hour = 'ALL')
+  def initialize(hour = 'ALL', date = Date.today)
     @date = date
+    times = %w[08:30 09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30]
     @parsed_date = URI.encode_www_form_component(@date.strftime('%d/%m/%Y'))
-    
-    @available_hours = convert_to_12_hour_format([
-      '08:30',
-      '09:30',
-      '10:30',
-      '11:30',
-      '12:30',
-      '13:30',
-      '14:30',
-      '15:30',
-      '16:30',
-      '17:30',
-      '18:30',
-      '19:30'
-    ])
+    @available_hours = convert_to_12_hour_format(times)
 
-    if @date > Date.today
-      raise ArgumentError, "Date cannot be greater than today: #{Date.today}"
-    end
+    @hour = hour
+    raise ArgumentError, "Date cannot be greater than today: #{Date.today}" if @date > Date.today
 
     @requested_hour = hour == 'ALL' ? 'ALL' : format_hour(hour)
     @url = "https://www.centrodeapuestaselrey.com.ve/resultados/lotto-rey?date=#{@parsed_date}"
@@ -35,7 +21,7 @@ class LottoReyService
   end
 
   def format_hour(hour)
-    Time.strptime(hour, "%H:%M").strftime("%-I:%M %P") 
+    Time.strptime(hour, '%H:%M').strftime('%-I:%M %P')
   end
 
   def fetch_results
@@ -43,9 +29,9 @@ class LottoReyService
 
     begin
       page = agent.get(@url)
-      scrape_results(page.body) 
+      scrape_results(page.body)
     rescue StandardError => e
-      return { error: "Failed to fetch page: #{e.message}", data: [] }
+      { error: "Failed to fetch page: #{e.message}", data: [] }
     end
   end
 
@@ -54,23 +40,14 @@ class LottoReyService
     results = []
 
     doc.css('.lotery-result-list .thumbnail').each do |result_block|
-      hour = result_block.css('.hora').text.strip.downcase 
+      hour = result_block.css('.hora').text.strip.downcase
       animal_name = result_block.css('.text').text.strip
       img_src = result_block.css('img').attr('src').value
-
-      if img_src.match(/animals\/(\d{2})_/)
-        animal_number = img_src.match(/animals\/(\d{2})_/)[1]
-      else
-        animal_number = nil
-      end
-
-      next if animal_name == "-" || animal_number.nil? 
+      animal_number = img_src.match(%r{animals/(\d{2})_}) ? img_src.match(%r{animals/(\d{2})_})[1] : nil
+      next if animal_name == '-' || animal_number.nil?
 
       full_animal_name = "#{animal_number} - #{animal_name}"
-
-      if @requested_hour == 'ALL' || hour == @requested_hour
-        results << { hour: hour, animal: full_animal_name }
-      end
+      results << { hour:, animal: full_animal_name, img_url: img_src } if @requested_hour == 'ALL' || hour == @requested_hour
     end
 
     if results.empty?
