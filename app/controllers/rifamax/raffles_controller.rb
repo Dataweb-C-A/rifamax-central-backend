@@ -178,7 +178,7 @@ module Rifamax
       if @rifamax_raffle.save
         render json: @rifamax_raffle
       else
-        render json: { message: "Can't save, try later" }, status: :unprocessable_entity
+        render json: { message: "Can't save, try later", error: @rifamax_raffle.errors }, status: :unprocessable_entity
       end
     end
 
