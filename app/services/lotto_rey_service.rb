@@ -46,14 +46,13 @@ class LottoReyService
       animal_number = img_src.match(%r{animals/(\d{2})_}) ? img_src.match(%r{animals/(\d{2})_})[1] : nil
       next if animal_name == '-' || animal_number.nil?
 
-      full_animal_name = "#{animal_number} - #{animal_name}"
-      results << { hour:, animal: full_animal_name, img_url: img_src } if @requested_hour == 'ALL' || hour == @requested_hour
+      results << { number: animal_number, animal: animal_name, img_url: img_src, hour: } if @requested_hour == 'ALL' || hour == @requested_hour
     end
 
     if results.empty?
       { message: "No results found for #{@requested_hour}", data: [] }
     else
-      { message: "Lotto Rey: #{@date.strftime('%d/%m/%Y')}", data: results }
+      { message: "Lotto Rey: #{@date.strftime('%d/%m/%Y')} #{@requested_hour}", data: results }
     end
   end
 end
