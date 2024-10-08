@@ -104,6 +104,7 @@ Rails.application.routes.draw do
       post 'sign_up', on: :collection
       post 'avatar', on: :collection
       post 'toggle_active', on: :collection
+      put 'new_terms', on: :collection
       put 'welcome', on: :collection
       put 'update_influencer', on: :collection
       put 'change_password', on: :collection

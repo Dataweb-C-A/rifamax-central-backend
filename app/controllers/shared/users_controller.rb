@@ -51,7 +51,16 @@ module Shared
 
     # GET /shared/users/1
     def show
-      render json: @shared_user
+      render json: @shared_user, status: :ok
+    end
+
+    # PUT /shared/users/new_terms
+    def new_terms
+      if @shared_user.update(welcoming: false)
+        render json: @shared_user, status: :ok
+      else 
+        render json: { error: 'Something was happened!', status: :unprocessable_entity}
+      end
     end
 
     # POST /shared/users
