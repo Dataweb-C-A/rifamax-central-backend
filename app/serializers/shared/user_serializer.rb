@@ -18,12 +18,13 @@
 #  rifero_ids      :integer          default([]), is an Array
 #  role            :string
 #  slug            :string
+#  welcoming       :boolean          default(TRUE)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
 module Shared
   class UserSerializer < ActiveModel::Serializer
-    attributes :id, :avatar, :name, :email, :dni, :is_active, :phone, :influencer_id, :content_code, :role, :is_first_entry
+    attributes :id, :avatar, :name, :email, :dni, :is_active, :phone, :influencer_id, :content_code, :role, :is_first_entry, :welcoming
 
     def influencer_id
       object.social_influencer&.id

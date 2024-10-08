@@ -18,6 +18,7 @@
 #  rifero_ids      :integer          default([]), is an Array
 #  role            :string
 #  slug            :string
+#  welcoming       :boolean          default(TRUE)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
