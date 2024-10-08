@@ -56,8 +56,8 @@ module Shared
 
     # PUT /shared/users/new_terms
     def new_terms
-      if @shared_user.update(welcoming: false)
-        render json: @shared_user, status: :ok
+      if @current_user.update(welcoming: false)
+        render json: @current_user, status: :ok
       else 
         render json: { error: 'Something was happened!', status: :unprocessable_entity}
       end
