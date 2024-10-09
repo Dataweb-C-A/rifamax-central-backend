@@ -59,7 +59,7 @@ module Shared
       if @current_user.update(welcoming: false)
         render json: @current_user, status: :ok
       else 
-        render json: { error: 'Something was happened!', status: :unprocessable_entity}
+        render json: { error: 'Something was happened!' }, status: :unprocessable_entity
       end
     end
 
