@@ -106,7 +106,7 @@ module X100
                 greater_than_or_equal_to: 100,
                 less_than_or_equal_to: 1000
               },
-              if: -> { raffle_type != 'Infinito' || raffle_type != 'Signo' }
+              if: -> { raffle_type != 'Infinito' || draw_type != 'Infinito' || raffle_type != 'Signo' }
     
     validate :validates_prizes_structure
 
